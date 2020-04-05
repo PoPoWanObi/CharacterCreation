@@ -259,7 +259,7 @@
   <ItemGroup>
     <Compile Include="SubModule.cs" />
     <Compile Include="Commands.cs" />
-    <Compile Include="TweakedDynamicBody.cs" />
+    <Compile Include="Patches\DynamicBodyPatch.cs" />
     <Compile Include="Lib\DebugVars.cs" />
     <Compile Include="Lib\ExceptionExtensionMethod.cs" />
     <Compile Include="Lib\Interfaces\ILoadable.cs" />
@@ -267,8 +267,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Patches\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
