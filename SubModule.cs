@@ -28,7 +28,6 @@ namespace CharacterCreation
 
             try
             {
-            https://github.com/PoPoWanObi/CharacterCreation
                 Loader.Initialise(ModuleName);
 
                 var harmony = new Harmony("mod.bannerlord.characterc");
