@@ -10,26 +10,20 @@ namespace CharacterCreation
 {
     public static class Commands
     {
-        [CommandLineFunctionality.CommandLineArgumentFunction("check", "state")]
+        [CommandLineFunctionality.CommandLineArgumentFunction("toggle", "dcc")]
         public static string Override(List<string> strings)
         {
             if (Campaign.Current == null)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Campaign not loaded.", Color.FromUint(4282569842U)));
-                return "Campaign was not started.";
+                //InformationManager.DisplayMessage(new InformationMessage("Campaign not loaded.", Color.FromUint(4282569842U)));
+                TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Enable developer facegen
+                return "Detailed Character Creation disabled.";
             }
             else
             {
-                DynamicBodyCampaignBehavior behaviour = Campaign.Current.GetCampaignBehavior<DynamicBodyCampaignBehavior>();
-
-                MethodInfo method = behaviour.GetType().GetMethod("OnDailyTick", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-
-                if (method == null)
-                {
-                    return "Failed to get method for OnDailyTick.";
-                }
+                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
+                return "You have enabled Detailed Character Creation. Press V to access.";
             }
-            return "Finished.";
         }
     }
 }

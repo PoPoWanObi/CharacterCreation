@@ -13,25 +13,19 @@ namespace CharacterCreation
 {
     public class SubModule : MBSubModuleBase
     {
-        public static readonly string ModuleName = "CharacterCreation";
-
-        // Debug console ~~
-        [DllImport("Rgl.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?toggle_imgui_console_visibility@rglCommand_line_manager@@QEAAXXZ")]
-        public static extern void toggle_imgui_console_visibility(UIntPtr x);
+        public static readonly string ModuleName = "zzCharacterCreation";
 
         // Main
         protected override void OnSubModuleLoad()
         {
-
             base.OnSubModuleLoad();
-            TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
-
             try
             {
                 Loader.Initialise(ModuleName);
 
                 var harmony = new Harmony("mod.bannerlord.characterc");
                 harmony.PatchAll();
+                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
             }
             catch (Exception ex)
             {

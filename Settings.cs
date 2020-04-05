@@ -10,9 +10,11 @@ namespace CharacterCreation
     {
         private const string instanceID = "CharacterCreationSettings";
         private static Settings _instance = null;
+        
 
         [XmlElement("ID")]
         public string ID { get; set; } = instanceID;
+        public bool DebugMode { get; set; } = true;
 
         public static Settings Instance
         {
