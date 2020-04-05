@@ -24,10 +24,11 @@ namespace CharacterCreation
         {
 
             base.OnSubModuleLoad();
-            TaleWorlds.Core.FaceGen.ShowDebugValues = true;
+            TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
 
             try
             {
+            https://github.com/PoPoWanObi/CharacterCreation
                 Loader.Initialise(ModuleName);
 
                 var harmony = new Harmony("mod.bannerlord.characterc");
@@ -44,7 +45,7 @@ namespace CharacterCreation
             base.OnBeforeInitialModuleScreenSetAsRoot();
             if (!this._isLoaded)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Loaded Detailed Character Creation.", Color.FromUint(green)));
+                InformationManager.DisplayMessage(new InformationMessage("Loaded Detailed Character Creation.", Color.FromUint(4282569842U)));
                 this._isLoaded = true;
             }
         }

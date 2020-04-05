@@ -8,16 +8,14 @@ using TaleWorlds.Library;
 
 namespace CharacterCreation
 {
-
     public static class Commands
     {
-        
         [CommandLineFunctionality.CommandLineArgumentFunction("check", "state")]
         public static string Override(List<string> strings)
         {
             if (Campaign.Current == null)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Campaign not loaded.", Color.FromUint(red)));
+                InformationManager.DisplayMessage(new InformationMessage("Campaign not loaded.", Color.FromUint(4282569842U)));
                 return "Campaign was not started.";
             }
             else
@@ -28,8 +26,6 @@ namespace CharacterCreation
 
                 if (method == null)
                 {
-                    InformationManager.DisplayMessage(new InformationMessage("Failed to get method for OnDailyTick.", Color.FromUint(red)));
-                   
                     return "Failed to get method for OnDailyTick.";
                 }
             }

@@ -19,7 +19,7 @@ namespace CharacterCreation
             foreach (object obj in dictionary.Keys)
             {
                 Hero hero = (Hero)obj;
-                
+                // Code to execute?
             }
         }
     }

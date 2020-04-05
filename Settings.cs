@@ -24,7 +24,6 @@ namespace CharacterCreation
                     if (_instance == null)
                         throw new Exception("Unable to find settings in Loader");
                 }
-
                 return _instance;
             }
         }
