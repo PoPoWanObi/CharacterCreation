@@ -17,6 +17,8 @@ using TaleWorlds.MountAndBlade.ViewModelCollection;
 using HarmonyLib;
 using CharacterCreation.Models;
 using CharacterCreation.Lib;
+using CharacterCreation.Content;
+using System.Xml;
 
 namespace CharacterCreation
 {
@@ -33,10 +35,10 @@ namespace CharacterCreation
             try
             {
                 Loader.Initialise(ModuleName);
-
                 var harmony = new Harmony("mod.bannerlord.characterc");
                 harmony.PatchAll();
-                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
+
+                //TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
             }
             catch (Exception ex)
             {

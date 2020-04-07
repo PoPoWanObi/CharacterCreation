@@ -7,7 +7,6 @@ namespace CharacterCreation.Patches
 {
     public class BodyGeneratorPatch
     {
-        // Inherits from CampaignBehaviorBase
         [HarmonyPatch(typeof(BodyGenerator), "SaveCurrentCharacter")]
         private class SaveCurrentCharacter
         {
