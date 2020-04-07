@@ -21,6 +21,7 @@ namespace CharacterCreation
     public class SubModule : MBSubModuleBase
     {
         public static readonly string ModuleName = "zzCharacterCreation";
+        public static readonly string strings = "strings";
         
         // Main
         protected override void OnSubModuleLoad()
@@ -53,21 +54,22 @@ namespace CharacterCreation
         // Load our XML files
         private void LoadXMLFiles(CampaignGameStarter gameInitializer)
         {
-            // If we require loading texts
+            // Load our additional strings
+            gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleName + "/ModuleData/" + strings + ".xml");
         }
 
         // Called when loading save game
         public override void OnGameLoaded(Game game, object initializerObject)
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
-            this.LoadXMLFiles(gameInitializer); // We should call this
+            this.LoadXMLFiles(gameInitializer);
         }
 
         // Called when starting new campaign
         public override void OnNewGameCreated(Game game, object initializerObject)
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
-            this.LoadXMLFiles(gameInitializer); // We should call this
+            this.LoadXMLFiles(gameInitializer);
         }
         
         protected override void OnApplicationTick(float dt)
