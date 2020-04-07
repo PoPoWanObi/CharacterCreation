@@ -12,6 +12,8 @@ using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 
+using TaleWorlds.MountAndBlade.ViewModelCollection;
+
 using HarmonyLib;
 using CharacterCreation.Models;
 using CharacterCreation.Lib;
