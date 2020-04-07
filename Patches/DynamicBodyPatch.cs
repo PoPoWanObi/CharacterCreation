@@ -5,7 +5,6 @@ namespace CharacterCreation.Patches
 {
     public class TweakedDynamicBody : DynamicBodyCampaignBehavior
     {
-
         // Inherits from CampaignBehaviorBase
         [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
         private class OnDailyTick

@@ -1,6 +1,9 @@
 ﻿using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
+using TaleWorlds.Core;
+using TaleWorlds.Engine.Screens;
+using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
 
 namespace CharacterCreation.Models
 {
@@ -34,10 +37,11 @@ namespace CharacterCreation.Models
 
         public void Edit(Hero hero)
         {
-
+            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
 
-
+        //Game.Current.PlayerTroop -- ingore me
+        private CharacterObject _hero;
         private HeroBuilderModel heroModel;
         private Hero selectedHero;
         private Action<Hero> editCallback;
