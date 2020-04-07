@@ -37,11 +37,13 @@ namespace CharacterCreation.Models
 
         public void Edit(Hero hero)
         {
+            if (hero.CharacterObject == null)
+                return;
+
             ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
 
         //Game.Current.PlayerTroop -- ingore me
-        private CharacterObject _hero;
         private HeroBuilderModel heroModel;
         private Hero selectedHero;
         private Action<Hero> editCallback;
