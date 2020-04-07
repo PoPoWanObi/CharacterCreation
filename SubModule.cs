@@ -4,17 +4,24 @@ using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
+using TaleWorlds.PlatformService;
+using TaleWorlds.Engine.Screens;
+using TaleWorlds.Localization;
+using TaleWorlds.DotNet;
+using TaleWorlds.Diamond.ClientApplication;
 using System.Windows.Forms;
 
 using CharacterCreation.Lib;
 using HarmonyLib;
+using System.Collections.Generic;
+using TaleWorlds.Engine;
 
 namespace CharacterCreation
 {
     public class SubModule : MBSubModuleBase
     {
         public static readonly string ModuleName = "zzCharacterCreation";
-
+        
         // Main
         protected override void OnSubModuleLoad()
         {
@@ -42,8 +49,32 @@ namespace CharacterCreation
                 this._isLoaded = true;
             }
         }
+        
+        // Load our XML files
+        private void LoadXMLFiles(CampaignGameStarter gameInitializer)
+        {
+            // If we require loading texts
+        }
+
+        // Called when loading save game
+        public override void OnGameLoaded(Game game, object initializerObject)
+        {
+            CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
+            this.LoadXMLFiles(gameInitializer); // We should call this
+        }
+
+        // Called when starting new campaign
+        public override void OnNewGameCreated(Game game, object initializerObject)
+        {
+            CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
+            this.LoadXMLFiles(gameInitializer); // We should call this
+        }
+        
+        protected override void OnApplicationTick(float dt)
+        {
+            // Do thing
+        }
 
         private bool _isLoaded;
     }
 }
-
