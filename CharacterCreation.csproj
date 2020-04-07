@@ -257,6 +257,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\HeroBuilderModel.cs" />
+    <Compile Include="Models\HeroBuilderViewModel.cs" />
     <Compile Include="Patches\ModulePatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Commands.cs" />
