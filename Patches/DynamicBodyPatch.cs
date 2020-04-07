@@ -1,14 +1,5 @@
-﻿using System;
-using System.Reflection;
-using System.Xml;
-using System.Windows.Forms;
-using System.Collections;
-using HarmonyLib;
-using TaleWorlds.CampaignSystem;
+﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
-using TaleWorlds.Library;
-using TaleWorlds.SaveSystem;
-using TaleWorlds.Core;
 
 namespace CharacterCreation.Patches
 {

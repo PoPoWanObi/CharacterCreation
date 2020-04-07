@@ -2,7 +2,6 @@
 using HarmonyLib;
 using System;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace CharacterCreation.Patches
 {

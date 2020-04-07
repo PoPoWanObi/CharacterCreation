@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.Library;
+﻿using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
 namespace CharacterCreation.Models
