@@ -20,7 +20,7 @@ namespace CharacterCreation.Patches
                 }
                 else
                 {
-                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Daily tick ignored.", Color.FromUint(4282569842U)));
+                    //InformationManager.DisplayMessage(new InformationMessage("[Debug] Daily tick ignored.", Color.FromUint(4282569842U)));
                     return false; // We're just gonna basically NOP the function for now, so the DailyTick doesn't do anything.
                 }
                     
