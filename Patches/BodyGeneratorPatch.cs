@@ -14,7 +14,7 @@ namespace CharacterCreation.Patches
             {
                 try
                 {
-                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Character saved: "+ __instance.Character.Name, Color.FromUint(4282569842U)));
+                    //InformationManager.DisplayMessage(new InformationMessage("[Debug] Character saved: "+ __instance.Character.Name, Color.FromUint(4282569842U)));
                     __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
                     return true;
                 }

@@ -22,11 +22,11 @@ namespace CharacterCreation.Patches
                 try
                 {
                     var piSBP = typeof(Hero).GetProperty("StaticBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-                    var piSBB = typeof(Hero).GetProperty("DynamicBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+                    //var piSBB = typeof(Hero).GetProperty("DynamicBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
 
                     if (__instance.IsHero)
                     {
-                        InformationManager.DisplayMessage(new InformationMessage("[Debug] Character updated: " + __instance.HeroObject.Name, Color.FromUint(4282569842U)));
+                        InformationManager.DisplayMessage(new InformationMessage("Character updated: " + __instance.HeroObject.Name, Color.FromUint(4282569842U)));
                         //__instance.HeroObject.StaticBodyProperties = __properties.StaticProperties;
                         piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
                         __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;

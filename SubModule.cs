@@ -38,7 +38,7 @@ namespace CharacterCreation
                 var harmony = new Harmony("mod.bannerlord.characterc");
                 harmony.PatchAll();
 
-                //TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
+                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace CharacterCreation
 
             AddModels(gameStarterObject as CampaignGameStarter);
 
-            game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(delegate (EncyclopediaPageChangedEvent e)
+            game.EventManager.RegisterEvent(delegate (EncyclopediaPageChangedEvent e)
             {
                 EncyclopediaData.EncyclopediaPages newPage = e.NewPage;
                 if ((int)newPage != 12)
@@ -153,7 +153,10 @@ namespace CharacterCreation
                     this.gauntletMovie = this.gauntletLayer.LoadMovie("HeroEditor", this.viewModel);
                     this.gauntletLayerTopScreen = ScreenManager.TopScreen;
                     this.gauntletLayerTopScreen.AddLayer(this.gauntletLayer);
-                    this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.Mouse);
+                    this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
+
+                    // Refresh?
+                    this.selectedHeroPage.Refresh();
                 }
                 catch (Exception ex)
                 {
