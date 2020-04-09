@@ -144,7 +144,7 @@ namespace CharacterCreation
                 {
                     if (this.viewModel == null)
                     {
-                        this.viewModel = new HeroBuilderViewModel(this.heroModel, delegate (Hero editHero)
+                        this.viewModel = new HeroBuilderVM(this.heroModel, delegate (Hero editHero)
                         {
                             InformationManager.DisplayMessage(new InformationMessage("Entering edit appearance for: " + editHero));
                         });
@@ -173,7 +173,7 @@ namespace CharacterCreation
             }
         }
 
-        private HeroBuilderViewModel viewModel;
+        private HeroBuilderVM viewModel;
         private EncyclopediaHeroPageVM selectedHeroPage;
         private HeroBuilderModel heroModel;
         private Hero selectedHero;

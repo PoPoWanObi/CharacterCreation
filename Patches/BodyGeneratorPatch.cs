@@ -1,4 +1,10 @@
 ﻿using HarmonyLib;
+using SandBox.GauntletUI;
+using SandBox.View.Map;
+using System;
+using System.Reflection;
+using System.Windows.Forms;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
@@ -14,12 +20,14 @@ namespace CharacterCreation.Patches
             {
                 try
                 {
-                    //InformationManager.DisplayMessage(new InformationMessage("[Debug] Character saved: "+ __instance.Character.Name, Color.FromUint(4282569842U)));
-                    __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
+                    //TODO: Update to reflect SaveTraitChange() -- Does nothing right now but may in the future
+                    //var piSBP = typeof(BodyGenerator).GetProperty("SaveTraitChanges", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+                   __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
                     return false;
                 }
             }

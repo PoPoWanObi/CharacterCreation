@@ -13,20 +13,20 @@ using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 
 namespace CharacterCreation.Models
 {
-    public class HeroBuilderViewModel : ViewModel
+    public class HeroBuilderVM : ViewModel
     {
         public void SetHero(Hero hero)
         {
             this.selectedHero = hero;
         }
 
-        public HeroBuilderViewModel(HeroBuilderModel heroModel, Action<Hero> editCallback)
+        public HeroBuilderVM(HeroBuilderModel heroModel, Action<Hero> editCallback)
         {
             this.heroModel = heroModel;
             this.editCallback = editCallback;
         }
 
-        public HeroBuilderViewModel(Action<Hero> nameCallback)
+        public HeroBuilderVM(Action<Hero> nameCallback)
         {
             this.nameCallback = nameCallback;
         }
@@ -34,15 +34,13 @@ namespace CharacterCreation.Models
         public void ExecuteEdit()
         {
             if (this.selectedHero == null)
-            {
                 return;
-            }
+
             this.Edit(this.selectedHero);
             Action<Hero> action = this.editCallback;
             if (action == null)
-            {
                 return;
-            }
+
             action(this.selectedHero);
         }
 
@@ -73,28 +71,27 @@ namespace CharacterCreation.Models
         {
             if (selectedHero.CharacterObject == null)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Character is not valid.")); return;
+                InformationManager.DisplayMessage(new InformationMessage("Character is not valid."));
+                return;
             }
             
             if (!String.IsNullOrEmpty(heroName))
             {
                 selectedHero.Name = new TextObject(heroName);
-                //InformationManager.DisplayMessage(new InformationMessage("[Debug]: Name is valid: " + heroName));
-
                 RefreshPage();
             }
             else
-                InformationManager.DisplayMessage(new InformationMessage("Name is not valid")); return;
-
+            {
+                InformationManager.DisplayMessage(new InformationMessage("Name is not valid"));
+                return;
+            }
         }
 
         public void RefreshPage()
         {
             GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
             if (gauntletEncyclopediaScreenManager == null)
-            {
                 return;
-            }
 
             FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
             FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -104,9 +101,7 @@ namespace CharacterCreation.Models
             this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 
             if (this.selectedHeroPage == null)
-            {
                 return;
-            }
 
             this.selectedHeroPage.Refresh();
         }
@@ -118,8 +113,7 @@ namespace CharacterCreation.Models
 
             ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
-
-
+        
         //Game.Current.PlayerTroop -- ingore me
         private HeroBuilderModel heroModel;
         private Hero selectedHero;

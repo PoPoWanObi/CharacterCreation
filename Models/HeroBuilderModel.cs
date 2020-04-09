@@ -12,14 +12,13 @@ namespace CharacterCreation.Models
             get
             {
                 if (Game.Current == null)
-                {
                     return null;
-                }
+
                 CharacterObject characterObject = Game.Current.PlayerTroop as CharacterObject;
+
                 if (characterObject == null)
-                {
                     return null;
-                }
+
                 return characterObject.HeroObject;
             }
         }
@@ -29,7 +28,6 @@ namespace CharacterCreation.Models
             Hero mainHero = MainHero;
             if (mainHero != null)
             {
-
             }
             this.IsInitialized = true;
         }
