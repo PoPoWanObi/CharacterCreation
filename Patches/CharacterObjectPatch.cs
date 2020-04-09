@@ -27,7 +27,7 @@ namespace CharacterCreation.Patches
 
                     if (__instance.IsHero)
                     {
-                        InformationManager.DisplayMessage(new InformationMessage("Character updated: " + __instance.HeroObject.Name, Color.FromUint(4282569842U)));
+                        InformationManager.DisplayMessage(new InformationMessage("Hero updated: " + __instance.HeroObject.Name, Color.FromUint(4282569842U)));
                         //__instance.HeroObject.StaticBodyProperties = __properties.StaticProperties;
                         piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
                         __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;

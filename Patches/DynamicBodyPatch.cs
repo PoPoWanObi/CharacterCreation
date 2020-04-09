@@ -37,7 +37,7 @@ namespace CharacterCreation.Patches
                         }
                         else
                         {
-                            InformationManager.DisplayMessage(new InformationMessage("[Debug] Aged hero: " + hero.Name, Color.FromUint(4282569842U)));
+                            //InformationManager.DisplayMessage(new InformationMessage("[Debug] Aged hero: " + hero.Name, Color.FromUint(4282569842U)));
                             hero.DynamicBodyProperties = new DynamicBodyProperties(age, weight, build);
                         }
                     }
