@@ -42,11 +42,6 @@ namespace CharacterCreation.Patches
             }
         }
 
-        public void UpdateAge(float age)
-        {
-            return;
-        }
-
         static bool Prepare()
         {
             return Settings.Instance.IgnoreDailyTick;
