@@ -27,24 +27,6 @@ namespace CharacterCreation.Patches
 
                     if (__instance.IsHero)
                     {
-
-                        if (Settings.Instance.OverrideAge == true)
-                        {
-                            if (!__instance.IsPlayerCharacter)
-                            {
-                                InformationManager.DisplayMessage(new InformationMessage("Character updated: " + __instance.HeroObject.Name, Color.FromUint(4282569842U)));
-                                //__instance.HeroObject.StaticBodyProperties = __properties.StaticProperties;
-                                piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
-                                __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;
-                                __instance.HeroObject.UpdatePlayerGender(isFemale);
-
-                                float age = properties.DynamicProperties.Age;
-                                __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(age);
-                            }
-                        }
-                    }
-                    else
-                    {
                         InformationManager.DisplayMessage(new InformationMessage("Character updated: " + __instance.HeroObject.Name, Color.FromUint(4282569842U)));
                         //__instance.HeroObject.StaticBodyProperties = __properties.StaticProperties;
                         piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
