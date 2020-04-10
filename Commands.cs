@@ -23,6 +23,27 @@ namespace CharacterCreation
             }
         }
 
+        [CommandLineFunctionality.CommandLineArgumentFunction("age_hero", "dcc")]
+        public static string AgeHero(List<string> strings)
+        {
+            if (!CampaignCheats.CheckParameters(strings, 2) || CampaignCheats.CheckHelp(strings))
+            {
+                return "Format is \"dcc.age_hero [HeroName] [Age]\".";
+            }
+            Hero hero = CampaignCheats.GetHero(strings[0].Replace('_', ' '));
+            if (hero == null)
+            {
+                return "Hero is not found";
+            }
+            int num;
+            if (!int.TryParse(strings[1], out num))
+            {
+                return "Please enter a age";
+            }
+            hero.BirthDay = HeroHelper.GetRandomBirthDayForAge((float)num);
+            return "Success";
+        }
+
         [CommandLineFunctionality.CommandLineArgumentFunction("age", "dcc")]
         public static string Age(List<string> strings)
         {
@@ -33,7 +54,7 @@ namespace CharacterCreation
             int num = 1;
             if (!int.TryParse(strings[0], out num))
             {
-                return "Please enter a number";
+                return "Please enter a age";
             }
             Hero.MainHero.BirthDay = HeroHelper.GetRandomBirthDayForAge((float)num);
             return "Success";

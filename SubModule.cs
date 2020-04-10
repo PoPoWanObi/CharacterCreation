@@ -92,7 +92,6 @@ namespace CharacterCreation
             {
                 return;
             }
-
             AddModels(gameStarterObject as CampaignGameStarter);
 
             game.EventManager.RegisterEvent(delegate (EncyclopediaPageChangedEvent e)
@@ -170,6 +169,7 @@ namespace CharacterCreation
             if (gameStarter != null)
             {
                 gameStarter.AddModel(this.heroModel = new HeroBuilderModel());
+                gameStarter.AddModel(new Models.AgeModel());
             }
         }
 

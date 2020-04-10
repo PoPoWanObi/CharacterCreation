@@ -36,5 +36,20 @@ namespace CharacterCreation
         [XmlElement]
         public bool IgnoreDailyTick { get; set; } = true;
         #endregion
+
+        #region AgeModel
+        [XmlElement]
+        public int BecomeInfantAge { get; set; } = 3;
+        [XmlElement]
+        public int BecomeChildAge { get; set; } = 6;
+        [XmlElement]
+        public int BecomeTeenagerAge { get; set; } = 14;
+        [XmlElement]
+        public int BecomeAdultAge { get; set; } = 18;
+        [XmlElement]
+        public int BecomeOldAge { get; set; } = 47;
+        [XmlElement]
+        public int MaxAge { get; set; } = 128;
+        #endregion
     }
 }
