@@ -8,6 +8,7 @@ using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
+using static TaleWorlds.CampaignSystem.Hero;
 
 namespace CharacterCreation.Patches
 {
@@ -26,9 +27,30 @@ namespace CharacterCreation.Patches
                     foreach (object obj in dictionary.Keys)
                     {
                         Hero hero = (Hero)obj;
+                        //float time = hero.BirthDay.ElapsedYearsUntilNow;
+
+                        if (hero.IsHumanPlayerCharacter && Settings.Instance.OverrideAge == true)
+                        {
+                            // We'll do nothing for now.
+                            return false;
+                        }
+                        else
+                        {
+                            return false;
+                            //hero.BirthDay = hero.BirthDay;
+                            //InformationManager.DisplayMessage(new InformationMessage("[Debug] Time: " + time, Color.FromUint(4282569842U)));
+                            //InformationManager.DisplayMessage(new InformationMessage("[Debug] Birthday: " + hero.BirthDay, Color.FromUint(4282569842U)));
+                            //hero.DynamicBodyProperties = new DynamicBodyProperties(age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                        }
+                    }
+                    return true;
+                }
+                else
+                {
+                    foreach (object obj in dictionary.Keys)
+                    {
+                        Hero hero = (Hero)obj;
                         float age = hero.Age;
-                        float weight = hero.DynamicBodyProperties.Weight;
-                        float build = hero.DynamicBodyProperties.Build;
 
                         if (hero.IsHumanPlayerCharacter && Settings.Instance.OverrideAge == true)
                         {
@@ -38,14 +60,9 @@ namespace CharacterCreation.Patches
                         else
                         {
                             //InformationManager.DisplayMessage(new InformationMessage("[Debug] Aged hero: " + hero.Name, Color.FromUint(4282569842U)));
-                            hero.DynamicBodyProperties = new DynamicBodyProperties(age, weight, build);
+                            hero.DynamicBodyProperties = new DynamicBodyProperties(age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
                         }
                     }
-                    return true;
-                }
-                else
-                {
-                    // Run Vanilla method
                     return false;
                 }
             }
