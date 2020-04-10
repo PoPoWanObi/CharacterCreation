@@ -26,7 +26,6 @@ namespace CharacterCreation
     {
         public static readonly string ModuleName = "zzCharacterCreation";
         public static readonly string strings = "strings";
-        public static readonly string skins = "skins";
 
         // Main
         protected override void OnSubModuleLoad()
@@ -61,8 +60,6 @@ namespace CharacterCreation
         {
             // Load our additional strings
             gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleName + "/ModuleData/" + strings + ".xml");
-            MBObjectManager.Instance.LoadOneXmlFromFile(BasePath.Name + "Modules/" + ModuleName + "/ModuleData/" + skins + ".xml", null, null, true);
-            MBObjectManager.Instance.LoadXMLFromFileSkipValidation(BasePath.Name + "Modules/" + ModuleName + "/ModuleData/" + skins + ".xml", BasePath.Name + "Modules/Native/ModuleData/");
         }
 
         // Called when loading save game
@@ -148,13 +145,18 @@ namespace CharacterCreation
                             InformationManager.DisplayMessage(new InformationMessage("Entering edit appearance for: " + editHero));
                         });
                     }
-                    this.viewModel.SetHero(this.selectedHero);
-                    this.gauntletMovie = this.gauntletLayer.LoadMovie("HeroEditor", this.viewModel);
-                    this.gauntletLayerTopScreen = ScreenManager.TopScreen;
-                    this.gauntletLayerTopScreen.AddLayer(this.gauntletLayer);
-                    this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
 
-                    // Refresh?
+                    if (selectedHero.Age >= 11)
+                    {
+                        this.viewModel.SetHero(this.selectedHero);
+                        this.gauntletMovie = this.gauntletLayer.LoadMovie("HeroEditor", this.viewModel);
+                        this.gauntletLayerTopScreen = ScreenManager.TopScreen;
+                        this.gauntletLayerTopScreen.AddLayer(this.gauntletLayer);
+                        this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
+                        this.selectedHeroPage.Refresh();
+                    }
+
+                    // Refresh
                     this.selectedHeroPage.Refresh();
                 }
                 catch (Exception ex)

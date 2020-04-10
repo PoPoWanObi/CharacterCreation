@@ -63,7 +63,9 @@ namespace CharacterCreation.Models
             if (hero.CharacterObject == null)
                 return;
 
-            InformationManager.DisplayMessage(new InformationMessage("Changing name for: " + hero.Name));
+            if (Settings.Instance.DebugMode == true)
+                InformationManager.DisplayMessage(new InformationMessage("Changing name for: " + hero.Name));
+
             InformationManager.ShowTextInquiry(new TextInquiryData("Character Renamer", "Enter a new name", true, true, "Rename", "Cancel", new Action<string>(this.renameHero), InformationManager.HideInquiry, false));
         }
 
@@ -78,7 +80,7 @@ namespace CharacterCreation.Models
             if (!String.IsNullOrEmpty(heroName))
             {
                 selectedHero.Name = new TextObject(heroName);
-                RefreshPage();
+                ClosePage();
             }
             else
             {
@@ -106,11 +108,31 @@ namespace CharacterCreation.Models
             this.selectedHeroPage.Refresh();
         }
 
+        public void ClosePage()
+        {
+            GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
+            if (gauntletEncyclopediaScreenManager == null)
+                return;
+
+            FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
+            FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
+            EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
+            EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
+
+            this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
+
+            if (this.selectedHeroPage == null)
+                return;
+
+            gauntletEncyclopediaScreenManager.CloseEncyclopedia();
+        }
+
         public void Edit(Hero hero)
         {
             if (hero.CharacterObject == null)
                 return;
 
+            ClosePage();
             ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
         
