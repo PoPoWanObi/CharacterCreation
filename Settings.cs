@@ -32,9 +32,11 @@ namespace CharacterCreation
 
         #region Overrides
         [XmlElement]
-        public bool OverrideAge { get; set; } = true;
+        public bool OverrideAge { get; set; } = false;
         [XmlElement]
         public bool IgnoreDailyTick { get; set; } = true;
+        [XmlElement]
+        public bool DisableAutoAging { get; set; } = false;
         #endregion
 
         #region AgeModel

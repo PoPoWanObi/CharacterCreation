@@ -33,16 +33,19 @@ namespace CharacterCreation.Patches
                         __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;
                         __instance.HeroObject.UpdatePlayerGender(isFemale);
 
-                        float age = properties.DynamicProperties.Age;
-                        __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(age);
+                        if (Settings.Instance.OverrideAge == false)
+                        {
+                            float age = properties.DynamicProperties.Age;
+                            __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(age);
+                        }
                     }
-                    return true;
+                    return false;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An exception occurred whilst trying to apply the changes.\n\nException:\n{ex.Message}\n\n{ex.InnerException?.Message}");
                 }
-                return false;
+                return true;
             }
         }
 

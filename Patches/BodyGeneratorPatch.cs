@@ -23,12 +23,12 @@ namespace CharacterCreation.Patches
                     //TODO: Update to reflect SaveTraitChange() -- Does nothing right now but may in the future
                     //var piSBP = typeof(BodyGenerator).GetProperty("SaveTraitChanges", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
                    __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
-                    return true;
+                    return false;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
-                    return false;
+                    return true;
                 }
             }
         }

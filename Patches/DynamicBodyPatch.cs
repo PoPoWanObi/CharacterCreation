@@ -22,54 +22,50 @@ namespace CharacterCreation.Patches
         {
             static bool Prefix(DynamicBodyCampaignBehavior __instance)
             {
-                IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
+                /*IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
+
+                foreach (object obj in dictionary.Keys)
+                {
+                    Hero hero = (Hero)obj;
+
+                    if (hero.Age >= 19)
+                    {
+
+                    }
+
+                    if (hero.Age < 19)
+                    {
+                        if (Settings.Instance.DebugMode == true)
+                            InformationManager.DisplayMessage(new InformationMessage("Hero updated: " + hero.Name, Color.FromUint(4282569842U)));
+                        hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                    }
+            }
+                return true;*/
 
                 if (Settings.Instance.IgnoreDailyTick == true)
                 {
-                    foreach (object obj in dictionary.Keys)
+                    foreach (Hero hero in Hero.All)
                     {
-                        Hero hero = (Hero)obj;
-
-                        if (hero.IsHumanPlayerCharacter && Settings.Instance.OverrideAge == true)
+                        if (Settings.Instance.DisableAutoAging == false)
                         {
-                            // We'll do nothing for now.
-                            return false;
-                        }
-                        else
-                        {
-                            // Well this doesn't work.
-                            if (hero.Age <= 17)
-                            {
-                                hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
-                            }
-                            else
+                            if (hero.Age < 19)
                             {
                                 if (Settings.Instance.DebugMode == true)
-                                    InformationManager.DisplayMessage(new InformationMessage("[Debug]: Should Age " + hero.Name, Color.FromUint(4282569842U)));
+                                    InformationManager.DisplayMessage(new InformationMessage("Set appearance for: " + hero.Name));
+                                hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
                             }
-                        } return true;
-                    } return true;
-                }
-                else
-                {
-                    foreach (object obj in dictionary.Keys)
-                    {
-                        Hero hero = (Hero)obj;
-
-                        if (hero.IsHumanPlayerCharacter && Settings.Instance.OverrideAge == true)
-                        {
-                            // We'll do nothing for now.
-                            return false;
-                        }
-                        else
-                        {
-                            //InformationManager.DisplayMessage(new InformationMessage("[Debug] Aged hero: " + hero.Name, Color.FromUint(4282569842U)));
-                            hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
                         }
                     }
                     return false;
                 }
+                else
+                    return true;
             }
+        }
+
+        static bool Prepare()
+        {
+            return Settings.Instance.IgnoreDailyTick;
         }
     }
 }

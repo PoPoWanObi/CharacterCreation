@@ -19,6 +19,8 @@ using CharacterCreation.Models;
 using CharacterCreation.Lib;
 using CharacterCreation.Content;
 using System.Xml;
+using System.Collections;
+using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 
 namespace CharacterCreation
 {
@@ -74,6 +76,13 @@ namespace CharacterCreation
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
             this.LoadXMLFiles(gameInitializer);
+
+            foreach (Hero hero in Hero.All)
+            {
+                if (Settings.Instance.DebugMode == true)
+                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Set default appearance for: " + hero.Name));
+                hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+            }
         }
 
         protected override void OnApplicationTick(float dt)
@@ -174,6 +183,7 @@ namespace CharacterCreation
                 gameStarter.AddModel(new Models.AgeModel());
             }
         }
+
 
         private HeroBuilderVM viewModel;
         private EncyclopediaHeroPageVM selectedHeroPage;
