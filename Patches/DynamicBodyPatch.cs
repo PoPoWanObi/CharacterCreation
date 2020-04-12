@@ -18,7 +18,7 @@ namespace CharacterCreation.Patches
     {
         // Inherits from CampaignBehaviorBase
         [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
-        private class OnDailyTick
+        public class OnDailyTick
         {
             static bool Prefix(DynamicBodyCampaignBehavior __instance)
             {

@@ -36,10 +36,13 @@ namespace CharacterCreation
             try
             {
                 Loader.Initialise(ModuleName);
-                var harmony = new Harmony("mod.bannerlord.characterc");
+                var harmony = new Harmony("mod.bannerlord.popowanobi.dcc");
                 harmony.PatchAll();
 
-                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
+                if (Settings.Instance.DebugMode == true)
+                    Harmony.DEBUG = true;
+
+                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
             }
             catch (Exception ex)
             {
@@ -69,6 +72,7 @@ namespace CharacterCreation
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
             this.LoadXMLFiles(gameInitializer);
+            TaleWorlds.Core.FaceGen.ShowDebugValues = true;
         }
 
         // Called when starting new campaign
@@ -76,12 +80,14 @@ namespace CharacterCreation
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
             this.LoadXMLFiles(gameInitializer);
+            TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Disable until after game started.
 
             foreach (Hero hero in Hero.All)
             {
                 if (Settings.Instance.DebugMode == true)
                     InformationManager.DisplayMessage(new InformationMessage("[Debug] Set default appearance for: " + hero.Name));
-                hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                //BodyProperties properties = new BodyProperties(new DynamicBodyProperties(hero.DynamicBodyProperties.Age, 1f, 1f), properties.StaticProperties);
+                //hero.CharacterObject.HeroObject.
             }
         }
 
@@ -154,16 +160,12 @@ namespace CharacterCreation
                             InformationManager.DisplayMessage(new InformationMessage("Entering edit appearance for: " + editHero));
                         });
                     }
-
-                    if (selectedHero.Age >= 11)
-                    {
-                        this.viewModel.SetHero(this.selectedHero);
-                        this.gauntletMovie = this.gauntletLayer.LoadMovie("HeroEditor", this.viewModel);
-                        this.gauntletLayerTopScreen = ScreenManager.TopScreen;
-                        this.gauntletLayerTopScreen.AddLayer(this.gauntletLayer);
-                        this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
-                        this.selectedHeroPage.Refresh();
-                    }
+                    this.viewModel.SetHero(this.selectedHero);
+                    this.gauntletMovie = this.gauntletLayer.LoadMovie("HeroEditor", this.viewModel);
+                    this.gauntletLayerTopScreen = ScreenManager.TopScreen;
+                    this.gauntletLayerTopScreen.AddLayer(this.gauntletLayer);
+                    this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
+                    this.selectedHeroPage.Refresh();
 
                     // Refresh
                     this.selectedHeroPage.Refresh();

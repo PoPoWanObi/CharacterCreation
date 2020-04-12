@@ -23,6 +23,7 @@ namespace CharacterCreation.Patches
                     //TODO: Update to reflect SaveTraitChange() -- Does nothing right now but may in the future
                     //var piSBP = typeof(BodyGenerator).GetProperty("SaveTraitChanges", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
                    __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
+                    TaleWorlds.Core.FaceGen.ShowDebugValues = false;
                     return false;
                 }
                 catch (Exception ex)

@@ -133,6 +133,7 @@ namespace CharacterCreation.Models
                 return;
 
             ClosePage();
+            TaleWorlds.Core.FaceGen.ShowDebugValues = true;
             ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
         
