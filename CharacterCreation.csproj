@@ -257,18 +257,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Content\BodySliders.cs" />
-    <Compile Include="Content\DCCFaceGeneratorScreen.cs" />
-    <Compile Include="Content\DCCIFaceGeneratorHandler.cs" />
-    <Compile Include="Content\DCCIFaceGeneratorScreen.cs" />
-    <Compile Include="Content\ViewCreator.cs" />
+    <Compile Include="Content\DCCAPI.cs" />
+    <Compile Include="Content\DCCBodyGenerator.cs" />
+    <Compile Include="Content\DCCBodyProperties.cs" />
+    <Compile Include="Engine\DCCEngineStruct.cs" />
+    <Compile Include="Structs\DCCDeformKeyData.cs" />
+    <Compile Include="Structs\DCCFaceGenerationParams.cs" />
+    <Compile Include="Screens\DCCFaceGeneratorScreen.cs" />
+    <Compile Include="Handlers\DCCIFaceGeneratorHandler.cs" />
+    <Compile Include="Screens\DCCIFaceGeneratorScreen.cs" />
+    <Compile Include="Engine\DCCScriptingInterfaceBase.cs" />
+    <Compile Include="Content\DCCViewCreator.cs" />
+    <Compile Include="Content\IDCCFaceGen.cs" />
     <Compile Include="Models\AgeModel.cs" />
+    <Compile Include="Models\DCCFacegenListItemVM.cs" />
+    <Compile Include="Models\DCCFaceGenVM.cs" />
     <Compile Include="Models\HeroBuilderModel.cs" />
     <Compile Include="Models\HeroBuilderVM.cs" />
     <Compile Include="Patches\BodyGeneratorPatch.cs" />
     <Compile Include="Patches\CharacterObjectPatch.cs" />
     <Compile Include="Patches\FacegenListItemVMPatch.cs" />
     <Compile Include="Patches\ModulePatch.cs" />
+    <Compile Include="Structs\DCCBodyProperties.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="Patches\DynamicBodyPatch.cs" />

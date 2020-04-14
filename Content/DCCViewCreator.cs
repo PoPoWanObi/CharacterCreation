@@ -13,9 +13,9 @@ using TaleWorlds.MountAndBlade.ViewModelCollection;
 
 namespace CharacterCreation.Content
 {
-    public static class ViewCreator
+    public static class DCCViewCreator
     {
-        public static ScreenBase CreateMBFaceGeneratorScreen(BasicCharacterObject character, bool openedFromMultiplayer = false)
+        public static ScreenBase DCCCreateMBFaceGeneratorScreen(BasicCharacterObject character, bool openedFromMultiplayer = false)
         {
             return ViewCreatorManager.CreateScreenView<MBFaceGeneratorScreen>(new object[]
             {

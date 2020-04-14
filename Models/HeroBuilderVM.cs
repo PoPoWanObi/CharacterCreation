@@ -10,6 +10,7 @@ using SandBox.GauntletUI;
 using SandBox.View.Map;
 using System.Reflection;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
+using CharacterCreation.Content;
 
 namespace CharacterCreation.Models
 {
@@ -134,7 +135,7 @@ namespace CharacterCreation.Models
 
             ClosePage();
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
-            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
+            ScreenManager.PushScreen(DCCViewCreator.DCCCreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
         
         //Game.Current.PlayerTroop -- ingore me
