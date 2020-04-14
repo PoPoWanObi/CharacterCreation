@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CharacterCreation.Content;
+using CharacterCreation.Structs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.Core;
@@ -6,19 +8,20 @@ using TaleWorlds.Core.ViewModelCollection;
 using TaleWorlds.Engine;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
+using DCCBodyProperties = CharacterCreation.Content.DCCBodyProperties;
 
 namespace CharacterCreation.Models
 {
     public class DCCFaceGenVM : ViewModel
     {
-        public void SetFaceGenerationParams(FaceGenerationParams faceGenerationParams)
+        public void SetDCCFaceGenerationParams(DCCFaceGenerationParams DCCFaceGenerationParams)
         {
-            this._faceGenerationParams = faceGenerationParams;
+            this._DCCFaceGenerationParams = DCCFaceGenerationParams;
         }
         
-        public DCCFaceGenVM(BodyGenerator bodyGenerator, DCCIFaceGeneratorHandler faceGeneratorScreen, Action<float> onHeightChanged, Action onAgeChanged, TextObject affirmitiveText, TextObject negativeText, int currentStageIndex, int totalStagesCount, int furthestIndex, Action<int> goToIndex, bool canChangeGender, bool openedFromMultiplayer)
+        public DCCFaceGenVM(DCCBodyGenerator DCCBodyGenerator, DCCIFaceGeneratorHandler faceGeneratorScreen, Action<float> onHeightChanged, Action onAgeChanged, TextObject affirmitiveText, TextObject negativeText, int currentStageIndex, int totalStagesCount, int furthestIndex, Action<int> goToIndex, bool canChangeGender, bool openedFromMultiplayer)
         {
-            this._bodyGenerator = bodyGenerator;
+            this._DCCBodyGenerator = DCCBodyGenerator;
             this._faceGeneratorScreen = faceGeneratorScreen;
             this._showDebugValues = FaceGen.ShowDebugValues;
             this._affirmitiveText = affirmitiveText;
@@ -57,21 +60,21 @@ namespace CharacterCreation.Models
                     this.NoseProperties
                 },
                 {
-                    FaceGenVM.FaceGenTabs.Mouth,
+                    DCCFaceGenVM.FaceGenTabs.Mouth,
                     this.MouthProperties
                 },
                 {
-                    FaceGenVM.FaceGenTabs.Hair,
+                    DCCFaceGenVM.FaceGenTabs.Hair,
                     this.HairProperties
                 },
                 {
-                    FaceGenVM.FaceGenTabs.Taint,
+                    DCCFaceGenVM.FaceGenTabs.Taint,
                     this.TaintProperties
                 }
             };
-            this.TaintTypes = new MBBindingList<FacegenListItemVM>();
-            this.BeardTypes = new MBBindingList<FacegenListItemVM>();
-            this.HairTypes = new MBBindingList<FacegenListItemVM>();
+            this.TaintTypes = new MBBindingList<DCCFacegenListItemVM>();
+            this.BeardTypes = new MBBindingList<DCCFacegenListItemVM>();
+            this.HairTypes = new MBBindingList<DCCFacegenListItemVM>();
             this._tab = -1;
             this.IsDressed = false;
             this._undoCommands = new List<KeyValuePair<int, BodyProperties>>(100);
@@ -102,77 +105,77 @@ namespace CharacterCreation.Models
             this.Title = GameTexts.FindText("sf_facegen_title", null).ToString();
             this.DoneBtnLbl = this._affirmitiveText.ToString();
             this.CancelBtnLbl = this._negativeText.ToString();
-            FacegenListItemVM selectedTaintType = this._selectedTaintType;
+            DCCFacegenListItemVM selectedTaintType = this._selectedTaintType;
             if (selectedTaintType != null)
             {
                 selectedTaintType.RefreshValues();
             }
-            FacegenListItemVM selectedBeardType = this._selectedBeardType;
+            DCCFacegenListItemVM selectedBeardType = this._selectedBeardType;
             if (selectedBeardType != null)
             {
                 selectedBeardType.RefreshValues();
             }
-            FacegenListItemVM selectedHairType = this._selectedHairType;
+            DCCFacegenListItemVM selectedHairType = this._selectedHairType;
             if (selectedHairType != null)
             {
                 selectedHairType.RefreshValues();
             }
-            this._bodyProperties.ApplyActionOnAllItems(delegate (FaceGenPropertyVM x)
+            this._bodyProperties.ApplyActionOnAllItems(delegate (DCCFaceGenPropertyVM x)
             {
                 x.RefreshValues();
             });
-            this._faceProperties.ApplyActionOnAllItems(delegate (FaceGenPropertyVM x)
+            this._faceProperties.ApplyActionOnAllItems(delegate (DCCFaceGenPropertyVM x)
             {
                 x.RefreshValues();
             });
-            this._eyesProperties.ApplyActionOnAllItems(delegate (FaceGenPropertyVM x)
+            this._eyesProperties.ApplyActionOnAllItems(delegate (DCCFaceGenPropertyVM x)
             {
                 x.RefreshValues();
             });
-            this._noseProperties.ApplyActionOnAllItems(delegate (FaceGenPropertyVM x)
+            this._noseProperties.ApplyActionOnAllItems(delegate (DCCFaceGenPropertyVM x)
             {
                 x.RefreshValues();
             });
-            this._mouthProperties.ApplyActionOnAllItems(delegate (FaceGenPropertyVM x)
+            this._mouthProperties.ApplyActionOnAllItems(delegate (DCCFaceGenPropertyVM x)
             {
                 x.RefreshValues();
             });
-            this._hairProperties.ApplyActionOnAllItems(delegate (FaceGenPropertyVM x)
+            this._hairProperties.ApplyActionOnAllItems(delegate (DCCFaceGenPropertyVM x)
             {
                 x.RefreshValues();
             });
-            this._taintProperties.ApplyActionOnAllItems(delegate (FaceGenPropertyVM x)
+            this._taintProperties.ApplyActionOnAllItems(delegate (DCCFaceGenPropertyVM x)
             {
                 x.RefreshValues();
             });
-            this._taintTypes.ApplyActionOnAllItems(delegate (FacegenListItemVM x)
+            this._taintTypes.ApplyActionOnAllItems(delegate (DCCFacegenListItemVM x)
             {
                 x.RefreshValues();
             });
-            this._beardTypes.ApplyActionOnAllItems(delegate (FacegenListItemVM x)
+            this._beardTypes.ApplyActionOnAllItems(delegate (DCCFacegenListItemVM x)
             {
                 x.RefreshValues();
             });
-            this._hairTypes.ApplyActionOnAllItems(delegate (FacegenListItemVM x)
+            this._hairTypes.ApplyActionOnAllItems(delegate (DCCFacegenListItemVM x)
             {
                 x.RefreshValues();
             });
-            FaceGenPropertyVM soundPreset = this._soundPreset;
+            DCCFaceGenPropertyVM soundPreset = this._soundPreset;
             if (soundPreset != null)
             {
                 soundPreset.RefreshValues();
             }
-            FaceGenPropertyVM faceTypes = this._faceTypes;
+            DCCFaceGenPropertyVM faceTypes = this._faceTypes;
             if (faceTypes != null)
             {
                 faceTypes.RefreshValues();
             }
-            FaceGenPropertyVM teethTypes = this._teethTypes;
+            DCCFaceGenPropertyVM teethTypes = this._teethTypes;
             if (teethTypes != null)
             {
                 teethTypes.RefreshValues();
             }
-            FaceGenPropertyVM eyebrowTypes = this._eyebrowTypes;
+            DCCFaceGenPropertyVM eyebrowTypes = this._eyebrowTypes;
             if (eyebrowTypes != null)
             {
                 eyebrowTypes.RefreshValues();
@@ -197,44 +200,44 @@ namespace CharacterCreation.Models
         
         private void SetColorCodes()
         {
-            this._skinColors = MBBodyProperties.GetSkinColorGradientPoints(this.SelectedGender, (int)this._bodyGenerator.Character.Age);
-            this._hairColors = MBBodyProperties.GetHairColorGradientPoints(this.SelectedGender, (int)this._bodyGenerator.Character.Age);
-            this._tattooColors = MBBodyProperties.GetTatooColorGradientPoints(this.SelectedGender, (int)this._bodyGenerator.Character.Age);
+            this._skinColors = DCCBodyProperties.GetSkinColorGradientPoints(this.SelectedGender, (int)this._DCCBodyGenerator.Character.Age);
+            this._hairColors = DCCBodyProperties.GetHairColorGradientPoints(this.SelectedGender, (int)this._DCCBodyGenerator.Character.Age);
+            this._tattooColors = DCCBodyProperties.GetTatooColorGradientPoints(this.SelectedGender, (int)this._DCCBodyGenerator.Character.Age);
             this.SkinColorSelector = new SelectorVM<SelectorItemVM>(this._skinColors.Select(delegate (uint t)
             {
                 t %= 4278190080U;
                 return "#" + Convert.ToString((long)((ulong)t), 16).PadLeft(6, '0').ToUpper() + "FF";
-            }).ToList<string>(), (int)Math.Round((double)this._faceGenerationParams._curSkinColorOffset * (double)(this._skinColors.Count - 1)), new Action<SelectorVM<SelectorItemVM>>(this.OnSelectSkinColor));
+            }).ToList<string>(), (int)Math.Round((double)this._DCCFaceGenerationParams._curSkinColorOffset * (double)(this._skinColors.Count - 1)), new Action<SelectorVM<SelectorItemVM>>(this.OnSelectSkinColor));
             this.HairColorSelector = new SelectorVM<SelectorItemVM>(this._hairColors.Select(delegate (uint t)
             {
                 t %= 4278190080U;
                 return "#" + Convert.ToString((long)((ulong)t), 16).PadLeft(6, '0').ToUpper() + "FF";
-            }).ToList<string>(), (int)Math.Round((double)this._faceGenerationParams._curHairColorOffset * (double)(this._hairColors.Count - 1)), new Action<SelectorVM<SelectorItemVM>>(this.OnSelectHairColor));
+            }).ToList<string>(), (int)Math.Round((double)this._DCCFaceGenerationParams._curHairColorOffset * (double)(this._hairColors.Count - 1)), new Action<SelectorVM<SelectorItemVM>>(this.OnSelectHairColor));
             this.TattooColorSelector = new SelectorVM<SelectorItemVM>(this._tattooColors.Select(delegate (uint t)
             {
                 t %= 4278190080U;
                 return "#" + Convert.ToString((long)((ulong)t), 16).PadLeft(6, '0').ToUpper() + "FF";
-            }).ToList<string>(), (int)Math.Round((double)this._faceGenerationParams._curFaceTattooColorOffset1 * (double)(this._tattooColors.Count - 1)), new Action<SelectorVM<SelectorItemVM>>(this.OnSelectTattooColor));
+            }).ToList<string>(), (int)Math.Round((double)this._DCCFaceGenerationParams._curFaceTattooColorOffset1 * (double)(this._tattooColors.Count - 1)), new Action<SelectorVM<SelectorItemVM>>(this.OnSelectTattooColor));
         }
         
         private void OnSelectSkinColor(SelectorVM<SelectorItemVM> s)
         {
             this.AddCommand();
-            this._faceGenerationParams._curSkinColorOffset = (float)s.SelectedIndex / (float)(this._skinColors.Count - 1);
+            this._DCCFaceGenerationParams._curSkinColorOffset = (float)s.SelectedIndex / (float)(this._skinColors.Count - 1);
             this.UpdateFace();
         }
         
         private void OnSelectTattooColor(SelectorVM<SelectorItemVM> s)
         {
             this.AddCommand();
-            this._faceGenerationParams._curFaceTattooColorOffset1 = (float)s.SelectedIndex / (float)(this._tattooColors.Count - 1);
+            this._DCCFaceGenerationParams._curFaceTattooColorOffset1 = (float)s.SelectedIndex / (float)(this._tattooColors.Count - 1);
             this.UpdateFace();
         }
         
         private void OnSelectHairColor(SelectorVM<SelectorItemVM> s)
         {
             this.AddCommand();
-            this._faceGenerationParams._curHairColorOffset = (float)s.SelectedIndex / (float)(this._hairColors.Count - 1);
+            this._DCCFaceGenerationParams._curHairColorOffset = (float)s.SelectedIndex / (float)(this._hairColors.Count - 1);
             this.UpdateFace();
         }
         
@@ -245,7 +248,7 @@ namespace CharacterCreation.Models
             {
                 return;
             }
-            FaceGenPropertyVM heightSlider = this._heightSlider;
+            DCCFaceGenPropertyVM heightSlider = this._heightSlider;
             onHeightChanged((heightSlider != null) ? heightSlider.Value : 0f);
         }
         
@@ -272,26 +275,26 @@ namespace CharacterCreation.Models
             }
             this._characterRefreshEnabled = false;
             base.OnPropertyChanged("FlipHairCb");
-            this._selectedGender = this._faceGenerationParams._currentGender;
+            this._selectedGender = this._DCCFaceGenerationParams._currentGender;
             this.SetColorCodes();
             int num = 0;
-            MBBodyProperties.GetParamsMax(this.SelectedGender, (int)this._faceGenerationParams._curAge, ref num, ref this.beardNum, ref this.faceTextureNum, ref this.mouthTextureNum, ref this.faceTattooNum, ref this._newSoundPresetSize, ref this.eyebrowTextureNum, ref this._scale);
+            DCCBodyProperties.GetParamsMax(this.SelectedGender, (int)this._DCCFaceGenerationParams._curAge, ref num, ref this.beardNum, ref this.faceTextureNum, ref this.mouthTextureNum, ref this.faceTattooNum, ref this._newSoundPresetSize, ref this.eyebrowTextureNum, ref this._scale);
             this.HairNum = num;
-            this._isVoiceTypeUsableForOnlyNpc = MBBodyProperties.GetVoiceTypeUsableForPlayerData(this.SelectedGender, this._bodyGenerator.Character.Age, this._newSoundPresetSize);
-            MBBodyProperties.GetZeroProbabilities(this.SelectedGender, this._faceGenerationParams._curAge, ref this._faceGenerationParams._tattooZeroProbability);
-            foreach (KeyValuePair<FaceGenVM.FaceGenTabs, MBBindingList<FaceGenPropertyVM>> keyValuePair in this._tabProperties)
+            this._isVoiceTypeUsableForOnlyNpc = DCCBodyProperties.GetVoiceTypeUsableForPlayerData(this.SelectedGender, this._DCCBodyGenerator.Character.Age, this._newSoundPresetSize);
+            DCCBodyProperties.GetZeroProbabilities(this.SelectedGender, this._DCCFaceGenerationParams._curAge, ref this._DCCFaceGenerationParams._tattooZeroProbability);
+            foreach (KeyValuePair<DCCFaceGenVM.FaceGenTabs, MBBindingList<DCCFaceGenPropertyVM>> keyValuePair in this._tabProperties)
             {
                 keyValuePair.Value.Clear();
             }
-            int faceGenInstancesLength = MBBodyProperties.GetFaceGenInstancesLength(this._faceGenerationParams._currentGender, (int)this._faceGenerationParams._curAge);
+            int faceGenInstancesLength = DCCBodyProperties.GetFaceGenInstancesLength(this._DCCFaceGenerationParams._currentGender, (int)this._DCCFaceGenerationParams._curAge);
             int keyTimePoint = 0;
             int keyTimePoint2 = 0;
             int keyTimePoint3 = 0;
             int keyTimePoint4 = 0;
-            FaceGenPropertyVM item;
+            DCCFaceGenPropertyVM item;
             for (int i = 0; i < faceGenInstancesLength; i++)
             {
-                DeformKeyData deformKeyData = MBBodyProperties.GetDeformKeyData(i, this._faceGenerationParams._currentGender, (int)this._faceGenerationParams._curAge);
+                DCCDeformKeyData deformKeyData = DCCBodyProperties.GetDCCDeformKeyData(i, this._DCCFaceGenerationParams._currentGender, (int)this._DCCFaceGenerationParams._curAge);
                 TextObject textObject = new TextObject("{=bsiRNJtk}{NAME}:", null);
                 textObject.SetTextVariable("NAME", GameTexts.FindText("str_facegen_skin", deformKeyData.Id));
                 GameTexts.FindText("str_facegen_skin", deformKeyData.Id).ToString().Contains("exist");
@@ -313,10 +316,10 @@ namespace CharacterCreation.Models
                 }
                 else
                 {
-                    item = new FaceGenPropertyVM(i, 0.0, 1.0, textObject, deformKeyData.KeyTimePoint, deformKeyData.GroupId, (double)this._faceGenerationParams.KeyWeights[i], new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+                    item = new DCCFaceGenPropertyVM(i, 0.0, 1.0, textObject, deformKeyData.KeyTimePoint, deformKeyData.GroupId, (double)this._DCCFaceGenerationParams.KeyWeights[i], new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
                     if (deformKeyData.GroupId > -1 && deformKeyData.GroupId < 7)
                     {
-                        this._tabProperties[(FaceGenVM.FaceGenTabs)deformKeyData.GroupId].Add(item);
+                        this._tabProperties[(DCCFaceGenVM.FaceGenTabs)deformKeyData.GroupId].Add(item);
                     }
                 }
             }
@@ -324,32 +327,32 @@ namespace CharacterCreation.Models
             {
                 this.Tab = 0;
             }
-            item = new FaceGenPropertyVM(-19, 0.0, 1.0, new TextObject("{=G6hYIR5k}Voice Pitch:", null), -19, 0, (double)this._faceGenerationParams._voicePitch, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-            this._tabProperties[FaceGenVM.FaceGenTabs.Body].Add(item);
-            this._heightSlider = new FaceGenPropertyVM(-16, (double)(this._openedFromMultiplayer ? 0.25f : 0f), (double)(this._openedFromMultiplayer ? 0.75f : 1f), new TextObject("{=cLJdeUWz}Height:", null), keyTimePoint, 0, (double)((this._heightSlider == null) ? this._faceGenerationParams._heightMultiplier : this._heightSlider.Value), new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-            this._tabProperties[FaceGenVM.FaceGenTabs.Body].Add(this._heightSlider);
+            item = new DCCFaceGenPropertyVM(-19, 0.0, 1.0, new TextObject("{=G6hYIR5k}Voice Pitch:", null), -19, 0, (double)this._DCCFaceGenerationParams._voicePitch, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+            this._tabProperties[DCCFaceGenVM.FaceGenTabs.Body].Add(item);
+            this._heightSlider = new DCCFaceGenPropertyVM(-16, (double)(this._openedFromMultiplayer ? 0.25f : 0f), (double)(this._openedFromMultiplayer ? 0.75f : 1f), new TextObject("{=cLJdeUWz}Height:", null), keyTimePoint, 0, (double)((this._heightSlider == null) ? this._DCCFaceGenerationParams._heightMultiplier : this._heightSlider.Value), new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+            this._tabProperties[DCCFaceGenVM.FaceGenTabs.Body].Add(this._heightSlider);
             if (this._openedFromMultiplayer || this._showDebugValues)
             {
                 double min = (double)(this._openedFromMultiplayer ? 25 : 3);
-                item = new FaceGenPropertyVM(-11, min, 128.0, new TextObject("{=H1emUb6k}Age:", null), keyTimePoint3, 0, (double)this._faceGenerationParams._curAge, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-                this._tabProperties[FaceGenVM.FaceGenTabs.Body].Add(item);
+                item = new DCCFaceGenPropertyVM(-11, min, 128.0, new TextObject("{=H1emUb6k}Age:", null), keyTimePoint3, 0, (double)this._DCCFaceGenerationParams._curAge, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+                this._tabProperties[DCCFaceGenVM.FaceGenTabs.Body].Add(item);
             }
             if (this._showDebugValues)
             {
-                item = new FaceGenPropertyVM(-17, 0.0, 1.0, new TextObject("{=zBld61ck}Weight:", null), keyTimePoint2, 0, (double)this._faceGenerationParams._curWeight, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-                this._tabProperties[FaceGenVM.FaceGenTabs.Body].Add(item);
-                item = new FaceGenPropertyVM(-18, 0.0, 1.0, new TextObject("{=EUAKPHek}Build:", null), keyTimePoint4, 0, (double)this._faceGenerationParams._curBuild, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-                this._tabProperties[FaceGenVM.FaceGenTabs.Body].Add(item);
+                item = new DCCFaceGenPropertyVM(-17, 0.0, 1.0, new TextObject("{=zBld61ck}Weight:", null), keyTimePoint2, 0, (double)this._DCCFaceGenerationParams._curWeight, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+                this._tabProperties[DCCFaceGenVM.FaceGenTabs.Body].Add(item);
+                item = new DCCFaceGenPropertyVM(-18, 0.0, 1.0, new TextObject("{=EUAKPHek}Build:", null), keyTimePoint4, 0, (double)this._DCCFaceGenerationParams._curBuild, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+                this._tabProperties[DCCFaceGenVM.FaceGenTabs.Body].Add(item);
             }
-            item = new FaceGenPropertyVM(-12, 0.0, 1.0, new TextObject("{=qXxpITdc}Eye Color:", null), -12, 2, (double)this._faceGenerationParams._curEyeColorOffset, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-            this._tabProperties[FaceGenVM.FaceGenTabs.Eyes].Add(item);
+            item = new DCCFaceGenPropertyVM(-12, 0.0, 1.0, new TextObject("{=qXxpITdc}Eye Color:", null), -12, 2, (double)this._DCCFaceGenerationParams._curEyeColorOffset, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+            this._tabProperties[DCCFaceGenVM.FaceGenTabs.Eyes].Add(item);
             this.UpdateGenderBasedResources();
-            this._initialSelectedTaintType = this._faceGenerationParams._curFaceTattoo;
-            this._initialSelectedBeardType = this._faceGenerationParams._curBeard;
-            this._initialSelectedHairType = this._faceGenerationParams._currentHair;
-            this._initialSelectedHairColor = this._faceGenerationParams._curHairColorOffset;
-            this._initialSelectedSkinColor = this._faceGenerationParams._curSkinColorOffset;
-            this._initialSelectedTaintColor = this._faceGenerationParams._curFaceTattooColorOffset1;
+            this._initialSelectedTaintType = this._DCCFaceGenerationParams._curFaceTattoo;
+            this._initialSelectedBeardType = this._DCCFaceGenerationParams._curBeard;
+            this._initialSelectedHairType = this._DCCFaceGenerationParams._currentHair;
+            this._initialSelectedHairColor = this._DCCFaceGenerationParams._curHairColorOffset;
+            this._initialSelectedSkinColor = this._DCCFaceGenerationParams._curSkinColorOffset;
+            this._initialSelectedTaintColor = this._DCCFaceGenerationParams._curFaceTattooColorOffset1;
             this._characterRefreshEnabled = true;
             this.UpdateFace();
         }
@@ -357,47 +360,47 @@ namespace CharacterCreation.Models
         private void UpdateGenderBasedResources()
         {
             int num = 0;
-            MBBodyProperties.GetParamsMax(this.SelectedGender, (int)this._faceGenerationParams._curAge, ref num, ref this.beardNum, ref this.faceTextureNum, ref this.mouthTextureNum, ref this.faceTattooNum, ref this._newSoundPresetSize, ref this.eyebrowTextureNum, ref this._scale);
+            DCCBodyProperties.GetParamsMax(this.SelectedGender, (int)this._DCCFaceGenerationParams._curAge, ref num, ref this.beardNum, ref this.faceTextureNum, ref this.mouthTextureNum, ref this.faceTattooNum, ref this._newSoundPresetSize, ref this.eyebrowTextureNum, ref this._scale);
             this.HairNum = num;
-            this._isVoiceTypeUsableForOnlyNpc = MBBodyProperties.GetVoiceTypeUsableForPlayerData(this.SelectedGender, this._bodyGenerator.Character.Age, this._newSoundPresetSize);
+            this._isVoiceTypeUsableForOnlyNpc = DCCBodyProperties.GetVoiceTypeUsableForPlayerData(this.SelectedGender, this._DCCBodyGenerator.Character.Age, this._newSoundPresetSize);
             this.BeardTypes.Clear();
             for (int i = 0; i < this.beardNum; i++)
             {
-                FacegenListItemVM item = new FacegenListItemVM("FaceGen\\Beard\\img" + i, i, new Action<FacegenListItemVM, bool>(this.SetSelectedBeardType));
+                DCCFacegenListItemVM item = new DCCFacegenListItemVM("FaceGen\\Beard\\img" + i, i, new Action<DCCFacegenListItemVM, bool>(this.SetSelectedBeardType));
                 this.BeardTypes.Add(item);
             }
             string text = (this._selectedGender == 1) ? "Female" : "Male";
             this.HairTypes.Clear();
             for (int j = 0; j < num; j++)
             {
-                FacegenListItemVM item2 = new FacegenListItemVM(string.Concat(new object[]
+                DCCFacegenListItemVM item2 = new DCCFacegenListItemVM(string.Concat(new object[]
                 {
                     "FaceGen\\Hair\\",
                     text,
                     "\\img",
                     j
-                }), j, new Action<FacegenListItemVM, bool>(this.SetSelectedHairType));
+                }), j, new Action<DCCFacegenListItemVM, bool>(this.SetSelectedHairType));
                 this.HairTypes.Add(item2);
             }
             this.TaintTypes.Clear();
             for (int k = 0; k < this.faceTattooNum; k++)
             {
-                FacegenListItemVM item3 = new FacegenListItemVM(string.Concat(new object[]
+                DCCFacegenListItemVM item3 = new DCCFacegenListItemVM(string.Concat(new object[]
                 {
                     "FaceGen\\Tattoo\\",
                     text,
                     "\\img",
                     k
-                }), k, new Action<FacegenListItemVM, bool>(this.SetSelectedTattooType));
+                }), k, new Action<DCCFacegenListItemVM, bool>(this.SetSelectedTattooType));
                 this.TaintTypes.Add(item3);
             }
             this.UpdateFace(-1, (float)this._selectedGender, true, true);
             if (this.BeardTypes.Count > 0)
             {
-                this.SetSelectedBeardType(this.BeardTypes[this._faceGenerationParams._curBeard], false);
+                this.SetSelectedBeardType(this.BeardTypes[this._DCCFaceGenerationParams._curBeard], false);
             }
-            this.SetSelectedHairType(this.HairTypes[this._faceGenerationParams._currentHair], false);
-            this.SetSelectedTattooType(this.TaintTypes[this._faceGenerationParams._curFaceTattoo], false);
+            this.SetSelectedHairType(this.HairTypes[this._DCCFaceGenerationParams._currentHair], false);
+            this.SetSelectedTattooType(this.TaintTypes[this._DCCFaceGenerationParams._curFaceTattoo], false);
             int num2 = 0;
             for (int l = 0; l < this._isVoiceTypeUsableForOnlyNpc.Count; l++)
             {
@@ -406,21 +409,21 @@ namespace CharacterCreation.Models
                     num2++;
                 }
             }
-            this._faceGenerationParams._currentVoice = this.GetVoiceRealIndex(0);
-            this.SoundPreset = new FaceGenPropertyVM(-9, 0.0, (double)(num2 - 1), new TextObject("{=macpKFaG}Voice", null), -9, 0, (double)this.GetVoiceUIIndex(), new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-            this._faceGenerationParams._curFaceTexture = MBMath.ClampInt(this._faceGenerationParams._curFaceTexture, 0, this.faceTextureNum - 1);
-            this.FaceTypes = new FaceGenPropertyVM(-3, 0.0, (double)(this.faceTextureNum - 1), new TextObject("{=DmaP2qaR}Skin Type", null), -3, 1, (double)this._faceGenerationParams._curFaceTexture, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-            this._faceGenerationParams._curMouthTexture = MBMath.ClampInt(this._faceGenerationParams._curMouthTexture, 0, this.mouthTextureNum - 1);
-            this.TeethTypes = new FaceGenPropertyVM(-14, 0.0, (double)(this.mouthTextureNum - 1), new TextObject("{=l2CNxPXG}Teeth Type", null), -14, 4, (double)this._faceGenerationParams._curMouthTexture, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
-            this._faceGenerationParams._curEyebrow = MBMath.ClampInt(this._faceGenerationParams._curEyebrow, 0, this.eyebrowTextureNum - 1);
-            this.EyebrowTypes = new FaceGenPropertyVM(-15, 0.0, (double)(this.eyebrowTextureNum - 1), new TextObject("{=bIcFZT6L}Eyebrow Type", null), -15, 4, (double)this._faceGenerationParams._curEyebrow, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+            this._DCCFaceGenerationParams._currentVoice = this.GetVoiceRealIndex(0);
+            this.SoundPreset = new DCCFaceGenPropertyVM(-9, 0.0, (double)(num2 - 1), new TextObject("{=macpKFaG}Voice", null), -9, 0, (double)this.GetVoiceUIIndex(), new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+            this._DCCFaceGenerationParams._curFaceTexture = MBMath.ClampInt(this._DCCFaceGenerationParams._curFaceTexture, 0, this.faceTextureNum - 1);
+            this.FaceTypes = new DCCFaceGenPropertyVM(-3, 0.0, (double)(this.faceTextureNum - 1), new TextObject("{=DmaP2qaR}Skin Type", null), -3, 1, (double)this._DCCFaceGenerationParams._curFaceTexture, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+            this._DCCFaceGenerationParams._curMouthTexture = MBMath.ClampInt(this._DCCFaceGenerationParams._curMouthTexture, 0, this.mouthTextureNum - 1);
+            this.TeethTypes = new DCCFaceGenPropertyVM(-14, 0.0, (double)(this.mouthTextureNum - 1), new TextObject("{=l2CNxPXG}Teeth Type", null), -14, 4, (double)this._DCCFaceGenerationParams._curMouthTexture, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
+            this._DCCFaceGenerationParams._curEyebrow = MBMath.ClampInt(this._DCCFaceGenerationParams._curEyebrow, 0, this.eyebrowTextureNum - 1);
+            this.EyebrowTypes = new DCCFaceGenPropertyVM(-15, 0.0, (double)(this.eyebrowTextureNum - 1), new TextObject("{=bIcFZT6L}Eyebrow Type", null), -15, 4, (double)this._DCCFaceGenerationParams._curEyebrow, new Action<int, float, bool, bool>(this.UpdateFace), new Action(this.AddCommand), new Action(this.ResetSliderPrevValues), true, false);
         }
         
         private void UpdateFace()
         {
             if (this._characterRefreshEnabled)
             {
-                this._bodyGenerator.RefreshFace(this._faceGenerationParams);
+                this._DCCBodyGenerator.RefreshFace(this._DCCFaceGenerationParams);
                 this._faceGeneratorScreen.RefreshCharacterEntity();
             }
         }
@@ -436,8 +439,8 @@ namespace CharacterCreation.Models
             bool flag3 = false;
             if (keyNo > -1)
             {
-                this._faceGenerationParams.KeyWeights[keyNo] = value;
-                this._enforceConstraints = MBBodyProperties.EnforceConstraints(ref this._faceGenerationParams);
+                this._DCCFaceGenerationParams.KeyWeights[keyNo] = value;
+                this._enforceConstraints = DCCBodyProperties.EnforceConstraints(ref this._DCCFaceGenerationParams);
                 flag3 = (this._enforceConstraints && !calledFromInit);
             }
             else
@@ -445,57 +448,57 @@ namespace CharacterCreation.Models
                 switch (keyNo)
                 {
                     case -19:
-                        this._faceGenerationParams._voicePitch = value;
+                        this._DCCFaceGenerationParams._voicePitch = value;
                         goto IL_236;
                     case -18:
-                        this._faceGenerationParams._curBuild = value;
-                        this._enforceConstraints = MBBodyProperties.EnforceConstraints(ref this._faceGenerationParams);
+                        this._DCCFaceGenerationParams._curBuild = value;
+                        this._enforceConstraints = DCCBodyProperties.EnforceConstraints(ref this._DCCFaceGenerationParams);
                         flag3 = (this._enforceConstraints && !calledFromInit);
                         goto IL_236;
                     case -17:
-                        this._faceGenerationParams._curWeight = value;
-                        this._enforceConstraints = MBBodyProperties.EnforceConstraints(ref this._faceGenerationParams);
+                        this._DCCFaceGenerationParams._curWeight = value;
+                        this._enforceConstraints = DCCBodyProperties.EnforceConstraints(ref this._DCCFaceGenerationParams);
                         flag3 = (this._enforceConstraints && !calledFromInit);
                         goto IL_236;
                     case -16:
-                        this._faceGenerationParams._heightMultiplier = value;
-                        this._enforceConstraints = MBBodyProperties.EnforceConstraints(ref this._faceGenerationParams);
+                        this._DCCFaceGenerationParams._heightMultiplier = value;
+                        this._enforceConstraints = DCCBodyProperties.EnforceConstraints(ref this._DCCFaceGenerationParams);
                         flag3 = (this._enforceConstraints && !calledFromInit);
                         flag2 = true;
                         goto IL_236;
                     case -15:
-                        this._faceGenerationParams._curEyebrow = (int)value;
+                        this._DCCFaceGenerationParams._curEyebrow = (int)value;
                         goto IL_236;
                     case -14:
-                        this._faceGenerationParams._curMouthTexture = (int)value;
+                        this._DCCFaceGenerationParams._curMouthTexture = (int)value;
                         goto IL_236;
                     case -12:
-                        this._faceGenerationParams._curEyeColorOffset = value;
+                        this._DCCFaceGenerationParams._curEyeColorOffset = value;
                         goto IL_236;
                     case -11:
-                        this._faceGenerationParams._curAge = value;
-                        this._enforceConstraints = MBBodyProperties.EnforceConstraints(ref this._faceGenerationParams);
+                        this._DCCFaceGenerationParams._curAge = value;
+                        this._enforceConstraints = DCCBodyProperties.EnforceConstraints(ref this._DCCFaceGenerationParams);
                         flag3 = (this._enforceConstraints && !calledFromInit);
                         flag = true;
                         flag2 = true;
                         goto IL_236;
                     case -10:
-                        this._faceGenerationParams._curFaceTattoo = (int)value;
+                        this._DCCFaceGenerationParams._curFaceTattoo = (int)value;
                         goto IL_236;
                     case -9:
-                        this._faceGenerationParams._currentVoice = this.GetVoiceRealIndex((int)value);
+                        this._DCCFaceGenerationParams._currentVoice = this.GetVoiceRealIndex((int)value);
                         goto IL_236;
                     case -7:
-                        this._faceGenerationParams._curBeard = (int)value;
+                        this._DCCFaceGenerationParams._curBeard = (int)value;
                         goto IL_236;
                     case -6:
-                        this._faceGenerationParams._currentHair = (int)value;
+                        this._DCCFaceGenerationParams._currentHair = (int)value;
                         goto IL_236;
                     case -3:
-                        this._faceGenerationParams._curFaceTexture = (int)value;
+                        this._DCCFaceGenerationParams._curFaceTexture = (int)value;
                         goto IL_236;
                     case -1:
-                        this._faceGenerationParams.SetGenderAndAdjustParams((int)value, (int)this._faceGenerationParams._curAge);
+                        this._DCCFaceGenerationParams.SetGenderAndAdjustParams((int)value, (int)this._DCCFaceGenerationParams._curAge);
                         goto IL_236;
                 }
                 MBDebug.ShowWarning("Unknown preset!");
@@ -515,7 +518,7 @@ namespace CharacterCreation.Models
                 {
                     if (keyNo == -9)
                     {
-                        this._faceGeneratorScreen.MakeVoice(this._faceGenerationParams._currentGender, this._faceGenerationParams._voicePitch);
+                        this._faceGeneratorScreen.MakeVoice(this._DCCFaceGenerationParams._currentGender, this._DCCFaceGenerationParams._voicePitch);
                     }
                 }
                 else
@@ -537,7 +540,7 @@ namespace CharacterCreation.Models
         private int GetVoiceUIIndex()
         {
             int num = 0;
-            for (int i = 0; i < this._faceGenerationParams._currentVoice; i++)
+            for (int i = 0; i < this._DCCFaceGenerationParams._currentVoice; i++)
             {
                 if (!this._isVoiceTypeUsableForOnlyNpc[i])
                 {
@@ -566,7 +569,7 @@ namespace CharacterCreation.Models
         
         private void ExecuteHearCurrentVoiceSample()
         {
-            this._faceGeneratorScreen.MakeVoice(this._faceGenerationParams._currentGender, this._faceGenerationParams._voicePitch);
+            this._faceGeneratorScreen.MakeVoice(this._DCCFaceGenerationParams._currentGender, this._DCCFaceGenerationParams._voicePitch);
         }
         
         private void ExecuteReset()
@@ -613,11 +616,11 @@ namespace CharacterCreation.Models
                     this.TattooColorSelector.SelectedIndex = (int)Math.Round((double)this._initialSelectedTaintColor * (double)(this._tattooColors.Count - 1));
                     break;
             }
-            foreach (FaceGenPropertyVM faceGenPropertyVM in this._tabProperties[(FaceGenVM.FaceGenTabs)this.Tab])
+            foreach (DCCFaceGenPropertyVM DCCFaceGenPropertyVM in this._tabProperties[(DCCFaceGenVM.FaceGenTabs)this.Tab])
             {
-                if (faceGenPropertyVM.TabID == this.Tab)
+                if (DCCFaceGenPropertyVM.TabID == this.Tab)
                 {
-                    faceGenPropertyVM.Reset();
+                    DCCFaceGenPropertyVM.Reset();
                 }
             }
             this._characterRefreshEnabled = true;
@@ -634,11 +637,11 @@ namespace CharacterCreation.Models
             {
                 this.SelectedGender = this._initialGender;
             }
-            foreach (KeyValuePair<FaceGenVM.FaceGenTabs, MBBindingList<FaceGenPropertyVM>> keyValuePair in this._tabProperties)
+            foreach (KeyValuePair<DCCFaceGenVM.FaceGenTabs, MBBindingList<DCCFaceGenPropertyVM>> keyValuePair in this._tabProperties)
             {
-                foreach (FaceGenPropertyVM faceGenPropertyVM in keyValuePair.Value)
+                foreach (DCCFaceGenPropertyVM DCCFaceGenPropertyVM in keyValuePair.Value)
                 {
-                    faceGenPropertyVM.Reset();
+                    DCCFaceGenPropertyVM.Reset();
                 }
             }
             this.FaceTypes.Reset();
@@ -658,9 +661,9 @@ namespace CharacterCreation.Models
         {
             this.AddCommand();
             this._characterRefreshEnabled = false;
-            foreach (FaceGenPropertyVM faceGenPropertyVM in this._tabProperties[(FaceGenVM.FaceGenTabs)this.Tab])
+            foreach (DCCFaceGenPropertyVM DCCFaceGenPropertyVM in this._tabProperties[(DCCFaceGenVM.FaceGenTabs)this.Tab])
             {
-                faceGenPropertyVM.Randomize();
+                DCCFaceGenPropertyVM.Randomize();
             }
             switch (this.Tab)
             {
@@ -694,11 +697,11 @@ namespace CharacterCreation.Models
         {
             this.AddCommand();
             this._characterRefreshEnabled = false;
-            foreach (KeyValuePair<FaceGenVM.FaceGenTabs, MBBindingList<FaceGenPropertyVM>> keyValuePair in this._tabProperties)
+            foreach (KeyValuePair<DCCFaceGenVM.FaceGenTabs, MBBindingList<DCCFaceGenPropertyVM>> keyValuePair in this._tabProperties)
             {
-                foreach (FaceGenPropertyVM faceGenPropertyVM in keyValuePair.Value)
+                foreach (DCCFaceGenPropertyVM DCCFaceGenPropertyVM in keyValuePair.Value)
                 {
-                    faceGenPropertyVM.Randomize();
+                    DCCFaceGenPropertyVM.Randomize();
                 }
             }
             this.FaceTypes.Value = (float)MBRandom.RandomInt((int)this.FaceTypes.Max + 1);
@@ -712,7 +715,7 @@ namespace CharacterCreation.Models
             }
             this.EyebrowTypes.Value = (float)MBRandom.RandomInt((int)this.EyebrowTypes.Max + 1);
             this.TeethTypes.Value = (float)MBRandom.RandomInt((int)this.TeethTypes.Max + 1);
-            if (MBRandom.RandomFloat < this._faceGenerationParams._tattooZeroProbability)
+            if (MBRandom.RandomFloat < this._DCCFaceGenerationParams._tattooZeroProbability)
             {
                 this.SetSelectedTattooType(this.TaintTypes[0], false);
             }
@@ -745,7 +748,7 @@ namespace CharacterCreation.Models
                 BodyProperties value = this._redoCommands[index].Value;
                 int key = this._redoCommands[index].Key;
                 this._redoCommands.RemoveAt(index);
-                this._undoCommands.Add(new KeyValuePair<int, BodyProperties>(this._faceGenerationParams._currentGender, this._bodyGenerator.CurrentBodyProperties));
+                this._undoCommands.Add(new KeyValuePair<int, BodyProperties>(this._DCCFaceGenerationParams._currentGender, this._DCCBodyGenerator.CurrentBodyProperties));
                 this._characterRefreshEnabled = false;
                 this.SetBodyProperties(value, false, key);
                 this._characterRefreshEnabled = true;
@@ -760,7 +763,7 @@ namespace CharacterCreation.Models
                 BodyProperties value = this._undoCommands[index].Value;
                 int key = this._undoCommands[index].Key;
                 this._undoCommands.RemoveAt(index);
-                this._redoCommands.Add(new KeyValuePair<int, BodyProperties>(this._faceGenerationParams._currentGender, this._bodyGenerator.CurrentBodyProperties));
+                this._redoCommands.Add(new KeyValuePair<int, BodyProperties>(this._DCCFaceGenerationParams._currentGender, this._DCCBodyGenerator.CurrentBodyProperties));
                 this._characterRefreshEnabled = false;
                 this.SetBodyProperties(value, false, key);
                 this._characterRefreshEnabled = true;
@@ -787,7 +790,7 @@ namespace CharacterCreation.Models
                 {
                     this._undoCommands.RemoveAt(0);
                 }
-                this._undoCommands.Add(new KeyValuePair<int, BodyProperties>(this._faceGenerationParams._currentGender, this._bodyGenerator.CurrentBodyProperties));
+                this._undoCommands.Add(new KeyValuePair<int, BodyProperties>(this._DCCFaceGenerationParams._currentGender, this._DCCBodyGenerator.CurrentBodyProperties));
                 this._redoCommands.Clear();
             }
         }
@@ -806,18 +809,18 @@ namespace CharacterCreation.Models
             this._characterRefreshEnabled = false;
             if (gender == -1)
             {
-                this._faceGenerationParams._currentGender = this._selectedGender;
+                this._DCCFaceGenerationParams._currentGender = this._selectedGender;
             }
             else
             {
-                this._faceGenerationParams._currentGender = gender;
+                this._DCCFaceGenerationParams._currentGender = gender;
             }
             if (ignoreDebugValues)
             {
-                bodyProperties = new BodyProperties(new DynamicBodyProperties(this._bodyGenerator.CurrentBodyProperties.Age, this._bodyGenerator.CurrentBodyProperties.Weight, this._bodyGenerator.CurrentBodyProperties.Build), bodyProperties.StaticProperties);
+                bodyProperties = new BodyProperties(new DynamicBodyProperties(this._DCCBodyGenerator.CurrentBodyProperties.Age, this._DCCBodyGenerator.CurrentBodyProperties.Weight, this._DCCBodyGenerator.CurrentBodyProperties.Build), bodyProperties.StaticProperties);
             }
-            this._bodyGenerator.CurrentBodyProperties = bodyProperties;
-            MBBodyProperties.GetParamsFromKey(ref this._faceGenerationParams, bodyProperties, this._bodyGenerator.Character.Equipment.EarsAreHidden);
+            this._DCCBodyGenerator.CurrentBodyProperties = bodyProperties;
+            DCCBodyProperties.GetParamsFromKey(ref this._DCCFaceGenerationParams, bodyProperties, this._DCCBodyGenerator.Character.Equipment.EarsAreHidden);
             this.UpdateFacegen();
             this._characterRefreshEnabled = true;
             this.UpdateFace();
@@ -825,72 +828,72 @@ namespace CharacterCreation.Models
         
         private void ResetSliderPrevValues()
         {
-            foreach (MBBindingList<FaceGenPropertyVM> mbbindingList in this._tabProperties.Values)
+            foreach (MBBindingList<DCCFaceGenPropertyVM> mbbindingList in this._tabProperties.Values)
             {
-                foreach (FaceGenPropertyVM faceGenPropertyVM in mbbindingList)
+                foreach (DCCFaceGenPropertyVM DCCFaceGenPropertyVM in mbbindingList)
                 {
-                    faceGenPropertyVM.PrevValue = -1.0;
+                    DCCFaceGenPropertyVM.PrevValue = -1.0;
                 }
             }
         }
         
         public void UpdateFacegen()
         {
-            foreach (MBBindingList<FaceGenPropertyVM> mbbindingList in this._tabProperties.Values)
+            foreach (MBBindingList<DCCFaceGenPropertyVM> mbbindingList in this._tabProperties.Values)
             {
-                foreach (FaceGenPropertyVM faceGenPropertyVM in mbbindingList)
+                foreach (DCCFaceGenPropertyVM DCCFaceGenPropertyVM in mbbindingList)
                 {
-                    if (faceGenPropertyVM.KeyNo < 0)
+                    if (DCCFaceGenPropertyVM.KeyNo < 0)
                     {
-                        switch (faceGenPropertyVM.KeyNo)
+                        switch (DCCFaceGenPropertyVM.KeyNo)
                         {
                             case -18:
-                                faceGenPropertyVM.Value = this._faceGenerationParams._curBuild;
+                                DCCFaceGenPropertyVM.Value = this._DCCFaceGenerationParams._curBuild;
                                 break;
                             case -17:
-                                faceGenPropertyVM.Value = this._faceGenerationParams._curWeight;
+                                DCCFaceGenPropertyVM.Value = this._DCCFaceGenerationParams._curWeight;
                                 break;
                             case -16:
-                                faceGenPropertyVM.Value = this._faceGenerationParams._heightMultiplier;
+                                DCCFaceGenPropertyVM.Value = this._DCCFaceGenerationParams._heightMultiplier;
                                 break;
                             case -12:
-                                faceGenPropertyVM.Value = this._faceGenerationParams._curEyeColorOffset;
+                                DCCFaceGenPropertyVM.Value = this._DCCFaceGenerationParams._curEyeColorOffset;
                                 break;
                             case -11:
-                                faceGenPropertyVM.Value = this._faceGenerationParams._curAge;
+                                DCCFaceGenPropertyVM.Value = this._DCCFaceGenerationParams._curAge;
                                 break;
                         }
                     }
                     else
                     {
-                        faceGenPropertyVM.Value = this._faceGenerationParams.KeyWeights[faceGenPropertyVM.KeyNo];
+                        DCCFaceGenPropertyVM.Value = this._DCCFaceGenerationParams.KeyWeights[DCCFaceGenPropertyVM.KeyNo];
                     }
-                    faceGenPropertyVM.PrevValue = -1.0;
+                    DCCFaceGenPropertyVM.PrevValue = -1.0;
                 }
             }
-            this.SelectedGender = this._faceGenerationParams._currentGender;
+            this.SelectedGender = this._DCCFaceGenerationParams._currentGender;
             this.SoundPreset.Value = (float)this.GetVoiceUIIndex();
-            this.FaceTypes.Value = (float)this._faceGenerationParams._curFaceTexture;
-            this.EyebrowTypes.Value = (float)this._faceGenerationParams._curEyebrow;
-            this.TeethTypes.Value = (float)this._faceGenerationParams._curMouthTexture;
-            if (this.TaintTypes.Count > this._faceGenerationParams._curFaceTattoo)
+            this.FaceTypes.Value = (float)this._DCCFaceGenerationParams._curFaceTexture;
+            this.EyebrowTypes.Value = (float)this._DCCFaceGenerationParams._curEyebrow;
+            this.TeethTypes.Value = (float)this._DCCFaceGenerationParams._curMouthTexture;
+            if (this.TaintTypes.Count > this._DCCFaceGenerationParams._curFaceTattoo)
             {
-                this.SetSelectedTattooType(this.TaintTypes[this._faceGenerationParams._curFaceTattoo], false);
+                this.SetSelectedTattooType(this.TaintTypes[this._DCCFaceGenerationParams._curFaceTattoo], false);
             }
-            if (this.BeardTypes.Count > this._faceGenerationParams._curBeard)
+            if (this.BeardTypes.Count > this._DCCFaceGenerationParams._curBeard)
             {
-                this.SetSelectedBeardType(this.BeardTypes[this._faceGenerationParams._curBeard], false);
+                this.SetSelectedBeardType(this.BeardTypes[this._DCCFaceGenerationParams._curBeard], false);
             }
-            if (this.HairTypes.Count > this._faceGenerationParams._currentHair)
+            if (this.HairTypes.Count > this._DCCFaceGenerationParams._currentHair)
             {
-                this.SetSelectedHairType(this.HairTypes[this._faceGenerationParams._currentHair], false);
+                this.SetSelectedHairType(this.HairTypes[this._DCCFaceGenerationParams._currentHair], false);
             }
-            this.SkinColorSelector.SelectedIndex = (int)Math.Round((double)this._faceGenerationParams._curSkinColorOffset * (double)(this._skinColors.Count - 1));
-            this.HairColorSelector.SelectedIndex = (int)Math.Round((double)this._faceGenerationParams._curHairColorOffset * (double)(this._hairColors.Count - 1));
-            this.TattooColorSelector.SelectedIndex = (int)Math.Round((double)this._faceGenerationParams._curFaceTattooColorOffset1 * (double)(this._tattooColors.Count - 1));
+            this.SkinColorSelector.SelectedIndex = (int)Math.Round((double)this._DCCFaceGenerationParams._curSkinColorOffset * (double)(this._skinColors.Count - 1));
+            this.HairColorSelector.SelectedIndex = (int)Math.Round((double)this._DCCFaceGenerationParams._curHairColorOffset * (double)(this._hairColors.Count - 1));
+            this.TattooColorSelector.SelectedIndex = (int)Math.Round((double)this._DCCFaceGenerationParams._curFaceTattooColorOffset1 * (double)(this._tattooColors.Count - 1));
         }
         
-        private void SetSelectedHairType(FacegenListItemVM item, bool addCommand)
+        private void SetSelectedHairType(DCCFacegenListItemVM item, bool addCommand)
         {
             if (this._selectedHairType != null)
             {
@@ -898,7 +901,7 @@ namespace CharacterCreation.Models
             }
             this._selectedHairType = item;
             this._selectedHairType.IsSelected = true;
-            this._faceGenerationParams._currentHair = item.Index;
+            this._DCCFaceGenerationParams._currentHair = item.Index;
             if (!addCommand)
             {
                 return;
@@ -907,7 +910,7 @@ namespace CharacterCreation.Models
             this.UpdateFace(-6, (float)item.Index, false, true);
         }
         
-        private void SetSelectedTattooType(FacegenListItemVM item, bool addCommand)
+        private void SetSelectedTattooType(DCCFacegenListItemVM item, bool addCommand)
         {
             if (this._selectedTaintType != null)
             {
@@ -915,7 +918,7 @@ namespace CharacterCreation.Models
             }
             this._selectedTaintType = item;
             this._selectedTaintType.IsSelected = true;
-            this._faceGenerationParams._curFaceTattoo = item.Index;
+            this._DCCFaceGenerationParams._curFaceTattoo = item.Index;
             if (!addCommand)
             {
                 return;
@@ -924,7 +927,7 @@ namespace CharacterCreation.Models
             this.UpdateFace(-10, (float)item.Index, false, true);
         }
         
-        private void SetSelectedBeardType(FacegenListItemVM item, bool addCommand)
+        private void SetSelectedBeardType(DCCFacegenListItemVM item, bool addCommand)
         {
             if (this._selectedBeardType != null)
             {
@@ -932,7 +935,7 @@ namespace CharacterCreation.Models
             }
             this._selectedBeardType = item;
             this._selectedBeardType.IsSelected = true;
-            this._faceGenerationParams._curBeard = item.Index;
+            this._DCCFaceGenerationParams._curBeard = item.Index;
             if (!addCommand)
             {
                 return;
@@ -1409,7 +1412,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FaceGenPropertyVM> BodyProperties
+        public MBBindingList<DCCFaceGenPropertyVM> BodyProperties
         {
             get
             {
@@ -1443,7 +1446,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FaceGenPropertyVM> FaceProperties
+        public MBBindingList<DCCFaceGenPropertyVM> FaceProperties
         {
             get
             {
@@ -1460,7 +1463,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FaceGenPropertyVM> EyesProperties
+        public MBBindingList<DCCFaceGenPropertyVM> EyesProperties
         {
             get
             {
@@ -1477,7 +1480,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FaceGenPropertyVM> NoseProperties
+        public MBBindingList<DCCFaceGenPropertyVM> NoseProperties
         {
             get
             {
@@ -1494,7 +1497,7 @@ namespace CharacterCreation.Models
         }
        
         [DataSourceProperty]
-        public MBBindingList<FaceGenPropertyVM> MouthProperties
+        public MBBindingList<DCCFaceGenPropertyVM> MouthProperties
         {
             get
             {
@@ -1511,7 +1514,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FaceGenPropertyVM> HairProperties
+        public MBBindingList<DCCFaceGenPropertyVM> HairProperties
         {
             get
             {
@@ -1528,7 +1531,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FaceGenPropertyVM> TaintProperties
+        public MBBindingList<DCCFaceGenPropertyVM> TaintProperties
         {
             get
             {
@@ -1545,7 +1548,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FacegenListItemVM> TaintTypes
+        public MBBindingList<DCCFacegenListItemVM> TaintTypes
         {
             get
             {
@@ -1562,7 +1565,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FacegenListItemVM> BeardTypes
+        public MBBindingList<DCCFacegenListItemVM> BeardTypes
         {
             get
             {
@@ -1579,7 +1582,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public MBBindingList<FacegenListItemVM> HairTypes
+        public MBBindingList<DCCFacegenListItemVM> HairTypes
         {
             get
             {
@@ -1596,7 +1599,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public FaceGenPropertyVM SoundPreset
+        public DCCFaceGenPropertyVM SoundPreset
         {
             get
             {
@@ -1613,7 +1616,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public FaceGenPropertyVM EyebrowTypes
+        public DCCFaceGenPropertyVM EyebrowTypes
         {
             get
             {
@@ -1630,7 +1633,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public FaceGenPropertyVM TeethTypes
+        public DCCFaceGenPropertyVM TeethTypes
         {
             get
             {
@@ -1651,13 +1654,13 @@ namespace CharacterCreation.Models
         {
             get
             {
-                return this._faceGenerationParams._isHairFlipped;
+                return this._DCCFaceGenerationParams._isHairFlipped;
             }
             set
             {
-                if (value != this._faceGenerationParams._isHairFlipped)
+                if (value != this._DCCFaceGenerationParams._isHairFlipped)
                 {
-                    this._faceGenerationParams._isHairFlipped = value;
+                    this._DCCFaceGenerationParams._isHairFlipped = value;
                     base.OnPropertyChanged("FlipHairCb");
                     this.UpdateFace();
                 }
@@ -1682,7 +1685,7 @@ namespace CharacterCreation.Models
         }
         
         [DataSourceProperty]
-        public FaceGenPropertyVM FaceTypes
+        public DCCFaceGenPropertyVM FaceTypes
         {
             get
             {
@@ -1766,17 +1769,17 @@ namespace CharacterCreation.Models
             }
         }
         
-        private readonly IFaceGeneratorHandler _faceGeneratorScreen;
+        private readonly DCCIFaceGeneratorHandler _faceGeneratorScreen;
         
         private bool _characterRefreshEnabled = true;
         
-        private readonly BodyGenerator _bodyGenerator;
+        private readonly DCCBodyGenerator _DCCBodyGenerator;
         
         private readonly TextObject _affirmitiveText;
         
         private readonly TextObject _negativeText;
         
-        private FaceGenerationParams _faceGenerationParams = FaceGenerationParams.Create();
+        private DCCFaceGenerationParams _DCCFaceGenerationParams = DCCFaceGenerationParams.Create();
         
         private List<KeyValuePair<int, BodyProperties>> _undoCommands;
         
@@ -1792,7 +1795,7 @@ namespace CharacterCreation.Models
         
         private readonly Action<int> _goToIndex;
         
-        private readonly Dictionary<FaceGenVM.FaceGenTabs, MBBindingList<FaceGenPropertyVM>> _tabProperties;
+        private readonly Dictionary<DCCFaceGenVM.FaceGenTabs, MBBindingList<DCCFaceGenPropertyVM>> _tabProperties;
     
         private List<uint> _skinColors;
         
@@ -1806,11 +1809,11 @@ namespace CharacterCreation.Models
         
         private bool _enforceConstraints;
         
-        private FacegenListItemVM _selectedTaintType;
+        private DCCFacegenListItemVM _selectedTaintType;
         
-        private FacegenListItemVM _selectedBeardType;
+        private DCCFacegenListItemVM _selectedBeardType;
         
-        private FacegenListItemVM _selectedHairType;
+        private DCCFacegenListItemVM _selectedHairType;
         
         private string _cancelBtnLbl;
         
@@ -1834,7 +1837,7 @@ namespace CharacterCreation.Models
         
         private string _genderLbl;
         
-        private FaceGenPropertyVM _heightSlider;
+        private DCCFaceGenPropertyVM _heightSlider;
         
         private HintViewModel _bodyHint;
         
@@ -1888,33 +1891,33 @@ namespace CharacterCreation.Models
         
         private bool _isDressed;
         
-        private MBBindingList<FaceGenPropertyVM> _bodyProperties;
+        private MBBindingList<DCCFaceGenPropertyVM> _bodyProperties;
         
-        private MBBindingList<FaceGenPropertyVM> _faceProperties;
+        private MBBindingList<DCCFaceGenPropertyVM> _faceProperties;
         
-        private MBBindingList<FaceGenPropertyVM> _eyesProperties;
+        private MBBindingList<DCCFaceGenPropertyVM> _eyesProperties;
         
-        private MBBindingList<FaceGenPropertyVM> _noseProperties;
+        private MBBindingList<DCCFaceGenPropertyVM> _noseProperties;
         
-        private MBBindingList<FaceGenPropertyVM> _mouthProperties;
+        private MBBindingList<DCCFaceGenPropertyVM> _mouthProperties;
         
-        private MBBindingList<FaceGenPropertyVM> _hairProperties;
+        private MBBindingList<DCCFaceGenPropertyVM> _hairProperties;
         
-        private MBBindingList<FaceGenPropertyVM> _taintProperties;
+        private MBBindingList<DCCFaceGenPropertyVM> _taintProperties;
         
-        private MBBindingList<FacegenListItemVM> _taintTypes;
+        private MBBindingList<DCCFacegenListItemVM> _taintTypes;
         
-        private MBBindingList<FacegenListItemVM> _beardTypes;
+        private MBBindingList<DCCFacegenListItemVM> _beardTypes;
         
-        private MBBindingList<FacegenListItemVM> _hairTypes;
+        private MBBindingList<DCCFacegenListItemVM> _hairTypes;
         
-        private FaceGenPropertyVM _soundPreset;
+        private DCCFaceGenPropertyVM _soundPreset;
         
-        private FaceGenPropertyVM _faceTypes;
+        private DCCFaceGenPropertyVM _faceTypes;
         
-        private FaceGenPropertyVM _teethTypes;
+        private DCCFaceGenPropertyVM _teethTypes;
         
-        private FaceGenPropertyVM _eyebrowTypes;
+        private DCCFaceGenPropertyVM _eyebrowTypes;
         
         private SelectorVM<SelectorItemVM> _skinColorSelector;
         

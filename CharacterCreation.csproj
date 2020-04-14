@@ -261,6 +261,7 @@
     <Compile Include="Content\DCCBodyGenerator.cs" />
     <Compile Include="Content\DCCBodyProperties.cs" />
     <Compile Include="Engine\DCCEngineStruct.cs" />
+    <Compile Include="Models\DCCFaceGenPropertyVM.cs" />
     <Compile Include="Structs\DCCDeformKeyData.cs" />
     <Compile Include="Structs\DCCFaceGenerationParams.cs" />
     <Compile Include="Screens\DCCFaceGeneratorScreen.cs" />
