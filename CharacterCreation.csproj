@@ -258,22 +258,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AgeModel.cs" />
-    <Compile Include="Models\HeroBuilderModel.cs" />
-    <Compile Include="Models\HeroBuilderVM.cs" />
+    <Compile Include="Models\DefaultAgeModel\AgeModel.cs" />
+    <Compile Include="Models\GameModel\HeroBuilderModel.cs" />
+    <Compile Include="Models\ViewModel\HeroBuilderVM.cs" />
     <Compile Include="Patches\BodyGeneratorPatch.cs" />
     <Compile Include="Patches\CharacterObjectPatch.cs" />
     <Compile Include="Patches\FacegenListItemVMPatch.cs" />
     <Compile Include="Patches\ModulePatch.cs" />
     <Compile Include="SubModule.cs" />
-    <Compile Include="Commands.cs" />
+    <Compile Include="Console\Commands.cs" />
     <Compile Include="Patches\DynamicBodyPatch.cs" />
     <Compile Include="Lib\DebugVars.cs" />
     <Compile Include="Lib\ExceptionExtensionMethod.cs" />
     <Compile Include="Lib\Interfaces\ILoadable.cs" />
     <Compile Include="Lib\Loader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="Settings\Settings.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
