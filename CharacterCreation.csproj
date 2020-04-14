@@ -29,9 +29,10 @@
     <OutputPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>2</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
     <LangVersion>7.2</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -257,29 +258,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Content\DCCAPI.cs" />
-    <Compile Include="Content\DCCBodyGenerator.cs" />
-    <Compile Include="Content\DCCBodyProperties.cs" />
-    <Compile Include="Engine\DCCEngineStruct.cs" />
-    <Compile Include="Models\DCCFaceGenPropertyVM.cs" />
-    <Compile Include="Structs\DCCDeformKeyData.cs" />
-    <Compile Include="Structs\DCCFaceGenerationParams.cs" />
-    <Compile Include="Screens\DCCFaceGeneratorScreen.cs" />
-    <Compile Include="Handlers\DCCIFaceGeneratorHandler.cs" />
-    <Compile Include="Screens\DCCIFaceGeneratorScreen.cs" />
-    <Compile Include="Engine\DCCScriptingInterfaceBase.cs" />
-    <Compile Include="Content\DCCViewCreator.cs" />
-    <Compile Include="Content\IDCCFaceGen.cs" />
     <Compile Include="Models\AgeModel.cs" />
-    <Compile Include="Models\DCCFacegenListItemVM.cs" />
-    <Compile Include="Models\DCCFaceGenVM.cs" />
     <Compile Include="Models\HeroBuilderModel.cs" />
     <Compile Include="Models\HeroBuilderVM.cs" />
     <Compile Include="Patches\BodyGeneratorPatch.cs" />
     <Compile Include="Patches\CharacterObjectPatch.cs" />
     <Compile Include="Patches\FacegenListItemVMPatch.cs" />
     <Compile Include="Patches\ModulePatch.cs" />
-    <Compile Include="Structs\DCCBodyProperties.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="Patches\DynamicBodyPatch.cs" />

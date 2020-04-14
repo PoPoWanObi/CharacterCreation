@@ -17,7 +17,6 @@ using TaleWorlds.MountAndBlade.ViewModelCollection;
 using HarmonyLib;
 using CharacterCreation.Models;
 using CharacterCreation.Lib;
-using CharacterCreation.Content;
 using System.Xml;
 using System.Collections;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
