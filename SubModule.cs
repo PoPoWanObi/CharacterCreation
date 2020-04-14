@@ -20,6 +20,7 @@ using CharacterCreation.Lib;
 using System.Xml;
 using System.Collections;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using ModLib;
 
 namespace CharacterCreation
 {
@@ -52,6 +53,7 @@ namespace CharacterCreation
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
+            SettingsDatabase.BuildModSettingsVMs();
             if (!this._isLoaded)
             {
                 InformationManager.DisplayMessage(new InformationMessage("Loaded Detailed Character Creation.", Color.FromUint(4282569842U)));
