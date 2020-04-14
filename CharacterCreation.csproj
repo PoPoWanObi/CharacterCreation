@@ -258,6 +258,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Content\BodySliders.cs" />
+    <Compile Include="Content\DCCFaceGeneratorScreen.cs" />
+    <Compile Include="Content\DCCIFaceGeneratorHandler.cs" />
+    <Compile Include="Content\DCCIFaceGeneratorScreen.cs" />
+    <Compile Include="Content\ViewCreator.cs" />
     <Compile Include="Models\AgeModel.cs" />
     <Compile Include="Models\HeroBuilderModel.cs" />
     <Compile Include="Models\HeroBuilderVM.cs" />

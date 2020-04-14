@@ -38,8 +38,6 @@ namespace CharacterCreation.Patches
                             float age = properties.DynamicProperties.Age;
                             __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(age);
                         }
-
-                        TaleWorlds.Core.FaceGen.ShowDebugValues = false;
                     }
                     return false;
                 }

@@ -88,6 +88,7 @@ namespace CharacterCreation
                     InformationManager.DisplayMessage(new InformationMessage("[Debug] Set default appearance for: " + hero.Name));
                 //BodyProperties properties = new BodyProperties(new DynamicBodyProperties(hero.DynamicBodyProperties.Age, 1f, 1f), properties.StaticProperties);
                 //hero.CharacterObject.HeroObject.
+                
             }
         }
 

@@ -10,7 +10,7 @@ namespace CharacterCreation.Patches
 {
     public class FacegenListVMPatch
     {
-        [HarmonyPatch(typeof(FacegenListItemVM), MethodType.Constructor, new Type[] { typeof(string), typeof(int), typeof(Action<FacegenListItemVM, bool>) })]
+        /*[HarmonyPatch(typeof(FacegenListItemVM), MethodType.Constructor, new Type[] { typeof(string), typeof(int), typeof(Action<FacegenListItemVM, bool>) })]
         internal class FacegenListItemVMPatch
         {
             private static void Postfix(FacegenListItemVM __instance)
@@ -24,6 +24,6 @@ namespace CharacterCreation.Patches
                     MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
                 }
             }
-        }
+        }*/
     }
 }
