@@ -38,6 +38,10 @@
     <Reference Include="0Harmony">
       <HintPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\VanguardRP\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="ModLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ModLib.dll</HintPath>
+    </Reference>
     <Reference Include="SandBox">
       <HintPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
       <Private>False</Private>
@@ -261,72 +265,15 @@
     <Compile Include="Models\DefaultAgeModel\AgeModel.cs" />
     <Compile Include="Models\GameModel\HeroBuilderModel.cs" />
     <Compile Include="Models\ViewModel\HeroBuilderVM.cs" />
-    <Compile Include="ModLib\Attributes\SettingPropertyAttribute.cs" />
-    <Compile Include="ModLib\Attributes\SettingPropertyGroupAttribute.cs" />
-    <Compile Include="ModLib\ComplexAction.cs" />
-    <Compile Include="ModLib\Debugging\DebugVars.cs" />
-    <Compile Include="ModLib\Debugging\ModDebug.cs" />
-    <Compile Include="ModLib\ExtensionMethods\ExceptionExtensionMethods.cs" />
-    <Compile Include="ModLib\ExtensionMethods\ICollectionExtensions.cs" />
-    <Compile Include="ModLib\ExtensionMethods\IEnumerableExtensions.cs" />
-    <Compile Include="ModLib\ExtensionMethods\MBBindingListExtensions.cs" />
-    <Compile Include="ModLib\ExtensionMethods\StackExtension.cs" />
-    <Compile Include="ModLib\FileDatabase\FileDatabase.cs" />
-    <Compile Include="ModLib\FileDatabase\SettingsBase.cs" />
-    <Compile Include="ModLib\FileDatabase\SettingsDatabase.cs" />
-    <Compile Include="ModLib\FileDatabase\SettingType.cs" />
-    <Compile Include="ModLib\GUI\GauntletUI\ModOptionsGauntletScreen.cs" />
-    <Compile Include="ModLib\GUI\ViewModels\ModSettingsScreenVM.cs" />
-    <Compile Include="ModLib\GUI\ViewModels\ModSettingsVM.cs" />
-    <Compile Include="ModLib\GUI\ViewModels\SettingProperty.cs" />
-    <Compile Include="ModLib\GUI\ViewModels\SettingPropertyGroup.cs" />
-    <Compile Include="ModLib\GUI\Views\ModLibSliderWidget.cs" />
-    <Compile Include="ModLib\Interfaces\IAction.cs" />
-    <Compile Include="ModLib\Interfaces\IInitial.cs" />
-    <Compile Include="ModLib\Interfaces\ISerialisableFile.cs" />
-    <Compile Include="ModLib\Interfaces\ISubFolder.cs" />
-    <Compile Include="ModLib\ModLibSubModule.cs" />
-    <Compile Include="ModLib\Patches\ModulePatches.cs" />
-    <Compile Include="ModLib\Properties\AssemblyInfo.cs" />
-    <Compile Include="ModLib\Ref.cs" />
-    <Compile Include="ModLib\Settings.cs" />
-    <Compile Include="ModLib\SetValueAction.cs" />
-    <Compile Include="ModLib\SmeltingHelper.cs" />
-    <Compile Include="ModLib\UndoRedoStack.cs" />
     <Compile Include="Patches\BodyGeneratorPatch.cs" />
     <Compile Include="Patches\CharacterObjectPatch.cs" />
     <Compile Include="Patches\FacegenListItemVMPatch.cs" />
-    <Compile Include="Patches\ModulePatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Console\Commands.cs" />
     <Compile Include="Patches\DynamicBodyPatch.cs" />
-    <Compile Include="Lib\DebugVars.cs" />
-    <Compile Include="Lib\ExceptionExtensionMethod.cs" />
-    <Compile Include="Lib\Interfaces\ILoadable.cs" />
-    <Compile Include="Lib\Loader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\Settings.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModLib\.gitattributes" />
-    <Content Include="ModLib\.gitignore" />
-    <Content Include="ModLib\GUI\Brushes\DividerBrushes.xml" />
-    <Content Include="ModLib\GUI\Brushes\ExpandIndicator.xml" />
-    <Content Include="ModLib\GUI\Brushes\ModSettingsItemBrush.xml" />
-    <Content Include="ModLib\GUI\Brushes\ResetButtonBrush.xml" />
-    <Content Include="ModLib\GUI\Brushes\TextBrushes.xml" />
-    <Content Include="ModLib\GUI\Views\ModOptionsScreen.xml" />
-    <Content Include="ModLib\GUI\Views\ModSettingsItem.xml" />
-    <Content Include="ModLib\GUI\Views\SettingPropertyGroupView.xml" />
-    <Content Include="ModLib\GUI\Views\SettingPropertyView.xml" />
-    <Content Include="ModLib\GUI\Views\SettingsView.xml" />
-    <Content Include="ModLib\ModLib.sln" />
-    <Content Include="ModLib\SubModule.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ModLib\ModLib.csproj" />
-    <None Include="ModLib\ModLib.props" />
-    <None Include="ModLib\README.md" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

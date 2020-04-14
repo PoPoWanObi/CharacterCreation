@@ -9,24 +9,23 @@ using TaleWorlds.Engine.Screens;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
+using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.MountAndBlade.ViewModelCollection;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 
-using TaleWorlds.MountAndBlade.ViewModelCollection;
-
 using HarmonyLib;
 using CharacterCreation.Models;
-using CharacterCreation.Lib;
 using System.Xml;
 using System.Collections;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using ModLib;
+using TaleWorlds.Localization;
 
 namespace CharacterCreation
 {
     public class SubModule : MBSubModuleBase
     {
-        public static readonly string ModuleName = "zzCharacterCreation";
+        public static readonly string ModuleFolderName = "zzCharacterCreation";
         public static readonly string strings = "strings";
 
         // Main
@@ -35,18 +34,17 @@ namespace CharacterCreation
             base.OnSubModuleLoad();
             try
             {
-                Loader.Initialise(ModuleName);
+                FileDatabase.Initialise(ModuleFolderName);
+                SettingsDatabase.RegisterSettings(Settings.Instance);
+
                 var harmony = new Harmony("mod.bannerlord.popowanobi.dcc");
                 harmony.PatchAll();
-
-                if (Settings.Instance.DebugMode == true)
-                    Harmony.DEBUG = true;
-
+                
                 TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error patching:\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                MessageBox.Show($"Error initializing Detailed Character Creation:\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
         }
 
@@ -65,7 +63,7 @@ namespace CharacterCreation
         private void LoadXMLFiles(CampaignGameStarter gameInitializer)
         {
             // Load our additional strings
-            gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleName + "/ModuleData/" + strings + ".xml");
+            gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleFolderName + "/ModuleData/" + strings + ".xml");
         }
 
         // Called when loading save game
