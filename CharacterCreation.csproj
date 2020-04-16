@@ -51,4 +51,10 @@
     <PackageReference Include="Lib.Harmony" Version="2.0.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SubModule.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
