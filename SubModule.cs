@@ -18,7 +18,6 @@ using HarmonyLib;
 using CharacterCreation.Models;
 using System.Xml;
 using System.Collections;
-using ModLib;
 using TaleWorlds.Localization;
 
 namespace CharacterCreation
@@ -34,9 +33,6 @@ namespace CharacterCreation
             base.OnSubModuleLoad();
             try
             {
-                FileDatabase.Initialise(ModuleFolderName);
-                SettingsDatabase.RegisterSettings(Settings.Instance);
-
                 var harmony = new Harmony("mod.bannerlord.popowanobi.dcc");
                 harmony.PatchAll();
                 
@@ -51,7 +47,6 @@ namespace CharacterCreation
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            SettingsDatabase.BuildModSettingsVMs();
             if (!this._isLoaded)
             {
                 InformationManager.DisplayMessage(new InformationMessage("Loaded Detailed Character Creation.", Color.FromUint(4282569842U)));
