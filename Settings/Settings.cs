@@ -8,49 +8,39 @@ namespace CharacterCreation
 {
     public class Settings : SettingsBase
     {
-        private const string instanceID = "DCCSettings";
+        public const string InstanceID = "DCCSettings";
         private static Settings _instance = null;
         public override string ModName => "Detailed Character Creation";
         public override string ModuleFolderName => SubModule.ModuleFolderName;
 
         [XmlElement]
-        public override string ID { get; set; } = instanceID;
+        public override string ID { get; set; } = InstanceID;
 
         public static Settings Instance
         {
             get
             {
-                if (_instance == null)
-                {
-                    _instance = FileDatabase.Get<Settings>(instanceID);
-                    if (_instance == null)
-                    {
-                        _instance = new Settings();
-                        SettingsDatabase.SaveSettings(_instance);
-                    }
-                }
-
-                return _instance;
+                return (Settings)SettingsDatabase.GetSettings(InstanceID);
             }
         }
 
         [XmlElement]
-        [SettingProperty("Enable debug output", "When enabled, shows debug output on mod activities.")]
+        [SettingProperty("Enable debug output", "Enable the mod's debug output.")]
         [SettingPropertyGroup("Section 0: Debug Mode")]
         public bool DebugMode { get; set; } = false;
 
         #region Overrides
         [XmlElement]
-        [SettingProperty("Override Age", "When enabled, this will prevent FaceGen from changing a hero's age.")]
-        [SettingPropertyGroup("", false)]
-        public bool OverrideAge { get; set; } = false;
-        [XmlElement]
-        [SettingProperty("Ignore Daily Tick", "Only disable this if you want to enable automatic aging, weight and build.")]
-        [SettingPropertyGroup("", false)]
+        [SettingProperty("Overrides", "Keep this on to prevent the game from reverting your appearance.")]
+        [SettingPropertyGroup("Section 1: Overrides", true)]
         public bool IgnoreDailyTick { get; set; } = true;
         [XmlElement]
+        [SettingProperty("Override Age", "When enabled, this will prevent FaceGen from changing a hero's age.")]
+        [SettingPropertyGroup("Section 1: Overrides", false)]
+        public bool OverrideAge { get; set; } = false;
+        [XmlElement]
         [SettingProperty("Disable Auto Aging", "Enable this to prevent the game from changing the age physical appearance.")]
-        [SettingPropertyGroup("", false)]
+        [SettingPropertyGroup("Section 1: Overrides", false)]
         public bool DisableAutoAging { get; set; } = false;
         #endregion
 
@@ -64,7 +54,7 @@ namespace CharacterCreation
         [SettingPropertyGroup("Section 2: Age Model", false)]
         public int BecomeChildAge { get; set; } = 6;
         [XmlElement]
-        [SettingProperty("Teenager Age Stage", 1, 14, "Set the default teenager stage age.")]
+        [SettingProperty("Teenager Age Stage", 2, 14, "Set the default teenager stage age.")]
         [SettingPropertyGroup("Section 2: Age Model", false)]
         public int BecomeTeenagerAge { get; set; } = 14;
         [XmlElement]

@@ -40,7 +40,8 @@
     </Reference>
     <Reference Include="ModLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ModLib.dll</HintPath>
+      <HintPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\ModLib\bin\Win64_Shipping_Client\ModLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SandBox">
       <HintPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
