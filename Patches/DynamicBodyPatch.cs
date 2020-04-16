@@ -48,11 +48,14 @@ namespace CharacterCreation.Patches
                     {
                         if (Settings.Instance.DisableAutoAging == false)
                         {
-                            if (hero.Age < 19)
+                            //if (hero.Age < 19)'
+                            if (hero.IsHumanPlayerCharacter)
                             {
                                 if (Settings.Instance.DebugMode == true)
                                     InformationManager.DisplayMessage(new InformationMessage("Set appearance for: " + hero.Name));
                                 hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                                
+
                             }
                         }
                     }

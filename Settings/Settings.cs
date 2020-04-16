@@ -13,19 +13,20 @@ namespace CharacterCreation
         public override string Id { get; set; } = "DCCSettings_v1";
 
         [XmlElement]
-        [SettingProperty("Enable debug output", "When enabled, shows debug output on mod activities.")]
+        [SettingProperty("Enable debug output", "Enable the mod's debug output.")]
         [SettingPropertyGroup("Section 0: Debug Mode")]
         public bool DebugMode { get; set; } = false;
 
         #region Overrides
-        [SettingProperty("Override Age", "When enabled, this will prevent FaceGen from changing a hero's age.")]
-        [SettingPropertyGroup("", false)]
-        public bool OverrideAge { get; set; } = false;
-        [SettingProperty("Ignore Daily Tick", "Only disable this if you want to enable automatic aging, weight and build.")]
-        [SettingPropertyGroup("", false)]
+        [SettingProperty("Overrides", "Keep this on to prevent the game from reverting your appearance.")]
+        [SettingPropertyGroup("Section 1: Overrides", true)]
         public bool IgnoreDailyTick { get; set; } = true;
+        [XmlElement]
+        [SettingProperty("Override Age", "When enabled, this will prevent FaceGen from changing a hero's age.")]
+        [SettingPropertyGroup("Section 1: Overrides", false)]
+        public bool OverrideAge { get; set; } = false;
         [SettingProperty("Disable Auto Aging", "Enable this to prevent the game from changing the age physical appearance.")]
-        [SettingPropertyGroup("", false)]
+        [SettingPropertyGroup("Section 1: Overrides", false)]
         public bool DisableAutoAging { get; set; } = false;
         #endregion
 
@@ -36,7 +37,7 @@ namespace CharacterCreation
         [SettingProperty("Child Age Stage", 1, 6, hintText: "Set the default child stage age.")]
         [SettingPropertyGroup("Section 2: Age Model", false)]
         public int BecomeChildAge { get; set; } = 6;
-        [SettingProperty("Teenager Age Stage", 1, 14, hintText: "Set the default teenager stage age.")]
+        [SettingProperty("Teenager Age Stage", 2, 14, hintText: "Set the default teenager stage age.")]
         [SettingPropertyGroup("Section 2: Age Model", false)]
         public int BecomeTeenagerAge { get; set; } = 14;
         [SettingProperty("Adult Age Stage", 3, 18, hintText: "Set the default adult stage age.")]
