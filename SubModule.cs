@@ -30,7 +30,7 @@ namespace CharacterCreation
             {
                 var harmony = new Harmony("mod.bannerlord.popowanobi.dcc");
                 harmony.PatchAll();
-                
+
                 TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace CharacterCreation
             base.OnBeforeInitialModuleScreenSetAsRoot();
             if (!this._isLoaded)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Loaded Detailed Character Creation.", Color.FromUint(4282569842U)));
+                InformationManager.DisplayMessage(new InformationMessage("Loaded Detailed Character Creation.", ColorManager.Orange));
                 this._isLoaded = true;
             }
         }
@@ -141,7 +141,6 @@ namespace CharacterCreation
                     this.gauntletLayerTopScreen = ScreenManager.TopScreen;
                     this.gauntletLayerTopScreen.AddLayer(this.gauntletLayer);
                     this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
-                    this.selectedHeroPage.Refresh();
 
                     // Refresh
                     this.selectedHeroPage.Refresh();
@@ -161,7 +160,6 @@ namespace CharacterCreation
                 gameStarter.AddModel(new Models.AgeModel());
             }
         }
-
 
         private HeroBuilderVM viewModel;
         private EncyclopediaHeroPageVM selectedHeroPage;

@@ -37,11 +37,11 @@ namespace CharacterCreation.Patches
                             if (hero.IsHumanPlayerCharacter)
                             {
                                 if (Settings.Instance.DebugMode == true)
-                                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Set appearance for: " + hero.Name));
+                                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Set appearance for: " + hero.Name, ColorManager.Red));
                                 var test = new DynamicBodyProperties(hero.DynamicBodyProperties.Age + 12f, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
 
                                 if (Settings.Instance.DebugMode == true)
-                                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Result: " + test)); 
+                                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Result: " + test, ColorManager.Red)); 
                                 hero.DynamicBodyProperties.Equals(test);
 
                                 // TODO: Get access to keyValuePair w/ Reflection

@@ -73,7 +73,7 @@ namespace CharacterCreation.Models
         {
             if (selectedHero.CharacterObject == null)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Character is not valid."));
+                InformationManager.DisplayMessage(new InformationMessage("Character is not valid.", ColorManager.Red));
                 return;
             }
             
@@ -84,7 +84,7 @@ namespace CharacterCreation.Models
             }
             else
             {
-                InformationManager.DisplayMessage(new InformationMessage("Name is not valid"));
+                InformationManager.DisplayMessage(new InformationMessage("Name is not valid", ColorManager.Red));
                 return;
             }
         }
