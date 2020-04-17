@@ -1,7 +1,9 @@
 ﻿using HarmonyLib;
 using Helpers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
@@ -20,12 +22,11 @@ namespace CharacterCreation.Patches
         [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
         public class OnDailyTick
         {
-            static bool Prefix(DynamicBodyCampaignBehavior __instance)
+            static bool Prefix(ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
             {
                 if (Settings.Instance.IgnoreDailyTick == true)
                 {
-
-                    IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
+                    IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(____heroBehaviorsDictionary);
 
                     foreach (object obj in dictionary.Keys)
                     {
@@ -45,11 +46,9 @@ namespace CharacterCreation.Patches
 
                                 // TODO: Get access to keyValuePair w/ Reflection
 
-                                /*float weight = keyValuePair.Key.DynamicBodyProperties.Weight;
-                                float build = keyValuePair.Key.DynamicBodyProperties.Build;
-                                float maxValue = this.CalculateMaximumPossibleBuild(keyValuePair.Key);
-                                keyValuePair.Key.DynamicBodyProperties = new DynamicBodyProperties(keyValuePair.Key.Age, weight, build;*/
-
+                                /*float weight = hero.DynamicBodyProperties.Weight;
+                                float build = hero.DynamicBodyProperties.Build;
+                                ____heroBehaviorsDictionary.Key.DynamicBodyProperties = new DynamicBodyProperties(____heroBehaviorsDictionary.Key.Age, weight, build;*/
                             }
                         }
                     }
