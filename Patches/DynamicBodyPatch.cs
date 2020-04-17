@@ -22,39 +22,33 @@ namespace CharacterCreation.Patches
         {
             static bool Prefix(DynamicBodyCampaignBehavior __instance)
             {
-                /*IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
-
-                foreach (object obj in dictionary.Keys)
-                {
-                    Hero hero = (Hero)obj;
-
-                    if (hero.Age >= 19)
-                    {
-
-                    }
-
-                    if (hero.Age < 19)
-                    {
-                        if (Settings.Instance.DebugMode == true)
-                            InformationManager.DisplayMessage(new InformationMessage("Hero updated: " + hero.Name, Color.FromUint(4282569842U)));
-                        hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
-                    }
-            }
-                return true;*/
-
                 if (Settings.Instance.IgnoreDailyTick == true)
                 {
-                    foreach (Hero hero in Hero.All)
+
+                    IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
+
+                    foreach (object obj in dictionary.Keys)
                     {
+                        Hero hero = (Hero)obj;
+
                         if (Settings.Instance.DisableAutoAging == false)
                         {
-                            //if (hero.Age < 19)'
                             if (hero.IsHumanPlayerCharacter)
                             {
                                 if (Settings.Instance.DebugMode == true)
-                                    InformationManager.DisplayMessage(new InformationMessage("Set appearance for: " + hero.Name));
-                                hero.DynamicBodyProperties = new DynamicBodyProperties(hero.DynamicBodyProperties.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
-                                
+                                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Set appearance for: " + hero.Name));
+                                var test = new DynamicBodyProperties(hero.DynamicBodyProperties.Age + 12f, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+
+                                if (Settings.Instance.DebugMode == true)
+                                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Result: " + test)); 
+                                hero.DynamicBodyProperties.Equals(test);
+
+                                // TODO: Get access to keyValuePair w/ Reflection
+
+                                /*float weight = keyValuePair.Key.DynamicBodyProperties.Weight;
+                                float build = keyValuePair.Key.DynamicBodyProperties.Build;
+                                float maxValue = this.CalculateMaximumPossibleBuild(keyValuePair.Key);
+                                keyValuePair.Key.DynamicBodyProperties = new DynamicBodyProperties(keyValuePair.Key.Age, weight, build;*/
 
                             }
                         }

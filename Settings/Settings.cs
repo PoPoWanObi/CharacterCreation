@@ -13,19 +13,19 @@ namespace CharacterCreation
         public override string Id { get; set; } = "DCCSettings_v1";
 
         [XmlElement]
-        [SettingProperty("Enable debug output", "Enable the mod's debug output.")]
+        [SettingProperty("Enable debug output", "", hintText: "Enable DCC's debug output.")]
         [SettingPropertyGroup("Section 0: Debug Mode")]
         public bool DebugMode { get; set; } = false;
 
         #region Overrides
-        [SettingProperty("Overrides", "Keep this on to prevent the game from reverting your appearance.")]
+        [SettingProperty("Overrides", "", hintText: "Keep this on to prevent the game from reverting your appearance.")]
         [SettingPropertyGroup("Section 1: Overrides", true)]
         public bool IgnoreDailyTick { get; set; } = true;
         [XmlElement]
-        [SettingProperty("Override Age", "When enabled, this will prevent FaceGen from changing a hero's age.")]
+        [SettingProperty("Override Age", "", hintText: "When enabled, this will prevent FaceGen from changing a hero's age.")]
         [SettingPropertyGroup("Section 1: Overrides", false)]
         public bool OverrideAge { get; set; } = false;
-        [SettingProperty("Disable Auto Aging", "Enable this to prevent the game from changing the age physical appearance.")]
+        [SettingProperty("Disable Auto Aging", "", hintText: "Enable this to prevent the game from changing the age physical appearance.")]
         [SettingPropertyGroup("Section 1: Overrides", false)]
         public bool DisableAutoAging { get; set; } = false;
         #endregion

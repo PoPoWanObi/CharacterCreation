@@ -9,16 +9,11 @@ using TaleWorlds.Engine.Screens;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
-using TaleWorlds.MountAndBlade.ViewModelCollection;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 
 using HarmonyLib;
 using CharacterCreation.Models;
-using System.Xml;
-using System.Collections;
-using TaleWorlds.Localization;
 
 namespace CharacterCreation
 {
@@ -75,20 +70,6 @@ namespace CharacterCreation
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
             this.LoadXMLFiles(gameInitializer);
             TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Disable until after game started.
-
-            foreach (Hero hero in Hero.All)
-            {
-                if (Settings.Instance.DebugMode == true)
-                    InformationManager.DisplayMessage(new InformationMessage("[Debug] Set default appearance for: " + hero.Name));
-                //BodyProperties properties = new BodyProperties(new DynamicBodyProperties(hero.DynamicBodyProperties.Age, 1f, 1f), properties.StaticProperties);
-                //hero.CharacterObject.HeroObject.
-                
-            }
-        }
-
-        protected override void OnApplicationTick(float dt)
-        {
-            // Do thing
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
