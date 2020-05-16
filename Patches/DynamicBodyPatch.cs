@@ -23,16 +23,16 @@ namespace CharacterCreation.Patches
         public class OnDailyTick
         {
             //static bool Prefix(DynamicBodyCampaignBehavior __instance, ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
-            static bool Prefix(ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
+            static bool Prefix(DynamicBodyCampaignBehavior __instance)
             {
                 if (Settings.Instance != null && Settings.Instance.IgnoreDailyTick == true)
                 {
                     //IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(____heroBehaviorsDictionary);
-                    //IDictionary dictionary = typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance) as IDictionary;
+                    IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
 
-                    foreach (Hero hero in ____heroBehaviorsDictionary.Keys)
+                    foreach (object obj in dictionary.Keys)
                     {
-                        //Hero hero = (Hero)obj;
+                        Hero hero = (Hero)obj;
 
                         if (Settings.Instance.DisableAutoAging == false)
                         {
