@@ -15,7 +15,7 @@ namespace CharacterCreation.Patches
     class CharacterObjectPatch
     {
         // Inherits from CampaignBehaviorBase
-        [HarmonyPatch(typeof(CharacterObject), "UpdatePlayerCharacterBodyProperties")]
+        [HarmonyPatch(typeof(CharacterObject), nameof(CharacterObject.UpdatePlayerCharacterBodyProperties))]
         public class UpdatePlayerCharacterBodyProperties
         {
             static bool Prefix(CharacterObject __instance, BodyProperties properties, ref bool isFemale)
@@ -24,17 +24,17 @@ namespace CharacterCreation.Patches
                 {
                     var piSBP = typeof(Hero).GetProperty("StaticBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
                     //var piSBB = typeof(Hero).GetProperty("DynamicBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-
+                    
                     if (__instance.IsHero)
                     {
-                        if (Settings.Instance.DebugMode == true)
+                        if (Settings.Instance != null && Settings.Instance.DebugMode == true)
                             InformationManager.DisplayMessage(new InformationMessage("Hero updated: " + __instance.HeroObject.Name, ColorManager.Purple));
                         //__instance.HeroObject.StaticBodyProperties = __properties.StaticProperties;
                         piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
                         __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;
                         __instance.HeroObject.UpdatePlayerGender(isFemale);
 
-                        if (Settings.Instance.OverrideAge == false)
+                        if (Settings.Instance != null && Settings.Instance.OverrideAge == false)
                         {
                             float age = properties.DynamicProperties.Age;
                             __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(age);
@@ -52,7 +52,7 @@ namespace CharacterCreation.Patches
 
         static bool Prepare()
         {
-            return Settings.Instance.OverrideAge;
+            return Settings.Instance != null && Settings.Instance.OverrideAge;
         }
     }
 }

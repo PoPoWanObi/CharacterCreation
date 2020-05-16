@@ -35,12 +35,11 @@ namespace CharacterCreation
             {
                 return "Hero is not found";
             }
-            int num;
-            if (!int.TryParse(strings[1], out num))
+            if (!int.TryParse(strings[1], out int num))
             {
                 return "Please enter a age";
             }
-            hero.BirthDay = HeroHelper.GetRandomBirthDayForAge((float)num);
+            hero.BirthDay = HeroHelper.GetRandomBirthDayForAge(num);
             return "Success";
         }
 

@@ -22,15 +22,17 @@ namespace CharacterCreation.Patches
         [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
         public class OnDailyTick
         {
+            //static bool Prefix(DynamicBodyCampaignBehavior __instance, ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
             static bool Prefix(ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
             {
-                if (Settings.Instance.IgnoreDailyTick == true)
+                if (Settings.Instance != null && Settings.Instance.IgnoreDailyTick == true)
                 {
-                    IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(____heroBehaviorsDictionary);
+                    //IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(____heroBehaviorsDictionary);
+                    //IDictionary dictionary = typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance) as IDictionary;
 
-                    foreach (object obj in dictionary.Keys)
+                    foreach (Hero hero in ____heroBehaviorsDictionary.Keys)
                     {
-                        Hero hero = (Hero)obj;
+                        //Hero hero = (Hero)obj;
 
                         if (Settings.Instance.DisableAutoAging == false)
                         {
@@ -61,7 +63,7 @@ namespace CharacterCreation.Patches
 
         static bool Prepare()
         {
-            return Settings.Instance.IgnoreDailyTick;
+            return Settings.Instance != null && Settings.Instance.IgnoreDailyTick;
         }
     }
 }
