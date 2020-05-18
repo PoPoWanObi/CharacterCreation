@@ -1,43 +1,43 @@
 ﻿<Module>
-    <Name value="Detailed Character Creation"/>
-    <Id value="zzCharacterCreation"/>
-    <Version value="v1.1.1"/>
-    <SingleplayerModule value="true"/>
-    <MultiplayerModule value="false"/>
-    <DependedModules>
-        <DependedModule Id="Native"/>
-        <DependedModule Id="SandBoxCore"/>
-        <DependedModule Id="Sandbox"/>
-        <DependedModule Id="CustomBattle"/>
-        <DependedModule Id="StoryMode"/>
-    </DependedModules>
-    <SubModules>
-        <SubModule>
-            <Name value="CharacterCreation"/>
-            <DLLName value="CharacterCreation.dll"/>
-            <SubModuleClassType value="CharacterCreation.SubModule"/>
-            <Tags>
-                <Tag key="DedicatedServerType" value="none" />
-                <Tag key="IsNoRenderModeElement" value="false" />
-            </Tags>
-        </SubModule>
-        <SubModule>
-            <Name value="MBOptionScreen" />
-            <DLLName value="MBOptionScreen.dll" />
-            <SubModuleClassType value="MBOptionScreen.MBOptionScreenSubModule" />
-            <Tags>
-                <Tag key="DedicatedServerType" value="none" />
-                <Tag key="IsNoRenderModeElement" value="false" />
-            </Tags>
-        </SubModule>
-    </SubModules>
-    <Xmls>
-        <XmlNode>
-            <XmlName id="strings" path="strings"/>
-                <IncludedGameTypes>
-                    <GameType value = "Campaign"/>
-                    <GameType value = "CampaignStoryMode"/>
-                </IncludedGameTypes>
-        </XmlNode>
-    </Xmls>
+  <Name value="Detailed Character Creation"/>
+  <Id value="zzCharacterCreation"/>
+  <Version value="v1.1.4"/>
+  <SingleplayerModule value="true"/>
+  <MultiplayerModule value="false"/>
+  <DependedModules>
+    <DependedModule Id="Native"/>
+    <DependedModule Id="SandBoxCore"/>
+    <DependedModule Id="Sandbox"/>
+    <DependedModule Id="CustomBattle"/>
+    <DependedModule Id="StoryMode"/>
+  </DependedModules>
+  <SubModules>
+    <SubModule>
+      <Name value="CharacterCreation"/>
+      <DLLName value="CharacterCreation.dll"/>
+      <SubModuleClassType value="CharacterCreation.SubModule"/>
+      <Tags>
+        <Tag key="DedicatedServerType" value="none" />
+        <Tag key="IsNoRenderModeElement" value="false" />
+      </Tags>
+    </SubModule>
+    <SubModule>
+      <Name value="MBOptionScreen" />
+      <DLLName value="MBOptionScreen.v2.0.10.dll" />
+      <SubModuleClassType value="MBOptionScreen.MBOptionScreenSubModuleV2010" />
+      <Tags>
+        <Tag key="DedicatedServerType" value="none" />
+        <Tag key="IsNoRenderModeElement" value="false" />
+      </Tags>
+    </SubModule>
+  </SubModules>
+  <Xmls>
+    <XmlNode>
+      <XmlName id="strings" path="strings"/>
+      <IncludedGameTypes>
+        <GameType value = "Campaign"/>
+        <GameType value = "CampaignStoryMode"/>
+      </IncludedGameTypes>
+    </XmlNode>
+  </Xmls>
 </Module>

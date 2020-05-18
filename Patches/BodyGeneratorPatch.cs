@@ -13,8 +13,8 @@ namespace CharacterCreation.Patches
 {
     public class BodyGeneratorPatch
     {
-        [HarmonyPatch(typeof(BodyGenerator), "SaveCurrentCharacter")]
-        private class SaveCurrentCharacter
+        [HarmonyPatch(typeof(BodyGenerator), nameof(BodyGenerator.SaveCurrentCharacter))]
+        private static class SaveCurrentCharacter
         {
             static bool Prefix(BodyGenerator __instance)
             {
