@@ -6,24 +6,12 @@
     <Nullable>enable</Nullable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <!-- Define your GameFolder here to simplify loading plugins and output dirs -->
     <!--<GameFolder>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>-->
     <GameFolder>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>bin\Debug\</OutputPath>
-  </PropertyGroup>
-
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SandBox.GauntletUI">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.GauntletUI.dll</HintPath>
-    </Reference>
-    <Reference Include="SandBox.View">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.View.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\System.*.dll">
       <HintPath>%(Identity)</HintPath>
@@ -37,41 +25,9 @@
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="TaleWorlds.CampaignSystem">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.CampaignSystem.ViewModelCollection">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.ViewModelCollection.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.Core">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.Engine">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.Engine.GauntletUI">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Engine.GauntletUI.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.GauntletUI.Data">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.GauntletUI.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.Library">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Library.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.Localization">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Localization.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.MountAndBlade">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.MountAndBlade.View">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.View.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.ObjectSystem">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="TaleWorlds.SaveSystem">
-      <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.SaveSystem.dll</HintPath>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\Newtonsoft.Json.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="$(GameFolder)\Modules\Native\bin\Win64_Shipping_Client\*.dll">
       <HintPath>%(Identity)</HintPath>
@@ -103,7 +59,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd $(TargetDir)&#xD;&#xA;xcopy $(TargetFileName) &quot;D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy $(TargetName).pdb &quot;D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy 0Harmony.dll &quot;D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy MBOptionScreen.v2.0.10.dll &quot;D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y" />
+    <Exec Command="cd $(TargetDir)&#xD;&#xA;xcopy $(TargetFileName) &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy $(TargetName).pdb &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy 0Harmony.dll &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy MBOptionScreen.v2.0.10.dll &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y" />
   </Target>
 
 </Project>
