@@ -77,9 +77,10 @@ namespace CharacterCreation
             base.OnGameStart(game, gameStarterObject);
 
             if (!(game.GameType is Campaign))
-            {
                 return;
-            }
+            if (!(gameStarterObject is CampaignGameStarter))
+                return;
+
             AddModels(gameStarterObject as CampaignGameStarter);
 
             game.EventManager.RegisterEvent(delegate (EncyclopediaPageChangedEvent e)
@@ -87,63 +88,65 @@ namespace CharacterCreation
                 EncyclopediaData.EncyclopediaPages newPage = e.NewPage;
                 if ((int)newPage != 12)
                 {
-                    this.selectedHeroPage = null;
-                    this.selectedHero = null;
-                    if (this.gauntletLayerTopScreen != null && this.gauntletLayer != null)
+                    selectedHeroPage = null;
+                    selectedHero = null;
+                    if (gauntletLayerTopScreen != null && gauntletLayer != null)
                     {
-                        this.gauntletLayerTopScreen.RemoveLayer(this.gauntletLayer);
-                        if (this.gauntletMovie != null)
+                        gauntletLayerTopScreen.RemoveLayer(gauntletLayer);
+                        if (gauntletMovie != null)
                         {
-                            this.gauntletLayer.ReleaseMovie(this.gauntletMovie);
+                            gauntletLayer.ReleaseMovie(gauntletMovie);
                         }
-                        this.gauntletLayerTopScreen = null;
-                        this.gauntletMovie = null;
+                        gauntletLayerTopScreen = null;
+                        gauntletMovie = null;
                     }
                     return;
                 }
-                GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
+                GauntletEncyclopediaScreenManager? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
                 if (gauntletEncyclopediaScreenManager == null)
                 {
                     return;
                 }
 
-                FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
-                FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
-                EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
-                EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
-                this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
+                //FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
+                //FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
+                //EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
+                //EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
+                EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+                EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
+                selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 
-                if (this.selectedHeroPage == null)
+                if (selectedHeroPage == null)
                 {
                     return;
                 }
-                this.selectedHero = (this.selectedHeroPage.Obj as Hero);
-                if (this.selectedHero == null)
+                selectedHero = (selectedHeroPage.Obj as Hero);
+                if (selectedHero == null)
                 {
                     return;
                 }
-                if (this.gauntletLayer == null)
+                if (gauntletLayer == null)
                 {
-                    this.gauntletLayer = new GauntletLayer(211, "GauntletLayer");
+                    gauntletLayer = new GauntletLayer(211, "GauntletLayer");
                 }
 
                 try
                 {
-                    if (this.viewModel == null)
+                    if (viewModel == null)
                     {
-                        this.viewModel = new HeroBuilderVM(this.heroModel, delegate (Hero editHero)
+                        viewModel = new HeroBuilderVM(heroModel, delegate (Hero editHero)
                         {
                             InformationManager.DisplayMessage(new InformationMessage("Entering edit appearance for: " + editHero));
                         });
                     }
-                    this.viewModel.SetHero(this.selectedHero);
-                    this.gauntletMovie = this.gauntletLayer.LoadMovie("HeroEditor", this.viewModel);
-                    this.gauntletLayerTopScreen = ScreenManager.TopScreen;
-                    this.gauntletLayerTopScreen.AddLayer(this.gauntletLayer);
-                    this.gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
+                    viewModel.SetHero(selectedHero);
+                    gauntletMovie = gauntletLayer.LoadMovie("HeroEditor", viewModel);
+                    gauntletLayerTopScreen = ScreenManager.TopScreen;
+                    gauntletLayerTopScreen.AddLayer(gauntletLayer);
+                    gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
 
                     // Refresh
-                    this.selectedHeroPage.Refresh();
+                    selectedHeroPage.Refresh();
                 }
                 catch (Exception ex)
                 {
@@ -156,18 +159,20 @@ namespace CharacterCreation
         {
             if (gameStarter != null)
             {
-                gameStarter.AddModel(this.heroModel = new HeroBuilderModel());
-                gameStarter.AddModel(new Models.AgeModel());
+                gameStarter.AddModel(heroModel = new HeroBuilderModel());
+
+                if (Settings.Instance != null && Settings.Instance.CustomAgeModel)
+                    gameStarter.AddModel(new Models.AgeModel());
             }
         }
 
-        private HeroBuilderVM viewModel;
-        private EncyclopediaHeroPageVM selectedHeroPage;
+        private HeroBuilderVM? viewModel;
+        private EncyclopediaHeroPageVM? selectedHeroPage;
         private HeroBuilderModel heroModel;
-        private Hero selectedHero;
-        private ScreenBase gauntletLayerTopScreen;
-        private GauntletLayer gauntletLayer;
-        private GauntletMovie gauntletMovie;
+        private Hero? selectedHero;
+        private ScreenBase? gauntletLayerTopScreen;
+        private GauntletLayer? gauntletLayer;
+        private GauntletMovie? gauntletMovie;
 
         private bool _isLoaded;
     }

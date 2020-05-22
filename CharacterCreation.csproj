@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <!-- Define your GameFolder here to simplify loading plugins and output dirs -->
     <!--<GameFolder>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>-->
     <GameFolder>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
   </PropertyGroup>
@@ -47,8 +48,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.MBOptionScreen" Version="1.1.7" />
-    <PackageReference Include="Lib.Harmony" Version="2.0.0.9" />
+    <PackageReference Include="Bannerlord.MBOptionScreen" Version="2.0.10" />
+    <PackageReference Include="Lib.Harmony" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,5 +57,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd $(TargetDir)&#xD;&#xA;xcopy $(TargetFileName) &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy $(TargetName).pdb &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy 0Harmony.dll &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y&#xD;&#xA;xcopy MBOptionScreen.v2.0.10.dll &quot;$(GameFolder)\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /y" />
+  </Target>
 
 </Project>

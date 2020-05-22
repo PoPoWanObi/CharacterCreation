@@ -10,6 +10,7 @@ using SandBox.GauntletUI;
 using SandBox.View.Map;
 using System.Reflection;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
+using HarmonyLib;
 
 namespace CharacterCreation.Models
 {
@@ -17,7 +18,7 @@ namespace CharacterCreation.Models
     {
         public void SetHero(Hero hero)
         {
-            this.selectedHero = hero;
+            selectedHero = hero;
         }
 
         public HeroBuilderVM(HeroBuilderModel heroModel, Action<Hero> editCallback)
@@ -33,29 +34,29 @@ namespace CharacterCreation.Models
 
         public void ExecuteEdit()
         {
-            if (this.selectedHero == null)
+            if (selectedHero == null)
                 return;
 
-            this.Edit(this.selectedHero);
+            Edit(selectedHero);
             Action<Hero> action = this.editCallback;
             if (action == null)
                 return;
 
-            action(this.selectedHero);
+            action(selectedHero);
         }
 
         public void ExecuteName()
         {
-            if (this.selectedHero == null)
+            if (selectedHero == null)
                 return;
 
-            this.Name(this.selectedHero);
-            Action<Hero> action = this.nameCallback;
+            Name(selectedHero);
+            Action<Hero> action = nameCallback;
 
             if (action == null)
                 return;
 
-            action(this.selectedHero);
+            action(selectedHero);
         }
 
         public void Name(Hero hero)
@@ -63,13 +64,13 @@ namespace CharacterCreation.Models
             if (hero.CharacterObject == null)
                 return;
 
-            if (Settings.Instance.DebugMode == true)
+            if (Settings.Instance != null && Settings.Instance.DebugMode == true)
                 InformationManager.DisplayMessage(new InformationMessage("Changing name for: " + hero.Name));
 
-            InformationManager.ShowTextInquiry(new TextInquiryData("Character Renamer", "Enter a new name", true, true, "Rename", "Cancel", new Action<string>(this.renameHero), InformationManager.HideInquiry, false));
+            InformationManager.ShowTextInquiry(new TextInquiryData("Character Renamer", "Enter a new name", true, true, "Rename", "Cancel", new Action<string>(this.RenameHero), InformationManager.HideInquiry, false));
         }
 
-        private void renameHero(string heroName)
+        private void RenameHero(string heroName)
         {
             if (selectedHero.CharacterObject == null)
             {
@@ -77,7 +78,7 @@ namespace CharacterCreation.Models
                 return;
             }
             
-            if (!String.IsNullOrEmpty(heroName))
+            if (!string.IsNullOrEmpty(heroName))
             {
                 selectedHero.Name = new TextObject(heroName);
                 ClosePage();
@@ -95,10 +96,12 @@ namespace CharacterCreation.Models
             if (gauntletEncyclopediaScreenManager == null)
                 return;
 
-            FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
-            FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
-            EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
-            EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
+            //FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
+            //FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
+            //EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
+            //EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
+            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
             this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 
@@ -114,10 +117,12 @@ namespace CharacterCreation.Models
             if (gauntletEncyclopediaScreenManager == null)
                 return;
 
-            FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
-            FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
-            EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
-            EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
+            //FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
+            //FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
+            //EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
+            //EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
+            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
             this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 

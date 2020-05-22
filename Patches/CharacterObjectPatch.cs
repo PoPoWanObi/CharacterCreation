@@ -12,29 +12,30 @@ using Helpers;
 
 namespace CharacterCreation.Patches
 {
-    class CharacterObjectPatch
+    static class CharacterObjectPatch
     {
         // Inherits from CampaignBehaviorBase
-        [HarmonyPatch(typeof(CharacterObject), "UpdatePlayerCharacterBodyProperties")]
-        public class UpdatePlayerCharacterBodyProperties
+        [HarmonyPatch(typeof(CharacterObject), nameof(CharacterObject.UpdatePlayerCharacterBodyProperties))]
+        public static class UpdatePlayerCharacterBodyProperties
         {
             static bool Prefix(CharacterObject __instance, BodyProperties properties, ref bool isFemale)
             {
                 try
                 {
-                    var piSBP = typeof(Hero).GetProperty("StaticBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+                    //var piSBP = typeof(Hero).GetProperty("StaticBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
                     //var piSBB = typeof(Hero).GetProperty("DynamicBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-
+                    
                     if (__instance.IsHero)
                     {
-                        if (Settings.Instance.DebugMode == true)
+                        if (Settings.Instance != null && Settings.Instance.DebugMode)
                             InformationManager.DisplayMessage(new InformationMessage("Hero updated: " + __instance.HeroObject.Name, ColorManager.Purple));
                         //__instance.HeroObject.StaticBodyProperties = __properties.StaticProperties;
-                        piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
+                        //piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
+                        AccessTools.Property(typeof(Hero), "StaticBodyProperties").SetValue(__instance.HeroObject, properties.StaticProperties);
                         __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;
                         __instance.HeroObject.UpdatePlayerGender(isFemale);
 
-                        if (Settings.Instance.OverrideAge == false)
+                        if (Settings.Instance != null && !Settings.Instance.OverrideAge)
                         {
                             float age = properties.DynamicProperties.Age;
                             __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(age);
@@ -52,7 +53,7 @@ namespace CharacterCreation.Patches
 
         static bool Prepare()
         {
-            return Settings.Instance.OverrideAge;
+            return Settings.Instance != null && Settings.Instance.OverrideAge;
         }
     }
 }

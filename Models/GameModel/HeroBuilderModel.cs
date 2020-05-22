@@ -7,14 +7,14 @@ namespace CharacterCreation.Models
     {
         public bool IsInitialized { get; private set; }
 
-        public static Hero MainHero
+        public static Hero? MainHero
         {
             get
             {
                 if (Game.Current == null)
                     return null;
 
-                CharacterObject characterObject = Game.Current.PlayerTroop as CharacterObject;
+                CharacterObject? characterObject = Game.Current.PlayerTroop as CharacterObject;
 
                 if (characterObject == null)
                     return null;
@@ -25,7 +25,7 @@ namespace CharacterCreation.Models
 
         public void Initialize()
         {
-            Hero mainHero = MainHero;
+            Hero? mainHero = MainHero;
             if (mainHero != null)
             {
             }

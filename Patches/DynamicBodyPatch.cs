@@ -22,11 +22,14 @@ namespace CharacterCreation.Patches
         [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
         public class OnDailyTick
         {
-            static bool Prefix(ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
+            //static bool Prefix(DynamicBodyCampaignBehavior __instance, ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
+            static bool Prefix(DynamicBodyCampaignBehavior __instance)
             {
-                if (Settings.Instance.IgnoreDailyTick == true)
+                if (Settings.Instance != null && Settings.Instance.IgnoreDailyTick == true)
                 {
-                    IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(____heroBehaviorsDictionary);
+                    //IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(____heroBehaviorsDictionary);
+                    //IDictionary dictionary = (IDictionary)typeof(DynamicBodyCampaignBehavior).GetField("_heroBehaviorsDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(__instance);
+                    IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
 
                     foreach (object obj in dictionary.Keys)
                     {
@@ -61,7 +64,7 @@ namespace CharacterCreation.Patches
 
         static bool Prepare()
         {
-            return Settings.Instance.IgnoreDailyTick;
+            return Settings.Instance != null && Settings.Instance.IgnoreDailyTick;
         }
     }
 }
