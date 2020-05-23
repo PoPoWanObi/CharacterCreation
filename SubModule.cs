@@ -60,7 +60,7 @@ namespace CharacterCreation
         public override void OnGameLoaded(Game game, object initializerObject)
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
-            this.LoadXMLFiles(gameInitializer);
+            LoadXMLFiles(gameInitializer);
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
         }
 
@@ -68,7 +68,7 @@ namespace CharacterCreation
         public override void OnNewGameCreated(Game game, object initializerObject)
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
-            this.LoadXMLFiles(gameInitializer);
+            LoadXMLFiles(gameInitializer);
             TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Disable until after game started.
         }
 
