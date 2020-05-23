@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="English"/>
+  </tags>
+  <strings>
+    <string id="CharacterCration_ModNameText" text="Detailed Character Creation"/>
+    
+    <string id="CharacterCration_Section0" text="Section 0: Debug Mode"/>
+    <string id="CharacterCration_DebugModeName" text="Enable debug output"/>
+    <string id="CharacterCration_DebugModeHint" text="Enable DCC's debug output. Does NOT require restart."/>
+    
+    <string id="CharacterCration_Section1" text="Section 1: Overrides"/>
+    <string id="CharacterCration_IgnoreDailyTickName" text="Overrides"/>
+    <string id="CharacterCration_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. REQUIRES restart."/>
+    <string id="CharacterCration_OverrideAgeName" text="Override Age"/>
+    <string id="CharacterCration_OverrideAgeHint" text="When enabled, this will prevent FaceGen from changing a hero's age. REQUIRES restart."/>
+    <string id="CharacterCration_DisableAutoAgingName" text="Disable Auto Aging"/>
+    <string id="CharacterCration_DisableAutoAgingHint" text="Enable this to prevent the game from changing the age physical appearance. Does NOT require restart."/>
+
+    <string id="CharacterCration_Section2" text="Section 2: Age Model"/>
+    <string id="CharacterCration_CustomAgeModelName" text="Custom Age Model"/>
+    <string id="CharacterCration_CustomAgeModelHint" text="Enable this to use a custom age model. Disable if another mod uses a custom age model. REQUIRES restart."/>
+    <string id="CharacterCration_BecomeInfantAgeName" text="Infant Age Stage"/>
+    <string id="CharacterCration_BecomeInfantAgeHint" text="Set the default infant stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeChildAgeName" text="Child Age Stage"/>
+    <string id="CharacterCration_BecomeChildAgeHint" text="Set the default child stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeTeenagerAgeName" text="Teenager Age Stage"/>
+    <string id="CharacterCration_BecomeTeenagerAgeHint" text="Set the default teenager stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeAdultAgeName" text="Adult Age Stage"/>
+    <string id="CharacterCration_BecomeAdultAgeHint" text="Set the default adult stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeOldAgeName" text="Old Age Stage"/>
+    <string id="CharacterCration_BecomeOldAgeHint" text="Set the default old stage age. Does NOT require restart."/>
+    <string id="CharacterCration_MaxAgeName" text="Max Age Stage"/>
+    <string id="CharacterCration_MaxAgeHint" text="Set the default max age. Does NOT require restart."/>
+  </strings>
+</base>
