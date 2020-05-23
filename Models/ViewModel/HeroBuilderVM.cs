@@ -14,8 +14,9 @@ using HarmonyLib;
 
 namespace CharacterCreation.Models
 {
-    public class HeroBuilderVM : ViewModel
+    public partial class HeroBuilderVM : ViewModel
     {
+
         public void SetHero(Hero hero)
         {
             selectedHero = hero;
@@ -65,16 +66,17 @@ namespace CharacterCreation.Models
                 return;
 
             if (Settings.Instance != null && Settings.Instance.DebugMode)
-                InformationManager.DisplayMessage(new InformationMessage("Changing name for: " + hero.Name));
+                InformationManager.DisplayMessage(new InformationMessage(ChangingNameForText.ToString() + hero.Name));
 
-            InformationManager.ShowTextInquiry(new TextInquiryData("Character Renamer", "Enter a new name", true, true, "Rename", "Cancel", new Action<string>(this.RenameHero), InformationManager.HideInquiry, false));
+            InformationManager.ShowTextInquiry(new TextInquiryData(CharacterRenamerText.ToString(), EnterNewNameText.ToString(),
+                true, true, RenameText.ToString(), CancelText.ToString(), new Action<string>(RenameHero), InformationManager.HideInquiry, false));
         }
 
         private void RenameHero(string heroName)
         {
             if (selectedHero.CharacterObject == null)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Character is not valid.", ColorManager.Red));
+                InformationManager.DisplayMessage(new InformationMessage(InvalidCharacterText.ToString(), ColorManager.Red));
                 return;
             }
             
@@ -85,7 +87,7 @@ namespace CharacterCreation.Models
             }
             else
             {
-                InformationManager.DisplayMessage(new InformationMessage("Name is not valid", ColorManager.Red));
+                InformationManager.DisplayMessage(new InformationMessage(InvalidNameText.ToString(), ColorManager.Red));
                 return;
             }
         }

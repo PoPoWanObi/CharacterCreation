@@ -29,7 +29,7 @@ namespace CharacterCreation.Models
             if (mainHero != null)
             {
             }
-            this.IsInitialized = true;
+            IsInitialized = true;
         }
     }
 }

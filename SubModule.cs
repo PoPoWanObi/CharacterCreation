@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.Engine.Screens;
 using TaleWorlds.Engine.GauntletUI;
@@ -22,6 +23,10 @@ namespace CharacterCreation
         public static readonly string ModuleFolderName = "zzCharacterCreation";
         public static readonly string strings = "strings";
 
+        private static readonly TextObject LoadedModMessage = new TextObject("{=CharacterCreation_LoadedModMessage}Loaded Detailed Character Creation."),
+            EditAppearanceForHeroMessage = new TextObject("{=CharacterCreation_EditAppearanceForHeroMessage}Entering edit appearance for: "),
+            ErrorLoadingDccMessage = new TextObject("{=CharacterCreation_ErrorLoadingDccMessage}Error initializing Detailed Character Creation:");
+
         // Main
         protected override void OnSubModuleLoad()
         {
@@ -35,7 +40,7 @@ namespace CharacterCreation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error initializing Detailed Character Creation:\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                MessageBox.Show($"{ErrorLoadingDccMessage.ToString()}\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
         }
 
@@ -44,7 +49,7 @@ namespace CharacterCreation
             base.OnBeforeInitialModuleScreenSetAsRoot();
             if (!this._isLoaded)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Loaded Detailed Character Creation.", ColorManager.Orange));
+                InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));
                 this._isLoaded = true;
             }
         }
@@ -136,7 +141,7 @@ namespace CharacterCreation
                     {
                         viewModel = new HeroBuilderVM(heroModel, delegate (Hero editHero)
                         {
-                            InformationManager.DisplayMessage(new InformationMessage("Entering edit appearance for: " + editHero));
+                            InformationManager.DisplayMessage(new InformationMessage(EditAppearanceForHeroMessage.ToString() + editHero));
                         });
                     }
                     viewModel.SetHero(selectedHero);

@@ -10,6 +10,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.ViewModelCollection;
 using static TaleWorlds.CampaignSystem.Hero;
@@ -26,6 +27,10 @@ namespace CharacterCreation.Patches
         private static readonly FieldInfo LastEncounterTimeField = AccessTools.Field(HeroBehaviorsStructType, "LastEncounterTime"); // type: CampaignTime
         private static readonly FieldInfo IsBattleEncounteredField = AccessTools.Field(HeroBehaviorsStructType, "IsBattleEncountered"); // type: bool
 
+        // localization
+        private static readonly TextObject DebugSetAppearanceMsg = new TextObject("{=CharacterCreation_DebugSetAppearanceMsg}[Debug] Set appearance for: "),
+            DebugResultMsg = new TextObject("{=CharacterCreation_DebugResultMsg}[Debug] Result: ");
+
         //static bool Prefix(DynamicBodyCampaignBehavior __instance, ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
         static bool Prefix(DynamicBodyCampaignBehavior __instance)
         {
@@ -41,9 +46,9 @@ namespace CharacterCreation.Patches
                     {
                         if (hero.IsHumanPlayerCharacter && Settings.Instance.DebugMode)
                         {
-                            InformationManager.DisplayMessage(new InformationMessage("[Debug] Set appearance for: " + hero.Name, ColorManager.Red));
+                            InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
                             var test = new DynamicBodyProperties(hero.DynamicBodyProperties.Age + 12f, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
-                            InformationManager.DisplayMessage(new InformationMessage("[Debug] Result: " + test, ColorManager.Red));
+                            InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
                             hero.DynamicBodyProperties.Equals(test);
 
                             // TODO: Get access to keyValuePair w/ Reflection
