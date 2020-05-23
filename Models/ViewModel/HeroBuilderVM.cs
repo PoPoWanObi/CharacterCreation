@@ -64,7 +64,7 @@ namespace CharacterCreation.Models
             if (hero.CharacterObject == null)
                 return;
 
-            if (Settings.Instance != null && Settings.Instance.DebugMode == true)
+            if (Settings.Instance != null && Settings.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage("Changing name for: " + hero.Name));
 
             InformationManager.ShowTextInquiry(new TextInquiryData("Character Renamer", "Enter a new name", true, true, "Rename", "Cancel", new Action<string>(this.RenameHero), InformationManager.HideInquiry, false));
