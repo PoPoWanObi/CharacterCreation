@@ -19,12 +19,12 @@ namespace CharacterCreation
         public bool DebugMode { get; set; } = false;
 
         #region Overrides
-        [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 1, RequireRestart = true)]
+        [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 1, RequireRestart = false)]
         [SettingPropertyGroup(Section1, IsMainToggle = true)]
         public bool IgnoreDailyTick { get; set; } = true;
 
         [XmlElement]
-        [SettingPropertyBool(OverrideAgeName, HintText = OverrideAgeHint, Order = 2, RequireRestart = true)]
+        [SettingPropertyBool(OverrideAgeName, HintText = OverrideAgeHint, Order = 2, RequireRestart = false)]
         [SettingPropertyGroup(Section1)]
         public bool OverrideAge { get; set; } = false;
 

@@ -11,7 +11,7 @@ using TaleWorlds.MountAndBlade;
 
 namespace CharacterCreation.Patches
 {
-    public class BodyGeneratorPatch
+    public static class BodyGeneratorPatch
     {
         [HarmonyPatch(typeof(BodyGenerator), nameof(BodyGenerator.SaveCurrentCharacter))]
         private static class SaveCurrentCharacter
@@ -20,8 +20,6 @@ namespace CharacterCreation.Patches
             {
                 try
                 {
-                    //TODO: Update to reflect SaveTraitChange() -- Does nothing right now but may in the future
-                    //var piSBP = typeof(BodyGenerator).GetProperty("SaveTraitChanges", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
                    __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
                     return false;
                 }

@@ -17,9 +17,9 @@ using static TaleWorlds.CampaignSystem.Hero;
 namespace CharacterCreation.Patches
 {
     [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
-    public class TweakedDynamicBody : DynamicBodyCampaignBehavior
+    public static class DynamicBodyPatch
     {
-        // Rough exposure of DynamicBodyCampaignBehavior.HeroBehaviors struct. You are welcome.
+        // Rough exposure of DynamicBodyCampaignBehavior.HeroBehaviors struct. You are welcome. - Designer225
         private static readonly Type HeroBehaviorsStructType = AccessTools.Inner(typeof(DynamicBodyCampaignBehavior), "HeroBehaviors");
         private static readonly FieldInfo LastSettlementVisitTimeField = AccessTools.Field(HeroBehaviorsStructType, "LastSettlementVisitTime"); // type: CampaignTime
         private static readonly FieldInfo InASettlementField = AccessTools.Field(HeroBehaviorsStructType, "InASettlement"); // type: bool
@@ -37,16 +37,13 @@ namespace CharacterCreation.Patches
                 {
                     Hero hero = (Hero)heroBehaviors.Key;
 
-                    if (Settings.Instance.DisableAutoAging == false)
+                    if (!Settings.Instance.DisableAutoAging)
                     {
-                        if (hero.IsHumanPlayerCharacter)
+                        if (hero.IsHumanPlayerCharacter && Settings.Instance.DebugMode)
                         {
-                            if (Settings.Instance.DebugMode == true)
-                                InformationManager.DisplayMessage(new InformationMessage("[Debug] Set appearance for: " + hero.Name, ColorManager.Red));
+                            InformationManager.DisplayMessage(new InformationMessage("[Debug] Set appearance for: " + hero.Name, ColorManager.Red));
                             var test = new DynamicBodyProperties(hero.DynamicBodyProperties.Age + 12f, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
-
-                            if (Settings.Instance.DebugMode == true)
-                                InformationManager.DisplayMessage(new InformationMessage("[Debug] Result: " + test, ColorManager.Red));
+                            InformationManager.DisplayMessage(new InformationMessage("[Debug] Result: " + test, ColorManager.Red));
                             hero.DynamicBodyProperties.Equals(test);
 
                             // TODO: Get access to keyValuePair w/ Reflection
@@ -55,17 +52,14 @@ namespace CharacterCreation.Patches
                             float build = hero.DynamicBodyProperties.Build;
                             ____heroBehaviorsDictionary.Key.DynamicBodyProperties = new DynamicBodyProperties(____heroBehaviorsDictionary.Key.Age, weight, build;*/
                         }
+
+                        hero.DynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
                     }
                 }
                 return false;
             }
             else
                 return true;
-        }
-
-        static bool Prepare()
-        {
-            return Settings.Instance != null && Settings.Instance.IgnoreDailyTick;
         }
     }
 }

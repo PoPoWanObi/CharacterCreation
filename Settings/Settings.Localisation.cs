@@ -17,9 +17,9 @@ namespace CharacterCreation
             
             Section1 = "{=CharacterCration_Section1}Section 1: Overrides",
             IgnoreDailyTickName = "{=CharacterCration_IgnoreDailyTickName}Overrides",
-            IgnoreDailyTickHint = "{=CharacterCration_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. REQUIRES restart.",
+            IgnoreDailyTickHint = "{=CharacterCration_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Does NOT require restart.",
             OverrideAgeName = "{=CharacterCration_OverrideAgeName}Override Age",
-            OverrideAgeHint = "{=CharacterCration_OverrideAgeHint}When enabled, this will prevent FaceGen from changing a hero's age. REQUIRES restart.",
+            OverrideAgeHint = "{=CharacterCration_OverrideAgeHint}When enabled, this will prevent FaceGen from changing a hero's age. Does NOT require restart.",
             DisableAutoAgingName = "{=CharacterCration_DisableAutoAgingName}Disable Auto Aging",
             DisableAutoAgingHint = "{=CharacterCration_DisableAutoAgingHint}Enable this to prevent the game from changing the age physical appearance. Does NOT require restart.",
             

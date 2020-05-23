@@ -12,9 +12,9 @@
     
     <string id="CharacterCration_Section1" text="Section 1: Overrides"/>
     <string id="CharacterCration_IgnoreDailyTickName" text="Overrides"/>
-    <string id="CharacterCration_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. REQUIRES restart."/>
+    <string id="CharacterCration_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. Does NOT require restart."/>
     <string id="CharacterCration_OverrideAgeName" text="Override Age"/>
-    <string id="CharacterCration_OverrideAgeHint" text="When enabled, this will prevent FaceGen from changing a hero's age. REQUIRES restart."/>
+    <string id="CharacterCration_OverrideAgeHint" text="When enabled, this will prevent FaceGen from changing a hero's age. Does NOT require restart."/>
     <string id="CharacterCration_DisableAutoAgingName" text="Disable Auto Aging"/>
     <string id="CharacterCration_DisableAutoAgingHint" text="Enable this to prevent the game from changing the age physical appearance. Does NOT require restart."/>
 
