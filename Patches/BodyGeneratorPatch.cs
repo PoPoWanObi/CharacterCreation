@@ -7,27 +7,28 @@ using System.Windows.Forms;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 
 namespace CharacterCreation.Patches
 {
-    public class BodyGeneratorPatch
+    public static class BodyGeneratorPatch
     {
         [HarmonyPatch(typeof(BodyGenerator), nameof(BodyGenerator.SaveCurrentCharacter))]
         private static class SaveCurrentCharacter
         {
+            private static readonly TextObject ErrorText = new TextObject("{=CharacterCreation_ErrorText}Error:");
+
             static bool Prefix(BodyGenerator __instance)
             {
                 try
                 {
-                    //TODO: Update to reflect SaveTraitChange() -- Does nothing right now but may in the future
-                    //var piSBP = typeof(BodyGenerator).GetProperty("SaveTraitChanges", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
                    __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
                     return false;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                    MessageBox.Show($"{ErrorText.ToString()}\n{ex.Message} \n\n{ex.InnerException?.Message}");
                     return true;
                 }
             }

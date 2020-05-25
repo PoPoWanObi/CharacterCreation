@@ -1,0 +1,19 @@
+﻿<Module>
+     <Name value="*DCC Main* (Required)"/>
+     <Id value="!DCC"/>
+     <Version value="v1.0.0"/>
+     <SingleplayerModule value="true"/>
+     <MultiplayerModule value="false"/>
+     <Official value ="false" />
+     <DependedModules />
+     <SubModules />
+    <Xmls>
+        <XmlNode>
+            <XmlName id="soln_skins" path="skins"/>
+                <IncludedGameTypes>
+                    <GameType value = "Campaign"/>
+                    <GameType value = "CampaignStoryMode"/>
+                </IncludedGameTypes>
+            </XmlNode>
+    </Xmls>
+ </Module>

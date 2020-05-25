@@ -12,48 +12,21 @@ using Helpers;
 
 namespace CharacterCreation.Patches
 {
+    [HarmonyPatch(typeof(CharacterObject), nameof(CharacterObject.UpdatePlayerCharacterBodyProperties))]
     static class CharacterObjectPatch
     {
-        // Inherits from CampaignBehaviorBase
-        [HarmonyPatch(typeof(CharacterObject), nameof(CharacterObject.UpdatePlayerCharacterBodyProperties))]
-        public static class UpdatePlayerCharacterBodyProperties
+        private static readonly TextObject HeroUpdatedMsg = new TextObject("{=CharacterCreation_HeroUpdatedMsg}Hero updated: ");
+
+        static void Postfix(CharacterObject __instance, BodyProperties properties, bool isFemale)
         {
-            static bool Prefix(CharacterObject __instance, BodyProperties properties, ref bool isFemale)
+            if (__instance.IsHero)
             {
-                try
-                {
-                    //var piSBP = typeof(Hero).GetProperty("StaticBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-                    //var piSBB = typeof(Hero).GetProperty("DynamicBodyProperties", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-                    
-                    if (__instance.IsHero)
-                    {
-                        if (Settings.Instance != null && Settings.Instance.DebugMode)
-                            InformationManager.DisplayMessage(new InformationMessage("Hero updated: " + __instance.HeroObject.Name, ColorManager.Purple));
-                        //__instance.HeroObject.StaticBodyProperties = __properties.StaticProperties;
-                        //piSBP.SetValue(__instance.HeroObject, properties.StaticProperties);
-                        AccessTools.Property(typeof(Hero), "StaticBodyProperties").SetValue(__instance.HeroObject, properties.StaticProperties);
-                        __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;
-                        __instance.HeroObject.UpdatePlayerGender(isFemale);
+                if (Settings.Instance != null && Settings.Instance.DebugMode)
+                    InformationManager.DisplayMessage(new InformationMessage(HeroUpdatedMsg.ToString() + __instance.HeroObject.Name, ColorManager.Purple));
 
-                        if (Settings.Instance != null && !Settings.Instance.OverrideAge)
-                        {
-                            float age = properties.DynamicProperties.Age;
-                            __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(age);
-                        }
-                    }
-                    return false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An exception occurred whilst trying to apply the changes.\n\nException:\n{ex.Message}\n\n{ex.InnerException?.Message}");
-                }
-                return true;
+                if (Settings.Instance != null && !Settings.Instance.OverrideAge)
+                    __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(properties.DynamicProperties.Age);
             }
-        }
-
-        static bool Prepare()
-        {
-            return Settings.Instance != null && Settings.Instance.OverrideAge;
         }
     }
 }

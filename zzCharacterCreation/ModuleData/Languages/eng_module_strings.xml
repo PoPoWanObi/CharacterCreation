@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="English"/>
+  </tags>
+  <strings>
+    <!-- Settings entries -->
+    <string id="CharacterCration_ModNameText" text="Detailed Character Creation"/>
+    
+    <string id="CharacterCration_Section0" text="Section 0: Debug Mode"/>
+    <string id="CharacterCration_DebugModeName" text="Enable debug output"/>
+    <string id="CharacterCration_DebugModeHint" text="Enable DCC's debug output. Does NOT require restart."/>
+    
+    <string id="CharacterCration_Section1" text="Section 1: Overrides"/>
+    <string id="CharacterCration_IgnoreDailyTickName" text="Overrides"/>
+    <string id="CharacterCration_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. Does NOT require restart."/>
+    <string id="CharacterCration_OverrideAgeName" text="Override Age"/>
+    <string id="CharacterCration_OverrideAgeHint" text="When enabled, this will prevent FaceGen from changing a hero's age. Does NOT require restart."/>
+    <string id="CharacterCration_DisableAutoAgingName" text="Disable Auto Aging"/>
+    <string id="CharacterCration_DisableAutoAgingHint" text="Enable this to prevent the game from changing the age physical appearance. Does NOT require restart."/>
+
+    <string id="CharacterCration_Section2" text="Section 2: Age Model"/>
+    <string id="CharacterCration_CustomAgeModelName" text="Custom Age Model"/>
+    <string id="CharacterCration_CustomAgeModelHint" text="Enable this to use a custom age model. Disable if another mod uses a custom age model. REQUIRES restart."/>
+    <string id="CharacterCration_BecomeInfantAgeName" text="Infant Age Stage"/>
+    <string id="CharacterCration_BecomeInfantAgeHint" text="Set the default infant stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeChildAgeName" text="Child Age Stage"/>
+    <string id="CharacterCration_BecomeChildAgeHint" text="Set the default child stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeTeenagerAgeName" text="Teenager Age Stage"/>
+    <string id="CharacterCration_BecomeTeenagerAgeHint" text="Set the default teenager stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeAdultAgeName" text="Adult Age Stage"/>
+    <string id="CharacterCration_BecomeAdultAgeHint" text="Set the default adult stage age. Does NOT require restart."/>
+    <string id="CharacterCration_BecomeOldAgeName" text="Old Age Stage"/>
+    <string id="CharacterCration_BecomeOldAgeHint" text="Set the default old stage age. Does NOT require restart."/>
+    <string id="CharacterCration_MaxAgeName" text="Max Age Stage"/>
+    <string id="CharacterCration_MaxAgeHint" text="Set the default max age. Does NOT require restart."/>
+    
+    <!-- SubModule entries -->
+    <string id="CharacterCreation_LoadedModMessage" text="Loaded Detailed Character Creation."/>
+    <string id="CharacterCreation_EditAppearanceForHeroMessage" text="Entering edit appearance for: "/>
+    <string id="CharacterCreation_ErrorLoadingDccMessage" text="Error initializing Detailed Character Creation:"/>
+    <string id="CharacterCreation_ExpectedActualAgeMessage" text="[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}"/>
+
+    <!-- HeroBuilderVM entries -->
+    <string id="CharacterCreation_ChangingNameForText" text="Changing name for: "/>
+    <string id="CharacterCreation_InvalidCharacterText" text="Character is not valid."/>
+    <string id="CharacterCreation_InvalidNameText" text="Name is not valid."/>
+    <string id="CharacterCreation_CharacterRenamerText" text="Character Renamer"/>
+    <string id="CharacterCreation_EnterNewNameText" text="Enter a new name"/>
+    <string id="CharacterCreation_RenameText" text="Rename"/>
+    <string id="CharacterCreation_CancelText" text="Cancel"/>
+
+    <!-- CharacterObjectPatch entry -->
+    <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>
+    
+    <!-- BodyGeneratorPatch entry -->
+    <string id="CharacterCreation_ErrorText" text="Error:"/>
+
+    <!-- DynamicBodyPatch entries -->
+    <string id="CharacterCreation_DebugSetAppearanceMsg" text="[Debug] Set appearance for: "/>
+    <string id="CharacterCreation_DebugResultMsg" text="[Debug] Result: "/>
+    
+    <!-- Commands entries -->
+    <string id="CharacterCreation_DccDisabledMsg" text="Detailed Character Creation disabled."/>
+    <string id="CharacterCreation_DccEnabledMsg" text="You have enabled Detailed Character Creation. Press V to access."/>
+    <string id="CharacterCreation_FormatMsgHeader" text="Format: "/>
+    <string id="CharacterCreation_HeroNameText" text="HeroName"/>
+    <string id="CharacterCreation_AgeText" text="Age"/>
+    <string id="CharacterCreation_HeroNotFoundMsg" text="Hero is not found"/>
+    <string id="CharacterCreation_EnterAgeMsg" text="Please enter an age."/>
+    <string id="CharacterCreation_SuccessMsg" text="Success"/>
+  </strings>
+</base>
