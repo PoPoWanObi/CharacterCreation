@@ -39,6 +39,7 @@
     <string id="CharacterCreation_LoadedModMessage" text="Loaded Detailed Character Creation."/>
     <string id="CharacterCreation_EditAppearanceForHeroMessage" text="Entering edit appearance for: "/>
     <string id="CharacterCreation_ErrorLoadingDccMessage" text="Error initializing Detailed Character Creation:"/>
+    <string id="CharacterCreation_ExpectedActualAgeMessage" text="[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}"/>
 
     <!-- HeroBuilderVM entries -->
     <string id="CharacterCreation_ChangingNameForText" text="Changing name for: "/>

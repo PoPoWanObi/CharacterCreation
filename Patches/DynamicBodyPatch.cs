@@ -38,6 +38,10 @@ namespace CharacterCreation.Patches
             {
                 IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
 
+                CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
+                double yearsElapsed = deltaTime.ToYears;
+                SubModule.TimeSinceLastSave = CampaignTime.Now;
+
                 foreach (DictionaryEntry heroBehaviors in dictionary)
                 {
                     Hero hero = (Hero)heroBehaviors.Key;
@@ -58,7 +62,12 @@ namespace CharacterCreation.Patches
                             ____heroBehaviorsDictionary.Key.DynamicBodyProperties = new DynamicBodyProperties(____heroBehaviorsDictionary.Key.Age, weight, build;*/
                         }
 
-                        hero.DynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                        double newAge = hero.DynamicBodyProperties.Age + yearsElapsed;
+                        DynamicBodyProperties bodyProperties = new DynamicBodyProperties((float)newAge, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                        hero.DynamicBodyProperties = bodyProperties;
+
+                        if (hero.IsHumanPlayerCharacter && Settings.Instance.DebugMode)
+                            InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
                     }
                 }
                 return false;

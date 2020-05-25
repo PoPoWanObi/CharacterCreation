@@ -26,6 +26,19 @@ namespace CharacterCreation
         private static readonly TextObject LoadedModMessage = new TextObject("{=CharacterCreation_LoadedModMessage}Loaded Detailed Character Creation."),
             EditAppearanceForHeroMessage = new TextObject("{=CharacterCreation_EditAppearanceForHeroMessage}Entering edit appearance for: "),
             ErrorLoadingDccMessage = new TextObject("{=CharacterCreation_ErrorLoadingDccMessage}Error initializing Detailed Character Creation:");
+            
+        private static readonly TextObject ExpectedActualAgeMessage = new TextObject("{=CharacterCreation_ExpectedActualAgeMessage}[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}");
+
+        public static CampaignTime TimeSinceLastSave { get; set; }
+        
+        public static string GetFormattedAgeDebugMessage(Hero hero, float expectedAge)
+        {
+            TextObject message = ExpectedActualAgeMessage.CopyTextObject();
+            message.SetTextVariable("HERO_NAME", hero.Name);
+            message.SetTextVariable("AGE1", expectedAge);
+            message.SetTextVariable("AGE2", hero.Age);
+            return message.ToString();
+        }
 
         // Main
         protected override void OnSubModuleLoad()
@@ -67,6 +80,20 @@ namespace CharacterCreation
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
             LoadXMLFiles(gameInitializer);
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
+
+            if (game.GameType is Campaign && Settings.Instance != null && Settings.Instance.DebugMode)
+            {
+                foreach (Hero hero in game.ObjectManager.GetObjectTypeList<Hero>())
+                {
+                    
+                    if (hero.IsHumanPlayerCharacter)
+                    {
+                        InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
+                        Debug.Print(GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age));
+                        break;
+                    }
+                }
+            }
         }
 
         // Called when starting new campaign
@@ -87,6 +114,9 @@ namespace CharacterCreation
                 return;
 
             AddModels(gameStarterObject as CampaignGameStarter);
+
+            TimeSinceLastSave = CampaignTime.Now;
+            game.AddGameHandler<AgingGameHandler>();
 
             game.EventManager.RegisterEvent(delegate (EncyclopediaPageChangedEvent e)
             {
@@ -180,5 +210,32 @@ namespace CharacterCreation
         private GauntletMovie? gauntletMovie;
 
         private bool _isLoaded;
+
+        private class AgingGameHandler : GameHandler
+        {
+            public override void OnAfterSave()
+            {
+            }
+
+            public override void OnBeforeSave()
+            {
+                if (Game.Current != null && Game.Current.GameType is Campaign)
+                {
+                    CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
+                    double yearsElapsed = deltaTime.ToYears;
+                    TimeSinceLastSave = CampaignTime.Now;
+
+                    foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
+                    {
+                        double newAge = hero.DynamicBodyProperties.Age + yearsElapsed;
+                        DynamicBodyProperties bodyProperties = new DynamicBodyProperties((float)newAge, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                        hero.DynamicBodyProperties = bodyProperties;
+
+                        if (hero.IsHumanPlayerCharacter && Settings.Instance != null && Settings.Instance.DebugMode)
+                            InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
+                    }
+                }
+            }
+        }
     }
 }
