@@ -21,6 +21,13 @@ namespace CharacterCreation.Patches
         {
             if (__instance.IsHero)
             {
+                if (!__instance.IsPlayerCharacter)
+                {
+                    AccessTools.Property(typeof(Hero), "StaticBodyProperties").SetValue(__instance.HeroObject, properties.StaticProperties);
+                    __instance.HeroObject.DynamicBodyProperties = properties.DynamicProperties;
+                    __instance.HeroObject.UpdatePlayerGender(isFemale);
+                }
+
                 if (Settings.Instance != null && Settings.Instance.DebugMode)
                     InformationManager.DisplayMessage(new InformationMessage(HeroUpdatedMsg.ToString() + __instance.HeroObject.Name, ColorManager.Purple));
 

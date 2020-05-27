@@ -35,8 +35,8 @@ namespace CharacterCreation
         {
             TextObject message = ExpectedActualAgeMessage.CopyTextObject();
             message.SetTextVariable("HERO_NAME", hero.Name);
-            message.SetTextVariable("AGE1", expectedAge);
-            message.SetTextVariable("AGE2", hero.Age);
+            message.SetTextVariable("AGE1", new TextObject(expectedAge.ToString()));
+            message.SetTextVariable("AGE2", new TextObject(hero.Age.ToString()));
             return message.ToString();
         }
 
