@@ -206,7 +206,7 @@ namespace CharacterCreation
 
         private HeroBuilderVM? viewModel;
         private EncyclopediaHeroPageVM? selectedHeroPage;
-        private HeroBuilderModel heroModel;
+        private HeroBuilderModel? heroModel;
         private Hero? selectedHero;
         private ScreenBase? gauntletLayerTopScreen;
         private GauntletLayer? gauntletLayer;

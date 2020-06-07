@@ -1,17 +1,20 @@
 ﻿using System.Xml.Serialization;
-using MBOptionScreen.Attributes;
-using MBOptionScreen.Attributes.v2;
-using MBOptionScreen.Settings;
+using MCM.Abstractions.Attributes;
+using MCM.Abstractions.Attributes.v2;
+using MCM.Abstractions.Settings.Base.PerCharacter;
 
 namespace CharacterCreation
 {
-    public partial class Settings : AttributeSettings<Settings>
+    public partial class Settings : AttributePerCharacterSettings<Settings>
     {
-        public override string ModName => ModNameTextObject.ToString();
-        public override string ModuleFolderName => SubModule.ModuleFolderName;
+        //public override string ModName => ModNameTextObject.ToString();
+        //public override string ModuleFolderName => SubModule.ModuleFolderName;
+
+        public override string DisplayName { get; } = $"Detailed Character Creation {typeof(Settings).Assembly.GetName().Version.ToString(3)}";
+        public override string FolderName { get; } = "DetailedCharacterCreation";
 
         [XmlElement]
-        public override string Id { get; set; } = "DCCSettings_v2";
+        public override string Id { get; } = "DCCSettings_v2";
 
         [XmlElement]
         [SettingPropertyBool(DebugModeName, HintText = DebugModeHint, Order = 0, RequireRestart = false)]

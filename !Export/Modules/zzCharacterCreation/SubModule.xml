@@ -22,9 +22,9 @@
       </Tags>
     </SubModule>
     <SubModule>
-      <Name value="MBOptionScreen" />
-      <DLLName value="MBOptionScreen.v2.0.10.dll" />
-      <SubModuleClassType value="MBOptionScreen.MBOptionScreenSubModuleV2010" />
+      <Name value="MCMv3 Integrated Loader" />
+      <DLLName value="MCMv3.dll" />
+      <SubModuleClassType value="MCM.IntegratedLoaderSubModule" />
       <Tags>
         <Tag key="DedicatedServerType" value="none" />
         <Tag key="IsNoRenderModeElement" value="false" />
