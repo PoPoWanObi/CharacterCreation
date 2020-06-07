@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 using TaleWorlds.Core;
@@ -27,17 +28,17 @@ namespace CharacterCreation
             EditAppearanceForHeroMessage = new TextObject("{=CharacterCreation_EditAppearanceForHeroMessage}Entering edit appearance for: "),
             ErrorLoadingDccMessage = new TextObject("{=CharacterCreation_ErrorLoadingDccMessage}Error initializing Detailed Character Creation:");
             
-        private static readonly TextObject ExpectedActualAgeMessage = new TextObject("{=CharacterCreation_ExpectedActualAgeMessage}[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}");
+        private const string ExpectedActualAgeMessage = "{=CharacterCreation_ExpectedActualAgeMessage}[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}";
 
         public static CampaignTime TimeSinceLastSave { get; set; }
-        
+
         public static string GetFormattedAgeDebugMessage(Hero hero, float expectedAge)
         {
-            TextObject message = ExpectedActualAgeMessage.CopyTextObject();
-            message.SetTextVariable("HERO_NAME", hero.Name);
-            message.SetTextVariable("AGE1", new TextObject(expectedAge.ToString()));
-            message.SetTextVariable("AGE2", new TextObject(hero.Age.ToString()));
-            return message.ToString();
+            var attributes = new Dictionary<string, TextObject>();
+            attributes["HERO_NAME"] = hero.Name;
+            attributes["AGE1"] = new TextObject(expectedAge);
+            attributes["AGE2"] = new TextObject(hero.Age);
+            return new TextObject(ExpectedActualAgeMessage, attributes).ToString();
         }
 
         // Main
