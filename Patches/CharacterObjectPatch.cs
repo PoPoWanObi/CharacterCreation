@@ -28,10 +28,10 @@ namespace CharacterCreation.Patches
                     __instance.HeroObject.UpdatePlayerGender(isFemale);
                 }
 
-                if (Settings.Instance != null && Settings.Instance.DebugMode)
+                if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
                     InformationManager.DisplayMessage(new InformationMessage(HeroUpdatedMsg.ToString() + __instance.HeroObject.Name, ColorManager.Purple));
 
-                if (Settings.Instance != null && !Settings.Instance.OverrideAge)
+                if (DCCSettings.Instance != null && !DCCSettings.Instance.OverrideAge)
                     __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(properties.DynamicProperties.Age);
             }
         }

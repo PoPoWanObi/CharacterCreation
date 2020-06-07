@@ -22,7 +22,6 @@ namespace CharacterCreation
     {
         public static readonly string ModuleFolderName = "zzCharacterCreation";
         public static readonly string strings = "strings";
-        public static readonly string skins = "skins";
 
         private static readonly TextObject LoadedModMessage = new TextObject("{=CharacterCreation_LoadedModMessage}Loaded Detailed Character Creation."),
             EditAppearanceForHeroMessage = new TextObject("{=CharacterCreation_EditAppearanceForHeroMessage}Entering edit appearance for: "),
@@ -73,8 +72,6 @@ namespace CharacterCreation
         {
             // Load our additional strings
             gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleFolderName + "/ModuleData/" + strings + ".xml");
-            // Load skins.xml ???
-            gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleFolderName + "/ModuleData/" + skins + ".xml");
         }
 
         // Called when loading save game
@@ -84,7 +81,7 @@ namespace CharacterCreation
             LoadXMLFiles(gameInitializer);
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
 
-            if (game.GameType is Campaign && Settings.Instance != null && Settings.Instance.DebugMode)
+            if (game.GameType is Campaign && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
             {
                 foreach (Hero hero in game.ObjectManager.GetObjectTypeList<Hero>())
                 {
@@ -199,7 +196,7 @@ namespace CharacterCreation
             {
                 gameStarter.AddModel(heroModel = new HeroBuilderModel());
 
-                if (Settings.Instance != null && Settings.Instance.CustomAgeModel)
+                if (DCCSettings.Instance != null && DCCSettings.Instance.CustomAgeModel)
                     gameStarter.AddModel(new Models.AgeModel());
             }
         }
@@ -234,7 +231,7 @@ namespace CharacterCreation
                         DynamicBodyProperties bodyProperties = new DynamicBodyProperties((float)newAge, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
                         hero.DynamicBodyProperties = bodyProperties;
 
-                        if (hero.IsHumanPlayerCharacter && Settings.Instance != null && Settings.Instance.DebugMode)
+                        if (hero.IsHumanPlayerCharacter && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
                             InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
                     }
                 }

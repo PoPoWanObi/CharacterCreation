@@ -5,16 +5,13 @@ using MCM.Abstractions.Settings.Base.PerCharacter;
 
 namespace CharacterCreation
 {
-    public partial class Settings : AttributePerCharacterSettings<Settings>
+    public partial class DCCSettings : AttributePerCharacterSettings<DCCSettings>
     {
         //public override string ModName => ModNameTextObject.ToString();
         //public override string ModuleFolderName => SubModule.ModuleFolderName;
-
-        public override string DisplayName { get; } = $"Detailed Character Creation {typeof(Settings).Assembly.GetName().Version.ToString(3)}";
+        public override string Id { get; } = "DCCSettings";
+        public override string DisplayName { get; } = "Detailed Character Creation";
         public override string FolderName { get; } = "DetailedCharacterCreation";
-
-        [XmlElement]
-        public override string Id { get; } = "DCCSettings_v2";
 
         [XmlElement]
         [SettingPropertyBool(DebugModeName, HintText = DebugModeHint, Order = 0, RequireRestart = false)]

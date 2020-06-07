@@ -34,7 +34,7 @@ namespace CharacterCreation.Patches
         //static bool Prefix(DynamicBodyCampaignBehavior __instance, ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
         static bool Prefix(DynamicBodyCampaignBehavior __instance)
         {
-            if (Settings.Instance != null && Settings.Instance.IgnoreDailyTick)
+            if (DCCSettings.Instance != null && DCCSettings.Instance.IgnoreDailyTick)
             {
                 IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
 
@@ -46,9 +46,9 @@ namespace CharacterCreation.Patches
                 {
                     Hero hero = (Hero)heroBehaviors.Key;
 
-                    if (!Settings.Instance.DisableAutoAging)
+                    if (!DCCSettings.Instance.DisableAutoAging)
                     {
-                        if (hero.IsHumanPlayerCharacter && Settings.Instance.DebugMode)
+                        if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
                         {
                             InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
                             var test = new DynamicBodyProperties(hero.DynamicBodyProperties.Age + 12f, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
@@ -66,7 +66,7 @@ namespace CharacterCreation.Patches
                         DynamicBodyProperties bodyProperties = new DynamicBodyProperties((float)newAge, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
                         hero.DynamicBodyProperties = bodyProperties;
 
-                        if (hero.IsHumanPlayerCharacter && Settings.Instance.DebugMode)
+                        if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
                             InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
                     }
                 }

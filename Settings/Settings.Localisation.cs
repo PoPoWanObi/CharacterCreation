@@ -7,7 +7,7 @@ using TaleWorlds.Localization;
 
 namespace CharacterCreation
 {
-    public partial class Settings
+    public partial class DCCSettings
     {
         private const string ModNameText = "{=CharacterCration_ModNameText}Detailed Character Creation",
             

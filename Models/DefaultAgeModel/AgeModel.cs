@@ -8,14 +8,14 @@ namespace CharacterCreation.Models
         {
             get
             {
-                return Settings.Instance != null ? Settings.Instance.BecomeInfantAge : base.BecomeInfantAge;
+                return DCCSettings.Instance != null ? DCCSettings.Instance.BecomeInfantAge : base.BecomeInfantAge;
             }
         }
         public override int BecomeChildAge
         {
             get
             {
-                return Settings.Instance != null ? Settings.Instance.BecomeChildAge : base.BecomeChildAge;
+                return DCCSettings.Instance != null ? DCCSettings.Instance.BecomeChildAge : base.BecomeChildAge;
             }
         }
 
@@ -23,7 +23,7 @@ namespace CharacterCreation.Models
         {
             get
             {
-                return Settings.Instance != null ? Settings.Instance.BecomeTeenagerAge : base.BecomeTeenagerAge;
+                return DCCSettings.Instance != null ? DCCSettings.Instance.BecomeTeenagerAge : base.BecomeTeenagerAge;
             }
         }
 
@@ -31,7 +31,7 @@ namespace CharacterCreation.Models
         {
             get
             {
-                return Settings.Instance != null ? Settings.Instance.BecomeAdultAge : base.HeroComesOfAge;
+                return DCCSettings.Instance != null ? DCCSettings.Instance.BecomeAdultAge : base.HeroComesOfAge;
             }
         }
 
@@ -39,7 +39,7 @@ namespace CharacterCreation.Models
         {
             get
             {
-                return Settings.Instance != null ? Settings.Instance.BecomeOldAge : base.BecomeOldAge;
+                return DCCSettings.Instance != null ? DCCSettings.Instance.BecomeOldAge : base.BecomeOldAge;
             }
         }
 
@@ -47,7 +47,7 @@ namespace CharacterCreation.Models
         {
             get
             {
-                return Settings.Instance != null ? Settings.Instance.MaxAge : base.MaxAge;
+                return DCCSettings.Instance != null ? DCCSettings.Instance.MaxAge : base.MaxAge;
 
             }
         }
