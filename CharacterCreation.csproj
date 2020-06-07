@@ -66,7 +66,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd $(OutDir)&#xD;&#xA;xcopy $(TargetFileName) ..\..\..\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy $(TargetName).pdb ..\..\..\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy 0Harmony.dll ..\..\..\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy MBOptionScreen.v2.0.10.dll ..\..\..\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;cd ..\..\..\&#xD;&#xA;xcopy SubModule.xml zzCharacterCreation\ /y&#xD;&#xA;xcopy zzCharacterCreation &quot;$(GameFolder)\Modules\zzCharacterCreation&quot; /s /y" />
+    <Exec Command="cd $(OutDir)&#xD;&#xA;xcopy $(TargetFileName) ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy $(TargetName).pdb ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy 0Harmony.dll ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy MBOptionScreen.v2.0.10.dll ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;cd ..\..\..\&#xD;&#xA;xcopy SubModule.xml !Export\Modules\zzCharacterCreation\ /y&#xD;&#xA;xcopy zzCharacterCreation &quot;$(GameFolder)\Modules\zzCharacterCreation&quot; /s /y" />
   </Target>
 
 </Project>

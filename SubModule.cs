@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Windows.Forms;
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
@@ -23,6 +22,7 @@ namespace CharacterCreation
     {
         public static readonly string ModuleFolderName = "zzCharacterCreation";
         public static readonly string strings = "strings";
+        public static readonly string skins = "skins";
 
         private static readonly TextObject LoadedModMessage = new TextObject("{=CharacterCreation_LoadedModMessage}Loaded Detailed Character Creation."),
             EditAppearanceForHeroMessage = new TextObject("{=CharacterCreation_EditAppearanceForHeroMessage}Entering edit appearance for: "),
@@ -73,6 +73,8 @@ namespace CharacterCreation
         {
             // Load our additional strings
             gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleFolderName + "/ModuleData/" + strings + ".xml");
+            // Load skins.xml ???
+            gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleFolderName + "/ModuleData/" + skins + ".xml");
         }
 
         // Called when loading save game
