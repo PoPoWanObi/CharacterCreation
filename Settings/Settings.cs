@@ -1,17 +1,17 @@
 ﻿using System.Xml.Serialization;
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
-using MCM.Abstractions.Settings.Base.PerCharacter;
+using MCM.Abstractions.Settings.Base.Global;
 
 namespace CharacterCreation
 {
-    public partial class DCCSettings : AttributePerCharacterSettings<DCCSettings>
+    public partial class DCCSettings : AttributeGlobalSettings<DCCSettings>
     {
         //public override string ModName => ModNameTextObject.ToString();
         //public override string ModuleFolderName => SubModule.ModuleFolderName;
-        public override string Id { get; } = "DCCSettings";
-        public override string DisplayName { get; } = "Detailed Character Creation";
-        public override string FolderName { get; } = "DetailedCharacterCreation";
+        public override string Id => "DCCSettings";
+        public override string DisplayName => "Detailed Character Creation";
+        public override string FolderName => "DetailedCharacterCreation";
 
         [XmlElement]
         [SettingPropertyBool(DebugModeName, HintText = DebugModeHint, Order = 0, RequireRestart = false)]
