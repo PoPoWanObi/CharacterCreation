@@ -69,14 +69,8 @@
     <PackageReference Include="Lib.Harmony" Version="2.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="SubModule.xml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd $(OutDir)&#xD;&#xA;xcopy $(TargetFileName) ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy $(TargetName).pdb ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy 0Harmony.dll ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;xcopy MBOptionScreen.v2.0.10.dll ..\..\..\!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\ /y&#xD;&#xA;cd ..\..\..\&#xD;&#xA;xcopy SubModule.xml !Export\Modules\zzCharacterCreation\ /y&#xD;&#xA;xcopy zzCharacterCreation &quot;$(GameFolder)\Modules\zzCharacterCreation&quot; /s /y" />
+    <Exec Command="cd &quot;$(OutDir)&quot;&#xD;&#xA;xcopy &quot;*.*&quot; &quot;$(ProjectDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client&quot; /s /y&#xD;&#xA;cd &quot;$(ProjectDir)!Export\Modules\&quot;&#xD;&#xA;xcopy &quot;zzCharacterCreation&quot; &quot;$(GameFolder)\Modules\zzCharacterCreation&quot; /s /y" />
   </Target>
 
 </Project>
