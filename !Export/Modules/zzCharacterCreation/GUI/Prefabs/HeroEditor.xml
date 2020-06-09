@@ -1,18 +1,13 @@
 <Prefab>
   <Constants>
-
     <Constant Name="Encyclopedia.Canvas.Width" BrushName="Encyclopedia.Canvas" BrushLayer="Default" BrushValueType="Width"/>
     <Constant Name="Encyclopedia.Canvas.Height" BrushName="Encyclopedia.Canvas" BrushLayer="Default" BrushValueType="Height"/>
-    
   </Constants>
-
   <Window>
     <Widget HeightSizePolicy ="StretchToParent" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" Brush="Encyclopedia.Page.SoundBrush">
       <Children>
-
         <ListPanel DoNotAcceptEvents="true" WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="75" HorizontalAlignment="Center" VerticalAlignment="Top" MarginTop="120" MarginBottom="10">
           <Children>
-
             <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteEdit" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="true">
               <Children>
                 <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="Edit Appearance" />
@@ -24,10 +19,8 @@
                 <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="Change Name" />
               </Children>
             </ButtonWidget>
-
           </Children>
         </ListPanel>
-
       </Children>
     </Widget>
   </Window>

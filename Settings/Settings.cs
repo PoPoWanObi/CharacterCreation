@@ -7,8 +7,6 @@ namespace CharacterCreation
 {
     public partial class DCCSettings : AttributeGlobalSettings<DCCSettings>
     {
-        //public override string ModName => ModNameTextObject.ToString();
-        //public override string ModuleFolderName => SubModule.ModuleFolderName;
         public override string Id => "DCCSettings";
         public override string DisplayName => "Detailed Character Creation";
         public override string FolderName => "DetailedCharacterCreation";

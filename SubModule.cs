@@ -57,6 +57,7 @@ namespace CharacterCreation
             }
         }
 
+        // Registers before the first module appears (main menu)
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
@@ -101,7 +102,8 @@ namespace CharacterCreation
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
             LoadXMLFiles(gameInitializer);
-            TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Disable until after game started.
+            /* This no longer seems to be an issue */
+            //TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Disable until after game started.
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
@@ -143,10 +145,6 @@ namespace CharacterCreation
                     return;
                 }
 
-                //FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
-                //FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
-                //EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
-                //EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
                 EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
                 EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
                 selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
