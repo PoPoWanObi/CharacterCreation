@@ -61,6 +61,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="!Export\Modules.zip" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="!Export\Modules\zzCharacterCreation\ModuleData\project.mbproj" />
   </ItemGroup>
 

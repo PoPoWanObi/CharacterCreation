@@ -57,7 +57,9 @@ namespace CharacterCreation
             }
         }
 
-        // Registers before the first module appears (main menu)
+        /*-- Disabling temporarily due to this not working when loaded before Native
+          -- Need a better way to modify skins.xml natively
+          //Registers before the first module appears (main menu)
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
@@ -66,7 +68,7 @@ namespace CharacterCreation
                 InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));
                 this._isLoaded = true;
             }
-        }
+        } */
 
         // Load our XML files
         private void LoadXMLFiles(CampaignGameStarter gameInitializer)
@@ -102,8 +104,6 @@ namespace CharacterCreation
         {
             CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
             LoadXMLFiles(gameInitializer);
-            /* This no longer seems to be an issue */
-            //TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Disable until after game started.
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
