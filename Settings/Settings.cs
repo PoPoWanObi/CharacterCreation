@@ -8,7 +8,7 @@ namespace CharacterCreation
     public partial class DCCSettings : AttributeGlobalSettings<DCCSettings>
     {
         public override string Id => "DCCSettings";
-        public override string DisplayName => "Detailed Character Creation";
+        public override string DisplayName => DisplayNameTextObject.ToString();
         public override string FolderName => "DetailedCharacterCreation";
 
         [XmlElement]
