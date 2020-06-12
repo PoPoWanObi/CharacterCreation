@@ -31,8 +31,20 @@ namespace CharacterCreation.Patches
             List<Tuple<string, string>> toBeMerged = new List<Tuple<string, string>>();
             List<string> xsltList = new List<string>();
 
-            IEnumerable<MbObjectXmlInformation> mbprojXmlList = XmlResource.MbprojXmls.Where(x => x.Id == "soln_skins");
-            mbprojXmlList = mbprojXmlList.Reverse();
+            List<MbObjectXmlInformation> mbprojXmlList = XmlResource.MbprojXmls.Where(x => x.Id == "soln_skins").ToList();
+            //mbprojXmlList = mbprojXmlList.Reverse();
+
+            for (int i = 0; i < mbprojXmlList.Count; i++)
+            {
+                var mbproj = mbprojXmlList[i];
+
+                if (mbproj.ModuleName == "Native")
+                {
+                    mbprojXmlList.RemoveAt(i);
+                    mbprojXmlList.Add(mbproj);
+                    break;
+                }
+            }
 
             foreach (MbObjectXmlInformation mbprojXml in mbprojXmlList)
             {
