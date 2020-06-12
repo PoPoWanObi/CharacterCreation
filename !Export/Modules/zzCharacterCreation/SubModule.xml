@@ -5,6 +5,7 @@
   <SingleplayerModule value="true" />
   <MultiplayerModule value="false" />
   <DependedModules>
+    <DependedModule Id="Native"/>
   </DependedModules>
   <SubModules>
     <SubModule>
