@@ -1,10 +1,11 @@
 ﻿<Module>
-  <Name value="mzDetailed Character Creation" />
+  <Name value="Detailed Character Creation" />
   <Id value="zzCharacterCreation" />
   <Version value="v1.1.6" />
   <SingleplayerModule value="true" />
   <MultiplayerModule value="false" />
   <DependedModules>
+    <DependedModule Id="Native"/>
   </DependedModules>
   <SubModules>
     <SubModule>
