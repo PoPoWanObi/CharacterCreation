@@ -4814,13 +4814,15 @@
          <mouth_textures group_id="4">
             <mouth_texture name="mouth_mat_kid_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
          </mouth_textures>
-         <voice_types>
-            <voice_type name="female_01" />
-            <voice_type name="female_02" />
-            <voice_type name="female_03" />
-            <voice_type name="female_04" />
-            <voice_type name="female_05" />
-         </voice_types>
+        <voice_types>
+          <voice_type name="male_01" />
+          <voice_type name="male_02" />
+          <voice_type name="male_03" />
+          <voice_type name="male_04" />
+          <voice_type name="male_05" />
+          <voice_type name="male_06" />
+          <voice_type name="male_07" />
+        </voice_types>
          <constraints>
             <constraint proportional_negative_and_positive="1.0">
                <term coefficient="0.5" key_id="height" />
