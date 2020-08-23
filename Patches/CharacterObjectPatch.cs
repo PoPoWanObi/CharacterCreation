@@ -10,6 +10,7 @@ using TaleWorlds.SaveSystem;
 using System.Reflection;
 using Helpers;
 using CharacterCreation.Manager;
+using static HarmonyLib.AccessTools;
 
 namespace CharacterCreation.Patches
 {
@@ -20,6 +21,12 @@ namespace CharacterCreation.Patches
 
         static void Postfix(CharacterObject __instance, BodyProperties properties, bool isFemale)
         {
+            if (!__instance.IsPlayerCharacter)
+            {
+                PropertyInfo staticBodyPropertyInfoOnHero = AccessTools.Property(typeof(Hero), "StaticBodyProperties");
+                staticBodyPropertyInfoOnHero.SetValue(__instance.HeroObject, properties.StaticProperties);
+                __instance.HeroObject.UpdatePlayerGender(isFemale);
+            }
             if (__instance.IsHero)
             {
                 if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
