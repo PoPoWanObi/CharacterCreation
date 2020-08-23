@@ -63,8 +63,8 @@ namespace CharacterCreation.Patches
                             ____heroBehaviorsDictionary.Key.DynamicBodyProperties = new DynamicBodyProperties(____heroBehaviorsDictionary.Key.Age, weight, build;*/
                         }
 
-                        double newAge = hero.Age + yearsElapsed;
-                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);
+                        //double newAge = hero.Age + yearsElapsed;
+                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
                         BodyProperties heroBodyProperties = hero.BodyProperties;
                         CharacterBodymanager.copyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
                         hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);

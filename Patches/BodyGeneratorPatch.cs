@@ -1,9 +1,11 @@
-﻿using HarmonyLib;
+﻿using CharacterCreation.Manager;
+using HarmonyLib;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 using System;
 using System.Reflection;
 using System.Windows.Forms;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -24,6 +26,10 @@ namespace CharacterCreation.Patches
                 try
                 {
                    __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
+                    if (__instance.Character is CharacterObject characterObject)
+                    {
+                        CharacterBodymanager.resetBirthDayForAge(characterObject, __instance.CurrentBodyProperties.DynamicProperties.Age);
+                    }
                     return false;
                 }
                 catch (Exception ex)

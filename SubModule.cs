@@ -224,8 +224,8 @@ namespace CharacterCreation
 
                     foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
                     {
-                        double newAge = hero.Age + yearsElapsed;
-                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);
+                        //double newAge = hero.Age + yearsElapsed;
+                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
                         BodyProperties heroBodyProperties = hero.BodyProperties;
                         CharacterBodymanager.copyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
                         hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);

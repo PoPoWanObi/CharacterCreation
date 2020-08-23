@@ -31,9 +31,6 @@ namespace CharacterCreation.Patches
             {
                 if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
                     InformationManager.DisplayMessage(new InformationMessage(HeroUpdatedMsg.ToString() + __instance.HeroObject.Name, ColorManager.Purple));
-
-                if (DCCSettings.Instance != null && !DCCSettings.Instance.OverrideAge)
-                    __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(properties.DynamicProperties.Age);
             }
         }
     }
