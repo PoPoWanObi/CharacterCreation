@@ -58,5 +58,15 @@ namespace CharacterCreation
             Hero.MainHero.BirthDay = HeroHelper.GetRandomBirthDayForAge((float)num);
             return SuccessMsg.ToString();
         }
+
+        [CommandLineFunctionality.CommandLineArgumentFunction("deltatime", "dcc")]
+        public static string Time(List<string> strings)
+        {
+            CampaignTime deltaTime = CampaignTime.Now + SubModule.TimeSinceLastSave;
+            double yearsElapsed = deltaTime.ToYears;
+            SubModule.TimeSinceLastSave = CampaignTime.Zero;
+
+            return yearsElapsed.ToString();
+        }
     }
 }

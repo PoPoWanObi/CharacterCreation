@@ -1,20 +1,12 @@
 ﻿using CharacterCreation.Manager;
 using HarmonyLib;
-using Helpers;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 using TaleWorlds.Localization;
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.MountAndBlade.ViewModelCollection;
-using static TaleWorlds.CampaignSystem.Hero;
 
 namespace CharacterCreation.Patches
 {
@@ -52,15 +44,18 @@ namespace CharacterCreation.Patches
                         if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
                         {
                             InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
-                            var test = new DynamicBodyProperties(hero.Age + 12f, hero.Weight, hero.Build);
+                            var test = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
                             InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
                             hero.BodyProperties.DynamicProperties.Equals(test);
                         }
 
-                        //double newAge = hero.Age + yearsElapsed;
+                        // TODO:: Why is this conflicting now???
+                        /*double newAge = hero.Age + yearsElapsed;
+                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);*/
+
                         DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
                         BodyProperties heroBodyProperties = hero.BodyProperties;
-                        CharacterBodymanager.copyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
+                        CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
                         hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
                         if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)

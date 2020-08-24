@@ -1,16 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using HarmonyLib;
+﻿using HarmonyLib;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
-using TaleWorlds.SaveSystem;
 using System.Reflection;
-using Helpers;
-using CharacterCreation.Manager;
-using static HarmonyLib.AccessTools;
 
 namespace CharacterCreation.Patches
 {

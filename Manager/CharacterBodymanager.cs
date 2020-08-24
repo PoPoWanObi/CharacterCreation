@@ -1,19 +1,19 @@
-﻿using Helpers;
+﻿using TaleWorlds.Core;
+using Helpers;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.Core;
 
 namespace CharacterCreation.Manager
 {
-    class CharacterBodymanager
+    class CharacterBodyManager
     {
-        public static void copyDynamicBodyProperties(DynamicBodyProperties src, DynamicBodyProperties target)
+        public static void CopyDynamicBodyProperties(DynamicBodyProperties src, DynamicBodyProperties target)
         {
             target.Age = src.Age;
             target.Build = src.Build;
             target.Weight = src.Weight;
-        }
 
-        public static void resetBirthDayForAge(CharacterObject characterObject, float targetAge)
+        }
+        public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge)
         {
             if (characterObject.IsHero)
             {
