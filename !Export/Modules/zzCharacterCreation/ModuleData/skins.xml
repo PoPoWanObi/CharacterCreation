@@ -218,7 +218,6 @@
          <deform_key id="skinkey_post_edit" key_time_point="0" key_min="0" key_max="1" name="Post-Edit" group_id="4" />-->
          </deform_keys>
          <voice_types>
-            <voice_type name="male_01" />
             <voice_type name="male_02" />
             <voice_type name="male_03" />
             <voice_type name="male_04" />
@@ -342,7 +341,7 @@
                   <style_tag name="Afro Hair 1" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="hair_male_h_a" cover_type1="hair_male_h_a_a" cover_type4="hair_male_h_a">
+            <hair_mesh name="hair_male_h_a" cover_type1="hair_male_h_a_a" cover_type2="hair_male_h_a_b" cover_type4="hair_male_h_a">
                <style_tags>
                   <style_tag name="Afro Hair 2" />
                </style_tags>
@@ -352,10 +351,15 @@
                   <style_tag name="Afro Hair 3" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="hair_male_h_c" cover_type1="hair_male_h_c_a" cover_type4="hair_male_h_c">
+            <hair_mesh name="hair_male_h_c" cover_type1="hair_male_h_c_a" cover_type2="hair_male_h_c_b" cover_type4="hair_male_h_c">
                <style_tags>
                   <style_tag name="Afro Hair 4" />
                </style_tags>
+            </hair_mesh>
+            <hair_mesh name="hair_male_h_d" cover_type1="hair_male_h_d_a" cover_type2="hair_male_h_d_b" cover_type4="hair_male_h_d">
+                  <style_tags>
+                        <style_tag name="Afro Hair 5" />
+                  </style_tags>
             </hair_mesh>
             <!-- <hair_mesh name="hair_male_f_m" tags="hair1" cover_type1="hair_male_f_m_a" />
       <hair_mesh name="hair_male_f_l" tags="hair1" cover_type1="hair_male_f_l_a" cover_type2="hair_male_f_l_b" />
@@ -1023,6 +1027,11 @@
                <style_tags>
                   <style_tag name="High Ponytail" />
                </style_tags>
+            </hair_mesh>
+            <hair_mesh name="female_hair_z_h" cover_type1="female_hair_z_h_a" cover_type4="female_hair_z_h">
+                  <style_tags>
+                        <style_tag name="High Ponytail" />
+                  </style_tags>
             </hair_mesh>
          </hair_meshes>
          <eyebrow_meshes>
