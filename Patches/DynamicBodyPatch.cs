@@ -55,12 +55,6 @@ namespace CharacterCreation.Patches
                             var test = new DynamicBodyProperties(hero.Age + 12f, hero.Weight, hero.Build);
                             InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
                             hero.BodyProperties.DynamicProperties.Equals(test);
-
-                            // TODO: Get access to keyValuePair w/ Reflection
-
-                            /*float weight = hero.DynamicBodyProperties.Weight;
-                            float build = hero.DynamicBodyProperties.Build;
-                            ____heroBehaviorsDictionary.Key.DynamicBodyProperties = new DynamicBodyProperties(____heroBehaviorsDictionary.Key.Age, weight, build;*/
                         }
 
                         //double newAge = hero.Age + yearsElapsed;
