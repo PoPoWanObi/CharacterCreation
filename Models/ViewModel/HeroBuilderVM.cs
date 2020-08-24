@@ -5,8 +5,10 @@ using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
 using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
 using TaleWorlds.Localization;
+using System.Collections.Generic;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
+using System.Reflection;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using HarmonyLib;
 

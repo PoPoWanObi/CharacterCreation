@@ -1,12 +1,20 @@
 ﻿using CharacterCreation.Manager;
 using HarmonyLib;
+using Helpers;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.ViewModelCollection;
+using static TaleWorlds.CampaignSystem.Hero;
 
 namespace CharacterCreation.Patches
 {
