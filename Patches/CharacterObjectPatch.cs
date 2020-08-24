@@ -1,16 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using HarmonyLib;
+﻿using HarmonyLib;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
-using TaleWorlds.SaveSystem;
 using System.Reflection;
 using Helpers;
-using CharacterCreation.Manager;
-using static HarmonyLib.AccessTools;
 
 namespace CharacterCreation.Patches
 {
@@ -29,8 +22,18 @@ namespace CharacterCreation.Patches
             }
             if (__instance.IsHero)
             {
+                if (!__instance.IsPlayerCharacter)
+                {
+                    AccessTools.Property(typeof(Hero), "StaticBodyProperties").SetValue(__instance.HeroObject, properties.StaticProperties);
+                    __instance.HeroObject.Weight = properties.Weight;
+                    __instance.HeroObject.Build = properties.Build;
+                    __instance.HeroObject.UpdatePlayerGender(isFemale);
+                }
                 if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
                     InformationManager.DisplayMessage(new InformationMessage(HeroUpdatedMsg.ToString() + __instance.HeroObject.Name, ColorManager.Purple));
+
+                if (DCCSettings.Instance != null && !DCCSettings.Instance.OverrideAge)
+                    __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge(properties.DynamicProperties.Age);
             }
         }
     }
