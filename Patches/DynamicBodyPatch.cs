@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using CharacterCreation.Manager;
+using HarmonyLib;
 using Helpers;
 using System;
 using System.Collections;
@@ -51,9 +52,9 @@ namespace CharacterCreation.Patches
                         if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
                         {
                             InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
-                            var test = new DynamicBodyProperties(hero.DynamicBodyProperties.Age + 12f, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
+                            var test = new DynamicBodyProperties(hero.Age + 12f, hero.Weight, hero.Build);
                             InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
-                            hero.DynamicBodyProperties.Equals(test);
+                            hero.BodyProperties.DynamicProperties.Equals(test);
 
                             // TODO: Get access to keyValuePair w/ Reflection
 
@@ -62,12 +63,14 @@ namespace CharacterCreation.Patches
                             ____heroBehaviorsDictionary.Key.DynamicBodyProperties = new DynamicBodyProperties(____heroBehaviorsDictionary.Key.Age, weight, build;*/
                         }
 
-                        double newAge = hero.DynamicBodyProperties.Age + yearsElapsed;
-                        DynamicBodyProperties bodyProperties = new DynamicBodyProperties((float)newAge, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
-                        hero.DynamicBodyProperties = bodyProperties;
+                        //double newAge = hero.Age + yearsElapsed;
+                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                        BodyProperties heroBodyProperties = hero.BodyProperties;
+                        CharacterBodymanager.copyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
+                        hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
                         if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
-                            InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
+                            InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
                     }
                 }
                 return false;

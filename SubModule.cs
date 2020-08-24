@@ -15,6 +15,7 @@ using SandBox.View.Map;
 
 using HarmonyLib;
 using CharacterCreation.Models;
+using CharacterCreation.Manager;
 
 namespace CharacterCreation
 {
@@ -89,8 +90,8 @@ namespace CharacterCreation
                     
                     if (hero.IsHumanPlayerCharacter)
                     {
-                        InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
-                        Debug.Print(GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age));
+                        InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
+                        Debug.Print(GetFormattedAgeDebugMessage(hero, hero.Age));
                         break;
                     }
                 }
@@ -223,12 +224,14 @@ namespace CharacterCreation
 
                     foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
                     {
-                        double newAge = hero.DynamicBodyProperties.Age + yearsElapsed;
-                        DynamicBodyProperties bodyProperties = new DynamicBodyProperties((float)newAge, hero.DynamicBodyProperties.Weight, hero.DynamicBodyProperties.Build);
-                        hero.DynamicBodyProperties = bodyProperties;
+                        //double newAge = hero.Age + yearsElapsed;
+                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                        BodyProperties heroBodyProperties = hero.BodyProperties;
+                        CharacterBodymanager.copyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
+                        hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
                         if (hero.IsHumanPlayerCharacter && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-                            InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.DynamicBodyProperties.Age), ColorManager.Red));
+                            InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
                     }
                 }
             }
