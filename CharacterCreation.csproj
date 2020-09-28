@@ -7,9 +7,14 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <!-- Define your GameFolder here to simplify loading plugins and output dirs -->
+<<<<<<< Updated upstream
     <!--<GameFolder>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder-->
     <!--<GameFolder>D:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder-->
     <GameFolder>F:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
+=======
+    <!--<GameFolder>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>-->
+    <GameFolder>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
+>>>>>>> Stashed changes
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
