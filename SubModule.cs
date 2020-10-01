@@ -30,7 +30,14 @@ namespace CharacterCreation
 
         private const string ExpectedActualAgeMessage = "{=CharacterCreation_ExpectedActualAgeMessage}[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}";
 
-        public static CampaignTime TimeSinceLastSave { get; set; }
+        public static CampaignTime TimeSinceLastSave { get; private set; }
+
+        public static CampaignTime GetDeltaTime(bool update = false)
+        {
+            CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
+            if (update) TimeSinceLastSave = CampaignTime.Now;
+            return deltaTime;
+        }
 
         public static string GetFormattedAgeDebugMessage(Hero hero, float expectedAge)
         {
@@ -218,9 +225,10 @@ namespace CharacterCreation
             {
                 if (Game.Current != null && Game.Current.GameType is Campaign)
                 {
-                    CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
-                    double yearsElapsed = deltaTime.ToYears;
-                    TimeSinceLastSave = CampaignTime.Now;
+                    //CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
+                    CampaignTime deltaTime = SubModule.GetDeltaTime(true);
+                    //double yearsElapsed = deltaTime.ToYears;
+                    //TimeSinceLastSave = CampaignTime.Now;
 
                     foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
                     {
@@ -229,8 +237,9 @@ namespace CharacterCreation
                         DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);*/
 
                         DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                        BodyProperties heroBodyProperties = hero.BodyProperties;
-                        CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
+                        BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
+                        //BodyProperties heroBodyProperties = hero.BodyProperties;
+                        //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
                         hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
                         if (hero.IsHumanPlayerCharacter && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)

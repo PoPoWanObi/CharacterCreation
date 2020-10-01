@@ -357,9 +357,19 @@
                </style_tags>
             </hair_mesh>
             <hair_mesh name="hair_male_h_d" cover_type1="hair_male_h_d_a" cover_type2="hair_male_h_d_b" cover_type4="hair_male_h_d">
-                  <style_tags>
-                        <style_tag name="Afro Hair 5" />
-                  </style_tags>
+               <style_tags>
+                  <style_tag name="Afro Hair 5" />
+               </style_tags>
+            </hair_mesh>
+            <hair_mesh name="hair_male_h_e" cover_type1="hair_male_h_e_a" cover_type4="hair_male_h_e">
+               <style_tags>
+                  <style_tag name="Viking Hair" />
+               </style_tags>
+            </hair_mesh>
+            <hair_mesh name="hair_male_h_f" cover_type4="hair_male_h_f">
+               <style_tags>
+                  <style_tag name="Monk Hair" />
+              </style_tags>
             </hair_mesh>
             <!-- <hair_mesh name="hair_male_f_m" tags="hair1" cover_type1="hair_male_f_m_a" />
       <hair_mesh name="hair_male_f_l" tags="hair1" cover_type1="hair_male_f_l_a" cover_type2="hair_male_f_l_b" />
@@ -1029,9 +1039,14 @@
                </style_tags>
             </hair_mesh>
             <hair_mesh name="female_hair_z_h" cover_type1="female_hair_z_h_a" cover_type4="female_hair_z_h">
-                  <style_tags>
-                        <style_tag name="High Ponytail" />
-                  </style_tags>
+               <style_tags>
+                  <style_tag name="High Ponytail" />
+               </style_tags>
+            </hair_mesh>
+            <hair_mesh name="female_hair_z_i" cover_type1="female_hair_z_i_a" cover_type4="female_hair_z_i">
+               <style_tags>
+                  <style_tag name="High Ponytail" />
+               </style_tags>
             </hair_mesh>
          </hair_meshes>
          <eyebrow_meshes>

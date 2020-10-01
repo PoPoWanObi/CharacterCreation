@@ -494,9 +494,19 @@
                </style_tags>
             </hair_mesh>
             <hair_mesh name="hair_male_h_d" cover_type1="hair_male_h_d_a" cover_type2="hair_male_h_d_b" cover_type4="hair_male_h_d">
-            	<style_tags>
-            		<style_tag name="Afro Hair 5" />
-            	</style_tags>
+               <style_tags>
+                  <style_tag name="Afro Hair 5" />
+               </style_tags>
+            </hair_mesh>
+            <hair_mesh name="hair_male_h_e" cover_type1="hair_male_h_e_a" cover_type4="hair_male_h_e">
+               <style_tags>
+                  <style_tag name="Viking Hair" />
+               </style_tags>
+            </hair_mesh>
+            <hair_mesh name="hair_male_h_f" cover_type4="hair_male_h_f">
+               <style_tags>
+                  <style_tag name="Monk Hair" />
+              </style_tags>
             </hair_mesh>
             <!-- <hair_mesh name="hair_male_f_m" tags="hair1" cover_type1="hair_male_f_m_a" />
       <hair_mesh name="hair_male_f_l" tags="hair1" cover_type1="hair_male_f_l_a" cover_type2="hair_male_f_l_b" />
@@ -1054,7 +1064,7 @@
                <bone_scale bone_type="biped_hand_r" axis="z" key_min="1" key_max="1" />
              </bone_scales>
            </deform_key>
-           <deform_key id="weight" key_time_point="60" name="Weight" group_id="0">
+            <deform_key id="weight" key_time_point="60" name="Weight" group_id="0">
                <bone_scales>
                   <bone_scale bone_type="biped_abdomen" axis="x" key_min="1.075" key_max="1.15" />
                   <bone_scale bone_type="biped_abdomen" axis="y" key_min="0.95" key_max="1.2" />
@@ -1305,10 +1315,15 @@
                </style_tags>
             </hair_mesh>
             <hair_mesh name="female_hair_z_h" cover_type1="female_hair_z_h_a" cover_type4="female_hair_z_h">
-				<style_tags>
-					<style_tag name="High Ponytail" />
-		        </style_tags>
-			</hair_mesh>
+               <style_tags>
+                  <style_tag name="High Ponytail" />
+               </style_tags>
+            </hair_mesh>
+            <hair_mesh name="female_hair_z_i" cover_type1="female_hair_z_i_a" cover_type4="female_hair_z_i">
+               <style_tags>
+                  <style_tag name="High Ponytail" />
+               </style_tags>
+            </hair_mesh>
          </hair_meshes>
          <eyebrow_meshes>
             <eyebrow_mesh name="female_eyebrow_2" />
@@ -2899,6 +2914,7 @@
             <voice_type name="female_02" />
             <voice_type name="female_03" />
             <voice_type name="female_04" />
+            <voice_type name="female_05" />
          </voice_types>
          <constraints>
             <constraint proportional_negative_and_positive="1.0">
@@ -4874,6 +4890,30 @@
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture3,face_texture4" />
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture5,face_texture6,face_texture7" />
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture8,face_texture9,face_texture10" />
+			<!-- <face_texture name="head_male_e" lod_material="head_male_e" color="0xFFFFFFFF" tags="face_texture1,face_texture2,face_texture3">
+        </face_texture>
+      <face_texture name="head_male_f" lod_material="head_male_f" color="0xFFFFFFFF" tags="face_texture1,face_texture3">
+      </face_texture>  -->
+            <!--face_texture name="head_male_b" color="0xFF797180" tags="face_texture2,face_texture3">
+        <hair_color_gradient_points>
+          <hair_color_gradient_point point="0.090196, 0.074510, 0.074510" />
+          <hair_color_gradient_point point="0.027451, 0.031373, 0.047059" />
+        </hair_color_gradient_points>
+        <eye_color_gradient_points>
+          <eye_color_gradient_point point="0.090196, 0.074510, 0.074510" />
+          <eye_color_gradient_point point="0.027451, 0.031373, 0.047059" />
+        </eye_color_gradient_points>
+      </face_texture>
+      <face_texture name="head_male_b" color="0xFF403C4A" tags="face_texture1">
+        <hair_color_gradient_points>
+          <hair_color_gradient_point point="0.070588, 0.031373, 0.031373" />
+          <hair_color_gradient_point point="0.027451, 0.031373, 0.047059" />
+        </hair_color_gradient_points>
+        <eye_color_gradient_points>
+          <eye_color_gradient_point point="0.070588, 0.031373, 0.031373" />
+          <eye_color_gradient_point point="0.027451, 0.031373, 0.047059" />
+        </eye_color_gradient_points>
+      </face_texture-->
          </face_textures>
          <mouth_textures group_id="4">
             <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />

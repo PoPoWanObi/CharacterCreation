@@ -62,11 +62,12 @@ namespace CharacterCreation
         [CommandLineFunctionality.CommandLineArgumentFunction("deltatime", "dcc")]
         public static string Time(List<string> strings)
         {
-            CampaignTime deltaTime = CampaignTime.Now + SubModule.TimeSinceLastSave;
-            double yearsElapsed = deltaTime.ToYears;
-            SubModule.TimeSinceLastSave = CampaignTime.Zero;
+            //CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
+            CampaignTime deltaTime = SubModule.GetDeltaTime();
+            //double yearsElapsed = deltaTime.ToYears;
+            //SubModule.TimeSinceLastSave = CampaignTime.Zero;
 
-            return yearsElapsed.ToString();
+            return deltaTime.ToYears.ToString();
         }
     }
 }

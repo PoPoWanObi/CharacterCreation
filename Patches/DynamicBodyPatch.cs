@@ -31,9 +31,10 @@ namespace CharacterCreation.Patches
             {
                 IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
 
-                CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
+                //CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
+                CampaignTime deltaTime = SubModule.GetDeltaTime(true);
                 double yearsElapsed = deltaTime.ToYears;
-                SubModule.TimeSinceLastSave = CampaignTime.Now;
+                //SubModule.TimeSinceLastSave = CampaignTime.Now;
 
                 foreach (DictionaryEntry heroBehaviors in dictionary)
                 {
@@ -54,8 +55,9 @@ namespace CharacterCreation.Patches
                         DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);*/
 
                         DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                        BodyProperties heroBodyProperties = hero.BodyProperties;
-                        CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
+                        BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
+                        //BodyProperties heroBodyProperties = hero.BodyProperties;
+                        //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
                         hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
                         if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
