@@ -3,6 +3,7 @@ using HarmonyLib;
 using System;
 using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 
@@ -21,13 +22,15 @@ namespace CharacterCreation.Patches
                     __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
                     if (__instance.Character is CharacterObject characterObject)
                     {
+                        float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
                         CharacterBodyManager.ResetBirthDayForAge(characterObject, __instance.CurrentBodyProperties.DynamicProperties.Age);
+                        Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
                     }
                     return false;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"{ErrorText.ToString()}\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                    MessageBox.Show($"{ErrorText}\n{ex.Message} \n\n{ex.InnerException?.Message}");
                     return true;
                 }
             }

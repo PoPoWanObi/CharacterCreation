@@ -22,14 +22,21 @@ namespace CharacterCreation.Manager
 
         }
 
-        // Mercifully, this does something.
-        public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge)
+        // Mercifully, this does something. Although there might be an issue with birthdays causing edited heroes to age up
+        // more often than not, so this needs to be rewritten.
+        // Needs to differentiate if the game is under setup or in progress, but that is something for another update.
+        public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge, bool randomize = false)
         {
             if (characterObject.IsHero)
             {
                 Hero hero = characterObject.HeroObject;
                 if (DCCSettings.Instance != null && !DCCSettings.Instance.OverrideAge)
-                    hero.BirthDay = HeroHelper.GetRandomBirthDayForAge(targetAge);
+                {
+                    if (randomize)
+                        hero.BirthDay = HeroHelper.GetRandomBirthDayForAge(targetAge);
+                    else
+                        hero.BirthDay = CampaignTime.Years((float)(CampaignTime.Now.ToYears - targetAge));
+                }
             }
         }
     }
