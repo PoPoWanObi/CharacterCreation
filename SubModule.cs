@@ -113,14 +113,6 @@ namespace CharacterCreation
             LoadXMLFiles(gameInitializer);
         }
 
-        public override void OnCampaignStart(Game game, object starterObject)
-        {
-            // Age randomization should happen only once, and only with NPCs. - is it even necessary though?
-            var heroes = game.ObjectManager.GetObjectTypeList<Hero>().Where(x => !x.CharacterObject.IsPlayerCharacter);
-            Debug.Print($"[CharacterCreation] Number of NPC heroes: {heroes.Count()}");
-            heroes.Do(x => CharacterBodyManager.ResetBirthDayForAge(x.CharacterObject, x.BodyProperties.Age, true));
-        }
-
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
