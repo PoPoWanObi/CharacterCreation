@@ -3,12 +3,12 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
-using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
 using TaleWorlds.Localization;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using HarmonyLib;
+using TaleWorlds.MountAndBlade.GauntletUI;
 
 namespace CharacterCreation.Models
 {
@@ -139,7 +139,8 @@ namespace CharacterCreation.Models
 
             ClosePage();
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
-            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
+            //ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
+            ScreenManager.PushScreen(new MBFaceGeneratorGauntletScreen(hero.CharacterObject, false, null));
         }
         
         //Game.Current.PlayerTroop -- ingore me
