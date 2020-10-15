@@ -49,6 +49,12 @@ namespace CharacterCreation.Models
             if (selectedHero == null)
                 return;
 
+            if (selectedHero.IsHumanPlayerCharacter) // until I find out how player character names are handled, no name change for main hero :(
+            {
+                InformationManager.DisplayMessage(new InformationMessage(CannotRenamePlayerText.ToString()));
+                return;
+            }
+
             Name(selectedHero);
             Action<Hero> action = nameCallback;
 

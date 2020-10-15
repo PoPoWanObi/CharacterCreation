@@ -180,6 +180,8 @@ namespace CharacterCreation
                         });
                     }
                     viewModel.SetHero(selectedHero);
+                    if (gauntletMovie != null)
+                        gauntletLayer.ReleaseMovie(gauntletMovie);
                     gauntletMovie = gauntletLayer.LoadMovie("HeroEditor", viewModel);
                     gauntletLayerTopScreen = ScreenManager.TopScreen;
                     gauntletLayerTopScreen.AddLayer(gauntletLayer);

@@ -28,19 +28,19 @@ namespace CharacterCreation.Patches
             List<string> xsltList = new List<string>();
 
             List<MbObjectXmlInformation> mbprojXmlList = XmlResource.MbprojXmls.Where(x => x.Id == "soln_skins").ToList();
-            //mbprojXmlList = mbprojXmlList.Reverse();
+            mbprojXmlList.Reverse(); // restored for compatibility reason with mods that modify skin.xml that load later.
 
-            for (int i = 0; i < mbprojXmlList.Count; i++)
-            {
-                var mbproj = mbprojXmlList[i];
+            //for (int i = 0; i < mbprojXmlList.Count; i++)
+            //{
+            //    var mbproj = mbprojXmlList[i];
 
-                if (mbproj.ModuleName == "Native")
-                {
-                    mbprojXmlList.RemoveAt(i);
-                    mbprojXmlList.Add(mbproj);
-                    break;
-                }
-            }
+            //    if (mbproj.ModuleName == "Native")
+            //    {
+            //        mbprojXmlList.RemoveAt(i);
+            //        mbprojXmlList.Add(mbproj);
+            //        break;
+            //    }
+            //}
 
             foreach (MbObjectXmlInformation mbprojXml in mbprojXmlList)
             {

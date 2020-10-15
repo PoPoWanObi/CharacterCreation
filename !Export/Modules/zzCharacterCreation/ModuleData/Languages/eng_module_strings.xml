@@ -49,6 +49,7 @@
     <string id="CharacterCreation_EnterNewNameText" text="Enter a new name"/>
     <string id="CharacterCreation_RenameText" text="Rename"/>
     <string id="CharacterCreation_CancelText" text="Cancel"/>
+    <string id="CharacterCreation_CannotRenamePlayerText" text="Cannot rename player hero until further notice."/>
 
     <!-- CharacterObjectPatch entry -->
     <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>

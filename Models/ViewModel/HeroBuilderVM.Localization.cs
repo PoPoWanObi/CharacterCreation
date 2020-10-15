@@ -16,6 +16,7 @@ namespace CharacterCreation.Models
             CharacterRenamerText = new TextObject("{=CharacterCreation_CharacterRenamerText}Character Renamer"),
             EnterNewNameText = new TextObject("{=CharacterCreation_EnterNewNameText}Enter a new name"),
             RenameText = new TextObject("{=CharacterCreation_RenameText}Rename"),
-            CancelText = new TextObject("{=CharacterCreation_CancelText}Cancel");
+            CancelText = new TextObject("{=CharacterCreation_CancelText}Cancel"),
+            CannotRenamePlayerText = new TextObject("{=CharacterCreation_CannotRenamePlayerText}Cannot rename player hero until further notice.");
     }
 }
