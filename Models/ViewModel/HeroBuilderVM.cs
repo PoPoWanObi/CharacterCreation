@@ -33,68 +33,80 @@ namespace CharacterCreation.Models
 
         public void ExecuteEdit()
         {
-            if (selectedHero == null)
-                return;
+            if (HeroEditorFunctions.EditHero(selectedHero, ClosePage))
+            {
+                //ClosePage();
+                editCallback?.Invoke(selectedHero);
+            }
 
-            Edit(selectedHero);
-            Action<Hero> action = this.editCallback;
-            if (action == null)
-                return;
+            //if (selectedHero == null)
+            //    return;
 
-            action(selectedHero);
+            //Edit(selectedHero);
+            //Action<Hero> action = this.editCallback;
+            //if (action == null)
+            //    return;
+
+            //action(selectedHero);
         }
 
         public void ExecuteName()
         {
-            if (selectedHero == null)
-                return;
-
-            if (selectedHero.IsHumanPlayerCharacter) // until I find out how player character names are handled, no name change for main hero :(
+            if (HeroEditorFunctions.RenameHero(selectedHero, ClosePage))
             {
-                InformationManager.DisplayMessage(new InformationMessage(CannotRenamePlayerText.ToString()));
-                return;
+                //ClosePage();
+                nameCallback?.Invoke(selectedHero);
             }
 
-            Name(selectedHero);
-            Action<Hero> action = nameCallback;
+            //if (selectedHero == null)
+            //    return;
 
-            if (action == null)
-                return;
+            //if (selectedHero.IsHumanPlayerCharacter) // until I find out how player character names are handled, no name change for main hero :(
+            //{
+            //    InformationManager.DisplayMessage(new InformationMessage(CannotRenamePlayerText.ToString()));
+            //    return;
+            //}
 
-            action(selectedHero);
+            //Name(selectedHero);
+            //Action<Hero> action = nameCallback;
+
+            //if (action == null)
+            //    return;
+
+            //action(selectedHero);
         }
 
-        public void Name(Hero hero)
-        {
-            if (hero.CharacterObject == null)
-                return;
+        //public void Name(Hero hero)
+        //{
+        //    if (hero.CharacterObject == null)
+        //        return;
 
-            if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-                InformationManager.DisplayMessage(new InformationMessage(ChangingNameForText.ToString() + hero.Name));
+        //    if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+        //        InformationManager.DisplayMessage(new InformationMessage(ChangingNameForText.ToString() + hero.Name));
 
-            InformationManager.ShowTextInquiry(new TextInquiryData(CharacterRenamerText.ToString(), EnterNewNameText.ToString(),
-                true, true, RenameText.ToString(), CancelText.ToString(), new Action<string>(RenameHero), InformationManager.HideInquiry, false));
-        }
+        //    InformationManager.ShowTextInquiry(new TextInquiryData(CharacterRenamerText.ToString(), EnterNewNameText.ToString(),
+        //        true, true, RenameText.ToString(), CancelText.ToString(), new Action<string>(RenameHero), InformationManager.HideInquiry, false));
+        //}
 
-        private void RenameHero(string heroName)
-        {
-            if (selectedHero.CharacterObject == null)
-            {
-                InformationManager.DisplayMessage(new InformationMessage(InvalidCharacterText.ToString(), ColorManager.Red));
-                return;
-            }
+        //private void RenameHero(string heroName)
+        //{
+        //    if (selectedHero.CharacterObject == null)
+        //    {
+        //        InformationManager.DisplayMessage(new InformationMessage(InvalidCharacterText.ToString(), ColorManager.Red));
+        //        return;
+        //    }
             
-            if (!string.IsNullOrEmpty(heroName))
-            {
-                selectedHero.Name = new TextObject(heroName);
-                ClosePage();
-            }
-            else
-            {
-                InformationManager.DisplayMessage(new InformationMessage(InvalidNameText.ToString(), ColorManager.Red));
-                return;
-            }
-        }
+        //    if (!string.IsNullOrEmpty(heroName))
+        //    {
+        //        selectedHero.Name = new TextObject(heroName);
+        //        ClosePage();
+        //    }
+        //    else
+        //    {
+        //        InformationManager.DisplayMessage(new InformationMessage(InvalidNameText.ToString(), ColorManager.Red));
+        //        return;
+        //    }
+        //}
 
         public void RefreshPage()
         {
@@ -102,10 +114,6 @@ namespace CharacterCreation.Models
             if (gauntletEncyclopediaScreenManager == null)
                 return;
 
-            //FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
-            //FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
-            //EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
-            //EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
@@ -123,10 +131,6 @@ namespace CharacterCreation.Models
             if (gauntletEncyclopediaScreenManager == null)
                 return;
 
-            //FieldInfo field = typeof(GauntletEncyclopediaScreenManager).GetField("_encyclopediaData", BindingFlags.Instance | BindingFlags.NonPublic);
-            //FieldInfo field2 = typeof(EncyclopediaData).GetField("_activeDatasource", BindingFlags.Instance | BindingFlags.NonPublic);
-            //EncyclopediaData encyclopediaData = (EncyclopediaData)field.GetValue(gauntletEncyclopediaScreenManager);
-            //EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)field2.GetValue(encyclopediaData);
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
@@ -138,16 +142,16 @@ namespace CharacterCreation.Models
             gauntletEncyclopediaScreenManager.CloseEncyclopedia();
         }
 
-        public void Edit(Hero hero)
-        {
-            if (hero.CharacterObject == null)
-                return;
+        //public void Edit(Hero hero)
+        //{
+        //    if (hero.CharacterObject == null)
+        //        return;
 
-            ClosePage();
-            TaleWorlds.Core.FaceGen.ShowDebugValues = true;
-            //ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
-            ScreenManager.PushScreen(new MBFaceGeneratorGauntletScreen(hero.CharacterObject, false, null));
-        }
+        //    ClosePage();
+        //    TaleWorlds.Core.FaceGen.ShowDebugValues = true;
+        //    //ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
+        //    ScreenManager.PushScreen(new MBFaceGeneratorGauntletScreen(hero.CharacterObject, false, null));
+        //}
         
         //Game.Current.PlayerTroop -- ingore me
         private HeroBuilderModel heroModel;

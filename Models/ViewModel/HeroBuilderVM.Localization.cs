@@ -9,7 +9,7 @@ namespace CharacterCreation.Models
 {
     public partial class HeroBuilderVM
     {
-        private static readonly TextObject 
+        internal static readonly TextObject 
             ChangingNameForText = new TextObject("{=CharacterCreation_ChangingNameForText}Changing name for: "),
             InvalidCharacterText = new TextObject("{=CharacterCreation_InvalidCharacterText}Character is not valid."),
             InvalidNameText = new TextObject("{=CharacterCreation_InvalidNameText}Name is not valid."),
