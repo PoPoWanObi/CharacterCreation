@@ -1,4 +1,3 @@
-﻿using System.Xml.Serialization;
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Settings.Base.Global;
@@ -11,7 +10,6 @@ namespace CharacterCreation
         public override string DisplayName => DisplayNameTextObject.ToString();
         public override string FolderName => "DetailedCharacterCreation";
 
-        [XmlElement]
         [SettingPropertyBool(DebugModeName, HintText = DebugModeHint, Order = 0, RequireRestart = false)]
         [SettingPropertyGroup(Section0)]
         public bool DebugMode { get; set; } = false;
@@ -21,7 +19,6 @@ namespace CharacterCreation
         [SettingPropertyGroup(Section1, IsMainToggle = true)]
         public bool IgnoreDailyTick { get; set; } = true;
 
-        [XmlElement]
         [SettingPropertyBool(OverrideAgeName, HintText = OverrideAgeHint, Order = 2, RequireRestart = false)]
         [SettingPropertyGroup(Section1)]
         public bool OverrideAge { get; set; } = false;
