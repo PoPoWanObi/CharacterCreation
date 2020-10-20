@@ -11,7 +11,7 @@ namespace CharacterCreation.Models
     {
         public static void RenameHero(Hero hero, Action postAction, Action<Hero> nameCallback)
         {
-            if (hero == null || hero.CharacterObject == null)
+            if (hero?.CharacterObject == null)
                 return;
 
             if (hero.IsHumanPlayerCharacter) // until I find out how player character names are handled, no name change for main hero :(
@@ -25,7 +25,7 @@ namespace CharacterCreation.Models
 
             InformationManager.ShowTextInquiry(new TextInquiryData(HeroBuilderVM.CharacterRenamerText.ToString(), HeroBuilderVM.EnterNewNameText.ToString(),
                 true, true, HeroBuilderVM.RenameText.ToString(), HeroBuilderVM.CancelText.ToString(), x => RenameHero(x, hero, postAction),
-                InformationManager.HideInquiry, false));
+                InformationManager.HideInquiry));
 
             nameCallback?.Invoke(hero);
         }
@@ -49,7 +49,7 @@ namespace CharacterCreation.Models
 
         public static void EditHero(Hero hero, Action postAction, Action<Hero> editCallback)
         {
-            if (hero == null || hero.CharacterObject == null)
+            if (hero?.CharacterObject == null)
                 return;
 
             postAction?.Invoke();

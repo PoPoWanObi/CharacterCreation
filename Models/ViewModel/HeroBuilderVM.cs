@@ -1,14 +1,11 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
-using TaleWorlds.Core;
-using TaleWorlds.Engine.Screens;
-using TaleWorlds.Localization;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using HarmonyLib;
-using TaleWorlds.MountAndBlade.GauntletUI;
 
 namespace CharacterCreation.Models
 {
@@ -112,8 +109,7 @@ namespace CharacterCreation.Models
 
         public void RefreshPage()
         {
-            GauntletEncyclopediaScreenManager? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
-            if (gauntletEncyclopediaScreenManager == null)
+            if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager))
                 return;
 
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
@@ -121,16 +117,12 @@ namespace CharacterCreation.Models
 
             selectedHeroPage = encyclopediaPageVM as EncyclopediaHeroPageVM;
 
-            if (this.selectedHeroPage == null)
-                return;
-
-            this.selectedHeroPage.Refresh();
+            selectedHeroPage?.Refresh();
         }
 
         public void ClosePage()
         {
-            GauntletEncyclopediaScreenManager? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
-            if (gauntletEncyclopediaScreenManager == null)
+            if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager))
                 return;
 
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
