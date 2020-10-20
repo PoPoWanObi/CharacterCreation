@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
@@ -13,25 +9,25 @@ namespace CharacterCreation.Models
 {
     public static class HeroEditorFunctions
     {
-        public static bool RenameHero(Hero hero, Action action)
+        public static void RenameHero(Hero hero, Action postAction, Action<Hero> nameCallback)
         {
             if (hero == null || hero.CharacterObject == null)
-                return false;
+                return;
 
             if (hero.IsHumanPlayerCharacter) // until I find out how player character names are handled, no name change for main hero :(
             {
                 InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.CannotRenamePlayerText.ToString()));
-                return false;
+                return;
             }
 
             if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.ChangingNameForText.ToString() + hero.Name));
 
             InformationManager.ShowTextInquiry(new TextInquiryData(HeroBuilderVM.CharacterRenamerText.ToString(), HeroBuilderVM.EnterNewNameText.ToString(),
-                true, true, HeroBuilderVM.RenameText.ToString(), HeroBuilderVM.CancelText.ToString(), x => RenameHero(x, hero, action),
+                true, true, HeroBuilderVM.RenameText.ToString(), HeroBuilderVM.CancelText.ToString(), x => RenameHero(x, hero, postAction),
                 InformationManager.HideInquiry, false));
 
-            return true;
+            nameCallback?.Invoke(hero);
         }
 
         private static void RenameHero(string heroName, Hero selectedHero, Action action)
@@ -51,16 +47,16 @@ namespace CharacterCreation.Models
                 InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.InvalidNameText.ToString(), ColorManager.Red));
         }
 
-        public static bool EditHero(Hero hero, Action action)
+        public static void EditHero(Hero hero, Action postAction, Action<Hero> editCallback)
         {
             if (hero == null || hero.CharacterObject == null)
-                return false;
+                return;
 
-            action?.Invoke();
+            postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
             ScreenManager.PushScreen(new MBFaceGeneratorGauntletScreen(hero.CharacterObject, false, null));
 
-            return true;
+            editCallback?.Invoke(hero);
         }
     }
 }

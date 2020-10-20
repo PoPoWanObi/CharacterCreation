@@ -20,24 +20,30 @@ namespace CharacterCreation.Models
             selectedHero = hero;
         }
 
-        public HeroBuilderVM(HeroBuilderModel heroModel, Action<Hero> editCallback)
+        public HeroBuilderVM()
         {
-            this.heroModel = heroModel;
+
+        }
+
+        public HeroBuilderVM(Action<Hero> editCallback)
+        {
             this.editCallback = editCallback;
         }
 
-        public HeroBuilderVM(Action<Hero> nameCallback)
-        {
-            this.nameCallback = nameCallback;
-        }
+        //public HeroBuilderVM(HeroBuilderModel heroModel, Action<Hero> editCallback)
+        //{
+        //    this.heroModel = heroModel;
+        //    this.editCallback = editCallback;
+        //}
+
+        //public HeroBuilderVM(Action<Hero> nameCallback)
+        //{
+        //    this.nameCallback = nameCallback;
+        //}
 
         public void ExecuteEdit()
         {
-            if (HeroEditorFunctions.EditHero(selectedHero, ClosePage))
-            {
-                //ClosePage();
-                editCallback?.Invoke(selectedHero);
-            }
+            HeroEditorFunctions.EditHero(selectedHero, ClosePage, nameCallback);
 
             //if (selectedHero == null)
             //    return;
@@ -52,11 +58,7 @@ namespace CharacterCreation.Models
 
         public void ExecuteName()
         {
-            if (HeroEditorFunctions.RenameHero(selectedHero, ClosePage))
-            {
-                //ClosePage();
-                nameCallback?.Invoke(selectedHero);
-            }
+            HeroEditorFunctions.RenameHero(selectedHero, ClosePage, nameCallback);
 
             //if (selectedHero == null)
             //    return;
@@ -110,14 +112,14 @@ namespace CharacterCreation.Models
 
         public void RefreshPage()
         {
-            GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
+            GauntletEncyclopediaScreenManager? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
             if (gauntletEncyclopediaScreenManager == null)
                 return;
 
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
-            this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
+            selectedHeroPage = encyclopediaPageVM as EncyclopediaHeroPageVM;
 
             if (this.selectedHeroPage == null)
                 return;
@@ -127,7 +129,7 @@ namespace CharacterCreation.Models
 
         public void ClosePage()
         {
-            GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
+            GauntletEncyclopediaScreenManager? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
             if (gauntletEncyclopediaScreenManager == null)
                 return;
 
@@ -154,10 +156,12 @@ namespace CharacterCreation.Models
         //}
         
         //Game.Current.PlayerTroop -- ingore me
-        private HeroBuilderModel heroModel;
-        private Hero selectedHero;
-        private Action<Hero> editCallback;
-        private Action<Hero> nameCallback;
-        private EncyclopediaHeroPageVM selectedHeroPage;
+        private HeroBuilderModel? heroModel;
+        private Hero? selectedHero;
+        private EncyclopediaHeroPageVM? selectedHeroPage;
+
+        public Action<Hero>? editCallback;
+
+        public Action<Hero>? nameCallback;
     }
 }

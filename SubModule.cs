@@ -25,7 +25,7 @@ namespace CharacterCreation
         public static readonly string ModuleFolderName = "zzCharacterCreation";
         public static readonly string strings = "strings";
 
-        private static readonly TextObject LoadedModMessage = new TextObject("{=CharacterCreation_LoadedModMessage}Loaded Detailed Character Creation."),
+        internal static readonly TextObject LoadedModMessage = new TextObject("{=CharacterCreation_LoadedModMessage}Loaded Detailed Character Creation."),
             EditAppearanceForHeroMessage = new TextObject("{=CharacterCreation_EditAppearanceForHeroMessage}Entering edit appearance for: "),
             ErrorLoadingDccMessage = new TextObject("{=CharacterCreation_ErrorLoadingDccMessage}Error initializing Detailed Character Creation:");
 
@@ -57,6 +57,7 @@ namespace CharacterCreation
             {
                 var harmony = new Harmony("mod.bannerlord.popowanobi.dcc");
                 harmony.PatchAll();
+                CompatibilityPatch.CreateCompatibilityPatches(harmony);
 
                 TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
             }
@@ -127,74 +128,7 @@ namespace CharacterCreation
             TimeSinceLastSave = CampaignTime.Now;
             game.AddGameHandler<AgingGameHandler>();
 
-            game.EventManager.RegisterEvent(delegate (EncyclopediaPageChangedEvent e)
-            {
-                EncyclopediaData.EncyclopediaPages newPage = e.NewPage;
-                if ((int)newPage != 12)
-                {
-                    selectedHeroPage = null;
-                    selectedHero = null;
-                    if (gauntletLayerTopScreen != null && gauntletLayer != null)
-                    {
-                        gauntletLayerTopScreen.RemoveLayer(gauntletLayer);
-                        if (gauntletMovie != null)
-                        {
-                            gauntletLayer.ReleaseMovie(gauntletMovie);
-                        }
-                        gauntletLayerTopScreen = null;
-                        gauntletMovie = null;
-                    }
-                    return;
-                }
-                GauntletEncyclopediaScreenManager? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
-                if (gauntletEncyclopediaScreenManager == null)
-                {
-                    return;
-                }
-
-                EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
-                EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
-                selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
-
-                if (selectedHeroPage == null)
-                {
-                    return;
-                }
-                selectedHero = (selectedHeroPage.Obj as Hero);
-                if (selectedHero == null)
-                {
-                    return;
-                }
-                if (gauntletLayer == null)
-                {
-                    gauntletLayer = new GauntletLayer(211, "GauntletLayer");
-                }
-
-                try
-                {
-                    if (viewModel == null)
-                    {
-                        viewModel = new HeroBuilderVM(heroModel, delegate (Hero editHero)
-                        {
-                            InformationManager.DisplayMessage(new InformationMessage(EditAppearanceForHeroMessage.ToString() + editHero));
-                        });
-                    }
-                    viewModel.SetHero(selectedHero);
-                    if (gauntletMovie != null)
-                        gauntletLayer.ReleaseMovie(gauntletMovie);
-                    gauntletMovie = gauntletLayer.LoadMovie("HeroEditor", viewModel);
-                    gauntletLayerTopScreen = ScreenManager.TopScreen;
-                    gauntletLayerTopScreen.AddLayer(gauntletLayer);
-                    gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
-
-                    // Refresh
-                    selectedHeroPage.Refresh();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
-                }
-            });
+            game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(new EncyclopediaPageChangedAction(heroModel).OnEncyclopediaPageChanged);
         }
 
         private void AddModels(CampaignGameStarter gameStarter)
