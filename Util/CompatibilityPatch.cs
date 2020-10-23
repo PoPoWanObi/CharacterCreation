@@ -49,7 +49,7 @@ namespace CharacterCreation
         public static bool DoNotExecuteMethod()
         {
             if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-                Debug.Print($"[CharacterCreation] Call intercepted and stopped.\n{new System.Diagnostics.StackTrace()}");
+                Debug.Print($"[CharacterCreation] Call intercepted and stopped.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             return DoNotExecuteMethodSilent();
         }
@@ -62,7 +62,7 @@ namespace CharacterCreation
         public static bool DoNotExecutePrefix(ref bool __result)
         {
             if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-                Debug.Print($"[CharacterCreation] Call intercepted and skipped.\n{new System.Diagnostics.StackTrace()}");
+                Debug.Print($"[CharacterCreation] Call intercepted and skipped.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             return DoNotExecutePrefixSilent(ref __result);
         }
@@ -128,7 +128,7 @@ namespace CharacterCreation
         private static bool ExecuteEditPrefix(object __instance, Hero ___selectedHero, Action<Hero> ___editCallback)
         {
             if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-                Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace()}");
+                Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             MethodInfo ClosePageInfo = AccessTools.Method(__instance.GetType(), "ClosePage");
             HeroEditorFunctions.EditHero(___selectedHero, AccessTools.MethodDelegate<Action>(ClosePageInfo, __instance), ___editCallback);
@@ -138,7 +138,7 @@ namespace CharacterCreation
         private static bool ExecuteNamePrefix(object __instance, Hero ___selectedHero, Action<Hero> ___nameCallback)
         {
             if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-                Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace()}");
+                Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             MethodInfo ClosePageInfo = AccessTools.Method(__instance.GetType(), "ClosePage");
             HeroEditorFunctions.RenameHero(___selectedHero, AccessTools.MethodDelegate<Action>(ClosePageInfo, __instance), ___nameCallback);
