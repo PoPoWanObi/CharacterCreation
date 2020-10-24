@@ -15,8 +15,10 @@ using SandBox.View.Map;
 
 using HarmonyLib;
 using CharacterCreation.Models;
-using CharacterCreation.Manager;
+using CharacterCreation.Util;
 using System.Linq;
+using TaleWorlds.SaveSystem;
+using TaleWorlds.SaveSystem.Load;
 
 namespace CharacterCreation
 {

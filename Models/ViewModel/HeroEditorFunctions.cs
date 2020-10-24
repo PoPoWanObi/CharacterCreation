@@ -1,7 +1,10 @@
-﻿using System;
+﻿using HarmonyLib;
+using Helpers;
+using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.GauntletUI;
 
@@ -13,12 +16,6 @@ namespace CharacterCreation.Models
         {
             if (hero == null || hero.CharacterObject == null)
                 return;
-
-            if (hero.IsHumanPlayerCharacter) // until I find out how player character names are handled, no name change for main hero :(
-            {
-                InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.CannotRenamePlayerText.ToString()));
-                return;
-            }
 
             if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.ChangingNameForText.ToString() + hero.Name));
@@ -40,7 +37,11 @@ namespace CharacterCreation.Models
 
             if (!string.IsNullOrEmpty(heroName))
             {
-                selectedHero.Name = new TextObject(heroName);
+                var newName = new TextObject(heroName);
+                selectedHero.Name = newName;
+                selectedHero.FirstName = newName;
+                if (selectedHero.IsPartyLeader)
+                    selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
                 action?.Invoke();
             }
             else
