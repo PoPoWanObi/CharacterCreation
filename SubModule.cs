@@ -15,7 +15,10 @@ using SandBox.GauntletUI;
 
 using HarmonyLib;
 using CharacterCreation.Models;
+using CharacterCreation.Util;
 using System.Linq;
+using TaleWorlds.SaveSystem;
+using TaleWorlds.SaveSystem.Load;
 
 namespace CharacterCreation
 {
