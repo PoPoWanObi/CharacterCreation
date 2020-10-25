@@ -75,10 +75,10 @@ namespace CharacterCreation
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            if (this._isLoaded) return;
+            if (_isLoaded) return;
 
             InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));
-            this._isLoaded = true;
+            _isLoaded = true;
         }
 
         // Load our XML files
@@ -153,7 +153,7 @@ namespace CharacterCreation
                 if (Game.Current == null || !(Game.Current.GameType is Campaign)) return;
 
                 //CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
-                CampaignTime deltaTime = SubModule.GetDeltaTime(true);
+                CampaignTime deltaTime = GetDeltaTime(true);
                 //double yearsElapsed = deltaTime.ToYears;
                 //TimeSinceLastSave = CampaignTime.Now;
 

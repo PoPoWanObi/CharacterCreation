@@ -51,9 +51,7 @@ namespace CharacterCreation.Patches
                 }
                 string xsltPathForNative = ModuleInfo.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);
                 
-                xsltList.Add(File.Exists(xsltPathForNative) ? 
-                    xsltPathForNative : 
-                    string.Empty);
+                xsltList.Add(File.Exists(xsltPathForNative) ? xsltPathForNative : string.Empty);
             }
             XmlDocument mergedXmlForNative = MBObjectManager.CreateMergedXmlFile(toBeMerged, xsltList, true);
 

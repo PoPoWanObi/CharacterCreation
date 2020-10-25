@@ -33,7 +33,7 @@ namespace CharacterCreation
             {
                 return HeroNotFoundMsg.ToString();
             }
-            if (int.TryParse(strings[1], out int num) == false)
+            if (!int.TryParse(strings[1], out int num))
             {
                 return EnterAgeMsg.ToString();
             }
@@ -49,7 +49,7 @@ namespace CharacterCreation
                 return $"{FormatMsgHeader} \"dcc.age [{AgeText}]\".";
             }
 
-            if (int.TryParse(strings[0], out int num) == false)
+            if (!int.TryParse(strings[0], out int num))
             {
                 return EnterAgeMsg.ToString();
             }

@@ -22,10 +22,7 @@ namespace CharacterCreation.Patches
                 __instance.HeroObject.UpdatePlayerGender(isFemale);
             }
 
-            if (!__instance.IsHero) 
-                return;
-
-            if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+            if (__instance.IsHero && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage(HeroUpdatedMsg.ToString() + __instance.HeroObject.Name, ColorManager.Purple));
         }
     }
