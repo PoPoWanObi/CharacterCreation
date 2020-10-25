@@ -16,11 +16,9 @@ namespace CharacterCreation
                 TaleWorlds.Core.FaceGen.ShowDebugValues = false; // Enable developer facegen
                 return DccDisabledMsg.ToString();
             }
-            else
-            {
-                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
-                return DccEnabledMsg.ToString();
-            }
+            
+            TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Enable developer facegen
+            return DccEnabledMsg.ToString();
         }
 
         [CommandLineFunctionality.CommandLineArgumentFunction("age_hero", "dcc")]
@@ -28,7 +26,7 @@ namespace CharacterCreation
         {
             if (!CampaignCheats.CheckParameters(strings, 2) || CampaignCheats.CheckHelp(strings))
             {
-                return $"{FormatMsgHeader.ToString()} \"dcc.age_hero [{HeroNameText.ToString()}] [{AgeText.ToString()}]\".";
+                return $"{FormatMsgHeader} \"dcc.age_hero [{HeroNameText}] [{AgeText}]\".";
             }
             Hero hero = CampaignCheats.GetHero(strings[0].Replace('_', ' '));
             if (hero == null)
@@ -48,14 +46,14 @@ namespace CharacterCreation
         {
             if (CampaignCheats.CheckParameters(strings, 0) || CampaignCheats.CheckHelp(strings))
             {
-                return $"{FormatMsgHeader.ToString()} \"dcc.age [{AgeText.ToString()}]\".";
+                return $"{FormatMsgHeader} \"dcc.age [{AgeText}]\".";
             }
-            int num = 1;
-            if (!int.TryParse(strings[0], out num))
+
+            if (!int.TryParse(strings[0], out int num))
             {
                 return EnterAgeMsg.ToString();
             }
-            Hero.MainHero.BirthDay = HeroHelper.GetRandomBirthDayForAge((float)num);
+            Hero.MainHero.BirthDay = HeroHelper.GetRandomBirthDayForAge(num);
             return SuccessMsg.ToString();
         }
 

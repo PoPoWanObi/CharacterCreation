@@ -27,17 +27,14 @@ namespace CharacterCreation.Manager
         // Needs to differentiate if the game is under setup or in progress, but that is something for another update.
         public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge, bool randomize = false)
         {
-            if (characterObject.IsHero)
-            {
-                Hero hero = characterObject.HeroObject;
-                if (DCCSettings.Instance != null && !DCCSettings.Instance.OverrideAge)
-                {
-                    if (randomize)
-                        hero.BirthDay = HeroHelper.GetRandomBirthDayForAge(targetAge);
-                    else
-                        hero.BirthDay = CampaignTime.Years((float)(CampaignTime.Now.ToYears - targetAge));
-                }
-            }
+            if (characterObject.IsHero == false) return;
+            
+            Hero hero = characterObject.HeroObject;
+            if (DCCSettings.Instance == null || DCCSettings.Instance.OverrideAge) return;
+                
+            hero.BirthDay = randomize ? 
+                HeroHelper.GetRandomBirthDayForAge(targetAge) : 
+                CampaignTime.Years((float)(CampaignTime.Now.ToYears - targetAge));
         }
     }
 }

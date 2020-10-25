@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using TaleWorlds.Core;
@@ -11,7 +12,6 @@ using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using SandBox.GauntletUI;
-using SandBox.View.Map;
 
 using HarmonyLib;
 using CharacterCreation.Models;
@@ -44,10 +44,12 @@ namespace CharacterCreation
 
         public static string GetFormattedAgeDebugMessage(Hero hero, float expectedAge)
         {
-            var attributes = new Dictionary<string, TextObject>();
-            attributes["HERO_NAME"] = hero.Name;
-            attributes["AGE1"] = new TextObject(expectedAge);
-            attributes["AGE2"] = new TextObject(hero.Age);
+            var attributes = new Dictionary<string, TextObject>
+            {
+                ["HERO_NAME"] = hero.Name,
+                ["AGE1"] = new TextObject(expectedAge),
+                ["AGE2"] = new TextObject(hero.Age)
+            };
             return new TextObject(ExpectedActualAgeMessage, attributes).ToString();
         }
 
@@ -65,7 +67,7 @@ namespace CharacterCreation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ErrorLoadingDccMessage.ToString()}\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                MessageBox.Show($"{ErrorLoadingDccMessage}\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
         }
 
@@ -73,15 +75,14 @@ namespace CharacterCreation
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            if (!this._isLoaded)
-            {
-                InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));
-                this._isLoaded = true;
-            }
+            if (_isLoaded) return;
+
+            InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));
+            _isLoaded = true;
         }
 
         // Load our XML files
-        private void LoadXMLFiles(CampaignGameStarter gameInitializer)
+        private static void LoadXMLFiles(CampaignGameStarter gameInitializer)
         {
             // Load our additional strings
             gameInitializer.LoadGameTexts(BasePath.Name + "Modules/" + ModuleFolderName + "/ModuleData/" + strings + ".xml");
@@ -94,19 +95,11 @@ namespace CharacterCreation
             LoadXMLFiles(gameInitializer);
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
 
-            if (game.GameType is Campaign && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-            {
-                foreach (Hero hero in game.ObjectManager.GetObjectTypeList<Hero>())
-                {
+            if (!(game.GameType is Campaign) || DCCSettings.Instance == null || !DCCSettings.Instance.DebugMode) return;
 
-                    if (hero.IsHumanPlayerCharacter)
-                    {
-                        InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
-                        Debug.Print(GetFormattedAgeDebugMessage(hero, hero.Age));
-                        break;
-                    }
-                }
-            }
+            var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(hero => hero.IsHumanPlayerCharacter);
+            InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(player, player.Age), ColorManager.Red));
+            Debug.Print(GetFormattedAgeDebugMessage(player, player.Age));
         }
 
         // Called when starting new campaign
@@ -120,9 +113,7 @@ namespace CharacterCreation
         {
             base.OnGameStart(game, gameStarterObject);
 
-            if (!(game.GameType is Campaign))
-                return;
-            if (!(gameStarterObject is CampaignGameStarter))
+            if (!(game.GameType is Campaign) || !(gameStarterObject is CampaignGameStarter))
                 return;
 
             AddModels(gameStarterObject as CampaignGameStarter);
@@ -133,15 +124,12 @@ namespace CharacterCreation
             game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(new EncyclopediaPageChangedAction(heroModel).OnEncyclopediaPageChanged);
         }
 
-        private void AddModels(CampaignGameStarter gameStarter)
+        private void AddModels(IGameStarter gameStarter)
         {
-            if (gameStarter != null)
-            {
-                gameStarter.AddModel(heroModel = new HeroBuilderModel());
+            gameStarter.AddModel(heroModel = new HeroBuilderModel());
 
-                if (DCCSettings.Instance != null && DCCSettings.Instance.CustomAgeModel)
-                    gameStarter.AddModel(new Models.AgeModel());
-            }
+            if (DCCSettings.Instance != null && DCCSettings.Instance.CustomAgeModel)
+                gameStarter.AddModel(new Models.AgeModel());
         }
 
         private HeroBuilderVM? viewModel;
@@ -162,28 +150,27 @@ namespace CharacterCreation
 
             public override void OnBeforeSave()
             {
-                if (Game.Current != null && Game.Current.GameType is Campaign)
-                {
-                    //CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
-                    CampaignTime deltaTime = SubModule.GetDeltaTime(true);
-                    //double yearsElapsed = deltaTime.ToYears;
-                    //TimeSinceLastSave = CampaignTime.Now;
+                if (Game.Current == null || !(Game.Current.GameType is Campaign)) return;
 
-                    foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
-                    {
-                        //TODO:: Why is this conflicting now???
-                        /*ddouble newAge = hero.Age + yearsElapsed;
+                //CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
+                CampaignTime deltaTime = GetDeltaTime(true);
+                //double yearsElapsed = deltaTime.ToYears;
+                //TimeSinceLastSave = CampaignTime.Now;
+
+                foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
+                {
+                    //TODO:: Why is this conflicting now???
+                    /*ddouble newAge = hero.Age + yearsElapsed;
                         DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);*/
 
-                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                        BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
-                        //BodyProperties heroBodyProperties = hero.BodyProperties;
-                        //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
-                        hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
+                    DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                    BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
+                    //BodyProperties heroBodyProperties = hero.BodyProperties;
+                    //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
+                    hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
-                        if (hero.IsHumanPlayerCharacter && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
-                            InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
-                    }
+                    if (hero.IsHumanPlayerCharacter && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+                        InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
                 }
             }
         }

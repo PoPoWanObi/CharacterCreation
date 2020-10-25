@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿#nullable enable
+using HarmonyLib;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 using System;
@@ -64,24 +65,21 @@ namespace CharacterCreation.Models
             {
                 return;
             }
-            selectedHero = (selectedHeroPage.Obj as Hero);
+            selectedHero = selectedHeroPage.Obj as Hero;
             if (selectedHero == null)
             {
                 return;
             }
-            if (gauntletLayer == null)
-            {
-                gauntletLayer = new GauntletLayer(211, "GauntletLayer");
-            }
+            gauntletLayer ??= new GauntletLayer(211);
 
             try
             {
                 if (gauntletMovie != null)
                     gauntletLayer.ReleaseMovie(gauntletMovie);
 
-                Action<Hero> callback = editHero => InformationManager.DisplayMessage(new InformationMessage(SubModule.EditAppearanceForHeroMessage.ToString() + editHero));
+                static void Callback(Hero editHero) => InformationManager.DisplayMessage(new InformationMessage(SubModule.EditAppearanceForHeroMessage.ToString() + editHero));
                 ConstructorInfo constructor = HeroBuilderVMType.GetConstructor(new[] { typeof(Action<Hero>) });
-                viewModel = constructor.Invoke(new[] { callback }) as ViewModel;
+                viewModel = constructor?.Invoke(new[] {(Action<Hero>) Callback}) as ViewModel;
                 //if (viewModel == null)
                 //{
                 //    viewModel = new HeroBuilderVM(heroModel, delegate (Hero editHero)

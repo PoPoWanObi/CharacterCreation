@@ -15,7 +15,7 @@ namespace CharacterCreation.Models
     {
         public static void RenameHero(Hero hero, Action postAction, Action<Hero> nameCallback)
         {
-            if (hero == null || hero.CharacterObject == null)
+            if (hero?.CharacterObject == null)
                 return;
 
             if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
@@ -51,7 +51,7 @@ namespace CharacterCreation.Models
 
         public static void EditHero(Hero hero, Action postAction, Action<Hero> editCallback)
         {
-            if (hero == null || hero.CharacterObject == null)
+            if (hero?.CharacterObject == null)
                 return;
 
             postAction?.Invoke();

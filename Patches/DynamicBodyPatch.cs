@@ -2,6 +2,7 @@
 using HarmonyLib;
 using System;
 using System.Collections;
+using System.Linq;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
@@ -27,47 +28,43 @@ namespace CharacterCreation.Patches
         //static bool Prefix(DynamicBodyCampaignBehavior __instance, ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
         static bool Prefix(DynamicBodyCampaignBehavior __instance)
         {
-            if (DCCSettings.Instance != null && DCCSettings.Instance.IgnoreDailyTick)
+            if (DCCSettings.Instance == null || !DCCSettings.Instance.IgnoreDailyTick) 
+                return true;
+
+            //CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
+            CampaignTime deltaTime = SubModule.GetDeltaTime(true);
+            double yearsElapsed = deltaTime.ToYears;
+            //SubModule.TimeSinceLastSave = CampaignTime.Now;
+
+            if (!DCCSettings.Instance.DisableAutoAging)
             {
                 IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
-
-                //CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
-                CampaignTime deltaTime = SubModule.GetDeltaTime(true);
-                double yearsElapsed = deltaTime.ToYears;
-                //SubModule.TimeSinceLastSave = CampaignTime.Now;
-
-                foreach (DictionaryEntry heroBehaviors in dictionary)
+                foreach (var hero in dictionary.Keys.Cast<Hero>())
                 {
-                    Hero hero = (Hero)heroBehaviors.Key;
-
-                    if (!DCCSettings.Instance.DisableAutoAging)
+                    if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
                     {
-                        if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
-                        {
-                            InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
-                            var test = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                            InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
-                            hero.BodyProperties.DynamicProperties.Equals(test);
-                        }
-
-                        // TODO:: Why is this conflicting now???
-                        /*double newAge = hero.Age + yearsElapsed;
-                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);*/
-
-                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                        BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
-                        //BodyProperties heroBodyProperties = hero.BodyProperties;
-                        //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
-                        hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
-
-                        if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
-                            InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
+                        InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
+                        var test = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                        InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
+                        hero.BodyProperties.DynamicProperties.Equals(test);
                     }
+
+                    // TODO:: Why is this conflicting now???
+                    /*double newAge = hero.Age + yearsElapsed;
+                            DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);*/
+
+                    DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                    BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
+                    //BodyProperties heroBodyProperties = hero.BodyProperties;
+                    //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
+                    hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
+
+                    if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
+                        InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
                 }
-                return false;
             }
-            else
-                return true;
+
+            return false;
         }
     }
 }

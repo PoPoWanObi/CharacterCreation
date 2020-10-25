@@ -1,4 +1,5 @@
-﻿using TaleWorlds.CampaignSystem;
+﻿#nullable enable
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
 namespace CharacterCreation.Models
@@ -14,18 +15,15 @@ namespace CharacterCreation.Models
                 if (Game.Current == null)
                     return null;
 
-                CharacterObject? characterObject = Game.Current.PlayerTroop as CharacterObject;
+                var characterObject = Game.Current.PlayerTroop as CharacterObject;
 
-                if (characterObject == null)
-                    return null;
-
-                return characterObject.HeroObject;
+                return characterObject?.HeroObject;
             }
         }
 
         public void Initialize()
         {
-            Hero? mainHero = MainHero;
+            var mainHero = MainHero;
             if (mainHero != null)
             {
             }
