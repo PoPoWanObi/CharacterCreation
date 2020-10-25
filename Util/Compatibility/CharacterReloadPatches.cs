@@ -1,4 +1,5 @@
 ﻿using CharacterCreation.Models;
+using CharacterCreation.Patches;
 using HarmonyLib;
 using System;
 using System.Reflection;
@@ -23,9 +24,10 @@ namespace CharacterCreation.Util
             Type HeroBuilderVM = AccessTools.TypeByName("CharacterReload.VM.HeroBuilderVM");
             Type FaceGenPropertyVMNamePath = AccessTools.TypeByName("CharacterReload.Pathes.FaceGenPropertyVMNamePath");
             Type FaceGenPropertyVMValuePath = AccessTools.TypeByName("CharacterReload.Pathes.FaceGenPropertyVMValuePath");
+            Type MyClanLordItemVM = AccessTools.TypeByName("CharacterReload.VM.MyClanLordItemVM");
 
             if (ModuleProcessSkinsXmlPatch == default || EncyclopediaPageChangedHandle == default || CharacterObjectPatch == default || HeroBuilderVM == default
-                || FaceGenPropertyVMNamePath == default || FaceGenPropertyVMValuePath == default)
+                || FaceGenPropertyVMNamePath == default || FaceGenPropertyVMValuePath == default || MyClanLordItemVM == default)
                 return;
 
             MethodInfo DoNotExecuteMethodInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecuteMethod));
@@ -62,6 +64,11 @@ namespace CharacterCreation.Util
             // FaceGenPropertyVMValuePath
             harmony.Patch(AccessTools.Method(FaceGenPropertyVMValuePath, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
             Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.FaceGenPropertyVMValuePath.Postfix");
+
+            // MyClanLordItemVM
+            harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null,
+                new HarmonyMethod(AccessTools.Method(typeof(ClanLordItemVMPatch), nameof(ClanLordItemVMPatch.OnNamingHeroOverPostfix))));
+            Debug.Print("[CharacterCreation] Patched CharacterReload.VM.MyClanLordItemVM.OnNamingHeroOver");
         }
 
         private static bool ExecuteEditPrefix(object __instance, Hero ___selectedHero, Action<Hero> ___editCallback)
