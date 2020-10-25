@@ -2,6 +2,7 @@
 using Helpers;
 using System;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
 using TaleWorlds.Library;
@@ -22,7 +23,7 @@ namespace CharacterCreation.Models
 
             InformationManager.ShowTextInquiry(new TextInquiryData(HeroBuilderVM.CharacterRenamerText.ToString(), HeroBuilderVM.EnterNewNameText.ToString(),
                 true, true, HeroBuilderVM.RenameText.ToString(), HeroBuilderVM.CancelText.ToString(), x => RenameHero(x, hero, postAction),
-                InformationManager.HideInquiry));
+                InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName));
 
             nameCallback?.Invoke(hero);
         }
