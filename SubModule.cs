@@ -19,6 +19,7 @@ using CharacterCreation.Util;
 using System.Linq;
 using TaleWorlds.SaveSystem;
 using TaleWorlds.SaveSystem.Load;
+using Helpers;
 
 namespace CharacterCreation
 {
@@ -159,6 +160,10 @@ namespace CharacterCreation
 
                 foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
                 {
+                    hero.FirstName = hero.Name;
+                    if (hero.IsPartyLeader)
+                        hero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(hero.CharacterObject);
+
                     //TODO:: Why is this conflicting now???
                     /*ddouble newAge = hero.Age + yearsElapsed;
                         DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties((float)newAge, hero.Weight, hero.Build);*/
