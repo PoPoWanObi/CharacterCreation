@@ -83,8 +83,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.MCM.Integrated" Version="3.1.9" />
-    <PackageReference Include="Lib.Harmony" Version="2.0.2" />
+    <PackageReference Include="Bannerlord.MCM" Version="4.1.0.1" />
+    <PackageReference Include="Lib.Harmony" Version="2.0.3" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
