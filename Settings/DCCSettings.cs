@@ -13,8 +13,7 @@ namespace CharacterCreation
         {
             get
             {
-                if (instance == null)
-                    instance = DCCSettings.Instance as IDCCSettings ?? new DCCDefaultSettings();
+                instance = DCCSettings.Instance ?? instance ?? new DCCDefaultSettings();
                 return instance;
             }
         }
