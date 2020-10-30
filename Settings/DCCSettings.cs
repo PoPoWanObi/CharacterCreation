@@ -84,7 +84,11 @@ namespace CharacterCreation
     partial class DCCSettings : AttributeGlobalSettings<DCCSettings>, IDCCSettings
     {
         public override string Id => "DCCSettings";
+
         public override string DisplayName => DisplayNameTextObject.ToString();
+
+        public override string FormatType => "json2";
+
         public override string FolderName => "DetailedCharacterCreation";
 
         [SettingPropertyBool(DebugModeName, HintText = DebugModeHint, Order = 0, RequireRestart = false)]
