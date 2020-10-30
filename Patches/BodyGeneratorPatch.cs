@@ -24,7 +24,7 @@ namespace CharacterCreation.Patches
                     {
                         float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
                         CharacterBodyManager.ResetBirthDayForAge(characterObject, __instance.CurrentBodyProperties.DynamicProperties.Age);
-                        if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+                        if (DCCSettingsUtil.Instance.DebugMode)
                             Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
                     }
                     return false;

@@ -88,7 +88,7 @@ namespace CharacterCreation.Models
                 //    });
                 //}
                 if (viewModel == default) return;
-                if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+                if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] viewModel is of type {viewModel.GetType().FullName}");
 
                 AccessTools.Method(HeroBuilderVMType, "SetHero").Invoke(viewModel, new[] { selectedHero });

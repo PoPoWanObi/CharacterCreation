@@ -30,7 +30,7 @@ namespace CharacterCreation.Manager
             if (characterObject.IsHero == false) return;
             
             Hero hero = characterObject.HeroObject;
-            if (DCCSettings.Instance == null || DCCSettings.Instance.OverrideAge) return;
+            if (DCCSettingsUtil.Instance.OverrideAge) return;
                 
             hero.BirthDay = randomize ? 
                 HeroHelper.GetRandomBirthDayForAge(targetAge) : 

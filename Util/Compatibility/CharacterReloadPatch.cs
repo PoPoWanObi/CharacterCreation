@@ -73,7 +73,7 @@ namespace CharacterCreation.Util
 
         private static bool ExecuteEditPrefix(object __instance, Hero ___selectedHero, Action<Hero> ___editCallback)
         {
-            if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+            if (DCCSettingsUtil.Instance.DebugMode)
                 Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             MethodInfo ClosePageInfo = AccessTools.Method(__instance.GetType(), "ClosePage");
@@ -83,7 +83,7 @@ namespace CharacterCreation.Util
 
         private static bool ExecuteNamePrefix(object __instance, Hero ___selectedHero, Action<Hero> ___nameCallback)
         {
-            if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+            if (DCCSettingsUtil.Instance.DebugMode)
                 Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             MethodInfo ClosePageInfo = AccessTools.Method(__instance.GetType(), "ClosePage");

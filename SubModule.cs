@@ -96,7 +96,7 @@ namespace CharacterCreation
             LoadXMLFiles(gameInitializer);
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
 
-            if (!(game.GameType is Campaign) || DCCSettings.Instance == null || !DCCSettings.Instance.DebugMode) return;
+            if (!(game.GameType is Campaign) || !DCCSettingsUtil.Instance.DebugMode) return;
 
             var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(hero => hero.IsHumanPlayerCharacter);
             InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(player, player.Age), ColorManager.Red));
@@ -129,7 +129,7 @@ namespace CharacterCreation
         {
             gameStarter.AddModel(heroModel = new HeroBuilderModel());
 
-            if (DCCSettings.Instance != null && DCCSettings.Instance.CustomAgeModel)
+            if (DCCSettingsUtil.Instance.CustomAgeModel)
                 gameStarter.AddModel(new Models.AgeModel());
         }
 
@@ -174,7 +174,7 @@ namespace CharacterCreation
                     //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
                     hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
-                    if (hero.IsHumanPlayerCharacter && DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+                    if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
                         InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
                 }
             }

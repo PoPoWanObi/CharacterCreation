@@ -28,7 +28,7 @@ namespace CharacterCreation.Patches
         //static bool Prefix(DynamicBodyCampaignBehavior __instance, ref Dictionary<Hero, object> ____heroBehaviorsDictionary)
         static bool Prefix(DynamicBodyCampaignBehavior __instance)
         {
-            if (DCCSettings.Instance == null || !DCCSettings.Instance.IgnoreDailyTick) 
+            if (!DCCSettingsUtil.Instance.IgnoreDailyTick) 
                 return true;
 
             //CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
@@ -36,12 +36,12 @@ namespace CharacterCreation.Patches
             double yearsElapsed = deltaTime.ToYears;
             //SubModule.TimeSinceLastSave = CampaignTime.Now;
 
-            if (!DCCSettings.Instance.DisableAutoAging)
+            if (!DCCSettingsUtil.Instance.DisableAutoAging)
             {
                 IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
                 foreach (var hero in dictionary.Keys.Cast<Hero>())
                 {
-                    if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
+                    if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
                     {
                         InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
                         var test = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
@@ -59,7 +59,7 @@ namespace CharacterCreation.Patches
                     //CharacterBodyManager.CopyDynamicBodyProperties(dynamicBodyProperties, heroBodyProperties.DynamicProperties);
                     hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
-                    if (hero.IsHumanPlayerCharacter && DCCSettings.Instance.DebugMode)
+                    if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
                         InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
                 }
             }

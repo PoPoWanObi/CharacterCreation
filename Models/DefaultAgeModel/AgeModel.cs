@@ -4,11 +4,16 @@ namespace CharacterCreation.Models
 {
     public class AgeModel : DefaultAgeModel
     {
-        public override int BecomeInfantAge => DCCSettings.Instance != null ? DCCSettings.Instance.BecomeInfantAge : base.BecomeInfantAge;
-        public override int BecomeChildAge => DCCSettings.Instance != null ? DCCSettings.Instance.BecomeChildAge : base.BecomeChildAge;
-        public override int BecomeTeenagerAge => DCCSettings.Instance != null ? DCCSettings.Instance.BecomeTeenagerAge : base.BecomeTeenagerAge;
-        public override int HeroComesOfAge => DCCSettings.Instance != null ? DCCSettings.Instance.BecomeAdultAge : base.HeroComesOfAge;
-        public override int BecomeOldAge => DCCSettings.Instance != null ? DCCSettings.Instance.BecomeOldAge : base.BecomeOldAge;
-        public override int MaxAge => DCCSettings.Instance != null ? DCCSettings.Instance.MaxAge : base.MaxAge;
+        public override int BecomeInfantAge => DCCSettingsUtil.Instance.BecomeInfantAge;
+
+        public override int BecomeChildAge => DCCSettingsUtil.Instance.BecomeChildAge;
+
+        public override int BecomeTeenagerAge => DCCSettingsUtil.Instance.BecomeTeenagerAge;
+
+        public override int HeroComesOfAge => DCCSettingsUtil.Instance.BecomeAdultAge;
+
+        public override int BecomeOldAge => DCCSettingsUtil.Instance.BecomeOldAge;
+
+        public override int MaxAge => DCCSettingsUtil.Instance.MaxAge;
     }
 }

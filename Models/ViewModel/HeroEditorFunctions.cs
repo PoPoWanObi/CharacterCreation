@@ -18,7 +18,7 @@ namespace CharacterCreation.Models
             if (hero?.CharacterObject == null)
                 return;
 
-            if (DCCSettings.Instance != null && DCCSettings.Instance.DebugMode)
+            if (DCCSettingsUtil.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.ChangingNameForText.ToString() + hero.Name));
 
             InformationManager.ShowTextInquiry(new TextInquiryData(HeroBuilderVM.CharacterRenamerText.ToString(), HeroBuilderVM.EnterNewNameText.ToString(),
