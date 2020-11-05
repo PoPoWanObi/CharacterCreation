@@ -84,60 +84,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.ButterLib" Version="1.0.14">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Bannerlord.MCM" Version="4.1.0.1" />
     <PackageReference Include="Lib.Harmony" Version="2.0.4" />
-    <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.0.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.0.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Serilog" Version="2.8.0">
-      <ExcludeAssets>all</ExcludeAssets>
-      <PrivateAssets></PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0">
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>all</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.4.0">
-      <ExcludeAssets>all</ExcludeAssets>
-      <PrivateAssets></PrivateAssets>
-    </PackageReference>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
