@@ -355,6 +355,7 @@
          <deform_key id="skinkey_post_edit" key_time_point="0" key_min="0" key_max="1" name="Post-Edit" group_id="4" />-->
          </deform_keys>
          <voice_types>
+            <voice_type name="male_01" />
             <voice_type name="male_02" />
             <voice_type name="male_03" />
             <voice_type name="male_04" />
