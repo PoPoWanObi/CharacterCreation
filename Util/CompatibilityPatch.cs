@@ -32,7 +32,11 @@ namespace CharacterCreation.Util
 
         public static void CreateCompatibilityPatches(Harmony harmony)
         {
-            new CharacterReloadPatch().Patch(harmony);
+            if (DCCSettingsUtil.Instance.EnableCompatibility)
+            {
+                if (DCCSettingsUtil.Instance.EnableCharacterReloadCompatibility)
+                    new CharacterReloadPatch().Patch(harmony);
+            }
         }
     }
 }

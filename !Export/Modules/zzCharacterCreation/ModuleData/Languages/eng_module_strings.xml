@@ -70,6 +70,13 @@
     <string id="CharacterCreation_HeroNotFoundMsg" text="Hero is not found"/>
     <string id="CharacterCreation_EnterAgeMsg" text="Please enter an age."/>
     <string id="CharacterCreation_SuccessMsg" text="Success"/>
+
+    <!-- Compatibility entries -->
+    <string id="CharacterCreation_Section3" text="Section 3: Compatibility"/>
+    <string id="CharacterCreation_EnableCompatibilityName" text="Enable Compatibility"/>
+    <string id="CharacterCreation_EnableCompatibilityHint" text="Enable compatibility patches to resolve mod conflicts. ALL options REQUIRES restart."/>
+    <string id="CharacterCreation_EnableCharacterReloadCompatibilityName" text="Enable Character Reload Compatibility"/>
+    <string id="CharacterCreation_EnableCharacterReloadCompatibilityHint" text="Enable compatibility patch to resolve mod conflicts with Character Reload."/>
     
     <!-- ModuleProcessSkinxXmlPatch entry -->
     <string id="CharacterCreation_ProcessSkinsXmlDebug" text="[CharacterCreation] Patching Skins XML to reverse file loading order"/>

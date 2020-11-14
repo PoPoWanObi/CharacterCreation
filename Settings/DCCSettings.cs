@@ -42,6 +42,10 @@ namespace CharacterCreation
         int BecomeOldAge { get; set; }
 
         int MaxAge { get; set; }
+
+        bool EnableCompatibility { get; set; }
+
+        bool EnableCharacterReloadCompatibility { get; set; }
     }
 
     class DCCDefaultSettings : IDCCSettings
@@ -67,6 +71,10 @@ namespace CharacterCreation
         public int BecomeOldAge { get; set; }
 
         public int MaxAge { get; set; }
+
+        public bool EnableCompatibility { get; set; } = true;
+
+        public bool EnableCharacterReloadCompatibility { get; set; } = true;
 
         public DCCDefaultSettings()
         {
@@ -136,6 +144,16 @@ namespace CharacterCreation
         [SettingPropertyInteger(MaxAgeName, 60, 128, HintText = MaxAgeHint, Order = 10, RequireRestart = false)]
         [SettingPropertyGroup(Section2)]
         public int MaxAge { get; set; } = 128;
+        #endregion
+
+        #region Compatibility
+        [SettingPropertyBool(EnableCompatibilityName, HintText = EnableCompatibilityHint, IsToggle = true, Order = 0, RequireRestart = true)]
+        [SettingPropertyGroup(Section3)]
+        public bool EnableCompatibility { get; set; } = true;
+
+        [SettingPropertyBool(EnableCharacterReloadCompatibilityName, HintText = EnableCharacterReloadCompatibilityHint, Order = 1, RequireRestart = true)]
+        [SettingPropertyGroup(Section3)]
+        public bool EnableCharacterReloadCompatibility { get; set; } = true;
         #endregion
     }
 }

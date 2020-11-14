@@ -37,7 +37,13 @@ namespace CharacterCreation
             BecomeOldAgeName = "{=CharacterCreation_BecomeOldAgeName}Old Age Stage",
             BecomeOldAgeHint = "{=CharacterCreation_BecomeOldAgeHint}Set the default old stage age. Does NOT require restart.",
             MaxAgeName = "{=CharacterCreation_MaxAgeName}Max Age Stage",
-            MaxAgeHint = "{=CharacterCreation_MaxAgeHint}Set the default max age. Does NOT require restart.";
+            MaxAgeHint = "{=CharacterCreation_MaxAgeHint}Set the default max age. Does NOT require restart.",
+            
+            Section3 = "{=CharacterCreation_Section3}Section 3: Compatibility",
+            EnableCompatibilityName = "{=CharacterCreation_EnableCompatibilityName}Enable Compatibility",
+            EnableCompatibilityHint = "{=CharacterCreation_EnableCompatibilityHint}Enable compatibility patches to resolve mod conflicts. ALL options REQUIRES restart.",
+            EnableCharacterReloadCompatibilityName = "{=CharacterCreation_EnableCharacterReloadCompatibilityName}Enable Character Reload Compatibility",
+            EnableCharacterReloadCompatibilityHint = "{=CharacterCreation_EnableCharacterReloadCompatibilityHint}Enable compatibility patch to resolve mod conflicts with Character Reload.";
 
         private static readonly TextObject DisplayNameTextObject = new TextObject(DisplayNameText);
     }

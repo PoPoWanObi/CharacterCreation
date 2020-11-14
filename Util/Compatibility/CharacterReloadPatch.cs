@@ -34,41 +34,62 @@ namespace CharacterCreation.Util
             MethodInfo DoNotExecutePrefixInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecutePrefix));
 
             // ModuleProcessSkinsXmlPatch - disable all
-            harmony.Patch(AccessTools.Method(ModuleProcessSkinsXmlPatch, "Prefix"), new HarmonyMethod(DoNotExecutePrefixInfo)); // strange as it is, it actually works.
-            Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.ModuleProcessSkinsXmlPatch.Prefix");
+            if (ModuleProcessSkinsXmlPatch != default)
+            {
+                harmony.Patch(AccessTools.Method(ModuleProcessSkinsXmlPatch, "Prefix"), new HarmonyMethod(DoNotExecutePrefixInfo)); // strange as it is, it actually works.
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.ModuleProcessSkinsXmlPatch.Prefix");
+            }
 
             // EncyclopediaPageChangedHandle
-            harmony.Patch(AccessTools.Method(EncyclopediaPageChangedHandle, "OnEncyclopediaPageChanged"), new HarmonyMethod(DoNotExecuteMethodInfo));
-            Debug.Print("[CharacterCreation] Disabled CharacterReload.EncyclopediaPageChangedHandle.OnEncyclopediaPageChanged");
+            if (EncyclopediaPageChangedHandle != default)
+            {
+                harmony.Patch(AccessTools.Method(EncyclopediaPageChangedHandle, "OnEncyclopediaPageChanged"), new HarmonyMethod(DoNotExecuteMethodInfo));
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.EncyclopediaPageChangedHandle.OnEncyclopediaPageChanged");
+            }
 
             // HeroBuilderVM - this one's more complicated
-            EncyclopediaPageChangedAction.HeroBuilderVMType = HeroBuilderVM;
-            MethodInfo ExecuteEditPrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteEditPrefix));
-            harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteEdit"), new HarmonyMethod(ExecuteEditPrefixInfo));
-            Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteEdit");
-            MethodInfo ExecuteNamePrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteNamePrefix));
-            harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteName"), new HarmonyMethod(ExecuteNamePrefixInfo));
-            Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteName");
+            if (HeroBuilderVM != default)
+            {
+                EncyclopediaPageChangedAction.HeroBuilderVMType = HeroBuilderVM;
+                MethodInfo ExecuteEditPrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteEditPrefix));
+                harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteEdit"), new HarmonyMethod(ExecuteEditPrefixInfo));
+                Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteEdit");
+                MethodInfo ExecuteNamePrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteNamePrefix));
+                harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteName"), new HarmonyMethod(ExecuteNamePrefixInfo));
+                Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteName");
+            }
 
             MethodInfo DoNotExecuteMethodSilentInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecuteMethodSilent));
             MethodInfo DoNotExecutePrefixSilentInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecutePrefixSilent));
 
             // CharacterObjectPatch
-            harmony.Patch(AccessTools.Method(CharacterObjectPatch, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
-            Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.CharacterObjectPath.CharacterObjectPatch.Postfix");
+            if (CharacterObjectPatch != default)
+            {
+                harmony.Patch(AccessTools.Method(CharacterObjectPatch, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.CharacterObjectPath.CharacterObjectPatch.Postfix");
+            }
 
             // FaceGenPropertyVMNamePath
-            harmony.Patch(AccessTools.Method(FaceGenPropertyVMNamePath, "Prefix"), new HarmonyMethod(DoNotExecutePrefixSilentInfo));
-            Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.FaceGenPropertyVMNamePath.Prefix");
+            if (FaceGenPropertyVMNamePath != default)
+            {
+                harmony.Patch(AccessTools.Method(FaceGenPropertyVMNamePath, "Prefix"), new HarmonyMethod(DoNotExecutePrefixSilentInfo));
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.FaceGenPropertyVMNamePath.Prefix");
+            }
 
             // FaceGenPropertyVMValuePath
-            harmony.Patch(AccessTools.Method(FaceGenPropertyVMValuePath, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
-            Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.FaceGenPropertyVMValuePath.Postfix");
+            if (FaceGenPropertyVMValuePath != default)
+            {
+                harmony.Patch(AccessTools.Method(FaceGenPropertyVMValuePath, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.FaceGenPropertyVMValuePath.Postfix");
+            }
 
             // MyClanLordItemVM
-            harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null,
-                new HarmonyMethod(AccessTools.Method(typeof(ClanLordItemVMPatch), nameof(ClanLordItemVMPatch.OnNamingHeroOverPostfix))));
-            Debug.Print("[CharacterCreation] Patched CharacterReload.VM.MyClanLordItemVM.OnNamingHeroOver");
+            if (MyClanLordItemVM != default)
+            {
+                harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null,
+                    new HarmonyMethod(AccessTools.Method(typeof(ClanLordItemVMPatch), nameof(ClanLordItemVMPatch.OnNamingHeroOverPostfix))));
+                Debug.Print("[CharacterCreation] Patched CharacterReload.VM.MyClanLordItemVM.OnNamingHeroOver");
+            }
         }
 
         private static bool ExecuteEditPrefix(object __instance, Hero ___selectedHero, Action<Hero> ___editCallback)
