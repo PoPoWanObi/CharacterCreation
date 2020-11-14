@@ -355,7 +355,6 @@
          <deform_key id="skinkey_post_edit" key_time_point="0" key_min="0" key_max="1" name="Post-Edit" group_id="4" />-->
          </deform_keys>
          <voice_types>
-            <voice_type name="male_01" />
             <voice_type name="male_02" />
             <voice_type name="male_03" />
             <voice_type name="male_04" />
@@ -507,7 +506,7 @@
             <hair_mesh name="hair_male_h_f" cover_type4="hair_male_h_f">
                <style_tags>
                   <style_tag name="Monk Hair" />
-              </style_tags>
+               </style_tags>
             </hair_mesh>
             <!-- <hair_mesh name="hair_male_f_m" tags="hair1" cover_type1="hair_male_f_m_a" />
       <hair_mesh name="hair_male_f_l" tags="hair1" cover_type1="hair_male_f_l_a" cover_type2="hair_male_f_l_b" />
@@ -1904,7 +1903,6 @@
          <deform_key id="skinkey_post_edit" key_time_point="0" key_min="0" key_max="1" name="Post-Edit" group_id="4" />-->
          </deform_keys>
          <voice_types>
-            <voice_type name="male_01" />
             <voice_type name="male_02" />
             <voice_type name="male_03" />
             <voice_type name="male_04" />
@@ -3293,7 +3291,6 @@
             <deform_key id="age" key_time_point="63" name="Age" group_id="0" />
          </deform_keys>
          <voice_types>
-            <voice_type name="male_01" />
             <voice_type name="male_02" />
             <voice_type name="male_03" />
             <voice_type name="male_04" />
@@ -4637,7 +4634,6 @@
          <deform_key id="skinkey_post_edit" key_time_point="0" key_min="0" key_max="1" name="Post-Edit" group_id="4" />-->
          <presets />
          <voice_types>
-            <voice_type name="male_01" />
             <voice_type name="male_02" />
             <voice_type name="male_03" />
             <voice_type name="male_04" />
@@ -6091,7 +6087,6 @@
             <mouth_texture name="mouth_mat_kid_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
          </mouth_textures>
         <voice_types>
-          <voice_type name="male_01" />
           <voice_type name="male_02" />
           <voice_type name="male_03" />
           <voice_type name="male_04" />
