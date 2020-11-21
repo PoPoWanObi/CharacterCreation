@@ -1275,6 +1275,7 @@
             <face_texture name="head_female_e" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <face_texture name="head_female_b" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture3" />
             <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture4" />
+            <face_texture name="head_female_f" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <!--       <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2">
 	  </face_texture> -->
             <!--face_texture name="head_female_a" color="0xFFC3C3C3" tags="face_texture3">
@@ -2471,6 +2472,7 @@
             <face_texture name="head_female_e" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <face_texture name="head_female_b" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture3" />
             <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture4" />
+            <face_texture name="head_female_f" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <!--       <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2">
 	  </face_texture> -->
             <!--face_texture name="head_female_a" color="0xFFC3C3C3" tags="face_texture3">
@@ -3102,6 +3104,7 @@
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture1,face_texture2" />
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture3,face_texture4" />
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture5,face_texture6,face_texture7" />
+            <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture8,face_texture9,face_texture10" />
             <!-- <face_texture name="head_male_e" lod_material="head_male_e" color="0xFFFFFFFF" tags="face_texture1,face_texture2,face_texture3">
         </face_texture>
       <face_texture name="head_male_f" lod_material="head_male_f" color="0xFFFFFFFF" tags="face_texture1,face_texture3">
@@ -3626,6 +3629,7 @@
             <face_texture name="head_female_e" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <face_texture name="head_female_b" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture3" />
             <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture4" />
+            <face_texture name="head_female_f" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <!--       <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2">
 	  </face_texture> -->
             <!--face_texture name="head_female_a" color="0xFFC3C3C3" tags="face_texture3">
@@ -4095,6 +4099,15 @@
          </hair_meshes>
          <eyebrow_meshes>
             <eyebrow_mesh name="male_eyebrow_1" />
+            <eyebrow_mesh name="male_eyebrow_2" />
+            <eyebrow_mesh name="male_eyebrow_3" />
+            <eyebrow_mesh name="male_eyebrow_4" />
+            <eyebrow_mesh name="male_eyebrow_5" />
+            <eyebrow_mesh name="male_eyebrow_7" />
+            <eyebrow_mesh name="male_eyebrow_8" />
+            <eyebrow_mesh name="male_eyebrow_9" />
+            <eyebrow_mesh name="male_eyebrow_10" />
+            <eyebrow_mesh name="male_eyebrow_6" />
          </eyebrow_meshes>
          <default_beard_meshes cover_type1="beards_c_a" cover_type2="beards_c_b" cover_type3="beards_c_c" />
          <beard_meshes zero_probability="5" />
@@ -4583,7 +4596,11 @@
             </hair_mesh>
          </hair_meshes>
          <eyebrow_meshes>
+            <eyebrow_mesh name="female_eyebrow_2" />
+            <eyebrow_mesh name="female_eyebrow_3" />
+            <eyebrow_mesh name="female_eyebrow_4" />
             <eyebrow_mesh name="female_eyebrow_6" />
+            <eyebrow_mesh name="female_eyebrow_7" />
          </eyebrow_meshes>
          <beard_meshes />
          <tattoo_materials group_id="8" zero_probability="100">
@@ -4735,7 +4752,11 @@
             <eye_color_gradient_point point="0.02, 0.01, 0.01" />
          </eye_color_gradient_points>
          <face_textures>
+            <face_texture name="head_female_a" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <face_texture name="head_female_e" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
+            <face_texture name="head_female_b" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture3" />
+            <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture4" />
+            <face_texture name="head_female_f" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <!--       <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2">
 	  </face_texture> -->
             <!--face_texture name="head_female_a" color="0xFFC3C3C3" tags="face_texture3">
@@ -5055,6 +5076,15 @@
          </hair_meshes>
          <eyebrow_meshes>
             <eyebrow_mesh name="male_eyebrow_1" />
+            <eyebrow_mesh name="male_eyebrow_2" />
+            <eyebrow_mesh name="male_eyebrow_3" />
+            <eyebrow_mesh name="male_eyebrow_4" />
+            <eyebrow_mesh name="male_eyebrow_5" />
+            <eyebrow_mesh name="male_eyebrow_7" />
+            <eyebrow_mesh name="male_eyebrow_8" />
+            <eyebrow_mesh name="male_eyebrow_9" />
+            <eyebrow_mesh name="male_eyebrow_10" />
+            <eyebrow_mesh name="male_eyebrow_6" />
          </eyebrow_meshes>
          <default_beard_meshes cover_type1="beards_c_a" cover_type2="beards_c_b" cover_type3="beards_c_c" />
          <beard_meshes zero_probability="5" />
@@ -5204,6 +5234,9 @@
             <eye_color_gradient_point point="0.02, 0.01, 0.01" />
          </eye_color_gradient_points>
          <face_textures group_id="1">
+            <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture1,face_texture2" />
+            <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture3,face_texture4" />
+            <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture5,face_texture6,face_texture7" />
             <face_texture name="head_male_g" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture1,face_texture2" />
             <!-- <face_texture name="head_male_e" lod_material="head_male_e" color="0xFFFFFFFF" tags="face_texture1,face_texture2,face_texture3">
         </face_texture>
@@ -5448,7 +5481,11 @@
             </hair_mesh>
          </hair_meshes>
          <eyebrow_meshes>
+            <eyebrow_mesh name="female_eyebrow_2" />
+            <eyebrow_mesh name="female_eyebrow_3" />
+            <eyebrow_mesh name="female_eyebrow_4" />
             <eyebrow_mesh name="female_eyebrow_6" />
+            <eyebrow_mesh name="female_eyebrow_7" />
          </eyebrow_meshes>
          <beard_meshes>
             <beard_mesh />
@@ -5602,6 +5639,10 @@
             <eye_color_gradient_point point="0.02, 0.01, 0.01" />
          </eye_color_gradient_points>
          <face_textures>
+            <face_texture name="head_female_a" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
+            <face_texture name="head_female_e" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
+            <face_texture name="head_female_b" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture3" />
+            <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture4" />
             <face_texture name="head_female_f" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
             <!--       <face_texture name="head_female_c" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2">
 	  </face_texture> -->
