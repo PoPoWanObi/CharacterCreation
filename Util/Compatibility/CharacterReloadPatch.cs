@@ -25,15 +25,14 @@ namespace CharacterCreation.Util
             Type FaceGenPropertyVMNamePath = AccessTools.TypeByName("CharacterReload.Pathes.FaceGenPropertyVMNamePath");
             Type FaceGenPropertyVMValuePath = AccessTools.TypeByName("CharacterReload.Pathes.FaceGenPropertyVMValuePath");
             Type MyClanLordItemVM = AccessTools.TypeByName("CharacterReload.VM.MyClanLordItemVM");
-
-            if (ModuleProcessSkinsXmlPatch == default || EncyclopediaPageChangedHandle == default || CharacterObjectPatch == default || HeroBuilderVM == default
-                || FaceGenPropertyVMNamePath == default || FaceGenPropertyVMValuePath == default || MyClanLordItemVM == default)
-                return;
+            Type DynamicBodyPatch = AccessTools.TypeByName("CharacterReload.Patches.DynamicBodyPatch");
+            Type SaveCurrentCharacter = AccessTools.Inner(AccessTools.TypeByName("CharacterReload.Pathes.BodyGeneratorPatch"), "SaveCurrentCharacter");
 
             MethodInfo DoNotExecuteMethodInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecuteMethod));
             MethodInfo DoNotExecutePrefixInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecutePrefix));
 
             // ModuleProcessSkinsXmlPatch - disable all
+            if (ModuleProcessSkinsXmlPatch == default) ModuleProcessSkinsXmlPatch = AccessTools.TypeByName("CharacterReload.Patch.ModuleProcessSkinsXmlPatch");
             if (ModuleProcessSkinsXmlPatch != default)
             {
                 harmony.Patch(AccessTools.Method(ModuleProcessSkinsXmlPatch, "Prefix"), new HarmonyMethod(DoNotExecutePrefixInfo)); // strange as it is, it actually works.
@@ -63,6 +62,7 @@ namespace CharacterCreation.Util
             MethodInfo DoNotExecutePrefixSilentInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecutePrefixSilent));
 
             // CharacterObjectPatch
+            if (CharacterObjectPatch == default) CharacterObjectPatch = AccessTools.TypeByName("CharacterReload.Patch.CharacterObjectPath");
             if (CharacterObjectPatch != default)
             {
                 harmony.Patch(AccessTools.Method(CharacterObjectPatch, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
@@ -70,6 +70,7 @@ namespace CharacterCreation.Util
             }
 
             // FaceGenPropertyVMNamePath
+            if (FaceGenPropertyVMNamePath == default) FaceGenPropertyVMNamePath = AccessTools.TypeByName("CharacterReload.Patch.FaceGenPropertyVMNamePath");
             if (FaceGenPropertyVMNamePath != default)
             {
                 harmony.Patch(AccessTools.Method(FaceGenPropertyVMNamePath, "Prefix"), new HarmonyMethod(DoNotExecutePrefixSilentInfo));
@@ -77,6 +78,7 @@ namespace CharacterCreation.Util
             }
 
             // FaceGenPropertyVMValuePath
+            if (FaceGenPropertyVMValuePath == default) FaceGenPropertyVMValuePath = AccessTools.TypeByName("CharacterReload.Patch.FaceGenPropertyVMValuePath");
             if (FaceGenPropertyVMValuePath != default)
             {
                 harmony.Patch(AccessTools.Method(FaceGenPropertyVMValuePath, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
@@ -89,6 +91,23 @@ namespace CharacterCreation.Util
                 harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null,
                     new HarmonyMethod(AccessTools.Method(typeof(ClanLordItemVMPatch), nameof(ClanLordItemVMPatch.OnNamingHeroOverPostfix))));
                 Debug.Print("[CharacterCreation] Patched CharacterReload.VM.MyClanLordItemVM.OnNamingHeroOver");
+            }
+
+            // DynamicBodyPatch
+            if (DynamicBodyPatch == default) CharacterObjectPatch = AccessTools.TypeByName("CharacterReload.Patch.DynamicBodyPatch");
+            if (DynamicBodyPatch != default)
+            {
+                harmony.Patch(AccessTools.Method(DynamicBodyPatch, "Prefix"), new HarmonyMethod(DoNotExecutePrefixSilentInfo));
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Patch.DynamicBodyPatch");
+            }
+            
+            // SaveCurrentCharacter
+            if (SaveCurrentCharacter == default) SaveCurrentCharacter = AccessTools.Inner(AccessTools.TypeByName("CharacterReload.Patch.BodyGeneratorPatch"), "SaveCurrentCharacter");
+            if (SaveCurrentCharacter != default)
+            {
+                harmony.Patch(AccessTools.Method(SaveCurrentCharacter, "Prefix"), new HarmonyMethod(DoNotExecutePrefixSilentInfo));
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.BodyGeneratorPatch.SaveCurrentCharacter");
+
             }
         }
 

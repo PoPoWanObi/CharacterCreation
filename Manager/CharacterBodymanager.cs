@@ -1,6 +1,8 @@
 ﻿using TaleWorlds.Core;
 using Helpers;
 using TaleWorlds.CampaignSystem;
+using System.Reflection;
+using HarmonyLib;
 
 namespace CharacterCreation.Manager
 {
@@ -31,10 +33,15 @@ namespace CharacterCreation.Manager
             
             Hero hero = characterObject.HeroObject;
             if (DCCSettingsUtil.Instance.OverrideAge) return;
-                
-            hero.BirthDay = randomize ? 
-                HeroHelper.GetRandomBirthDayForAge(targetAge) : 
-                CampaignTime.Years((float)(CampaignTime.Now.ToYears - targetAge));
+            
+            // Since enough people asked for this
+            MethodInfo setBirthdayMethod = AccessTools.PropertySetter(typeof(Hero), "BirthDay");
+            if (setBirthdayMethod == default) setBirthdayMethod = AccessTools.Method(typeof(Hero), "SetBirthDay");
+            if (setBirthdayMethod != default)
+            {
+                CampaignTime newBirthday = randomize ? HeroHelper.GetRandomBirthDayForAge(targetAge) : CampaignTime.Years((float)(CampaignTime.Now.ToYears - targetAge));
+                setBirthdayMethod.Invoke(hero, new object[] { newBirthday });
+            }
         }
     }
 }
