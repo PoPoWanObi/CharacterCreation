@@ -94,11 +94,13 @@ namespace CharacterCreation.Models
                 AccessTools.Method(HeroBuilderVMType, "SetHero").Invoke(viewModel, new[] { selectedHero });
                 //viewModel.SetHero(selectedHero);
 
+                // BEGIN compatibility code block
                 if (viewModel.GetType() == typeof(HeroBuilderVM))
                     gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
                 else if (viewModel.GetType().FullName == "CharacterReload.VM.HeroBuilderVM")
                     gauntletMovie = gauntletLayer.LoadMovie("HeroEditor", viewModel);
                 else return;
+                // END
 
                 gauntletLayerTopScreen = ScreenManager.TopScreen;
                 gauntletLayerTopScreen.AddLayer(gauntletLayer);
