@@ -17,7 +17,7 @@ namespace CharacterCreation.Models
 {
     public class EncyclopediaPageChangedAction
     {
-        private ViewModel? viewModel;
+        private HeroBuilderVM? viewModel;
         private EncyclopediaHeroPageVM? selectedHeroPage;
         private HeroBuilderModel? heroModel;
         private Hero? selectedHero;
@@ -25,7 +25,7 @@ namespace CharacterCreation.Models
         private GauntletLayer? gauntletLayer;
         private GauntletMovie? gauntletMovie;
 
-        public static Type HeroBuilderVMType { get; internal set; } = typeof(HeroBuilderVM);
+        //public static Type HeroBuilderVMType { get; internal set; } = typeof(HeroBuilderVM);
 
         public EncyclopediaPageChangedAction(HeroBuilderModel model)
         {
@@ -77,30 +77,28 @@ namespace CharacterCreation.Models
                 if (gauntletMovie != null)
                     gauntletLayer.ReleaseMovie(gauntletMovie);
 
-                static void Callback(Hero editHero) => InformationManager.DisplayMessage(new InformationMessage(SubModule.EditAppearanceForHeroMessage.ToString() + editHero));
-                ConstructorInfo constructor = HeroBuilderVMType.GetConstructor(new[] { typeof(Action<Hero>) });
-                viewModel = constructor?.Invoke(new[] {(Action<Hero>) Callback}) as ViewModel;
-                //if (viewModel == null)
-                //{
-                //    viewModel = new HeroBuilderVM(heroModel, delegate (Hero editHero)
-                //    {
-                //        InformationManager.DisplayMessage(new InformationMessage(SubModule.EditAppearanceForHeroMessage.ToString() + editHero));
-                //    });
-                //}
-                if (viewModel == default) return;
+                //static void Callback(Hero editHero) => InformationManager.DisplayMessage(new InformationMessage(SubModule.EditAppearanceForHeroMessage.ToString() + editHero));
+                //ConstructorInfo constructor = HeroBuilderVMType.GetConstructor(new[] { typeof(Action<Hero>) });
+                //viewModel = constructor?.Invoke(new[] {(Action<Hero>) Callback}) as ViewModel;
+                //if (viewModel == default) return;
+                if (viewModel == null)
+                {
+                    viewModel = new HeroBuilderVM(hero => InformationManager.DisplayMessage(new InformationMessage(SubModule.EditAppearanceForHeroMessage.ToString() + hero)));
+                }
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] viewModel is of type {viewModel.GetType().FullName}");
 
-                AccessTools.Method(HeroBuilderVMType, "SetHero").Invoke(viewModel, new[] { selectedHero });
-                //viewModel.SetHero(selectedHero);
+                //AccessTools.Method(HeroBuilderVMType, "SetHero").Invoke(viewModel, new[] { selectedHero });
+                viewModel.SetHero(selectedHero);
 
-                // BEGIN compatibility code block
-                if (viewModel.GetType() == typeof(HeroBuilderVM))
-                    gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
-                else if (viewModel.GetType().FullName == "CharacterReload.VM.HeroBuilderVM")
-                    gauntletMovie = gauntletLayer.LoadMovie("HeroEditor", viewModel);
-                else return;
-                // END
+                //// BEGIN compatibility code block
+                //if (viewModel.GetType() == typeof(HeroBuilderVM))
+                //    gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
+                //else if (viewModel.GetType().FullName == "CharacterReload.VM.HeroBuilderVM")
+                //    gauntletMovie = gauntletLayer.LoadMovie("HeroEditor", viewModel);
+                //else return;
+                //// END
+                gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
 
                 gauntletLayerTopScreen = ScreenManager.TopScreen;
                 gauntletLayerTopScreen.AddLayer(gauntletLayer);

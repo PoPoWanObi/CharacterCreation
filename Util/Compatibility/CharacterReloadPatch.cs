@@ -31,7 +31,9 @@ namespace CharacterCreation.Util
             MethodInfo DoNotExecuteMethodInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecuteMethod));
             MethodInfo DoNotExecutePrefixInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecutePrefix));
 
-            // ModuleProcessSkinsXmlPatch - disable all
+            // ModuleProcessSkinsXmlPatch
+            // I'm currently working on a mod similar to Rimworld patch ops, which would deprecate this patch since it would run before the patches anyway
+            // until then both do the same thing so should this patch be kept at all?
             if (ModuleProcessSkinsXmlPatch == default) ModuleProcessSkinsXmlPatch = AccessTools.TypeByName("CharacterReload.Patch.ModuleProcessSkinsXmlPatch");
             if (ModuleProcessSkinsXmlPatch != default)
             {
@@ -39,30 +41,34 @@ namespace CharacterCreation.Util
                 Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.ModuleProcessSkinsXmlPatch.Prefix");
             }
 
-            // EncyclopediaPageChangedHandle
-            if (EncyclopediaPageChangedHandle != default)
-            {
-                harmony.Patch(AccessTools.Method(EncyclopediaPageChangedHandle, "OnEncyclopediaPageChanged"), new HarmonyMethod(DoNotExecuteMethodInfo));
-                Debug.Print("[CharacterCreation] Disabled CharacterReload.EncyclopediaPageChangedHandle.OnEncyclopediaPageChanged");
-            }
+            //// EncyclopediaPageChangedHandle
+            //// Currently being phased out in favor of keeping both sets of buttons (but DCC buttons will be indicated)
+            //if (EncyclopediaPageChangedHandle != default)
+            //{
+            //    harmony.Patch(AccessTools.Method(EncyclopediaPageChangedHandle, "OnEncyclopediaPageChanged"), new HarmonyMethod(DoNotExecuteMethodInfo));
+            //    Debug.Print("[CharacterCreation] Disabled CharacterReload.EncyclopediaPageChangedHandle.OnEncyclopediaPageChanged");
+            //}
 
-            // HeroBuilderVM - this one's more complicated
-            if (HeroBuilderVM != default)
-            {
-                EncyclopediaPageChangedAction.HeroBuilderVMType = HeroBuilderVM;
-                MethodInfo ExecuteEditPrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteEditPrefix));
-                harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteEdit"), new HarmonyMethod(ExecuteEditPrefixInfo));
-                Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteEdit");
-                MethodInfo ExecuteNamePrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteNamePrefix));
-                harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteName"), new HarmonyMethod(ExecuteNamePrefixInfo));
-                Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteName");
-            }
+            //// HeroBuilderVM - this one's more complicated
+            //// Also being phased out - see above
+            //if (HeroBuilderVM != default)
+            //{
+            //    EncyclopediaPageChangedAction.HeroBuilderVMType = HeroBuilderVM;
+            //    MethodInfo ExecuteEditPrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteEditPrefix));
+            //    harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteEdit"), new HarmonyMethod(ExecuteEditPrefixInfo));
+            //    Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteEdit");
+            //    MethodInfo ExecuteNamePrefixInfo = AccessTools.Method(typeof(CharacterReloadPatch), nameof(CharacterReloadPatch.ExecuteNamePrefix));
+            //    harmony.Patch(AccessTools.Method(HeroBuilderVM, "ExecuteName"), new HarmonyMethod(ExecuteNamePrefixInfo));
+            //    Debug.Print("[CharacterCreation] Redirected CharacterReload.VM.HeroBuilderVM.ExecuteName");
+            //}
 
             MethodInfo DoNotExecuteMethodSilentInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecuteMethodSilent));
             MethodInfo DoNotExecutePrefixSilentInfo = AccessTools.Method(typeof(CompatibilityPatchUtil), nameof(CompatibilityPatchUtil.DoNotExecutePrefixSilent));
 
             // CharacterObjectPatch
-            if (CharacterObjectPatch == default) CharacterObjectPatch = AccessTools.TypeByName("CharacterReload.Patch.CharacterObjectPath");
+            // Both patches do the same thing so this is strictly speaking not necessary - patch it anyway?
+            if (CharacterObjectPatch == default)
+                CharacterObjectPatch = AccessTools.Inner(AccessTools.TypeByName("CharacterReload.Patch.CharacterObjectPath"), "CharacterObjectPatch");
             if (CharacterObjectPatch != default)
             {
                 harmony.Patch(AccessTools.Method(CharacterObjectPatch, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
@@ -70,6 +76,7 @@ namespace CharacterCreation.Util
             }
 
             // FaceGenPropertyVMNamePath
+            // Not sure if it's necessary, but CR does not quite handle this elegantly in every panel other than the body sliders
             if (FaceGenPropertyVMNamePath == default) FaceGenPropertyVMNamePath = AccessTools.TypeByName("CharacterReload.Patch.FaceGenPropertyVMNamePath");
             if (FaceGenPropertyVMNamePath != default)
             {
@@ -78,6 +85,7 @@ namespace CharacterCreation.Util
             }
 
             // FaceGenPropertyVMValuePath
+            // See above
             if (FaceGenPropertyVMValuePath == default) FaceGenPropertyVMValuePath = AccessTools.TypeByName("CharacterReload.Patch.FaceGenPropertyVMValuePath");
             if (FaceGenPropertyVMValuePath != default)
             {
@@ -86,6 +94,7 @@ namespace CharacterCreation.Util
             }
 
             // MyClanLordItemVM
+            // CR does not (yet as of writing) handle renaming properly - should patch anyway?
             if (MyClanLordItemVM != default)
             {
                 harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null,
@@ -94,6 +103,7 @@ namespace CharacterCreation.Util
             }
 
             // DynamicBodyPatch
+            // Do they quite do the samething?
             if (DynamicBodyPatch == default) CharacterObjectPatch = AccessTools.TypeByName("CharacterReload.Patch.DynamicBodyPatch");
             if (DynamicBodyPatch != default)
             {
@@ -102,6 +112,7 @@ namespace CharacterCreation.Util
             }
             
             // SaveCurrentCharacter
+            // Is this patch necessary at all?
             if (SaveCurrentCharacter == default) SaveCurrentCharacter = AccessTools.Inner(AccessTools.TypeByName("CharacterReload.Patch.BodyGeneratorPatch"), "SaveCurrentCharacter");
             if (SaveCurrentCharacter != default)
             {
