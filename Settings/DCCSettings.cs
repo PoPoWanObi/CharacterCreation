@@ -1,7 +1,13 @@
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Settings.Base.Global;
+using System;
+using System.IO;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
+using TaleWorlds.Library;
 
 namespace CharacterCreation
 {
@@ -9,11 +15,57 @@ namespace CharacterCreation
     {
         private static IDCCSettings instance;
 
+        private static FileInfo ConfigFile { get; } = new FileInfo(Path.Combine(BasePath.Name, "Modules", "CharacterCreation.config.xml"));
+
         public static IDCCSettings Instance
         {
             get
             {
-                instance = DCCSettings.Instance ?? instance ?? new DCCDefaultSettings();
+                //instance = DCCSettings.Instance ?? instance ?? new DCCDefaultSettings();
+
+                // attempt to load MCM config
+                try
+                {
+                    instance = DCCSettings.Instance ?? instance;
+                }
+                catch (Exception e)
+                {
+                    Debug.Print(string.Format("[CharacterCreation] Failed to obtain MCM config, defaulting to config file.\n\nError: {1}\n\n{2}",
+                        ConfigFile.FullName, e.Message, e.StackTrace));
+                }
+
+                // load config file if MCM config load fails
+                if (instance == default)
+                {
+                    var serializer = new XmlSerializer(typeof(DCCDefaultSettings));
+                    if (ConfigFile.Exists)
+                    {
+                        try
+                        {
+                            using (var stream = ConfigFile.OpenText())
+                                instance = serializer.Deserialize(stream) as DCCDefaultSettings;
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.Print(string.Format("[CharacterCreation] Failed to load file {0}\n\nError: {1}\n\n{2}",
+                                ConfigFile.FullName, e.Message, e.StackTrace));
+                        }
+                    }
+
+                    if (instance == default)
+                    {
+                        instance = new DCCDefaultSettings();
+                        using (var stream = ConfigFile.Open(FileMode.Create))
+                        {
+                            var xmlWritter = new XmlTextWriter(stream, Encoding.UTF8)
+                            {
+                                Formatting = Formatting.Indented,
+                                Indentation = 4
+                            };
+                            serializer.Serialize(XmlWriter.Create(stream), instance);
+                        }
+                    }
+                }
                 return instance;
             }
         }
@@ -48,32 +100,46 @@ namespace CharacterCreation
         bool EnableCharacterReloadCompatibility { get; set; }
     }
 
-    class DCCDefaultSettings : IDCCSettings
+    [XmlRoot("CharacterCreation", IsNullable = false)]
+    public class DCCDefaultSettings : IDCCSettings
     {
+        [XmlElement(DataType = "boolean")]
         public bool DebugMode { get; set; } = false;
 
+        [XmlElement(DataType = "boolean")]
         public bool IgnoreDailyTick { get; set; } = true;
 
+        [XmlElement(DataType = "boolean")]
         public bool OverrideAge { get; set; } = false;
 
+        [XmlElement(DataType = "boolean")]
         public bool DisableAutoAging { get; set; } = false;
 
+        [XmlElement(DataType = "boolean")]
         public bool CustomAgeModel { get; set; } = false;
 
+        [XmlElement(DataType = "int")]
         public int BecomeInfantAge { get; set; }
 
+        [XmlElement(DataType = "int")]
         public int BecomeChildAge { get; set; }
 
+        [XmlElement(DataType = "int")]
         public int BecomeTeenagerAge { get; set; }
 
+        [XmlElement(DataType = "int")]
         public int BecomeAdultAge { get; set; }
 
+        [XmlElement(DataType = "int")]
         public int BecomeOldAge { get; set; }
 
+        [XmlElement(DataType = "int")]
         public int MaxAge { get; set; }
 
+        [XmlElement(DataType = "boolean")]
         public bool EnableCompatibility { get; set; } = true;
 
+        [XmlElement(DataType = "boolean")]
         public bool EnableCharacterReloadCompatibility { get; set; } = true;
 
         public DCCDefaultSettings()

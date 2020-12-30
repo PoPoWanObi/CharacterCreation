@@ -23,7 +23,8 @@ namespace CharacterCreation.Patches
                     if (__instance.Character is CharacterObject characterObject)
                     {
                         float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
-                        CharacterBodyManager.ResetBirthDayForAge(characterObject, __instance.CurrentBodyProperties.DynamicProperties.Age);
+                        if (!DCCSettingsUtil.Instance.OverrideAge)
+                            CharacterBodyManager.ResetBirthDayForAge(characterObject, __instance.CurrentBodyProperties.DynamicProperties.Age);
                         if (DCCSettingsUtil.Instance.DebugMode)
                             Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
                     }
