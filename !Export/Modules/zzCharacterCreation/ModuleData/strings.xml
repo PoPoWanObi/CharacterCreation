@@ -2,30 +2,30 @@
 <base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
   <strings>
       <!-- Begin FaceGen Entries -->
-    <string id="str_facegen_skin.TorsoBelly" text="Belly Girth" />
-    <string id="str_facegen_skin.TorsoHips" text="Hip Size" />
-    <string id="str_facegen_skin.TorsoButt" text="Butt Size" />
-    <string id="str_facegen_skin.Thigh" text="Thigh Size" />
-    <string id="str_facegen_skin.Calf" text="Calf Size" />
-    <string id="str_facegen_skin.Foot" text="Foot Size" />
-    <string id="str_facegen_skin.TorsoX" text="Torso Width" />
-    <string id="str_facegen_skin.TorsoY" text="Torso Depth" />
-    <string id="str_facegen_skin.TorsoZ" text="Torso Height" />
-    <string id="str_facegen_skin.ThoraxX" text="Chest Width" />
-    <string id="str_facegen_skin.ThoraxY" text="Chest Depth" />
-    <string id="str_facegen_skin.ThoraxZ" text="Chest Height" />
-    <string id="str_facegen_skin.Neck" text="Neck Size" />
-    <string id="str_facegen_skin.HeadDepth" text="Head Depth" />
-    <string id="str_facegen_skin.HeadWidth" text="Head Width" />
-    <string id="str_facegen_skin.HeadHeight" text="Head Height" />
-    <string id="str_facegen_skin.Shoulders" text="Shoulder Size" />
-    <string id="str_facegen_skin.UpperarmSize" text="Bicep Size" />
-    <string id="str_facegen_skin.ForearmSize" text="Forearm Size" />
-    <string id="str_facegen_skin.HandSize" text="Hand Size" />
-    <string id="str_facegen_skin.weight" text="Muscle Tone" />
-    <string id="str_facegen_skin.build" text="Ignore this" />
-    <string id="str_facegen_skin.Weight2" text="Body Weight" />
-    <string id="str_facegen_skin.Build2" text="Body Muscle" />
+    <string id="str_facegen_skin.TorsoBelly" text="{=CharacterCreation_TorsoBelly}Belly Girth" />
+    <string id="str_facegen_skin.TorsoHips" text="{=CharacterCreation_TorsoHips}Hip Size" />
+    <string id="str_facegen_skin.TorsoButt" text="{=CharacterCreation_TorsoButt}Butt Size" />
+    <string id="str_facegen_skin.Thigh" text="{=CharacterCreation_Thigh}Thigh Size" />
+    <string id="str_facegen_skin.Calf" text="{=CharacterCreation_Calf}Calf Size" />
+    <string id="str_facegen_skin.Foot" text="{=CharacterCreation_Foot}Foot Size" />
+    <string id="str_facegen_skin.TorsoX" text="{=CharacterCreation_TorsoX}Torso Width" />
+    <string id="str_facegen_skin.TorsoY" text="{=CharacterCreation_TorsoY}Torso Depth" />
+    <string id="str_facegen_skin.TorsoZ" text="{=CharacterCreation_TorsoZ}Torso Height" />
+    <string id="str_facegen_skin.ThoraxX" text="{=CharacterCreation_ThoraxX}Chest Width" />
+    <string id="str_facegen_skin.ThoraxY" text="{=CharacterCreation_ThoraxY}Chest Depth" />
+    <string id="str_facegen_skin.ThoraxZ" text="{=CharacterCreation_ThoraxZ}Chest Height" />
+    <string id="str_facegen_skin.Neck" text="{=CharacterCreation_Neck}Neck Size" />
+    <string id="str_facegen_skin.HeadDepth" text="{=CharacterCreation_HeadDepth}Head Depth" />
+    <string id="str_facegen_skin.HeadWidth" text="{=CharacterCreation_HeadWidth}Head Width" />
+    <string id="str_facegen_skin.HeadHeight" text="{=CharacterCreation_HeadHeight}Head Height" />
+    <string id="str_facegen_skin.Shoulders" text="{=CharacterCreation_Shoulders}Shoulder Size" />
+    <string id="str_facegen_skin.UpperarmSize" text="{=CharacterCreation_UpperarmSize}Bicep Size" />
+    <string id="str_facegen_skin.ForearmSize" text="{=CharacterCreation_ForearmSize}Forearm Size" />
+    <string id="str_facegen_skin.HandSize" text="{=CharacterCreation_HandSize}Hand Size" />
+    <string id="str_facegen_skin.weight" text="{=CharacterCreation_weight}Muscle Tone" />
+    <string id="str_facegen_skin.build" text="{=CharacterCreation_build}Ignore this" />
+    <string id="str_facegen_skin.Weight2" text="{=CharacterCreation_Weight2}Body Weight" />
+    <string id="str_facegen_skin.Build2" text="{=CharacterCreation_Build2}Body Muscle" />
     <!-- End FaceGen Entries -->
   </strings>
 </base>
