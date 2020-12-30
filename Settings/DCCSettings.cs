@@ -28,10 +28,10 @@ namespace CharacterCreation
                 {
                     instance = DCCSettings.Instance ?? instance;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    Debug.Print(string.Format("[CharacterCreation] Failed to obtain MCM config, defaulting to config file.\n\nError: {1}\n\n{2}",
-                        ConfigFile.FullName, e.Message, e.StackTrace));
+                    //Debug.Print(string.Format("[CharacterCreation] Failed to obtain MCM config, defaulting to config file.\n\nError: {1}\n\n{2}",
+                    //    ConfigFile.FullName, e.Message, e.StackTrace));
                 }
 
                 // load config file if MCM config load fails
@@ -62,7 +62,7 @@ namespace CharacterCreation
                                 Formatting = Formatting.Indented,
                                 Indentation = 4
                             };
-                            serializer.Serialize(XmlWriter.Create(stream), instance);
+                            serializer.Serialize(xmlWritter, instance);
                         }
                     }
                 }

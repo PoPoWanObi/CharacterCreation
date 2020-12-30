@@ -57,16 +57,5 @@ namespace CharacterCreation
             CharacterBodyManager.ResetBirthDayForAge(Hero.MainHero.CharacterObject, num, true);
             return SuccessMsg.ToString();
         }
-
-        [CommandLineFunctionality.CommandLineArgumentFunction("deltatime", "dcc")]
-        public static string Time(List<string> strings)
-        {
-            //CampaignTime deltaTime = CampaignTime.Now - SubModule.TimeSinceLastSave;
-            CampaignTime deltaTime = SubModule.GetDeltaTime();
-            //double yearsElapsed = deltaTime.ToYears;
-            //SubModule.TimeSinceLastSave = CampaignTime.Zero;
-
-            return deltaTime.ToYears.ToString();
-        }
     }
 }

@@ -4,6 +4,7 @@ using HarmonyLib;
 using System;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Library;
 
 namespace CharacterCreation.Util
@@ -38,7 +39,7 @@ namespace CharacterCreation.Util
             if (ModuleProcessSkinsXmlPatch != default)
             {
                 harmony.Patch(AccessTools.Method(ModuleProcessSkinsXmlPatch, "Prefix"), new HarmonyMethod(DoNotExecutePrefixInfo)); // strange as it is, it actually works.
-                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.ModuleProcessSkinsXmlPatch.Prefix");
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Patch.ModuleProcessSkinsXmlPatch.Prefix");
             }
 
             //// EncyclopediaPageChangedHandle
@@ -72,7 +73,7 @@ namespace CharacterCreation.Util
             if (CharacterObjectPatch != default)
             {
                 harmony.Patch(AccessTools.Method(CharacterObjectPatch, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
-                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.CharacterObjectPath.CharacterObjectPatch.Postfix");
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Patch.CharacterObjectPath.CharacterObjectPatch.Postfix");
             }
 
             // FaceGenPropertyVMNamePath
@@ -81,7 +82,7 @@ namespace CharacterCreation.Util
             if (FaceGenPropertyVMNamePath != default)
             {
                 harmony.Patch(AccessTools.Method(FaceGenPropertyVMNamePath, "Prefix"), new HarmonyMethod(DoNotExecutePrefixSilentInfo));
-                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.FaceGenPropertyVMNamePath.Prefix");
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Patch.FaceGenPropertyVMNamePath.Prefix");
             }
 
             // FaceGenPropertyVMValuePath
@@ -90,7 +91,7 @@ namespace CharacterCreation.Util
             if (FaceGenPropertyVMValuePath != default)
             {
                 harmony.Patch(AccessTools.Method(FaceGenPropertyVMValuePath, "Postfix"), new HarmonyMethod(DoNotExecuteMethodSilentInfo));
-                Debug.Print("[CharacterCreation] Disabled CharacterReload.Pathes.FaceGenPropertyVMValuePath.Postfix");
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.Patch.FaceGenPropertyVMValuePath.Postfix");
             }
 
             // MyClanLordItemVM
@@ -104,7 +105,7 @@ namespace CharacterCreation.Util
 
             // DynamicBodyPatch
             // Do they quite do the samething?
-            if (DynamicBodyPatch == default) CharacterObjectPatch = AccessTools.TypeByName("CharacterReload.Patch.DynamicBodyPatch");
+            if (DynamicBodyPatch == default) DynamicBodyPatch = AccessTools.TypeByName("CharacterReload.Patch.DynamicBodyPatch");
             if (DynamicBodyPatch != default)
             {
                 harmony.Patch(AccessTools.Method(DynamicBodyPatch, "Prefix"), new HarmonyMethod(DoNotExecutePrefixSilentInfo));
