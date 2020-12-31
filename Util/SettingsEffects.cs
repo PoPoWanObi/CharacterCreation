@@ -1,4 +1,5 @@
 ﻿using CharacterCreation.Manager;
+using Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,8 +69,7 @@ namespace CharacterCreation.Util
         // Updates all heroes (as if they all need updating anyway)
         public static void UpdateAllHeroes()
         {
-            var heroList = new List<Hero>(Game.Current.ObjectManager.GetObjectTypeList<Hero>());
-            foreach (var hero in heroList)
+            foreach (var hero in new List<Hero>(Game.Current.ObjectManager.GetObjectTypeList<Hero>()))
             {
                 if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
                 {
@@ -78,6 +78,12 @@ namespace CharacterCreation.Util
                     InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
                 }
 
+                // update so party name and character name on save is correct
+                hero.FirstName = hero.Name;
+                if (hero.IsPartyLeader)
+                    hero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(hero.CharacterObject);
+
+                // update age (is it strictly speaking necessary?)
                 float age = hero.Age;
                 DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(age, hero.Weight, hero.Build);
                 BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);

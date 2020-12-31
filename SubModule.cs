@@ -1,9 +1,7 @@
-﻿using CharacterCreation.Manager;
-using CharacterCreation.Models;
+﻿using CharacterCreation.Models;
 using CharacterCreation.Patches;
 using CharacterCreation.Util;
 using HarmonyLib;
-using Helpers;
 using SandBox.GauntletUI;
 using System;
 using System.Collections.Generic;
@@ -12,11 +10,7 @@ using System.Linq;
 using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
-using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
-using TaleWorlds.Engine.GauntletUI;
-using TaleWorlds.Engine.Screens;
-using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
@@ -135,20 +129,7 @@ namespace CharacterCreation
             public override void OnBeforeSave()
             {
                 if (Game.Current == null || !(Game.Current.GameType is Campaign)) return;
-
-                foreach (Hero hero in Game.Current.ObjectManager.GetObjectTypeList<Hero>())
-                {
-                    hero.FirstName = hero.Name;
-                    if (hero.IsPartyLeader)
-                        hero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(hero.CharacterObject);
-
-                    DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                    BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
-                    hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
-
-                    if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
-                        InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(hero, hero.Age), ColorManager.Red));
-                }
+                SettingsEffects.UpdateAllHeroes();
             }
         }
     }
