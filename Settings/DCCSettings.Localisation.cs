@@ -16,12 +16,12 @@ namespace CharacterCreation
             DebugModeHint = "{=CharacterCreation_DebugModeHint}Enable DCC's debug output. Does NOT require restart.",
             
             Section1 = "{=CharacterCreation_Section1}Section 1: Overrides",
-            IgnoreDailyTickName = "{=CharacterCreation_IgnoreDailyTickName}Overrides",
+            IgnoreDailyTickName = "{=CharacterCreation_IgnoreDailyTickName}Suppress Daily Tick",
             IgnoreDailyTickHint = "{=CharacterCreation_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Does NOT require restart.",
             OverrideAgeName = "{=CharacterCreation_OverrideAgeName}Override Age",
             OverrideAgeHint = "{=CharacterCreation_OverrideAgeHint}When enabled, this will prevent FaceGen from changing a hero's age. Does NOT require restart. (Possibly non-functional.)",
             DisableAutoAgingName = "{=CharacterCreation_DisableAutoAgingName}Disable Auto Aging",
-            DisableAutoAgingHint = "{=CharacterCreation_DisableAutoAgingHint}Enable this to prevent the game from changing the age physical appearance. Does NOT require restart.",
+            DisableAutoAgingHint = "{=CharacterCreation_DisableAutoAgingHint}Enable this to prevent the game from changing the age physical appearance. Does NOT require restart and takes effect upon save load or hour tick.",
             
             Section2 = "{=CharacterCreation_Section2}Section 2: Age Model",
             CustomAgeModelName = "{=CharacterCreation_CustomAgeModelName}Custom Age Model",

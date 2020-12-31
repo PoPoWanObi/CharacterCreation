@@ -79,19 +79,9 @@ namespace CharacterCreation
             _isLoaded = true;
         }
 
-        // Load our XML files
-        //private static void LoadXMLFiles(CampaignGameStarter gameInitializer)
-        //{
-        //    // Load our additional strings
-        //    gameInitializer.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "zzCharacterCreation", "ModuleData", "strings.xml"));
-        //}
-
         // Called when loading save game
         public override void OnGameLoaded(Game game, object initializerObject)
         {
-            //CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
-            //LoadXMLFiles(gameInitializer);
-
             if (!(game.GameType is Campaign) || !DCCSettingsUtil.Instance.DebugMode) return;
 
             // print player age if debug is on
@@ -100,49 +90,15 @@ namespace CharacterCreation
             Debug.Print(GetFormattedAgeDebugMessage(player, player.Age));
         }
 
-        // Called when starting new campaign
-        //public override void OnNewGameCreated(Game game, object initializerObject)
-        //{
-        //    CampaignGameStarter gameInitializer = (CampaignGameStarter)initializerObject;
-        //    LoadXMLFiles(gameInitializer);
-        //}
-
         // called after game is initialized
         public override void OnGameInitializationFinished(Game game)
         {
-            InformationManager.DisplayMessage(
-                new InformationMessage($"DisableAutoAging: {DCCSettingsUtil.Instance.DisableAutoAging}, IsLifeDeathCycleDisabled: {CampaignOptions.IsLifeDeathCycleDisabled}"));
-
             // just to make sure facegen is set
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
+            // make sure to call this and other daily tick events on... well, daily tick
+            SettingsEffects.Initialize();
             // check game options and handle appropriately
-            var heroList = game.ObjectManager.GetObjectTypeList<Hero>();
-            // pseudocode time
-            // if mod setting enables aging (and aging is previously disabled), set everyone's birthday by using default age
-            // if mod setting disables aging (and aging is previously enabled), set everyone's birthday to update default age
-            if (DCCSettingsUtil.Instance.DisableAutoAging && !CampaignOptions.IsLifeDeathCycleDisabled)
-            {
-                CampaignOptions.IsLifeDeathCycleDisabled = false;
-                foreach (var hero in heroList)
-                {
-                    var age = hero.Age;
-                    CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
-                }
-                CampaignOptions.IsLifeDeathCycleDisabled = true;
-            }
-            else if (!DCCSettingsUtil.Instance.DisableAutoAging && CampaignOptions.IsLifeDeathCycleDisabled)
-            {
-                CampaignOptions.IsLifeDeathCycleDisabled = true;
-                foreach (var hero in heroList)
-                {
-                    var age = hero.Age;
-                    CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
-                }
-                CampaignOptions.IsLifeDeathCycleDisabled = false;
-            }
-
-            InformationManager.DisplayMessage(
-                new InformationMessage($"DisableAutoAging: {DCCSettingsUtil.Instance.DisableAutoAging}, IsLifeDeathCycleDisabled: {CampaignOptions.IsLifeDeathCycleDisabled}"));
+            SettingsEffects.SetAutoAging(game);
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)

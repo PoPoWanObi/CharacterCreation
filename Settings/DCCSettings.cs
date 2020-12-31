@@ -15,6 +15,8 @@ namespace CharacterCreation
     {
         private static IDCCSettings instance;
 
+        public static int ExceptionCount { get; internal set; }
+
         private static FileInfo ConfigFile { get; } = new FileInfo(Path.Combine(BasePath.Name, "Modules", "CharacterCreation.config.xml"));
 
         public static IDCCSettings Instance
@@ -28,10 +30,14 @@ namespace CharacterCreation
                 {
                     instance = DCCSettings.Instance ?? instance;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    //Debug.Print(string.Format("[CharacterCreation] Failed to obtain MCM config, defaulting to config file.\n\nError: {1}\n\n{2}",
-                    //    ConfigFile.FullName, e.Message, e.StackTrace));
+                    if (ExceptionCount < 100) // don't need this populating the log file
+                    {
+                        ExceptionCount++;
+                        Debug.Print(string.Format("[CharacterCreation] Failed to obtain MCM config, defaulting to config file.\n\nError: {1}\n\n{2}",
+                            ConfigFile.FullName, e.Message, e.StackTrace));
+                    }
                 }
 
                 // load config file if MCM config load fails
@@ -169,7 +175,7 @@ namespace CharacterCreation
         public bool DebugMode { get; set; } = false;
 
         #region Overrides
-        [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, IsToggle = true, Order = 1, RequireRestart = false)]
+        [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 1, RequireRestart = false)]
         [SettingPropertyGroup(Section1)]
         public bool IgnoreDailyTick { get; set; } = true;
 

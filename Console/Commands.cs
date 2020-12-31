@@ -57,5 +57,12 @@ namespace CharacterCreation
             CharacterBodyManager.ResetBirthDayForAge(Hero.MainHero.CharacterObject, num, true);
             return SuccessMsg.ToString();
         }
+
+        [CommandLineFunctionality.CommandLineArgumentFunction("reset_exception_count", "dcc")]
+        public static string ResetExceptionCount(List<string> strings)
+        {
+            DCCSettingsUtil.ExceptionCount = 0;
+            return SuccessMsg.ToString();
+        }
     }
 }
