@@ -23,8 +23,6 @@ namespace CharacterCreation
         {
             get
             {
-                //instance = DCCSettings.Instance ?? instance ?? new DCCDefaultSettings();
-
                 // attempt to load MCM config
                 try
                 {
