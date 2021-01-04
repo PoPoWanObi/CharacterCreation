@@ -129,7 +129,7 @@ namespace CharacterCreation
             public override void OnBeforeSave()
             {
                 if (Game.Current == null || !(Game.Current.GameType is Campaign)) return;
-                SettingsEffects.UpdateAllHeroes();
+                SettingsEffects.UpdateAllHeroes(Game.Current);
             }
         }
     }

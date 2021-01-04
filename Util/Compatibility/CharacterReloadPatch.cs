@@ -105,6 +105,7 @@ namespace CharacterCreation.Util
 
             // DynamicBodyPatch
             // Do they quite do the samething?
+            // CR for e1.5.6 removed this code entirely so an update for e1.5.6 and a hypothetical future version will probably remove this
             if (DynamicBodyPatch == default) DynamicBodyPatch = AccessTools.TypeByName("CharacterReload.Patch.DynamicBodyPatch");
             if (DynamicBodyPatch != default)
             {

@@ -19,7 +19,7 @@ namespace CharacterCreation
             IgnoreDailyTickName = "{=CharacterCreation_IgnoreDailyTickName}Suppress Daily Tick",
             IgnoreDailyTickHint = "{=CharacterCreation_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Does NOT require restart.",
             OverrideAgeName = "{=CharacterCreation_OverrideAgeName}Override Age",
-            OverrideAgeHint = "{=CharacterCreation_OverrideAgeHint}When enabled, this will prevent FaceGen from changing a hero's age. Does NOT require restart. (Possibly non-functional.)",
+            OverrideAgeHint = "{=CharacterCreation_OverrideAgeHint}When enabled, this will prevent the game from aging the player hero. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'.",
             DisableAutoAgingName = "{=CharacterCreation_DisableAutoAgingName}Disable Auto Aging",
             DisableAutoAgingHint = "{=CharacterCreation_DisableAutoAgingHint}Enable this to prevent the game from changing the age physical appearance. Does NOT require restart and takes effect upon save load or hour tick.",
             

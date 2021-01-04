@@ -43,7 +43,7 @@ namespace CharacterCreation.Util
 
             // pseudocode time
             // if mod setting enables aging (and aging is previously disabled), set everyone's birthday by using default age
-            // if mod setting disables aging (and aging is previously enabled), set everyone's birthday to update default age
+            // if mod setting disables aging (and aging is previously enabled), set everyone's birthday by using current age
             bool disableAutoAging = DCCSettingsUtil.Instance.DisableAutoAging;
             if (disableAutoAging != CampaignOptions.IsLifeDeathCycleDisabled)
             {
@@ -53,7 +53,7 @@ namespace CharacterCreation.Util
                         new InformationMessage($"DisableAutoAging: {disableAutoAging}, IsLifeDeathCycleDisabled: {CampaignOptions.IsLifeDeathCycleDisabled}"));
 
                 var heroList = game.ObjectManager.GetObjectTypeList<Hero>();
-                foreach (var hero in heroList)
+                foreach (var hero in heroList.Where(x => x.IsAlive)) // ignore dead heroes
                 {
                     var age = hero.Age;
                     CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
@@ -66,10 +66,25 @@ namespace CharacterCreation.Util
             }
         }
 
+        public static void UpdateAllHeroes() => UpdateAllHeroes(default);
+
         // Updates all heroes (as if they all need updating anyway)
-        public static void UpdateAllHeroes()
+        public static void UpdateAllHeroes(Game game = default)
         {
-            foreach (var hero in new List<Hero>(Game.Current.ObjectManager.GetObjectTypeList<Hero>()))
+            // only override player hero aging if life cycle is not disabled
+            if (DCCSettingsUtil.Instance.OverrideAge && (!DCCSettingsUtil.Instance.DisableAutoAging || !CampaignOptions.IsLifeDeathCycleDisabled))
+            {
+                var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(x => x.IsHumanPlayerCharacter);
+                if (player != default)
+                {
+                    CampaignOptions.IsLifeDeathCycleDisabled = true; // disable life cycle to get default age
+                    var age = player.Age;
+                    CampaignOptions.IsLifeDeathCycleDisabled = false; // reenable to get 'true' age
+                    CharacterBodyManager.ResetBirthDayForAge(player.CharacterObject, age);
+                }
+            }
+
+            foreach (var hero in game.ObjectManager.GetObjectTypeList<Hero>().Where(x => x.IsAlive)) // again, ignore dead heroes
             {
                 if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
                 {
@@ -83,7 +98,7 @@ namespace CharacterCreation.Util
                 if (hero.IsPartyLeader)
                     hero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(hero.CharacterObject);
 
-                // update age (is it strictly speaking necessary?)
+                // the below code might be unnecessary in light of the way TaleWorlds implements aging now. Dynamic campaign body 'enhancement', on the other hand...
                 float age = hero.Age;
                 DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(age, hero.Weight, hero.Build);
                 BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
