@@ -71,6 +71,8 @@ namespace CharacterCreation.Util
         // Updates all heroes (as if they all need updating anyway)
         public static void UpdateAllHeroes(Game game = default)
         {
+            if (game == default) game = Game.Current;
+
             // only override player hero aging if life cycle is not disabled
             if (DCCSettingsUtil.Instance.OverrideAge && (!DCCSettingsUtil.Instance.DisableAutoAging || !CampaignOptions.IsLifeDeathCycleDisabled))
             {
