@@ -81,8 +81,8 @@ namespace CharacterCreation.Util
                 {
                     CampaignOptions.IsLifeDeathCycleDisabled = true; // disable life cycle to get default age
                     var age = player.Age;
-                    CampaignOptions.IsLifeDeathCycleDisabled = false; // reenable to get 'true' age
                     CharacterBodyManager.ResetBirthDayForAge(player.CharacterObject, age);
+                    CampaignOptions.IsLifeDeathCycleDisabled = false; // reenable to get 'true' age
                 }
             }
 
