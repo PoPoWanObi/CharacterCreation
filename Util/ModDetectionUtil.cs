@@ -21,7 +21,13 @@ namespace CharacterCreation
                 
                 if (modules.Count == 0) // this should only happen when this property is first called.
                 {
-                    modules.AddRange(ModuleHelper.GetModules().Where(x => x.IsOfficial || x.IsSelected));
+                    string[] moduleNames = Utilities.GetModulesNames();
+                    foreach (string moduleName in moduleNames)
+                    {
+                        ModuleInfo m = new ModuleInfo();
+                        m.LoadWithFullPath(ModuleHelper.GetModuleFullPath(moduleName));
+                        modules.Add(m);
+                    }
                 }
 
                 return modules.AsReadOnly();
