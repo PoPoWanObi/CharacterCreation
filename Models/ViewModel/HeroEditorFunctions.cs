@@ -41,9 +41,6 @@ namespace CharacterCreation.Models
                 var newName = new TextObject(heroName);
                 selectedHero.Name = newName;
                 selectedHero.FirstName = newName;
-                if (selectedHero.IsPartyLeader)
-                    selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
-                action?.Invoke();
             }
             else
                 InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.InvalidNameText.ToString(), ColorManager.Red));

@@ -6,6 +6,7 @@ using System.Xml;
 using HarmonyLib;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
+using TaleWorlds.ModuleManager;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ObjectSystem;
 
@@ -32,12 +33,12 @@ namespace CharacterCreation.Patches
 
             foreach (MbObjectXmlInformation mbprojXml in mbprojXmlList)
             {
-                if (File.Exists(ModuleInfo.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name)))
+                if (File.Exists(ModuleHelper.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name)))
                 {
-                    usedPaths.Add(ModuleInfo.GetXmlPathForNativeWBase(mbprojXml.ModuleName, mbprojXml.Name));
-                    toBeMerged.Add(Tuple.Create(ModuleInfo.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name), string.Empty));
+                    usedPaths.Add(ModuleHelper.GetXmlPathForNativeWBase(mbprojXml.ModuleName, mbprojXml.Name));
+                    toBeMerged.Add(Tuple.Create(ModuleHelper.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name), string.Empty));
                 }
-                string xsltPathForNative = ModuleInfo.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);
+                string xsltPathForNative = ModuleHelper.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);
                 
                 xsltList.Add(File.Exists(xsltPathForNative) ? xsltPathForNative : string.Empty);
             }

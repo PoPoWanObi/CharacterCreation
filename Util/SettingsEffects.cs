@@ -95,10 +95,8 @@ namespace CharacterCreation.Util
                     InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
                 }
 
-                // update so party name and character name on save is correct
+                // update so party name and character name on save is correct (skipped - party name now dynamically handled)
                 hero.FirstName = hero.Name;
-                if (hero.IsPartyLeader)
-                    hero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(hero.CharacterObject);
 
                 // the below code might be unnecessary in light of the way TaleWorlds implements aging now. Dynamic campaign body 'enhancement', on the other hand...
                 float age = hero.Age;

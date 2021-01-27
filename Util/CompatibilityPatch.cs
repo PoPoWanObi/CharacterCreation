@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System;
 using TaleWorlds.Library;
+using TaleWorlds.ModuleManager;
 
 namespace CharacterCreation.Util
 {

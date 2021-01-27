@@ -12,18 +12,15 @@ using TaleWorlds.Library;
 
 namespace CharacterCreation.Patches
 {
-    [HarmonyPatch(typeof(ClanLordItemVM))]
+    [HarmonyPatch(typeof(ClanLordItemVM), "OnNamingHeroOver")]
     class ClanLordItemVMPatch
     {
-        [HarmonyPatch("OnNamingHeroOver")]
         [HarmonyPostfix]
         public static void OnNamingHeroOverPostfix(ClanLordItemVM __instance, string suggestedName)
         {
             if (!CampaignUIHelper.IsStringApplicableForHeroName(suggestedName)) return;
             Hero selectedHero = __instance.GetHero();
             selectedHero.FirstName = selectedHero.Name;
-            if (selectedHero.IsPartyLeader)
-                selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
         }
     }
 }

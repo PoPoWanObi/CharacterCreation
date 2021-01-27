@@ -5,7 +5,7 @@
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.6" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0035" deforms_hair="1.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.001" helmet_scaling_factor_max="0.0, 0.0, 0.001" deforms_hair="1.0" />
             <deform_key id="face_ratio" key_time_point="3" key_min="0.5" key_max="1.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
             <deform_key id="cheeks" key_time_point="4" key_min="-0.75" key_max="0.35" name="Face Weight" group_id="1" deforms_hair="1.0" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-1.2" key_max="0.5" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
@@ -21,7 +21,7 @@
             <deform_key id="brow_outer_height" key_time_point="24" key_min="-0.75" key_max="0.9" name="Brow Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_middle_height" key_time_point="25" key_min="-0.0" key_max="0.9" name="Brow Middle Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_inner_height" key_time_point="26" key_min="-0.25" key_max="0.5" name="Brow Inner Height" group_id="2" deforms_hair="1.0" />
-            <deform_key id="eye_position" key_time_point="23" key_min="0.9" key_max="-0.0" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0035" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="eye_position" key_time_point="23" key_min="0.9" key_max="-0.0" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0015" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_size" key_time_point="17" key_min="-1.0" key_max="1.0" name="Eye Size" group_id="2" deforms_hair="1.0" />
             <deform_key id="monolid_eyes" key_time_point="19" key_min="-0.5" key_max="0.9" name="Monolid Eyes" group_id="2" deforms_hair="1.0" />
             <deform_key id="eyelid_height" key_time_point="18" key_min="-0.75" key_max="0.95" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
@@ -51,13 +51,13 @@
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="0.0" key_max="-1.2" name="Bottom Lip Shape" group_id="4" />
             <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.5" key_max="0.4" name="Top Mouth Size" group_id="4" />
             <deform_key id="lip_shape_concave_convex" key_time_point="55" key_min="1.2" key_max="-1" name="Lips concave/convex" group_id="4" />
-            <deform_key id="jaw_line" key_time_point="11" key_min="-2.75" key_max="-0.0" name="Jaw Line" group_id="4" deforms_hair="1.0" />
+            <deform_key id="jaw_line" key_time_point="11" key_min="-2.75" key_max="-0.0" name="Jaw Line" group_id="4" deforms_hair="1.0" helmet_scaling_factor_min="-0.005, 0.0, 0.0000" helmet_scaling_factor_max="0.025, -0.00, -0.0000" />
             <deform_key id="neck_slope" key_time_point="50" key_min="-0.5" key_max="0.8" name="Jaw Shape" deforms_hair="1.0" group_id="4" />
-            <deform_key id="jaw_height" key_time_point="49" key_min="0.6" key_max="-1" name="Jaw Height" group_id="4" />
-            <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" />
+            <deform_key id="jaw_height" key_time_point="49" key_min="0.6" key_max="-1" name="Jaw Height" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0005" helmet_scaling_factor_max="-0.00, -0.00, -0.0005" />
+            <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0000" helmet_scaling_factor_max="-0.00, 0.05, -0.0000" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.75" key_max="1" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.000" helmet_scaling_factor_max="-0.00, -0.00, -0.003" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.005" helmet_scaling_factor_max="-0.05, -0.05, -0.003" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="-0.25" key_max="1.5" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="-0.05" key_max="-0.25" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -500,22 +500,22 @@
                   <style_tag name="LongScragglyBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_j" cover_type1="beards_c_j_a" cover_type2="beards_c_j_b" cover_type3="beards_c_j_c">
+            <beard_mesh name="beards_c_j" cover_type1="beards_c_c_a" cover_type2="beards_c_h_b" cover_type3="beards_c_e_c">
                <style_tags>
                   <style_tag name="LongTiedBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_p" cover_type1="beards_c_p" cover_type2="beards_c_p" cover_type3="beards_c_p">
+            <beard_mesh name="beards_c_p" cover_type1="beards_c_b" cover_type2="beards_c_b" cover_type3="beards_c_b">
                <style_tags>
                   <style_tag name="DroopingMustacheAndBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_z" cover_type1="beards_c_z" cover_type2="beards_c_z" cover_type3="beards_c_z">
+            <beard_mesh name="beards_c_z" cover_type1="beards_c_b" cover_type2="beards_c_b" cover_type3="beards_c_b">
                <style_tags>
                   <style_tag name="TiedBeardShavenCheeks" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_g" cover_type1="beards_c_g_a" cover_type2="beards_c_g_a" cover_type3="beards_c_g_a">
+            <beard_mesh name="beards_c_g" cover_type1="beards_c_s" cover_type2="beards_c_s" cover_type3="beards_c_s">
                <style_tags>
                   <style_tag name="DutchTiedBeard" />
                </style_tags>
@@ -525,22 +525,22 @@
             <beard_mesh name="beards_d_c" cover_type1="beards_d_c" cover_type2="beards_d_c" cover_type3="beards_d_c" />
             <beard_mesh name="beards_d_e" cover_type1="beards_d_e" cover_type2="beards_d_e" cover_type3="beards_d_e" />
             <beard_mesh name="beards_d_f" cover_type1="beards_d_f" cover_type2="beards_d_f" cover_type3="beards_d_f" />
-            <beard_mesh name="beards_d_g" cover_type1="beards_d_g" cover_type2="beards_d_g" cover_type3="beards_d_g" />
-            <beard_mesh name="beards_d_h" cover_type1="beards_d_h" cover_type2="beards_d_h" cover_type3="beards_d_h" />
-            <beard_mesh name="beards_c_u" cover_type1="beards_c_u" cover_type2="beards_c_u" cover_type3="beards_c_u" />
+            <beard_mesh name="beards_d_g" cover_type1="beards_d_g_a" cover_type2="beards_d_g_a" cover_type3="beards_d_g_a" />
+            <beard_mesh name="beards_d_h" cover_type1="beards_d_h_a" cover_type2="beards_d_h_a" cover_type3="beards_d_h_a" />
+            <beard_mesh name="beards_c_u" cover_type1="beards_c_c_a" cover_type2="beards_c_h_b" cover_type3="beards_c_e_c" />
             <beard_mesh name="beards_c_t" cover_type1="beards_c_t" cover_type2="beards_c_t" cover_type3="beards_c_t" />
             <beard_mesh name="beards_c_m" cover_type1="beards_c_m" cover_type2="beards_c_m" cover_type3="beards_c_m" />
-            <beard_mesh name="beards_d_i" cover_type1="beards_d_i" cover_type2="beards_d_i" cover_type3="beards_d_i" />
-            <beard_mesh name="beards_d_j" cover_type1="beards_d_j" cover_type2="beards_d_j" cover_type3="beards_d_j" />
-            <beard_mesh name="beards_d_k" cover_type1="beards_d_k" cover_type2="beards_d_k" cover_type3="beards_d_k" />
-            <beard_mesh name="beards_d_l" cover_type1="beards_d_l" cover_type2="beards_d_l_b" cover_type3="beards_d_l_c" />
-            <beard_mesh name="beards_d_m" cover_type1="beards_d_m" cover_type2="beards_d_m_b" cover_type3="beards_d_m_c" />
+            <beard_mesh name="beards_d_i" cover_type1="beards_d_i_a" cover_type2="beards_d_i_a" cover_type3="beards_d_i_a" />
+            <beard_mesh name="beards_d_j" cover_type1="beards_d_j_a" cover_type2="beards_d_j_a" cover_type3="beards_d_j_a" />
+            <beard_mesh name="beards_d_k" cover_type1="beards_d_k_a" cover_type2="beards_d_k_a" cover_type3="beards_d_k_a" />
+            <beard_mesh name="beards_d_l" cover_type1="beards_c_c_a" cover_type2="beards_d_l_b" cover_type3="beards_d_l_c" />
+            <beard_mesh name="beards_d_m" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_m_c" />
             <!-- <beard_mesh name="beards_d_n" cover_type1="beards_d_n"  >
         </beard_mesh> -->
-            <beard_mesh name="beards_d_o" cover_type1="beards_d_o" cover_type2="beards_d_o_b" cover_type3="beards_d_o_c" />
-            <beard_mesh name="beards_d_p" cover_type1="beards_d_p" cover_type2="beards_d_p_b" cover_type3="beards_d_p_c" />
-            <beard_mesh name="beards_d_r" cover_type1="beards_d_r" cover_type2="beards_d_r_b" cover_type3="beards_d_r_c" />
-            <beard_mesh name="beards_d_s" cover_type1="beards_d_s" cover_type2="beards_d_s_b" cover_type3="beards_d_s_c" />
+            <beard_mesh name="beards_d_o" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_o_c" />
+            <beard_mesh name="beards_d_p" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_p_c" />
+            <beard_mesh name="beards_d_r" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_r_c" />
+            <beard_mesh name="beards_d_s" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_s_c" />
             <!--             <beard_mesh name="beards_b_a" tags="beard1" />
       <beard_mesh name="beards_b_b" tags="beard1" />
       <beard_mesh name="beards_b_c" tags="beard1" />
@@ -778,6 +778,7 @@
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
             <mouth_texture name="mouth_mat_f" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
             <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
+            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
          </mouth_textures>
          <constraints>
             <constraint proportional_negative_and_positive="1.0">
@@ -821,7 +822,7 @@
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-1.25" key_max="3.25" name="Eye To Eye Distance" group_id="2" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.8" key_max="0.8" name="Eye Asymmetry" group_id="2" deforms_hair="1.0" />
             <deform_key id="nose_angle" key_time_point="9" key_min="0.35" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
-            <deform_key id="nose_length" key_time_point="27" key_min="-1.1" key_max="0.75" name="Nose Length" group_id="3" />
+            <deform_key id="nose_length" key_time_point="27" key_min="-1.25" key_max="0.65" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-1.0" key_max="0.7" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.75" key_max="1.5" name="Nose Tip Height" group_id="3" />
             <deform_key id="nose_size" key_time_point="30" key_min="-2.2" key_max="1" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
@@ -832,9 +833,9 @@
             <deform_key id="nose_definition" key_time_point="33" key_min="-0.2" key_max="1.0" name="Nose Definition" group_id="3" />
             <deform_key id="nose_shape" key_time_point="54" key_min="-0.7" key_max="0.5" name="Nose Shape" group_id="3" />
             <deform_key id="nose_asymetry" key_time_point="45" key_min="-1.2" key_max="1.2" name="Nose Asymmetry" group_id="3" deforms_hair="1.0" />
-            <deform_key id="mouth_width" key_time_point="35" key_min="-0.20" key_max="0.25" name="Mouth Width" group_id="4" />
+            <deform_key id="mouth_width" key_time_point="35" key_min="-0.10" key_max="0.35" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.1" key_max="0.7" name="Mouth Position" group_id="4" />
-            <deform_key id="lips_frown" key_time_point="41" key_min="-0.3" key_max="0.7" name="Frown/Smile" group_id="4" />
+            <deform_key id="lips_frown" key_time_point="41" key_min="-0.2" key_max="1.2" name="Frown/Smile" group_id="4" />
             <deform_key id="lip_thickness" key_time_point="42" key_min="0.1" key_max="1.25" name="Lip Thickness" group_id="4" />
             <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.3" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="-0.7" key_max="1" name="Bottom Lip Shape" group_id="4" />
@@ -1351,7 +1352,7 @@
             <mouth_texture name="mouth_mat" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
             <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
-            <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
+            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
             <!--
 	  <mouth_texture name="mouth_mat_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture13,mouth_texture14">
 	  </mouth_texture>-->
@@ -1376,16 +1377,16 @@
       </skin>
       <skin id="skin_default_id" gender="0" name="kid_2_male" morph_key="0" mesh_maturity_type="teenager" uses_stitching="true" body_mesh_suffix="" min_scale="0.94" skeleton="human_skeleton" body_meta_mesh="body_male_a_teen" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.6" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0035" deforms_hair="1.0" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="0.5" key_max="1.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="1.0" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="0.5" key_max="1.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0020" helmet_scaling_factor_max="0.0, 0.0, 0.0010" deforms_hair="1.2" />
             <deform_key id="cheeks" key_time_point="4" key_min="-0.35" key_max="0.3" name="Face Weight" group_id="1" deforms_hair="1.0" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-1.2" key_max="0.5" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
             <deform_key id="cheekbone_width" key_time_point="6" key_min="-2.75" key_max="0.85" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.8" key_max="0.5" name="Cheekbone Depth" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="0.8" key_max="-0.8" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-1" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-1" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.03, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.8" key_max="0.1" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-0.6" key_max="0.9" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="0.8" name="Ear Size" group_id="1" deforms_hair="1.0" />
@@ -1430,7 +1431,7 @@
             <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.1" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.75" key_max="1" name="Chin Shape" group_id="4" />
             <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.5" key_max="-0.5" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.5" key_max="-0.5" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.003" helmet_scaling_factor_max="-0.10, -0.1, -0.009" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0.0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="0.6" key_max="0.1" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -1463,10 +1464,9 @@
                   <bone_scale bone_type="biped_calf_l" axis="x" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_l" axis="y" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_l" axis="x" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_foot_l" axis="y" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_foot_l" axis="z" key_min="1.1" key_max="1.1" />
-                  <bone_scale bone_type="biped_toe_l" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_l" axis="x" key_min="1.0" key_max="1.0" />
                   <bone_scale bone_type="biped_toe_l" axis="y" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_toe_l" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_thigh_r" axis="x" key_min="0.95" key_max="1.1" />
@@ -1478,7 +1478,7 @@
                   <bone_scale bone_type="biped_foot_r" axis="x" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_foot_r" axis="y" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_foot_r" axis="z" key_min="1.1" key_max="1.1" />
-                  <bone_scale bone_type="biped_toe_r" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_r" axis="x" key_min="1.0" key_max="1.0" />
                   <bone_scale bone_type="biped_toe_r" axis="y" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_toe_r" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_spine_2" axis="x" key_min="1" key_max="1.2" />
@@ -1505,9 +1505,9 @@
                   <bone_scale bone_type="biped_forearm_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_forearm_l" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_forearm_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_hand_l" axis="x" key_min="1.1" key_max="1.1" />
-                  <bone_scale bone_type="biped_hand_l" axis="y" key_min="1.1" key_max="1.1" />
-                  <bone_scale bone_type="biped_hand_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_hand_l" axis="x" key_min="1.05" key_max="1.05" />
+                  <bone_scale bone_type="biped_hand_l" axis="y" key_min="1.05" key_max="1.05" />
+                  <bone_scale bone_type="biped_hand_l" axis="z" key_min="1.05" key_max="1.05" />
                   <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="1" key_max="1" />
@@ -1517,9 +1517,9 @@
                   <bone_scale bone_type="biped_forearm_r" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_forearm_r" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_forearm_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_hand_r" axis="x" key_min="1.1" key_max="1.1" />
-                  <bone_scale bone_type="biped_hand_r" axis="y" key_min="1.1" key_max="1.1" />
-                  <bone_scale bone_type="biped_hand_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_hand_r" axis="x" key_min="1.05" key_max="1.05" />
+                  <bone_scale bone_type="biped_hand_r" axis="y" key_min="1.05" key_max="1.05" />
+                  <bone_scale bone_type="biped_hand_r" axis="z" key_min="1.05" key_max="1.05" />
                </bone_scales>
             </deform_key>
             <deform_key id="build" key_time_point="61" name="Build" group_id="0">
@@ -1560,8 +1560,8 @@
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="0.9" key_max="1.15" />
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="0.9" key_max="1.10" />
                   <bone_scale bone_type="biped_thorax" axis="z" key_min="0.9" key_max="1.05" />
-                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.75" key_max="1.05" />
-                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.55" key_max="1.05" />
+                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.85" key_max="1.05" />
+                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.85" key_max="1.05" />
                   <bone_scale bone_type="biped_neck" axis="z" key_min="0.9" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1" key_max="1" />
@@ -1966,9 +1966,9 @@
          </eye_color_gradient_points>
          <face_textures group_id="1">
             <face_texture name="head_male_f" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture1,face_texture2" />
-            <face_texture name="head_male_f" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture3,face_texture4" />
+            <face_texture name="head_male_h" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture3,face_texture4" />
             <face_texture name="head_male_f" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture5,face_texture6,face_texture7" />
-            <face_texture name="head_male_f" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture8,face_texture9,face_texture10" />
+            <face_texture name="head_male_h" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture8,face_texture9,face_texture10" />
             <!-- <face_texture name="head_male_e" lod_material="head_male_e" color="0xFFFFFFFF" tags="face_texture1,face_texture2,face_texture3">
         </face_texture>
       <face_texture name="head_male_f" lod_material="head_male_f" color="0xFFFFFFFF" tags="face_texture1,face_texture3">
@@ -1998,6 +1998,7 @@
             <mouth_texture name="mouth_mat" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
             <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
+            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
             <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
          </mouth_textures>
          <constraints>
@@ -2014,7 +2015,7 @@
       </skin>
       <skin id="skin_default_id" gender="1" name="kid_2_female" mesh_maturity_type="teenager" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.93" skeleton="human_skeleton" body_meta_mesh="body_female_a" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female" underwear_top_mesh="underwear_female_top">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.3" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.3" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-1.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
             <deform_key id="center_height" key_time_point="10" key_min="-0.0" key_max="0.6" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="0.3" />
             <deform_key id="face_ratio" key_time_point="3" key_min="-0.0" key_max="0.55" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
@@ -2023,7 +2024,7 @@
             <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="0.8" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.0" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="0.4" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="-0.35" key_max="0.85" name="Face Sharpness" group_id="1" deforms_hair="0.6" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.00, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.75" key_max="0.55" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-1.5" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="1" name="Ear Size" group_id="1" />
@@ -2043,7 +2044,7 @@
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-1.25" key_max="3.25" name="Eye To Eye Distance" group_id="2" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.8" key_max="0.8" name="Eye Asymmetry" group_id="2" />
             <deform_key id="nose_angle" key_time_point="9" key_min="0.35" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
-            <deform_key id="nose_length" key_time_point="27" key_min="-1.1" key_max="0.75" name="Nose Length" group_id="3" />
+            <deform_key id="nose_length" key_time_point="27" key_min="-1.25" key_max="0.65" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-1.0" key_max="0.7" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.75" key_max="1.5" name="Nose Tip Height" group_id="3" />
             <deform_key id="nose_size" key_time_point="30" key_min="-2.2" key_max="1" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
@@ -2054,9 +2055,9 @@
             <deform_key id="nose_definition" key_time_point="33" key_min="-0.2" key_max="1.0" name="Nose Definition" group_id="3" />
             <deform_key id="nose_shape" key_time_point="54" key_min="-0.7" key_max="0.5" name="Nose Shape" group_id="3" />
             <deform_key id="nose_asymetry" key_time_point="45" key_min="-1.2" key_max="1.2" name="Nose Asymmetry" group_id="3" deforms_hair="1.0" />
-            <deform_key id="mouth_width" key_time_point="35" key_min="-0.20" key_max="0.25" name="Mouth Width" group_id="4" />
+            <deform_key id="mouth_width" key_time_point="35" key_min="-0.10" key_max="0.35" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.1" key_max="0.7" name="Mouth Position" group_id="4" />
-            <deform_key id="lips_frown" key_time_point="41" key_min="-0.3" key_max="0.7" name="Frown/Smile" group_id="4" />
+            <deform_key id="lips_frown" key_time_point="41" key_min="-0.2" key_max="1.2" name="Frown/Smile" group_id="4" />
             <deform_key id="lip_thickness" key_time_point="42" key_min="0.1" key_max="1.25" name="Lip Thickness" group_id="4" />
             <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.3" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="-0.7" key_max="1" name="Bottom Lip Shape" group_id="4" />
@@ -2068,7 +2069,7 @@
             <deform_key id="chin_forward" key_time_point="38" key_min="-1.2" key_max="0.2" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-1.0" key_max="1.2" name="Chin Shape" group_id="4" />
             <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.5" key_max="-0.5" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.5" key_max="-0.5" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.12, -0.1, -0.012" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0.0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="0.6" key_max="0.1" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -2100,20 +2101,20 @@
                   <bone_scale bone_type="biped_spine_2" axis="y" key_min="0.9" key_max="1.15" />
                   <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.9" key_max="1.15" />
-                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="0.85" key_max="1.25" />
+                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="1.85" key_max="1.25" />
                   <bone_scale bone_type="biped_spine_1" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="0.95" key_max="1.05" />
-                  <bone_scale bone_type="biped_thorax" axis="y" key_min="0.95" key_max="1.05" />
-                  <bone_scale bone_type="biped_thorax" axis="z" key_min="0.95" key_max="1.05" />
-                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.95" key_max="1.1" />
-                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.95" key_max="1.2" />
+                  <bone_scale bone_type="biped_thorax" axis="y" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_thorax" axis="z" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_neck" axis="x" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_neck" axis="y" key_min="1" key_max="1.2" />
                   <bone_scale bone_type="biped_neck" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1.05" key_max="1.05" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1.05" key_max="1.05" />
                   <bone_scale bone_type="biped_head" axis="z" key_min="1.05" key_max="1.05" />
-                  <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="0.90" key_max="0.90" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="0.95" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="0.95" key_max="1" />
-                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="0.97" key_max="1" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="0.95" key_max="1.05" />
@@ -2123,9 +2124,9 @@
                   <bone_scale bone_type="biped_hand_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_hand_l" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_hand_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="0.90" key_max="0.90" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="0.95" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="0.95" key_max="1" />
-                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="0.97" key_max="1" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="0.95" key_max="1.05" />
@@ -2173,7 +2174,7 @@
                   <bone_scale bone_type="biped_spine_2" axis="y" key_min="1" key_max="1.1" />
                   <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="0.95" key_max="1.05" />
-                  <bone_scale bone_type="biped_thorax" axis="y" key_min="0.95" key_max="1.05" />
+                  <bone_scale bone_type="biped_thorax" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_thorax" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_neck" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_neck" axis="y" key_min="1" key_max="1" />
@@ -2181,8 +2182,8 @@
                   <bone_scale bone_type="biped_head" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="0.98" key_max="1.05" />
-                  <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="0.98" key_max="1.25" />
-                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="0.98" key_max="1.05" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="1" key_max="1.25" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="0.98" key_max="1.15" />
                   <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="0.98" key_max="1.15" />
                   <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="1" key_max="1" />
@@ -2193,8 +2194,8 @@
                   <bone_scale bone_type="biped_hand_l" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_hand_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="0.98" key_max="1.05" />
-                  <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="0.98" key_max="1.25" />
-                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="0.98" key_max="1.05" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="1" key_max="1.25" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="0.98" key_max="1.15" />
                   <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="0.98" key_max="1.15" />
                   <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="1" key_max="1" />
@@ -2573,7 +2574,7 @@
             <mouth_texture name="mouth_mat" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
             <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
-            <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture11,mouth_texture12" />
+            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture11,mouth_texture12" />
             <!--
 	  <mouth_texture name="mouth_mat_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture13,mouth_texture14">
 	  </mouth_texture>-->
@@ -2599,17 +2600,17 @@
       </skin>
       <skin id="skin_default_id" gender="0" name="kid_1_male" mesh_maturity_type="tween" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.78" skeleton="human_skeleton" body_meta_mesh="body_male_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.10, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.3" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0035" deforms_hair="1.0" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.4" key_max="0.4" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
-            <deform_key id="cheeks" key_time_point="4" key_min="-0.35" key_max="0.3" name="Face Weight" group_id="1" deforms_hair="1.0" />
-            <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.4" key_max="0.7" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
-            <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.8" key_max="1.5" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.2" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0020" helmet_scaling_factor_max="0.0, 0.0, 0.0005" deforms_hair="1.0" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="0.2" key_max="0.9" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="cheeks" key_time_point="4" key_min="-0.35" key_max="0.35" name="Face Weight" group_id="1" deforms_hair="1.0" />
+            <deform_key id="cheekbone_height" key_time_point="5" key_min="-1.0" key_max="0.5" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
+            <deform_key id="cheekbone_width" key_time_point="6" key_min="-1.8" key_max="0.8" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.05, 0.0, 0.0" helmet_scaling_factor_max="0.07, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.5" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="0.7" key_max="-0.7" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-1.5" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.3" key_max="0.5" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-1.5" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.00, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.6" key_max="0.1" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-0.4" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="0.8" name="Ear Size" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_asymmetry" key_time_point="47" key_min="-0.5" key_max="0.5" name="Face Asymmetry" group_id="1" deforms_hair="1.0" />
@@ -2620,15 +2621,15 @@
             <deform_key id="eye_position" key_time_point="23" key_min="0.6" key_max="-0.2" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0035" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_size" key_time_point="17" key_min="0" key_max="2.0" name="Eye Size" group_id="2" deforms_hair="1.0" />
             <deform_key id="monolid_eyes" key_time_point="19" key_min="-0.25" key_max="1.0" name="Monolid Eyes" group_id="2" deforms_hair="1.0" />
-            <deform_key id="eyelid_height" key_time_point="18" key_min="-0.5" key_max="0.9" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
+            <deform_key id="eyelid_height" key_time_point="18" key_min="-0.7" key_max="0.9" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_depth" key_time_point="14" key_min="1.0" key_max="-0.4" name="Eye Depth" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_shape" key_time_point="15" key_min="-0.4" key_max="0.5" name="Eye Shape" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_outer_corner_height" key_time_point="20" key_min="-0.6" key_max="0.35" name="Eye Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="0.8" key_max="-0.1" name="Eye Inner Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-1.5" key_max="1" name="Eye To Eye Distance" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.3" key_max="0.3" name="Eye Asymmetry" group_id="2" deforms_hair="1.0" />
-            <deform_key id="nose_angle" key_time_point="9" key_min="0.3" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
-            <deform_key id="nose_length" key_time_point="27" key_min="-0.7" key_max="0.3" name="Nose Length" group_id="3" />
+            <deform_key id="nose_angle" key_time_point="9" key_min="0.4" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_length" key_time_point="27" key_min="-0.7" key_max="0.4" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-0.3" key_max="0.2" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.1" key_max="0.5" name="Nose Tip Height" group_id="3" />
             <deform_key id="nose_size" key_time_point="30" key_min="-1.5" key_max="0.6" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
@@ -2637,12 +2638,12 @@
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.2" key_max="0.5" name="Nostril Size" group_id="3" />
             <deform_key id="nose_bump" key_time_point="37" key_min="-0.1" key_max="0.5" name="Nose Bump" group_id="3" />
             <deform_key id="nose_definition" key_time_point="33" key_min="-1.0" key_max="0.4" name="Nose Definition" group_id="3" />
-            <deform_key id="nose_shape" key_time_point="54" key_min="-1.1" key_max="0.7" name="Nose Shape" group_id="3" />
+            <deform_key id="nose_shape" key_time_point="54" key_min="-1.1" key_max="0.8" name="Nose Shape" group_id="3" />
             <deform_key id="nose_asymetry" key_time_point="45" key_min="-0.3" key_max="0.3" name="Nose Asymmetry" group_id="3" deforms_hair="1.0" />
             <deform_key id="mouth_width" key_time_point="35" key_min="-0.3" key_max="0.1" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.2" key_max="0.3" name="Mouth Position" group_id="4" />
             <deform_key id="lips_frown" key_time_point="41" key_min="-0.4" key_max="0.6" name="Frown/Smile" group_id="4" />
-            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.1" key_max="0.9" name="Lip Thickness" group_id="4" />
+            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.5" key_max="0.9" name="Lip Thickness" group_id="4" />
             <deform_key id="lips_forward" key_time_point="43" key_min="-0.25" key_max="0.25" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="0.0" key_max="-1.0" name="Bottom Lip Shape" group_id="4" />
             <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.5" key_max="0.55" name="Top Mouth Size" group_id="4" />
@@ -2653,7 +2654,7 @@
             <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.3" key_max="0.9" name="Chin Shape" group_id="4" />
             <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="-0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.01, 0.00, 0.004" helmet_scaling_factor_max="-0.15, -0.14, -0.015" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0.0" key_max="0.0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="1" key_max="0.8" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -2699,6 +2700,9 @@
                   <bone_scale bone_type="biped_foot_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_toe_l" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_l" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_l" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_thigh_r" axis="x" key_min="0.95" key_max="1.1" />
                   <bone_scale bone_type="biped_thigh_r" axis="y" key_min="0.95" key_max="1.1" />
                   <bone_scale bone_type="biped_thigh_r" axis="z" key_min="1" key_max="1" />
@@ -2708,6 +2712,9 @@
                   <bone_scale bone_type="biped_foot_r" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_r" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_r" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_toe_r" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_r" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_r" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_spine_2" axis="x" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_spine_2" axis="y" key_min="1" key_max="1.1" />
                   <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
@@ -2717,9 +2724,9 @@
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_thorax" axis="z" key_min="0.9" key_max="0.9" />
-                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.7" key_max="0.7" />
-                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.7" key_max="0.7" />
-                  <bone_scale bone_type="biped_neck" axis="z" key_min="0.7" key_max="0.7" />
+                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.8" key_max="0.95" />
+                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.8" key_max="0.95" />
+                  <bone_scale bone_type="biped_neck" axis="z" key_min="0.8" key_max="0.95" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1.2" key_max="1.2" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1.2" key_max="1.2" />
                   <bone_scale bone_type="biped_head" axis="z" key_min="1.2" key_max="1.2" />
@@ -2788,8 +2795,8 @@
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="1" key_max="1.10" />
                   <bone_scale bone_type="biped_thorax" axis="z" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_neck" axis="x" key_min="1" key_max="1.2" />
-                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.7" key_max="1.15" />
-                  <bone_scale bone_type="biped_neck" axis="z" key_min="0.7" key_max="1" />
+                  <bone_scale bone_type="biped_neck" axis="y" key_min="1.0" key_max="1.15" />
+                  <bone_scale bone_type="biped_neck" axis="z" key_min="1.0" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="1" key_max="1" />
@@ -3174,8 +3181,7 @@
             <mouth_texture name="mouth_mat" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
             <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
-            <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture9,mouth_texture10" />
-            <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
+            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
          </mouth_textures>
          <constraints>
             <constraint proportional_negative_and_positive="1.0">
@@ -3191,16 +3197,16 @@
       </skin>
       <skin id="skin_default_id" gender="1" name="kid_1_female" mesh_maturity_type="tween" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.78" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female_teen" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.2" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.2" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.8" key_max="0.1" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.35" key_max="0.25" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="0.3" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.15" key_max="0.3" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.35" key_max="0.25" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0010" helmet_scaling_factor_max="0.0, 0.0, 0.0015" deforms_hair="0.3" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="-0.15" key_max="0.3" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, -0.0010" deforms_hair="1.2" />
             <deform_key id="cheeks" key_time_point="4" key_min="-0.2" key_max="0.9" name="Face Weight" group_id="1" deforms_hair="0.8" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.1" key_max="1.0" name="Cheekbone Height" group_id="1" deforms_hair="0.1" />
             <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.0" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="0.8" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-0.0" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="0.4" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="-0.65" key_max="0.1" name="Face Sharpness" group_id="1" deforms_hair="0.6" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.6" key_max="0.25" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-1.5" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1.2" key_max="0.5" name="Ear Size" group_id="1" />
@@ -3231,9 +3237,9 @@
             <deform_key id="nose_definition" key_time_point="33" key_min="0.25" key_max="0.8" name="Nose Definition" group_id="3" />
             <deform_key id="nose_shape" key_time_point="54" key_min="-0.4" key_max="0.1" name="Nose Shape" group_id="3" />
             <deform_key id="nose_asymetry" key_time_point="45" key_min="-0.2" key_max="0.2" name="Nose Asymmetry" group_id="3" deforms_hair="1.0" />
-            <deform_key id="mouth_width" key_time_point="35" key_min="-0.20" key_max="0.35" name="Mouth Width" group_id="4" />
+            <deform_key id="mouth_width" key_time_point="35" key_min="-0.10" key_max="0.35" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.4" key_max="0.3" name="Mouth Position" group_id="4" />
-            <deform_key id="lips_frown" key_time_point="41" key_min="-0.3" key_max="0.7" name="Frown/Smile" group_id="4" />
+            <deform_key id="lips_frown" key_time_point="41" key_min="-0.2" key_max="0.9" name="Frown/Smile" group_id="4" />
             <deform_key id="lip_thickness" key_time_point="42" key_min="0.1" key_max="1.25" name="Lip Thickness" group_id="4" />
             <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.4" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="-0.7" key_max="1" name="Bottom Lip Shape" group_id="4" />
@@ -3245,7 +3251,7 @@
             <deform_key id="chin_forward" key_time_point="38" key_min="-1.1" key_max="0.3" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-1.0" key_max="0.9" name="Chin Shape" group_id="4" />
             <deform_key id="chin_length" key_time_point="40" key_min="-0.9" key_max="0.2" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.09, -0.1, -0.013" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="1" key_max="0.8" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -3253,52 +3259,52 @@
             <deform_key id="weight" key_time_point="60" name="Weight" group_id="0">
                <bone_scales>
                   <bone_scale bone_type="biped_upperarm_twist1_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_twist1_l" axis="y" key_min="0.8" key_max="0.8" />
+                  <bone_scale bone_type="biped_upperarm_twist1_l" axis="y" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_upperarm_twist1_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_twist1_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_twist1_r" axis="y" key_min="0.8" key_max="0.8" />
+                  <bone_scale bone_type="biped_upperarm_twist1_r" axis="y" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_upperarm_twist1_r" axis="x" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_abdomen" axis="x" key_min="1" key_max="1.1" />
-                  <bone_scale bone_type="biped_abdomen" axis="y" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_abdomen" axis="x" key_min="1" key_max="1.0" />
+                  <bone_scale bone_type="biped_abdomen" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_abdomen" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_thigh_l" axis="x" key_min="0.95" key_max="1.1" />
-                  <bone_scale bone_type="biped_thigh_l" axis="y" key_min="0.95" key_max="1.1" />
+                  <bone_scale bone_type="biped_thigh_l" axis="x" key_min="0.95" key_max="1.05" />
+                  <bone_scale bone_type="biped_thigh_l" axis="y" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_thigh_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_calf_l" axis="x" key_min="0.9" key_max="1.05" />
-                  <bone_scale bone_type="biped_calf_l" axis="y" key_min="0.9" key_max="1.05" />
+                  <bone_scale bone_type="biped_calf_l" axis="x" key_min="0.95" key_max="1.05" />
+                  <bone_scale bone_type="biped_calf_l" axis="y" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_thigh_r" axis="x" key_min="0.95" key_max="1.1" />
-                  <bone_scale bone_type="biped_thigh_r" axis="y" key_min="0.95" key_max="1.1" />
+                  <bone_scale bone_type="biped_thigh_r" axis="x" key_min="0.95" key_max="1.05" />
+                  <bone_scale bone_type="biped_thigh_r" axis="y" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_thigh_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_calf_r" axis="x" key_min="0.9" key_max="1.05" />
-                  <bone_scale bone_type="biped_calf_r" axis="y" key_min="0.9" key_max="1.05" />
+                  <bone_scale bone_type="biped_calf_r" axis="x" key_min="0.95" key_max="1.05" />
+                  <bone_scale bone_type="biped_calf_r" axis="y" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_r" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_r" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_r" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_spine_2" axis="x" key_min="1.05" key_max="1.1" />
-                  <bone_scale bone_type="biped_spine_2" axis="y" key_min="1" key_max="1.15" />
-                  <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_spine_1" axis="x" key_min="1.05" key_max="1.2" />
-                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="1" key_max="1.25" />
-                  <bone_scale bone_type="biped_spine_1" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_thorax" axis="x" key_min="1" key_max="1.0" />
+                  <bone_scale bone_type="biped_spine_2" axis="x" key_min="1.0" key_max="1.05" />
+                  <bone_scale bone_type="biped_spine_2" axis="y" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1.0" />
+                  <bone_scale bone_type="biped_spine_1" axis="x" key_min="1.0" key_max="1.15" />
+                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="1" key_max="1.15" />
+                  <bone_scale bone_type="biped_spine_1" axis="z" key_min="1" key_max="1.0" />
+                  <bone_scale bone_type="biped_thorax" axis="x" key_min="1" key_max="1.1" />
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="1" key_max="1.05" />
-                  <bone_scale bone_type="biped_thorax" axis="z" key_min="1" key_max="1.05" />
-                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.95" key_max="1.1" />
-                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.95" key_max="1.2" />
+                  <bone_scale bone_type="biped_thorax" axis="z" key_min="1" key_max="1.00" />
+                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.95" key_max="1.05" />
+                  <bone_scale bone_type="biped_neck" axis="y" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1.2" key_max="1.2" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1.2" key_max="1.2" />
                   <bone_scale bone_type="biped_head" axis="z" key_min="1.2" key_max="1.2" />
                   <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="0.9" key_max="0.9" />
-                  <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="0.9" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="0.9" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="0.9" key_max="1" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="0.95" key_max="1" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="0.95" key_max="1" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="0.95" key_max="1" />
                   <bone_scale bone_type="biped_forearm_l" axis="x" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_forearm_l" axis="y" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_forearm_l" axis="z" key_min="0.9" key_max="0.9" />
@@ -3308,9 +3314,9 @@
                   <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="0.9" key_max="0.9" />
-                  <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="0.9" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="0.9" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="0.9" key_max="1" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="0.95" key_max="1" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="0.95" key_max="1" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="0.95" key_max="1" />
                   <bone_scale bone_type="biped_forearm_r" axis="x" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_forearm_r" axis="y" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_forearm_r" axis="z" key_min="0.9" key_max="0.9" />
@@ -3321,29 +3327,29 @@
             </deform_key>
             <deform_key id="build" key_time_point="61" name="Build" group_id="0">
                <bone_scales>
-                  <bone_scale bone_type="biped_abdomen" axis="x" key_min="1" key_max="1.1" />
-                  <bone_scale bone_type="biped_abdomen" axis="y" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_abdomen" axis="x" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_abdomen" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_abdomen" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_thigh_l" axis="x" key_min="1" key_max="1.1" />
-                  <bone_scale bone_type="biped_thigh_l" axis="y" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_thigh_l" axis="x" key_min="1" key_max="1.0" />
+                  <bone_scale bone_type="biped_thigh_l" axis="y" key_min="1" key_max="1.0" />
                   <bone_scale bone_type="biped_thigh_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_twist1_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_twist1_l" axis="y" key_min="1" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_twist1_l" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_twist1_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_twist1_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_upperarm_twist1_r" axis="y" key_min="1" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_twist1_r" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_twist1_r" axis="x" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_calf_l" axis="x" key_min="1" key_max="1.1" />
-                  <bone_scale bone_type="biped_calf_l" axis="y" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_calf_l" axis="x" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_calf_l" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_thigh_r" axis="x" key_min="1" key_max="1.1" />
-                  <bone_scale bone_type="biped_thigh_r" axis="y" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_thigh_r" axis="x" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_thigh_r" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_thigh_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_calf_r" axis="x" key_min="1" key_max="1.1" />
-                  <bone_scale bone_type="biped_calf_r" axis="y" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_calf_r" axis="x" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_calf_r" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_r" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_r" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_foot_r" axis="y" key_min="1" key_max="1" />
@@ -3351,8 +3357,8 @@
                   <bone_scale bone_type="biped_spine_1" axis="x" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_spine_1" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_spine_1" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_spine_2" axis="x" key_min="1" key_max="1.2" />
-                  <bone_scale bone_type="biped_spine_2" axis="y" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_spine_2" axis="x" key_min="1" key_max="1.0" />
+                  <bone_scale bone_type="biped_spine_2" axis="y" key_min="1" key_max="1.0" />
                   <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="1" key_max="1.05" />
@@ -3363,26 +3369,26 @@
                   <bone_scale bone_type="biped_head" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="1" key_max="1.05" />
-                  <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="1" key_max="1.25" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="1" key_max="1.05" />
-                  <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="1" key_max="1.15" />
-                  <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="1" key_max="1.15" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_forearm_l" axis="x" key_min="1" key_max="1.12" />
-                  <bone_scale bone_type="biped_forearm_l" axis="y" key_min="1" key_max="1.12" />
-                  <bone_scale bone_type="biped_forearm_l" axis="z" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_forearm_l" axis="x" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_forearm_l" axis="y" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_forearm_l" axis="z" key_min="1" key_max="1.0" />
                   <bone_scale bone_type="biped_hand_l" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_hand_l" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_hand_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="1" key_max="1.05" />
-                  <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="1" key_max="1.25" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="1" key_max="1.05" />
-                  <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="1" key_max="1.15" />
-                  <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="1" key_max="1.15" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_forearm_r" axis="x" key_min="1" key_max="1.12" />
-                  <bone_scale bone_type="biped_forearm_r" axis="y" key_min="1" key_max="1.12" />
-                  <bone_scale bone_type="biped_forearm_r" axis="z" key_min="1" key_max="1.1" />
+                  <bone_scale bone_type="biped_forearm_r" axis="x" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_forearm_r" axis="y" key_min="1" key_max="1.05" />
+                  <bone_scale bone_type="biped_forearm_r" axis="z" key_min="1" key_max="1.0" />
                   <bone_scale bone_type="biped_hand_r" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_hand_r" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_hand_r" axis="z" key_min="1" key_max="1" />
@@ -3754,10 +3760,8 @@
          <mouth_textures group_id="4">
             <mouth_texture name="mouth_mat" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
             <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
-            <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6">
-               <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture9,mouth_texture10" />
-               <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture11,mouth_texture12" />
-            </mouth_texture>
+            <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
+            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
             <!--
 	  <mouth_texture name="mouth_mat_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture13,mouth_texture14">
 	  </mouth_texture>-->
@@ -3783,17 +3787,17 @@
       </skin>
       <skin id="skin_default_id" gender="0" name="kid_3_male" mesh_maturity_type="child" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.64" skeleton="human_skeleton" body_meta_mesh="body_male_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.2" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.3" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0035" deforms_hair="1.0" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.4" key_max="0.4" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
-            <deform_key id="cheeks" key_time_point="4" key_min="-0.35" key_max="0.3" name="Face Weight" group_id="1" deforms_hair="1.0" />
-            <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.4" key_max="0.7" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.1" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0015" deforms_hair="1.0" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="-0.2" key_max="0.4" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="cheeks" key_time_point="4" key_min="-0.35" key_max="0.35" name="Face Weight" group_id="1" deforms_hair="1.0" />
+            <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.7" key_max="0.7" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
             <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.8" key_max="1.5" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.2" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="1.0" />
-            <deform_key id="face_sharpness" key_time_point="12" key_min="0.7" key_max="-0.4" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
+            <deform_key id="face_sharpness" key_time_point="12" key_min="0.9" key_max="-0.4" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
             <deform_key id="temple_width" key_time_point="13" key_min="-1" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.3" key_max="0.5" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.5" key_max="0.1" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-0.4" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1.5" key_max="-0.8" name="Ear Size" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_asymmetry" key_time_point="47" key_min="-0.5" key_max="0.5" name="Face Asymmetry" group_id="1" deforms_hair="1.0" />
@@ -3811,7 +3815,7 @@
             <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="0.8" key_max="-0.1" name="Eye Inner Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-1.5" key_max="1" name="Eye To Eye Distance" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.3" key_max="0.3" name="Eye Asymmetry" group_id="2" deforms_hair="1.0" />
-            <deform_key id="nose_angle" key_time_point="9" key_min="-0.1" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_angle" key_time_point="9" key_min="-0.2" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="nose_length" key_time_point="27" key_min="-0.7" key_max="0.1" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-0.3" key_max="0.2" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.0" key_max="0.5" name="Nose Tip Height" group_id="3" />
@@ -3821,12 +3825,12 @@
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.3" key_max="0.5" name="Nostril Size" group_id="3" />
             <deform_key id="nose_bump" key_time_point="37" key_min="-0.1" key_max="0.3" name="Nose Bump" group_id="3" />
             <deform_key id="nose_definition" key_time_point="33" key_min="-1.0" key_max="0.4" name="Nose Definition" group_id="3" />
-            <deform_key id="nose_shape" key_time_point="54" key_min="-1.1" key_max="0.6" name="Nose Shape" group_id="3" />
+            <deform_key id="nose_shape" key_time_point="54" key_min="-1.1" key_max="0.8" name="Nose Shape" group_id="3" />
             <deform_key id="nose_asymetry" key_time_point="45" key_min="-0.3" key_max="0.3" name="Nose Asymmetry" group_id="3" deforms_hair="1.0" />
             <deform_key id="mouth_width" key_time_point="35" key_min="-0.3" key_max="0.1" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.2" key_max="0.3" name="Mouth Position" group_id="4" />
             <deform_key id="lips_frown" key_time_point="41" key_min="-0.4" key_max="0.6" name="Frown/Smile" group_id="4" />
-            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.1" key_max="0.9" name="Lip Thickness" group_id="4" />
+            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.2" key_max="0.9" name="Lip Thickness" group_id="4" />
             <deform_key id="lips_forward" key_time_point="43" key_min="-0.25" key_max="0.25" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="0.0" key_max="-1.0" name="Bottom Lip Shape" group_id="4" />
             <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.5" key_max="0.55" name="Top Mouth Size" group_id="4" />
@@ -3837,7 +3841,7 @@
             <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.3" key_max="0.9 " name="Chin Shape" group_id="4" />
             <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="-0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.09, -0.14, -0.016" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0.0" key_max="0.0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="1.2" key_max="1" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -3876,18 +3880,24 @@
                   <bone_scale bone_type="biped_calf_l" axis="x" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_l" axis="y" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_l" axis="x" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_l" axis="y" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_foot_l" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_foot_l" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_foot_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_l" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_toe_l" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_toe_l" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_thigh_r" axis="x" key_min="0.95" key_max="1.1" />
                   <bone_scale bone_type="biped_thigh_r" axis="y" key_min="0.95" key_max="1.1" />
                   <bone_scale bone_type="biped_thigh_r" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_calf_r" axis="x" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_r" axis="y" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_calf_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_r" axis="x" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_r" axis="y" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_r" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_foot_r" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_foot_r" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_foot_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_r" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_toe_r" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_toe_r" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_spine_2" axis="x" key_min="1" key_max="1.05" />
                   <bone_scale bone_type="biped_spine_2" axis="y" key_min="1" key_max="1.1" />
                   <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
@@ -3896,8 +3906,8 @@
                   <bone_scale bone_type="biped_spine_1" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="0.9" key_max="1.05" />
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="0.9" key_max="1.05" />
-                  <bone_scale bone_type="biped_thorax" axis="z" key_min="0.9" key_max="0.9" />
-                  <bone_scale bone_type="biped_neck" axis="x" key_min="0.9" key_max="0.8" />
+                  <bone_scale bone_type="biped_thorax" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_neck" axis="x" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_neck" axis="y" key_min="0.8" key_max="0.8" />
                   <bone_scale bone_type="biped_neck" axis="z" key_min="0.9" key_max="0.9" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1.4" key_max="1.4" />
@@ -3905,7 +3915,7 @@
                   <bone_scale bone_type="biped_head" axis="z" key_min="1.4" key_max="1.4" />
                   <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="0.8" key_max="0.8" />
                   <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="0.8" key_max="0.8" />
-                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="0.9" key_max="0.9" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="0.9" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="0.9" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="0.9" key_max="1" />
@@ -3917,7 +3927,7 @@
                   <bone_scale bone_type="biped_hand_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="0.8" key_max="0.8" />
                   <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="0.8" key_max="0.8" />
-                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="0.9" key_max="0.9" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="0.9" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="0.9" key_max="1" />
                   <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="0.9" key_max="1" />
@@ -3966,7 +3976,7 @@
                   <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="1.0" key_max="1.05" />
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_thorax" axis="z" key_min="0.95" key_max="1.05" />
+                  <bone_scale bone_type="biped_thorax" axis="z" key_min="0.95" key_max="1.0" />
                   <bone_scale bone_type="biped_neck" axis="x" key_min="1.2" key_max="1" />
                   <bone_scale bone_type="biped_neck" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_neck" axis="z" key_min="1" key_max="1" />
@@ -4328,9 +4338,10 @@
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture8,face_texture9,face_texture10" />
          </face_textures>
          <mouth_textures group_id="4">
-            <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
+            <mouth_texture name="mouth_mat" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
+            <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
+            <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
             <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
-            <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
          </mouth_textures>
          <constraints>
             <constraint proportional_negative_and_positive="1.0">
@@ -4346,10 +4357,10 @@
       </skin>
       <skin id="skin_default_id" gender="1" name="kid_3_female" mesh_maturity_type="child" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.64" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female_teen" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.1" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.1" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.8" key_max="0.1" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.35" key_max="0.25" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="0.3" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.15" key_max="0.3" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.35" key_max="0.25" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0015" deforms_hair="0.3" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="-0.15" key_max="0.3" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, -0.0010" deforms_hair="1.2" />
             <deform_key id="cheeks" key_time_point="4" key_min="-0.2" key_max="0.9" name="Face Weight" group_id="1" deforms_hair="0.8" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.1" key_max="1.3" name="Cheekbone Height" group_id="1" deforms_hair="0.1" />
             <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="0.8" />
@@ -4400,7 +4411,7 @@
             <deform_key id="chin_forward" key_time_point="38" key_min="-1.1" key_max="0.1" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-1.2" key_max="0.9" name="Chin Shape" group_id="4" />
             <deform_key id="chin_length" key_time_point="40" key_min="-0.9" key_max="0.2" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.12, -0.1, -0.012" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="1.2" key_max="1" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -4491,8 +4502,8 @@
                   <bone_scale bone_type="biped_calf_l" axis="x" key_min="1.15" key_max="1.15" />
                   <bone_scale bone_type="biped_calf_l" axis="y" key_min="1.15" key_max="1.15" />
                   <bone_scale bone_type="biped_calf_l" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_l" axis="x" key_min="1.5" key_max="1.5" />
-                  <bone_scale bone_type="biped_foot_l" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_foot_l" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_foot_l" axis="y" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_foot_l" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_thigh_r" axis="x" key_min="1.05" key_max="1.05" />
                   <bone_scale bone_type="biped_thigh_r" axis="y" key_min="1" key_max="1" />
@@ -4500,8 +4511,8 @@
                   <bone_scale bone_type="biped_calf_r" axis="x" key_min="1.15" key_max="1.15" />
                   <bone_scale bone_type="biped_calf_r" axis="y" key_min="1.15" key_max="1.15" />
                   <bone_scale bone_type="biped_calf_r" axis="z" key_min="1" key_max="1" />
-                  <bone_scale bone_type="biped_foot_r" axis="x" key_min="1.5" key_max="1.5" />
-                  <bone_scale bone_type="biped_foot_r" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_foot_r" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_foot_r" axis="y" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_foot_r" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_spine_1" axis="x" key_min="1.1" key_max="1.1" />
                   <bone_scale bone_type="biped_spine_1" axis="y" key_min="1.25" key_max="1.25" />
@@ -4907,7 +4918,7 @@
             <mouth_texture name="mouth_mat" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
             <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
-            <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
+            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
             <!--
 	  <mouth_texture name="mouth_mat_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture13,mouth_texture14">
 	  </mouth_texture>-->
@@ -4929,17 +4940,17 @@
       </skin>
       <skin id="skin_default_id" gender="0" name="toddler_male" mesh_maturity_type="toddler" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.52" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid3" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_kid3" hands_mesh="hands_female_kid3" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_baby" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="0.0" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="face_depth" key_time_point="2" key_min="-0.1" key_max="0.2" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.15" key_max="0.15" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="0.3" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.25" key_max="0.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
-            <deform_key id="cheeks" key_time_point="4" key_min="-0.0" key_max="0.0" name="Face Weight" group_id="1" deforms_hair="0.8" />
-            <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.1" key_max="0.6" name="Cheekbone Height" group_id="1" deforms_hair="0.1" />
-            <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="0.8" />
-            <deform_key id="cheekbone_depth" key_time_point="7" key_min="-0.1" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="0.4" />
-            <deform_key id="face_sharpness" key_time_point="12" key_min="-0.25" key_max="0.95" name="Face Sharpness" group_id="1" deforms_hair="0.6" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-0.55" key_max="1.2" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.4" key_max="0.25" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_depth" key_time_point="2" key_min="-0.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.25" key_max="0.1" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="0.3" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="-0.1" key_max="0.4" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="cheeks" key_time_point="4" key_min="-0.2" key_max="0.2" name="Face Weight" group_id="1" deforms_hair="0.8" />
+            <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.6" key_max="0.6" name="Cheekbone Height" group_id="1" deforms_hair="0.1" />
+            <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.4" key_max="0.8" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="0.8" />
+            <deform_key id="cheekbone_depth" key_time_point="7" key_min="-0.6" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="0.4" />
+            <deform_key id="face_sharpness" key_time_point="12" key_min="0.8" key_max="-0.4" name="Face Sharpness" group_id="1" deforms_hair="0.6" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-0.55" key_max="1.2" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.00, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.5" key_max="0.1" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.00, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-0.0" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-0.5" key_max="0.0" name="Ear Size" group_id="1" />
             <deform_key id="face_asymmetry" key_time_point="47" key_min="-0.5" key_max="0.4" name="Face Asymmetry" group_id="1" deforms_hair="1.0" />
@@ -4950,55 +4961,115 @@
             <deform_key id="eye_position" key_time_point="23" key_min="0.3" key_max="-0.0" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0010" helmet_scaling_factor_max="0.0, 0.0, -0.0020" deforms_hair="1.0" />
             <deform_key id="eye_size" key_time_point="17" key_min="1.0" key_max="3.0" name="Eye Size" group_id="2" />
             <deform_key id="monolid_eyes" key_time_point="19" key_min="-0.0" key_max="1" name="Monolid Eyes" group_id="2" />
-            <deform_key id="eyelid_height" key_time_point="18" key_min="0.5" key_max="1.5" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
+            <deform_key id="eyelid_height" key_time_point="18" key_min="-0.2" key_max="1.5" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_depth" key_time_point="14" key_min="0.8" key_max="-0.1" name="Eye Depth" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_shape" key_time_point="15" key_min="-0.2" key_max="0.6" name="Eye Shape" group_id="2" />
             <deform_key id="eye_outer_corner_height" key_time_point="20" key_min="-0.9" key_max="0.9" name="Eye Outer Height" group_id="2" />
-            <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="1" key_max="-1" name="Eye Inner Height" group_id="2" />
+            <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="0.5" key_max="-1" name="Eye Inner Height" group_id="2" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-1" key_max="2.25" name="Eye To Eye Distance" group_id="2" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.3" key_max="0.3" name="Eye Asymmetry" group_id="2" />
             <deform_key id="nose_angle" key_time_point="9" key_min="0.8" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
-            <deform_key id="nose_length" key_time_point="27" key_min="-0.2" key_max="0.2" name="Nose Length" group_id="3" />
+            <deform_key id="nose_length" key_time_point="27" key_min="-0.9" key_max="-0.3" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-0.1" key_max="0.2" name="Nose Bridge" group_id="3" />
-            <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.3" key_max="0.3" name="Nose Tip Height" group_id="3" />
+            <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.1" key_max="0.4" name="Nose Tip Height" group_id="3" />
             <deform_key id="nose_size" key_time_point="30" key_min="-1.3" key_max="-0.8" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="nose_width" key_time_point="31" key_min="-0.1" key_max="0.5" name="Nose Width" group_id="3" />
-            <deform_key id="nostril_height" key_time_point="32" key_min="-0.5" key_max="0.2" name="Nostril Height" group_id="3" />
+            <deform_key id="nostril_height" key_time_point="32" key_min="-0.6" key_max="0.1" name="Nostril Height" group_id="3" />
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.2" key_max="0.1" name="Nostril Size" group_id="3" />
             <deform_key id="nose_bump" key_time_point="37" key_min="-0.2" key_max="0.1" name="Nose Bump" group_id="3" />
-            <deform_key id="nose_definition" key_time_point="33" key_min="0.25" key_max="0.8" name="Nose Definition" group_id="3" />
+            <deform_key id="nose_definition" key_time_point="33" key_min="-0.25" key_max="0.8" name="Nose Definition" group_id="3" />
             <deform_key id="nose" key_time_point="54" key_min="-0.4" key_max="0.2" name="Nose Shape" group_id="3" />
             <deform_key id="nose_asymetry" key_time_point="45" key_min="-0.2" key_max="0.2" name="Nose Asymetry" group_id="3" deforms_hair="1.0" />
-            <deform_key id="mouth_width" key_time_point="35" key_min="-0.4" key_max="-0.1" name="Mouth Width" group_id="4" />
+            <deform_key id="mouth_width" key_time_point="35" key_min="-0.4" key_max="-0.0" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.2" key_max="0.2" name="Mouth Position" group_id="4" />
             <deform_key id="lips_frown" key_time_point="41" key_min="-0.2" key_max="0.2" name="Frown/Smile" group_id="4" />
-            <deform_key id="lip_thickness" key_time_point="42" key_min="0.2" key_max="0.8" name="Lip Thickness" group_id="4" />
-            <deform_key id="lips_forward" key_time_point="43" key_min="-0.2" key_max="0.2" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.2" key_max="0.4" name="Lip Thickness" group_id="4" />
+            <deform_key id="lips_forward" key_time_point="43" key_min="-0.3" key_max="0.1" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="-0.9" key_max="0.0" name="Bottom Lip Shape" group_id="4" />
-            <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.2" key_max="0.3" name="Top Mouth Size" group_id="4" />
-            <deform_key id="mouth" key_time_point="55" key_min="0.0" key_max="-0.5" name="Lips concave/convex" group_id="4" />
+            <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.8" key_max="0.0" name="Top Mouth Size" group_id="4" />
+            <deform_key id="mouth" key_time_point="55" key_min="0.0" key_max="-0.9" name="Lips concave/convex" group_id="4" />
             <deform_key id="jaw_line" key_time_point="11" key_min="-1.3" key_max="-0.2" name="Jaw Line" group_id="4" />
             <deform_key id="neck_slope" key_time_point="50" key_min="0.0" key_max="0.3" name="Jaw Shape" group_id="4" />
-            <deform_key id="jaw_height" key_time_point="49" key_min="0.5" key_max="-0.0" name="Jaw Height" group_id="4" />
-            <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.0" name="Chin Forward" group_id="4" />
+            <deform_key id="jaw_height" key_time_point="49" key_min="-0.2" key_max="0.6" name="Jaw Height" group_id="4" />
+            <deform_key id="chin_forward" key_time_point="38" key_min="-0.75" key_max="-0.2" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.0" key_max="0.6" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="-0.2" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.7" key_max="-0.2" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-1.2" key_max="-0.0" name="Chin Length" group_id="4" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.7" key_max="-0.2" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.015" helmet_scaling_factor_max="-0.05, -0.1, -0.01" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="1.5" key_max="1.2" name="kid face" group_id="-1" deforms_hair="1.0" />
             <deform_key id="eyebump" key_time_point="59" key_min="1" key_max="1" name="eyebump" group_id="-1" deforms_hair="1.0" />
-            <deform_key id="weight" key_time_point="60" name="Weight" group_id="0">
+            <deform_key id="build" key_time_point="61" name="Build" group_id="0">
                <bone_scales>
-                  <bone_scale bone_type="biped_neck" axis="x" key_min="2" key_max="2" />
-                  <bone_scale bone_type="biped_neck" axis="y" key_min="2" key_max="2" />
+                  <bone_scale bone_type="biped_abdomen" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_abdomen" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_abdomen" axis="z" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_l" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_calf_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_l" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_l" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_foot_l" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_toe_l" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_toe_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_thigh_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_r" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_r" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_calf_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_r" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_r" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_foot_r" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_toe_r" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_toe_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_spine_2" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_spine_2" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_spine_2" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_spine_1" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="1.5" key_max="1.5" />
+                  <bone_scale bone_type="biped_spine_1" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_thorax" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thorax" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_thorax" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_neck" axis="x" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_neck" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_neck" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1.6" key_max="1.6" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1.6" key_max="1.6" />
                   <bone_scale bone_type="biped_head" axis="z" key_min="1.6" key_max="1.6" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_forearm_l" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_l" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_l" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_hand_l" axis="y" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_forearm_r" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_r" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_r" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_r" axis="x" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_r" axis="y" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_r" axis="z" key_min="1" key_max="1" />
                </bone_scales>
             </deform_key>
-            <deform_key id="build" key_time_point="61" name="Build" group_id="0">
+            <deform_key id="weight" key_time_point="61" name="Weight" group_id="0">
                <bone_scales />
             </deform_key>
             <deform_key id="height" key_time_point="62" name="Height Multiplier" group_id="0" />
@@ -5143,7 +5214,7 @@
                   <style_tag name="Afro Hair 3" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="hair_male_h_c" cover_type1="hair_male_h_c_a" cover_type4="hair_male_h_c">
+            <hair_mesh name="hair_male_h_c" cover_type1="hair_male_h_c_a" cover_type2="hair_male_h_c_b" cover_type4="hair_male_h_c">
                <style_tags>
                   <style_tag name="Afro Hair 4" />
                </style_tags>
@@ -5379,16 +5450,16 @@
       </skin>
       <skin id="skin_default_id" gender="1" name="toddler_female" mesh_maturity_type="toddler" morph_key="1" uses_stitching="true" body_mesh_suffix="" min_scale="0.52" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid4" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_kid3" hands_mesh="hands_female_kid3" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_baby" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="0.0" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="face_depth" key_time_point="2" key_min="-0.5" key_max="0.1" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.15" key_max="0.15" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="0.3" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.15" key_max="0.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="face_width" key_time_point="1" key_min="0.0" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="0.02, 0.0, 0.0" helmet_scaling_factor_max="0.08, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_depth" key_time_point="2" key_min="-0.5" key_max="0.1" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.15, 0.0" helmet_scaling_factor_max="0.0, 0.195, 0.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.15" key_max="0.15" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0000" helmet_scaling_factor_max="0.0, 0.0, 0.0005" deforms_hair="0.3" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="-0.15" key_max="0.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0010" helmet_scaling_factor_max="0.0, 0.0, 0.0010" deforms_hair="1.2" />
             <deform_key id="cheeks" key_time_point="4" key_min="-0.2" key_max="0.3" name="Face Weight" group_id="1" deforms_hair="0.8" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.1" key_max="0.3" name="Cheekbone Height" group_id="1" deforms_hair="0.1" />
             <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.3" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="0.8" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-0.1" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="0.4" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="-0.65" key_max="0.1" name="Face Sharpness" group_id="1" deforms_hair="0.6" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="0.05, 0.0, 0.0" helmet_scaling_factor_max="0.09, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.6" key_max="0.25" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-1.5" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1.2" key_max="0.5" name="Ear Size" group_id="1" />
@@ -5407,11 +5478,11 @@
             <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="0.5" key_max="-0.5" name="Eye Inner Height" group_id="2" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-0.55" key_max="1.25" name="Eye To Eye Distance" group_id="2" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.3" key_max="0.3" name="Eye Asymmetry" group_id="2" />
-            <deform_key id="nose_angle" key_time_point="9" key_min="0.0" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_angle" key_time_point="9" key_min="-0.1" key_max="-0.3" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="nose_length" key_time_point="27" key_min="-1.2" key_max="-0.6" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-0.1" key_max="0.1" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.1" key_max="0.4" name="Nose Tip Height" group_id="3" />
-            <deform_key id="nose_size" key_time_point="30" key_min="-1.4" key_max="0.2" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_size" key_time_point="30" key_min="-1.6" key_max="-0.5" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="nose_width" key_time_point="31" key_min="-0.1" key_max="0.5" name="Nose Width" group_id="3" />
             <deform_key id="nostril_height" key_time_point="32" key_min="-0.5" key_max="0.2" name="Nostril Height" group_id="3" />
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.2" key_max="0.1" name="Nostril Size" group_id="3" />
@@ -5432,23 +5503,83 @@
             <deform_key id="jaw_height" key_time_point="49" key_min="0.7" key_max="-0.0" name="Jaw Height" group_id="4" />
             <deform_key id="chin_forward" key_time_point="38" key_min="-1" key_max="-0.3" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.5" key_max="0.8" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-0.7" key_max="0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.7" key_max="-0.2" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-0.9" key_max="0.0" name="Chin Length" group_id="4" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.7" key_max="-0.2" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.12, -0.1, -0.012" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="1.5" key_max="1.2" name="kid face" group_id="-1" deforms_hair="1.0" />
             <deform_key id="eyebump" key_time_point="59" key_min="1" key_max="1" name="eyebump" group_id="-1" deforms_hair="1.0" />
-            <deform_key id="weight" key_time_point="60" name="Weight" group_id="0">
+            <deform_key id="build" key_time_point="61" name="Build" group_id="0">
                <bone_scales>
-                  <bone_scale bone_type="biped_neck" axis="x" key_min="2" key_max="2" />
-                  <bone_scale bone_type="biped_neck" axis="y" key_min="1.5" key_max="1.5" />
+                  <bone_scale bone_type="biped_abdomen" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_abdomen" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_abdomen" axis="z" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_l" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_calf_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_l" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_l" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_foot_l" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_l" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_toe_l" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_toe_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_thigh_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_r" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thigh_r" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_calf_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_r" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_calf_r" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_foot_r" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_foot_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_toe_r" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_toe_r" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_toe_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_spine_2" axis="x" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_spine_2" axis="y" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_spine_2" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_spine_1" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="1.5" key_max="1.5" />
+                  <bone_scale bone_type="biped_spine_1" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_thorax" axis="x" key_min="1.3" key_max="1.3" />
+                  <bone_scale bone_type="biped_thorax" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_thorax" axis="z" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_neck" axis="x" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_neck" axis="y" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_neck" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_head" axis="x" key_min="1.6" key_max="1.6" />
                   <bone_scale bone_type="biped_head" axis="y" key_min="1.6" key_max="1.6" />
                   <bone_scale bone_type="biped_head" axis="z" key_min="1.6" key_max="1.6" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_shoulder_l" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_forearm_l" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_l" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_l" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_hand_l" axis="y" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_l" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="y" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_shoulder_r" axis="z" key_min="1.1" key_max="1.1" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="x" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="y" key_min="1.2" key_max="1.2" />
+                  <bone_scale bone_type="biped_upperarm_r" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_forearm_r" axis="x" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_r" axis="y" key_min="1.0" key_max="1.0" />
+                  <bone_scale bone_type="biped_forearm_r" axis="z" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_r" axis="x" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_r" axis="y" key_min="1" key_max="1" />
+                  <bone_scale bone_type="biped_hand_r" axis="z" key_min="1" key_max="1" />
                </bone_scales>
             </deform_key>
-            <deform_key id="build" key_time_point="61" name="Build" group_id="0">
+            <deform_key id="weight" key_time_point="61" name="Weight" group_id="0">
                <bone_scales />
             </deform_key>
             <deform_key id="height" key_time_point="62" name="Height Multiplier" group_id="0" />
@@ -5474,22 +5605,22 @@
                   <style_tag name="Bald" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="female_hair_l" cover_type1="female_hair_l_type1" cover_type2="female_hair_l_type2" cover_type3="female_hair_l_type3" cover_type4="female_hair_l_type4">
+            <hair_mesh name="female_hair_s" cover_type1="female_hair_s_type1" cover_type2="female_hair_s_type2" cover_type3="female_hair_s_type2" cover_type4="female_hair_s">
                <style_tags>
                   <style_tag name="LongOvershoulder" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="female_hair_m" cover_type1="female_hair_m_type1" cover_type2="female_hair_m_type2" cover_type3="female_hair_m_type2" cover_type4="female_hair_m">
+            <hair_mesh name="female_hair_r" cover_type1="female_hair_r_type1" cover_type2="female_hair_r_type2" cover_type3="female_hair_r_type3" cover_type4="female_hair_r">
                <style_tags>
                   <style_tag name="TiedLongOverShoulder" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="female_hair_n" cover_type1="female_hair_n_type1" cover_type2="female_hair_n_type2" cover_type3="female_hair_n_type3" cover_type4="female_hair_n">
+            <hair_mesh name="female_hair_z" cover_type1="female_hair_s_type1" cover_type2="female_hair_s_type2" cover_type3="female_hair_s_type2" cover_type4="female_hair_z">
                <style_tags>
                   <style_tag name="AboveShoulderLength" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="female_hair_o" cover_type1="female_hair_o_type1" cover_type2="female_hair_o_type2" cover_type3="female_hair_o_type3" cover_type4="female_hair_o_type4">
+            <hair_mesh name="female_hair_p" cover_type1="female_hair_p_type1" cover_type2="female_hair_p_type2" cover_type3="female_hair_p_type3" cover_type4="female_hair_p">
                <style_tags>
                   <style_tag name="TiedInBack" />
                </style_tags>
@@ -5534,7 +5665,7 @@
                   <style_tag name="VeryShort" />
                </style_tags>
             </hair_mesh>
-            <hair_mesh name="female_hair_z_a" cover_type1="female_hair_l_type1" cover_type2="female_hair_l_type2" cover_type3="female_hair_l_type3" cover_type4="female_hair_z_a">
+            <hair_mesh name="female_hair_z" cover_type1="female_hair_s_type1" cover_type2="female_hair_s_type2" cover_type3="female_hair_s_type2" cover_type4="female_hair_z">
                <style_tags>
                   <style_tag name="RestingOnShoulders" />
                </style_tags>
@@ -5816,7 +5947,7 @@
       </face_texture-->
          </face_textures>
          <mouth_textures group_id="4">
-            <mouth_texture name="mouth_mat_kid_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
+            <mouth_texture name="mouth_mat_kid_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
          </mouth_textures>
          <voice_types>
             <voice_type name="female_01" />

@@ -4,13 +4,14 @@ namespace CharacterCreation.Patches
 {
     public static class DynamicBodyPatch
     {
-        public static bool Prefix(DynamicBodyCampaignBehavior __instance)
+        // [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
+        public static bool Prefix()
         {
-            if (!DCCSettingsUtil.Instance.IgnoreDailyTick) 
-                return true;
+            if (DCCSettingsUtil.Instance.IgnoreDailyTick) 
+                return false;
 
             // there is probably a better way to patch this and still be able to enable/disable this patch at will. At least it still works.
-            return false;
+            return true;
         }
     }
 }

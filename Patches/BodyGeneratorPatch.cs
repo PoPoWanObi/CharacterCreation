@@ -9,32 +9,17 @@ using TaleWorlds.MountAndBlade;
 
 namespace CharacterCreation.Patches
 {
+    [HarmonyPatch(typeof(BodyGenerator), nameof(BodyGenerator.SaveCurrentCharacter))]
     public static class BodyGeneratorPatch
     {
-        [HarmonyPatch(typeof(BodyGenerator), nameof(BodyGenerator.SaveCurrentCharacter))]
-        private static class SaveCurrentCharacter
+        static void Postfix(BodyGenerator __instance)
         {
-            private static readonly TextObject ErrorText = new TextObject("{=CharacterCreation_ErrorText}Error:");
-            static bool Prefix(BodyGenerator __instance)
+            if (__instance.Character is CharacterObject characterObject)
             {
-                try
-                {
-                    __instance.Character.UpdatePlayerCharacterBodyProperties(__instance.CurrentBodyProperties, __instance.IsFemale);
-                    if (__instance.Character is CharacterObject characterObject)
-                    {
-                        float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
-                        //if (!DCCSettingsUtil.Instance.OverrideAge) // doesn't seem to work
-                        CharacterBodyManager.ResetBirthDayForAge(characterObject, __instance.CurrentBodyProperties.DynamicProperties.Age);
-                        if (DCCSettingsUtil.Instance.DebugMode)
-                            Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
-                    }
-                    return false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ErrorText}\n{ex.Message} \n\n{ex.InnerException?.Message}");
-                    return true;
-                }
+                float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
+                CharacterBodyManager.ResetBirthDayForAge(characterObject, bodyAge);
+                if (DCCSettingsUtil.Instance.DebugMode)
+                    Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
             }
         }
     }

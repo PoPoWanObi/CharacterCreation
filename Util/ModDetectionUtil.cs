@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.Engine;
 using TaleWorlds.Library;
+using TaleWorlds.ModuleManager;
 
 namespace CharacterCreation
 {
@@ -17,15 +18,10 @@ namespace CharacterCreation
         {
             get
             {
+                
                 if (modules.Count == 0) // this should only happen when this property is first called.
                 {
-                    string[] moduleNames = Utilities.GetModulesNames();
-                    foreach (string moduleName in moduleNames)
-                    {
-                        ModuleInfo m = new ModuleInfo();
-                        m.Load(moduleName);
-                        modules.Add(m);
-                    }
+                    modules.AddRange(ModuleHelper.GetModules().Where(x => x.IsOfficial || x.IsSelected));
                 }
 
                 return modules.AsReadOnly();

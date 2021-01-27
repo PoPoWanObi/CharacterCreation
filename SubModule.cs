@@ -27,11 +27,11 @@ namespace CharacterCreation
 
         public static string GetFormattedAgeDebugMessage(Hero hero, float expectedAge)
         {
-            var attributes = new Dictionary<string, TextObject>
+            var attributes = new Dictionary<string, object>
             {
                 ["HERO_NAME"] = hero.Name,
-                ["AGE1"] = new TextObject(expectedAge),
-                ["AGE2"] = new TextObject(hero.Age)
+                ["AGE1"] = expectedAge,
+                ["AGE2"] = hero.Age
             };
             return new TextObject(ExpectedActualAgeMessage, attributes).ToString();
         }

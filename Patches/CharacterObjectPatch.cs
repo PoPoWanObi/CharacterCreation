@@ -13,7 +13,7 @@ namespace CharacterCreation.Patches
 
         private static void Postfix(CharacterObject __instance, BodyProperties properties, bool isFemale)
         {
-            if (!__instance.IsPlayerCharacter)
+            if (__instance.IsHero)
             {
                 PropertyInfo staticBodyPropertyInfoOnHero = AccessTools.Property(typeof(Hero), "StaticBodyProperties");
                 staticBodyPropertyInfoOnHero.SetValue(__instance.HeroObject, properties.StaticProperties);
