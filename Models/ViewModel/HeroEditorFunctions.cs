@@ -23,7 +23,7 @@ namespace CharacterCreation.Models
 
             InformationManager.ShowTextInquiry(new TextInquiryData(HeroBuilderVM.CharacterRenamerText.ToString(), HeroBuilderVM.EnterNewNameText.ToString(),
                 true, true, HeroBuilderVM.RenameText.ToString(), HeroBuilderVM.CancelText.ToString(), x => RenameHero(x, hero, postAction),
-                InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName));
+                InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName), true);
 
             nameCallback?.Invoke(hero);
         }

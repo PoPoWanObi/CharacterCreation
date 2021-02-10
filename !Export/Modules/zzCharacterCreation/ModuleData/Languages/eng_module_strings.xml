@@ -56,10 +56,6 @@
     
     <!-- BodyGeneratorPatch entry -->
     <string id="CharacterCreation_ErrorText" text="Error:"/>
-
-    <!-- DynamicBodyPatch entries -->
-    <string id="CharacterCreation_DebugSetAppearanceMsg" text="[Debug] Set appearance for: "/>
-    <string id="CharacterCreation_DebugResultMsg" text="[Debug] Result: "/>
     
     <!-- Commands entries -->
     <string id="CharacterCreation_DccDisabledMsg" text="Detailed Character Creation disabled."/>
@@ -106,5 +102,16 @@
     <string id="CharacterCreation_build" text="Ignore this"/>
     <string id="CharacterCreation_Weight2" text="Body Weight"/>
     <string id="CharacterCreation_Build2" text="Body Muscle"/>
+    
+    <!-- handling mismatched settings -->
+    <string id="CharacterCreation_DebugSetAppearanceMsg" text="[Debug] Set appearance for: "/>
+    <string id="CharacterCreation_DebugResultMsg" text="[Debug] Result: "/>
+    <string id="CharacterCreation_WarningTitle" text="WARNING"/>
+    <string id="CharacterCreation_WarningYes" text="Yes"/>
+    <string id="CharacterCreation_WarningNo" text="No"/>
+    <string id="CharacterCreation_WarningAck" text="Acknowledged"/>
+    <string id="CharacterCreation_WarningText" text="Disable Life and Death Cycle is currently set to {LDC}, but Disable Auto Aging is set to {DAA}. Are you sure you want to change the campaign settings? If selecting 'no', changes to the life and death cycle will not take effect until you load or start a campaign."/>
+    <string id="CharacterCreation_WarningOverrideText" text="Override Age is currently set to {OA}. Are you sure you want your hero to be unaffected by aging? Your choice here will affect your current game, until you load or start a campaign."/>
+    <string id="CharacterCreation_WarningConflictText" text="Override Age is currently set to {OA}, but either Disable Life and Death Cycle {LDC} or Disable Auto Aging {DAA} is turned on. This settings will not be applied."/>
   </strings>
 </base>

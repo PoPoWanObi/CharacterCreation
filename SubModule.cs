@@ -49,11 +49,11 @@ namespace CharacterCreation
                 CompatibilityPatch.CreateCompatibilityPatches(harmony);
 
                 // properly patch CharacterObject
-                var dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "OnDailyTick");
-                if (dailyTickMethod == default) dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "DailyTick");
-                if (dailyTickMethod != default) harmony.Patch(dailyTickMethod,
-                    prefix: new HarmonyMethod(AccessTools.Method(typeof(DynamicBodyPatch), nameof(DynamicBodyPatch.Prefix))));
-                Debug.Print("[CharacterCreation] DynamicBodyCampaignBehavior.(On)DailyTick patched");
+                //var dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "OnDailyTick");
+                //if (dailyTickMethod == default) dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "DailyTick");
+                //if (dailyTickMethod != default) harmony.Patch(dailyTickMethod,
+                //    prefix: new HarmonyMethod(AccessTools.Method(typeof(DynamicBodyPatch), nameof(DynamicBodyPatch.Prefix))));
+                //Debug.Print("[CharacterCreation] DynamicBodyCampaignBehavior.(On)DailyTick patched");
 
                 TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
             }
@@ -90,9 +90,9 @@ namespace CharacterCreation
             // just to make sure facegen is set
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
             // make sure to call this and other daily tick events on... well, daily tick
-            SettingsEffects.Initialize();
+            SettingsEffects.Initialize(true);
             // check game options and handle appropriately
-            SettingsEffects.SetAutoAging(game);
+            //SettingsEffects.Instance.SetAutoAging(game, true);
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
@@ -129,7 +129,7 @@ namespace CharacterCreation
             public override void OnBeforeSave()
             {
                 if (Game.Current == null || !(Game.Current.GameType is Campaign)) return;
-                SettingsEffects.UpdateAllHeroes(Game.Current);
+                SettingsEffects.Instance.UpdateAllHeroes(Game.Current, true);
             }
         }
     }

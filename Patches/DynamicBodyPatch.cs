@@ -1,10 +1,11 @@
-﻿using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+﻿using HarmonyLib;
+using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 
 namespace CharacterCreation.Patches
 {
     public static class DynamicBodyPatch
     {
-        // [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
+        [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "DailyTick")]
         public static bool Prefix()
         {
             if (DCCSettingsUtil.Instance.IgnoreDailyTick) 
