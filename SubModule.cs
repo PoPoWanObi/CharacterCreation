@@ -90,7 +90,8 @@ namespace CharacterCreation
             // just to make sure facegen is set
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
             // make sure to call this and other daily tick events on... well, daily tick
-            SettingsEffects.Initialize(true);
+            if (game.GameType is Campaign)
+                SettingsEffects.Initialize(true);
             // check game options and handle appropriately
             //SettingsEffects.Instance.SetAutoAging(game, true);
         }
