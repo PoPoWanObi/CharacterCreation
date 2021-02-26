@@ -37,14 +37,16 @@ namespace CharacterCreation.Util
         private bool ignoreAutoAgingSettings;
         private bool ignoreAgeOverrideSettings;
         private bool isAgeOverrideOn;
+        private int hours;
 
         private SettingsEffects()
         {
-            CampaignEvents.HourlyTickEvent?.AddNonSerializedListener(this, SetAutoAging);
-            CampaignEvents.HourlyTickEvent?.AddNonSerializedListener(this, UpdateAllHeroes);
+            CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_SetAutoAging", SetAutoAging);
+            CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_UpdateAllHeroes", UpdateAllHeroes);
             ignoreAutoAgingSettings = false;
             ignoreAgeOverrideSettings = false;
             isAgeOverrideOn = false;
+            hours = 0;
         }
 
         public void SetAutoAging() => SetAutoAging(default); // this is necessary because no arguments literally means no arguments
@@ -138,26 +140,30 @@ namespace CharacterCreation.Util
 
         private void UpdateHeroBodyProperties(Game game)
         {
+            //hours++;
             foreach (var hero in game.ObjectManager.GetObjectTypeList<Hero>().Where(x => x.IsAlive)) // again, ignore dead heroes
             {
-                if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
-                {
-                    InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
-                    var test = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                    InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
-                }
+                //if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode && hours == 24)
+                //{
+                //    InformationManager.DisplayMessage(new InformationMessage(DebugSetAppearanceMsg.ToString() + hero.Name, ColorManager.Red));
+                //    var test = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                //    InformationManager.DisplayMessage(new InformationMessage(DebugResultMsg.ToString() + test, ColorManager.Red));
+                //}
 
                 // update so party name and character name on save is correct (skipped - party name now dynamically handled)
                 hero.FirstName = hero.Name;
 
                 // the below code might be unnecessary in light of the way TaleWorlds implements aging now. Dynamic campaign body 'enhancement', on the other hand...
-                float age = hero.Age;
-                DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(age, hero.Weight, hero.Build);
-                BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
-                hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
+                //float age = hero.Age;
+                //DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(age, hero.Weight, hero.Build);
+                //BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
+                //hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
-                if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
-                    InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, age), ColorManager.Red));
+                //if (hero.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode && hours == 24)
+                //{
+                //    InformationManager.DisplayMessage(new InformationMessage(SubModule.GetFormattedAgeDebugMessage(hero, age), ColorManager.Red));
+                //    hours = 0;
+                //}
             }
         }
     }

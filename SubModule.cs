@@ -48,12 +48,12 @@ namespace CharacterCreation
                 // apply compatibility patches
                 CompatibilityPatch.CreateCompatibilityPatches(harmony);
 
-                // properly patch CharacterObject
-                //var dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "OnDailyTick");
-                //if (dailyTickMethod == default) dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "DailyTick");
-                //if (dailyTickMethod != default) harmony.Patch(dailyTickMethod,
-                //    prefix: new HarmonyMethod(AccessTools.Method(typeof(DynamicBodyPatch), nameof(DynamicBodyPatch.Prefix))));
-                //Debug.Print("[CharacterCreation] DynamicBodyCampaignBehavior.(On)DailyTick patched");
+                // properly patch CharacterObject - why is this needed again?
+                var dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "OnDailyTick");
+                if (dailyTickMethod == default) dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "DailyTick");
+                if (dailyTickMethod != default) harmony.Patch(dailyTickMethod,
+                    prefix: new HarmonyMethod(AccessTools.Method(typeof(DynamicBodyPatch), nameof(DynamicBodyPatch.Prefix))));
+                Debug.Print("[CharacterCreation] DynamicBodyCampaignBehavior.(On)DailyTick patched");
 
                 TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
             }
