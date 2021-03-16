@@ -7,6 +7,7 @@ namespace CharacterCreation.Patches
     public static class DynamicBodyPatch
     {
         [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "DailyTick")]
+        [HarmonyPrefix]
         public static bool Prefix()
         {
             if (DCCSettingsUtil.Instance.IgnoreDailyTick)
