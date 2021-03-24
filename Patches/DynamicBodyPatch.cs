@@ -4,10 +4,9 @@ using TaleWorlds.Library;
 
 namespace CharacterCreation.Patches
 {
+    [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "DailyTick")]
     public static class DynamicBodyPatch
     {
-        [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "DailyTick")]
-        [HarmonyPrefix]
         public static bool Prefix()
         {
             if (DCCSettingsUtil.Instance.IgnoreDailyTick)
