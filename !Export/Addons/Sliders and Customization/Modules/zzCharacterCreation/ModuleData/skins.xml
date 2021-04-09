@@ -5,7 +5,7 @@
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.6" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.001" helmet_scaling_factor_max="0.0, 0.0, 0.001" deforms_hair="1.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.002" helmet_scaling_factor_max="0.0, 0.0, 0.004" deforms_hair="1.0" />
             <deform_key id="face_ratio" key_time_point="3" key_min="0.5" key_max="1.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
             <deform_key id="cheeks" key_time_point="4" key_min="-0.75" key_max="0.35" name="Face Weight" group_id="1" deforms_hair="1.0" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-1.2" key_max="0.5" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
@@ -21,7 +21,7 @@
             <deform_key id="brow_outer_height" key_time_point="24" key_min="-0.75" key_max="0.9" name="Brow Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_middle_height" key_time_point="25" key_min="-0.0" key_max="0.9" name="Brow Middle Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_inner_height" key_time_point="26" key_min="-0.25" key_max="0.5" name="Brow Inner Height" group_id="2" deforms_hair="1.0" />
-            <deform_key id="eye_position" key_time_point="23" key_min="0.9" key_max="-0.0" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0015" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="eye_position" key_time_point="23" key_min="0.9" key_max="-0.0" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.005" helmet_scaling_factor_max="0.0, 0.0, 0.000" deforms_hair="1.0" />
             <deform_key id="eye_size" key_time_point="17" key_min="-1.0" key_max="1.0" name="Eye Size" group_id="2" deforms_hair="1.0" />
             <deform_key id="monolid_eyes" key_time_point="19" key_min="-0.5" key_max="0.9" name="Monolid Eyes" group_id="2" deforms_hair="1.0" />
             <deform_key id="eyelid_height" key_time_point="18" key_min="-0.75" key_max="0.95" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
@@ -56,7 +56,7 @@
             <deform_key id="jaw_height" key_time_point="49" key_min="0.6" key_max="-1" name="Jaw Height" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0005" helmet_scaling_factor_max="-0.00, -0.00, -0.0005" />
             <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0000" helmet_scaling_factor_max="-0.00, 0.05, -0.0000" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.75" key_max="1" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.000" helmet_scaling_factor_max="-0.00, -0.00, -0.003" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.000" helmet_scaling_factor_max="-0.00, -0.00, -0.001" />
             <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.005" helmet_scaling_factor_max="-0.05, -0.05, -0.003" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="-0.25" key_max="1.5" name="Old face" group_id="-1" />
@@ -547,137 +547,137 @@
                   <style_tag name="Cleanshaven" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_k" cover_type1="beards_c_k" cover_type2="beards_c_k" cover_type3="beards_c_k">
+            <beard_mesh name="beards_c_k" cover_type1="beards_c_k" cover_type2="beards_c_k" cover_type3="beards_c_k" cover_type4="beards_c_k">
                <style_tags>
                   <style_tag name="ThinMustache" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_r" cover_type1="beards_c_r" cover_type2="beards_c_r" cover_type3="beards_c_r">
+            <beard_mesh name="beards_c_r" cover_type1="beards_c_r" cover_type2="beards_c_r" cover_type3="beards_c_r" cover_type4="beards_c_r">
                <style_tags>
                   <style_tag name="MustacheAndPatch" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_v" cover_type1="beards_c_v" cover_type2="beards_c_v" cover_type3="beards_c_v">
+            <beard_mesh name="beards_c_v" cover_type1="beards_c_v" cover_type2="beards_c_v" cover_type3="beards_c_v" cover_type4="beards_c_v">
                <style_tags>
                   <style_tag name="MediumMustache" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_l" cover_type1="beards_c_l" cover_type2="beards_c_l" cover_type3="beards_c_l">
+            <beard_mesh name="beards_c_l" cover_type1="beards_c_l" cover_type2="beards_c_l" cover_type3="beards_c_l" cover_type4="beards_c_l">
                <style_tags>
                   <style_tag name="WaxedMustache" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_i" cover_type1="beards_c_i" cover_type2="beards_c_i" cover_type3="beards_c_i">
+            <beard_mesh name="beards_c_i" cover_type1="beards_c_i" cover_type2="beards_c_i" cover_type3="beards_c_i" cover_type4="beards_c_i">
                <style_tags>
                   <style_tag name="DroopyMustache" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_o" cover_type1="beards_c_o" cover_type2="beards_c_o" cover_type3="beards_c_o">
+            <beard_mesh name="beards_c_o" cover_type1="beards_c_o" cover_type2="beards_c_o" cover_type3="beards_c_o" cover_type4="beards_c_o">
                <style_tags>
                   <style_tag name="LightGoatee" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_x" cover_type1="beards_c_x" cover_type2="beards_c_x" cover_type3="beards_c_x">
+            <beard_mesh name="beards_c_x" cover_type1="beards_c_x" cover_type2="beards_c_x" cover_type3="beards_c_x" cover_type4="beards_c_x">
                <style_tags>
                   <style_tag name="BushyGoatee" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_n" cover_type1="beards_c_n" cover_type2="beards_c_n" cover_type3="beards_c_n">
+            <beard_mesh name="beards_c_n" cover_type1="beards_c_n" cover_type2="beards_c_n" cover_type3="beards_c_n" cover_type4="beards_c_n">
                <style_tags>
                   <style_tag name="WaxedBeardWithShavedCheeks" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_b" cover_type1="beards_c_b" cover_type2="beards_c_b" cover_type3="beards_c_b">
+            <beard_mesh name="beards_c_b" cover_type1="beards_c_b" cover_type2="beards_c_b" cover_type3="beards_c_b" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="BeardWithShavedCheeks" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_s" cover_type1="beards_c_s" cover_type2="beards_c_s" cover_type3="beards_c_s">
+            <beard_mesh name="beards_c_s" cover_type1="beards_c_s" cover_type2="beards_c_s" cover_type3="beards_c_s" cover_type4="beards_c_s">
                <style_tags>
                   <style_tag name="TrimmedDutch" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_q" cover_type1="beards_c_q" cover_type2="beards_c_q" cover_type3="beards_c_q">
+            <beard_mesh name="beards_c_q" cover_type1="beards_c_q" cover_type2="beards_c_q" cover_type3="beards_c_q" cover_type4="beards_c_q">
                <style_tags>
                   <style_tag name="Sideburns" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_y" cover_type1="beards_c_y" cover_type2="beards_c_y" cover_type3="beards_c_y">
+            <beard_mesh name="beards_c_y" cover_type1="beards_c_y" cover_type2="beards_c_y" cover_type3="beards_c_y" cover_type4="beards_c_s">
                <style_tags>
                   <style_tag name="MediumDutch" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_h" cover_type1="beards_c_h" cover_type2="beards_c_h" cover_type3="beards_c_h">
+            <beard_mesh name="beards_c_h" cover_type1="beards_c_h" cover_type2="beards_c_h" cover_type3="beards_c_h" cover_type4="beards_d_b">
                <style_tags>
                   <style_tag name="LightShortBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_a" cover_type1="beards_c_a_a" cover_type2="beards_c_h_b" cover_type3="beards_c_a_c">
+            <beard_mesh name="beards_c_a" cover_type1="beards_c_a_a" cover_type2="beards_c_h_b" cover_type3="beards_c_a_a" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="HeavyShortBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_c" cover_type1="beards_c_c_a" cover_type2="beards_c_h_b" cover_type3="beards_c_c_c">
+            <beard_mesh name="beards_c_c" cover_type1="beards_c_c" cover_type2="beards_c_c_a" cover_type3="beards_c_c_c" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="PointedShortBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_d" cover_type1="beards_c_c_a" cover_type2="beards_c_h_b" cover_type3="beards_c_a_c">
+            <beard_mesh name="beards_c_d" cover_type1="beards_c_d" cover_type2="beards_c_d" cover_type3="beards_c_c_c" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="LongBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_f" cover_type1="beards_c_f_a" cover_type2="beards_c_h_b" cover_type3="beards_c_f_c">
+            <beard_mesh name="beards_c_f" cover_type1="beards_c_f" cover_type2="beards_c_f_a" cover_type3="beards_c_e_c" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="HeavyLongBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_e" cover_type1="beards_c_c_a" cover_type2="beards_c_h_b" cover_type3="beards_c_e_c">
+            <beard_mesh name="beards_c_e" cover_type1="beards_c_e_a" cover_type2="beards_c_e_a" cover_type3="beards_c_e_c" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="LongScragglyBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_j" cover_type1="beards_c_c_a" cover_type2="beards_c_h_b" cover_type3="beards_c_e_c">
+            <beard_mesh name="beards_c_j" cover_type1="beards_c_j_a" cover_type2="beards_c_j_b" cover_type3="beards_c_j_c" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="LongTiedBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_p" cover_type1="beards_c_b" cover_type2="beards_c_b" cover_type3="beards_c_b">
+            <beard_mesh name="beards_c_p" cover_type1="beards_c_p" cover_type2="beards_c_p" cover_type3="beards_c_b" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="DroopingMustacheAndBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_z" cover_type1="beards_c_b" cover_type2="beards_c_b" cover_type3="beards_c_b">
+            <beard_mesh name="beards_c_z" cover_type1="beards_c_z" cover_type2="beards_c_z" cover_type3="beards_c_z_a" cover_type4="beards_c_j_d">
                <style_tags>
                   <style_tag name="TiedBeardShavenCheeks" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_c_g" cover_type1="beards_c_s" cover_type2="beards_c_s" cover_type3="beards_c_s">
+            <beard_mesh name="beards_c_g" cover_type1="beards_c_g" cover_type2="beards_c_g" cover_type3="beards_c_g_a" cover_type4="beards_c_g_d">
                <style_tags>
                   <style_tag name="DutchTiedBeard" />
                </style_tags>
             </beard_mesh>
-            <beard_mesh name="beards_d_a" cover_type1="beards_d_a" cover_type2="beards_d_a" cover_type3="beards_d_a" />
-            <beard_mesh name="beards_d_b" cover_type1="beards_d_b" cover_type2="beards_d_b" cover_type3="beards_d_b" />
-            <beard_mesh name="beards_d_c" cover_type1="beards_d_c" cover_type2="beards_d_c" cover_type3="beards_d_c" />
-            <beard_mesh name="beards_d_e" cover_type1="beards_d_e" cover_type2="beards_d_e" cover_type3="beards_d_e" />
-            <beard_mesh name="beards_d_f" cover_type1="beards_d_f" cover_type2="beards_d_f" cover_type3="beards_d_f" />
-            <beard_mesh name="beards_d_g" cover_type1="beards_d_g_a" cover_type2="beards_d_g_a" cover_type3="beards_d_g_a" />
-            <beard_mesh name="beards_d_h" cover_type1="beards_d_h_a" cover_type2="beards_d_h_a" cover_type3="beards_d_h_a" />
-            <beard_mesh name="beards_c_u" cover_type1="beards_c_c_a" cover_type2="beards_c_h_b" cover_type3="beards_c_e_c" />
-            <beard_mesh name="beards_c_t" cover_type1="beards_c_t" cover_type2="beards_c_t" cover_type3="beards_c_t" />
-            <beard_mesh name="beards_c_m" cover_type1="beards_c_m" cover_type2="beards_c_m" cover_type3="beards_c_m" />
-            <beard_mesh name="beards_d_i" cover_type1="beards_d_i_a" cover_type2="beards_d_i_a" cover_type3="beards_d_i_a" />
-            <beard_mesh name="beards_d_j" cover_type1="beards_d_j_a" cover_type2="beards_d_j_a" cover_type3="beards_d_j_a" />
-            <beard_mesh name="beards_d_k" cover_type1="beards_d_k_a" cover_type2="beards_d_k_a" cover_type3="beards_d_k_a" />
-            <beard_mesh name="beards_d_l" cover_type1="beards_c_c_a" cover_type2="beards_d_l_b" cover_type3="beards_d_l_c" />
-            <beard_mesh name="beards_d_m" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_m_c" />
+            <beard_mesh name="beards_d_a" cover_type1="beards_d_a" cover_type2="beards_d_a" cover_type3="beards_d_a" cover_type4="beards_d_a" />
+            <beard_mesh name="beards_d_b" cover_type1="beards_d_b" cover_type2="beards_d_b" cover_type3="beards_d_b" cover_type4="beards_d_b" />
+            <beard_mesh name="beards_d_c" cover_type1="beards_d_c" cover_type2="beards_d_c" cover_type3="beards_d_c" cover_type4="beards_d_c" />
+            <beard_mesh name="beards_d_e" cover_type1="beards_d_e" cover_type2="beards_d_e" cover_type3="beards_d_e" cover_type4="beards_d_e" />
+            <beard_mesh name="beards_d_f" cover_type1="beards_d_f" cover_type2="beards_d_f" cover_type3="beards_d_f" cover_type4="beards_d_f" />
+            <beard_mesh name="beards_d_g" cover_type1="beards_d_g" cover_type2="beards_d_g" cover_type3="beards_d_g_a" cover_type4="beards_c_t" />
+            <beard_mesh name="beards_d_h" cover_type1="beards_d_h" cover_type2="beards_d_h" cover_type3="beards_d_h_a" cover_type4="beards_c_k" />
+            <beard_mesh name="beards_c_u" cover_type1="beards_c_u_a" cover_type2="beards_c_u_a" cover_type3="beards_c_a_c" cover_type4="beards_c_j_d" />
+            <beard_mesh name="beards_c_t" cover_type1="beards_c_t" cover_type2="beards_c_t" cover_type3="beards_c_t" cover_type4="beards_c_t" />
+            <beard_mesh name="beards_c_m" cover_type1="beards_c_m" cover_type2="beards_c_m" cover_type3="beards_c_m" cover_type4="beards_c_m" />
+            <beard_mesh name="beards_d_i" cover_type1="beards_d_i" cover_type2="beards_d_i" cover_type3="beards_d_i_a" cover_type4="beards_c_s" />
+            <beard_mesh name="beards_d_j" cover_type1="beards_d_j" cover_type2="beards_d_j" cover_type3="beards_d_j_a" cover_type4="beards_c_m" />
+            <beard_mesh name="beards_d_k" cover_type1="beards_d_k" cover_type2="beards_d_k" cover_type3="beards_d_k_a" cover_type4="beards_c_m" />
+            <beard_mesh name="beards_d_l" cover_type1="beards_d_l" cover_type2="beards_d_l_b" cover_type3="beards_d_l_c" cover_type4="beards_d_b" />
+            <beard_mesh name="beards_d_m" cover_type1="beards_d_m" cover_type2="beards_d_m_b" cover_type3="beards_d_m_c" cover_type4="beards_d_b" />
             <!-- <beard_mesh name="beards_d_n" cover_type1="beards_d_n"  >
         </beard_mesh> -->
-            <beard_mesh name="beards_d_o" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_o_c" />
-            <beard_mesh name="beards_d_p" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_p_c" />
-            <beard_mesh name="beards_d_r" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_r_c" />
-            <beard_mesh name="beards_d_s" cover_type1="beards_c_h_b" cover_type2="beards_c_h_b" cover_type3="beards_d_s_c" />
+            <beard_mesh name="beards_d_o" cover_type1="beards_d_o" cover_type2="beards_d_o_b" cover_type3="beards_d_o_c" cover_type4="beards_c_j_d" />
+            <beard_mesh name="beards_d_p" cover_type1="beards_d_p" cover_type2="beards_d_p_b" cover_type3="beards_d_p_c" cover_type4="beards_c_j_d" />
+            <beard_mesh name="beards_d_r" cover_type1="beards_d_r" cover_type2="beards_d_p_b" cover_type3="beards_d_r_c" cover_type4="beards_c_j_d" />
+            <beard_mesh name="beards_d_s" cover_type1="beards_d_s" cover_type2="beards_d_p_b" cover_type3="beards_d_s_c" cover_type4="beards_c_j_d" />
             <!--             <beard_mesh name="beards_b_a" tags="beard1" />
       <beard_mesh name="beards_b_b" tags="beard1" />
       <beard_mesh name="beards_b_c" tags="beard1" />

@@ -23,7 +23,7 @@ namespace CharacterCreation.Models
         private Hero? selectedHero;
         private ScreenBase? gauntletLayerTopScreen;
         private GauntletLayer? gauntletLayer;
-        private GauntletMovie? gauntletMovie;
+        private IGauntletMovie? gauntletMovie;
 
         //public static Type HeroBuilderVMType { get; internal set; } = typeof(HeroBuilderVM);
 
