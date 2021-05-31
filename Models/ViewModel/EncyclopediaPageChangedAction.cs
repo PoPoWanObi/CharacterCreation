@@ -70,7 +70,7 @@ namespace CharacterCreation.Models
             {
                 return;
             }
-            gauntletLayer ??= new GauntletLayer(211);
+            gauntletLayer ??= new GauntletLayer(211, "GauntletLayer", false);
 
             try
             {
