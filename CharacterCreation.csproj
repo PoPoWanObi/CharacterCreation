@@ -9,7 +9,7 @@
     <!-- Define your GameFolder here to simplify loading plugins and output dirs -->
     <!--<GameFolder>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>-->
     <GameFolder>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+	<DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
     <AssemblyName>CharacterCreation</AssemblyName>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
@@ -84,7 +84,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.MCM" Version="4.3.5" />
+    <PackageReference Include="Bannerlord.MCM" Version="4.3.10" />
     <PackageReference Include="Lib.Harmony" Version="2.0.4" />
   </ItemGroup>
 
