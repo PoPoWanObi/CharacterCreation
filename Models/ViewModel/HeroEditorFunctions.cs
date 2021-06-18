@@ -38,9 +38,10 @@ namespace CharacterCreation.Models
 
             if (!string.IsNullOrEmpty(heroName))
             {
-                var newName = new TextObject(heroName);
-                selectedHero.Name = newName;
-                selectedHero.FirstName = newName;
+                selectedHero.SetName(new TextObject(heroName));
+                //var newName = new TextObject(heroName);
+                //selectedHero.Name = newName;
+                //selectedHero.FirstName = newName;
             }
             else
                 InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.InvalidNameText.ToString(), ColorManager.Red));

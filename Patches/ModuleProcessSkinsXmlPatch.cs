@@ -38,9 +38,9 @@ namespace CharacterCreation.Patches
                     usedPaths.Add(ModuleHelper.GetXmlPathForNativeWBase(mbprojXml.ModuleName, mbprojXml.Name));
                     toBeMerged.Add(Tuple.Create(ModuleHelper.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name), string.Empty));
                 }
-                string xsltPathForNative = ModuleHelper.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);
-                
-                xsltList.Add(File.Exists(xsltPathForNative) ? xsltPathForNative : string.Empty);
+                string xslPath = ModuleHelper.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);
+                string xsltPath = xslPath + 't';
+                xsltList.Add(File.Exists(xslPath) ? xslPath : (File.Exists(xsltPath) ? xsltPath : string.Empty));
             }
             XmlDocument mergedXmlForNative = MBObjectManager.CreateMergedXmlFile(toBeMerged, xsltList, true);
 

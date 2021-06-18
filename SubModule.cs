@@ -80,8 +80,11 @@ namespace CharacterCreation
 
             // print player age if debug is on
             var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(hero => hero.IsHumanPlayerCharacter);
-            InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(player, player.Age), ColorManager.Red));
-            Debug.Print(GetFormattedAgeDebugMessage(player, player.Age));
+            if (player != default)
+            {
+                InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(player, player.Age), ColorManager.Red));
+                Debug.Print(GetFormattedAgeDebugMessage(player, player.Age));
+            }
         }
 
         // called after game is initialized

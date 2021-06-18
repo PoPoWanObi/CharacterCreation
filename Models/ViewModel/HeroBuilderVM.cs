@@ -148,7 +148,7 @@ namespace CharacterCreation.Models
         //}
         
         //Game.Current.PlayerTroop -- ingore me
-        private HeroBuilderModel? heroModel;
+        //private HeroBuilderModel? heroModel;
         private Hero? selectedHero;
         private EncyclopediaHeroPageVM? selectedHeroPage;
 

@@ -99,9 +99,10 @@ namespace CharacterCreation.Util
             // CR does not (yet as of writing) handle renaming properly - should patch anyway?
             if (MyClanLordItemVM != default)
             {
-                harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null,
-                    new HarmonyMethod(AccessTools.Method(typeof(ClanLordItemVMPatch), nameof(ClanLordItemVMPatch.OnNamingHeroOverPostfix))));
-                Debug.Print("[CharacterCreation] Patched CharacterReload.VM.MyClanLordItemVM.OnNamingHeroOver");
+                //harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null,
+                //    new HarmonyMethod(AccessTools.Method(typeof(ClanLordItemVMPatch), nameof(ClanLordItemVMPatch.OnNamingHeroOverPostfix))));
+                harmony.Patch(AccessTools.Method(MyClanLordItemVM, "OnNamingHeroOver"), null, new HarmonyMethod(DoNotExecuteMethodSilentInfo));
+                Debug.Print("[CharacterCreation] Disabled CharacterReload.VM.MyClanLordItemVM.OnNamingHeroOver");
             }
 
             // DynamicBodyPatch
