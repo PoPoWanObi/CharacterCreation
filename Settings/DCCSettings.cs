@@ -56,18 +56,15 @@ namespace CharacterCreation
                         }
                     }
 
-                    if (instance == default)
+                    if (instance == default) instance = new DCCDefaultSettings();
+                    using (var stream = ConfigFile.Open(FileMode.Create))
                     {
-                        instance = new DCCDefaultSettings();
-                        using (var stream = ConfigFile.Open(FileMode.Create))
+                        var xmlWritter = new XmlTextWriter(stream, Encoding.UTF8)
                         {
-                            var xmlWritter = new XmlTextWriter(stream, Encoding.UTF8)
-                            {
-                                Formatting = Formatting.Indented,
-                                Indentation = 4
-                            };
-                            serializer.Serialize(xmlWritter, instance);
-                        }
+                            Formatting = Formatting.Indented,
+                            Indentation = 4
+                        };
+                        serializer.Serialize(xmlWritter, instance);
                     }
                 }
                 return instance;

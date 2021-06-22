@@ -76,8 +76,8 @@ namespace CharacterCreation.Util
 
         private void ChangeAutoAgingSettings(Game game)
         {
-            var heroList = game.ObjectManager.GetObjectTypeList<Hero>();
-            foreach (var hero in heroList.Where(x => x.IsAlive)) // ignore dead heroes
+            var heroList = Hero.AllAliveHeroes;
+            foreach (var hero in heroList)
             {
                 var age = hero.Age;
                 CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
@@ -86,7 +86,7 @@ namespace CharacterCreation.Util
 
             if (DCCSettingsUtil.Instance.DebugMode)
                 InformationManager.DisplayMessage(
-                    new InformationMessage($"IsLifeDeathCycleDisabled: {CampaignOptions.IsLifeDeathCycleDisabled}"));
+                    new InformationMessage($"IsLifeDeathCycleDisabled now set to {CampaignOptions.IsLifeDeathCycleDisabled}"));
         }
 
         public void UpdateAllHeroes() => UpdateAllHeroes(default);
@@ -128,7 +128,7 @@ namespace CharacterCreation.Util
         private void ResetPlayerAge(Game game)
         {
             isAgeOverrideOn = true;
-            var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(x => x.IsHumanPlayerCharacter);
+            var player = Hero.MainHero;
             if (player != default)
             {
                 CampaignOptions.IsLifeDeathCycleDisabled = true; // disable life cycle to get default age

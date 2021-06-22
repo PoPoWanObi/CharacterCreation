@@ -9,9 +9,9 @@
     <!-- Define your GameFolder here to simplify loading plugins and output dirs -->
     <!--<GameFolder>C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>-->
     <GameFolder>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
-	<DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
     <AssemblyName>CharacterCreation</AssemblyName>
     <Platforms>AnyCPU;x64</Platforms>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.View;
 
@@ -15,6 +16,23 @@ namespace CharacterCreation.Patches
     [HarmonyPatch(typeof(BasicCharacterTableau), "InitializeAgentVisuals")]
     static class InitializeAgentVisualsTranspiler
     {
+        private static readonly List<string> incompatibleInstances = new List<string>
+        {
+            "d225.fixedbanditspawning"
+        };
+
+        public static bool Prepare(MethodBase original)
+        {
+            if (original == null) return true;
+            var info = Harmony.GetPatchInfo(original);
+            if (info != default && info.Transpilers.Select(x => x.owner).Intersect(incompatibleInstances).Count() > 0)
+            {
+                Debug.Print("[CharacterCreation] Patch to fix misgendered character rendering already exists, skipping");
+                return false;
+            }
+            return true;
+        }
+
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var code = instructions.ToList();
