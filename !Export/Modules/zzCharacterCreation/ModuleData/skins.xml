@@ -2101,7 +2101,7 @@
                   <bone_scale bone_type="biped_spine_2" axis="y" key_min="0.9" key_max="1.15" />
                   <bone_scale bone_type="biped_spine_2" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.9" key_max="1.15" />
-                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="0.85" key_max="1.25" />
+                  <bone_scale bone_type="biped_spine_1" axis="y" key_min="0.95" key_max="1.45" />
                   <bone_scale bone_type="biped_spine_1" axis="z" key_min="1" key_max="1" />
                   <bone_scale bone_type="biped_thorax" axis="x" key_min="0.95" key_max="1.05" />
                   <bone_scale bone_type="biped_thorax" axis="y" key_min="1" key_max="1.05" />
