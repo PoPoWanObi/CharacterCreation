@@ -38,6 +38,8 @@ namespace CharacterCreation.Patches
                     usedPaths.Add(ModuleHelper.GetXmlPathForNativeWBase(mbprojXml.ModuleName, mbprojXml.Name));
                     toBeMerged.Add(Tuple.Create(ModuleHelper.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name), string.Empty));
                 }
+                else toBeMerged.Add(Tuple.Create(string.Empty, string.Empty));
+
                 string xslPath = ModuleHelper.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);
                 string xsltPath = xslPath + 't';
                 xsltList.Add(File.Exists(xslPath) ? xslPath : (File.Exists(xsltPath) ? xsltPath : string.Empty));

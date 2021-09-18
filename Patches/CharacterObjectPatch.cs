@@ -15,8 +15,9 @@ namespace CharacterCreation.Patches
         {
             if (__instance.IsHero)
             {
-                PropertyInfo staticBodyPropertyInfoOnHero = AccessTools.Property(typeof(Hero), "StaticBodyProperties");
-                staticBodyPropertyInfoOnHero.SetValue(__instance.HeroObject, properties.StaticProperties);
+                //PropertyInfo staticBodyPropertyInfoOnHero = AccessTools.Property(typeof(Hero), "StaticBodyProperties");
+                //staticBodyPropertyInfoOnHero.SetValue(__instance.HeroObject, properties.StaticProperties);
+                __instance.HeroObject.ModifyPlayersFamilyAppearance(properties.StaticProperties);
                 __instance.HeroObject.Weight = properties.Weight;
                 __instance.HeroObject.Build = properties.Build;
                 __instance.HeroObject.UpdatePlayerGender(isFemale);

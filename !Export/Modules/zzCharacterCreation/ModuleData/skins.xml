@@ -5069,7 +5069,7 @@
                   <bone_scale bone_type="biped_hand_r" axis="z" key_min="1" key_max="1" />
                </bone_scales>
             </deform_key>
-            <deform_key id="weight" key_time_point="61" name="Weight" group_id="0">
+            <deform_key id="weight" key_time_point="60" name="Weight" group_id="0">
                <bone_scales />
             </deform_key>
             <deform_key id="height" key_time_point="62" name="Height Multiplier" group_id="0" />
@@ -5579,7 +5579,7 @@
                   <bone_scale bone_type="biped_hand_r" axis="z" key_min="1" key_max="1" />
                </bone_scales>
             </deform_key>
-            <deform_key id="weight" key_time_point="61" name="Weight" group_id="0">
+            <deform_key id="weight" key_time_point="60" name="Weight" group_id="0">
                <bone_scales />
             </deform_key>
             <deform_key id="height" key_time_point="62" name="Height Multiplier" group_id="0" />
