@@ -36,15 +36,8 @@ namespace CharacterCreation.Models
                 return;
             }
 
-            if (!string.IsNullOrEmpty(heroName))
-            {
-                selectedHero.SetName(new TextObject(heroName));
-                //var newName = new TextObject(heroName);
-                //selectedHero.Name = newName;
-                //selectedHero.FirstName = newName;
-            }
-            else
-                InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.InvalidNameText.ToString(), ColorManager.Red));
+            if (!string.IsNullOrEmpty(heroName)) selectedHero.SetName(new TextObject(heroName), new TextObject(heroName));
+            else InformationManager.DisplayMessage(new InformationMessage(HeroBuilderVM.InvalidNameText.ToString(), ColorManager.Red));
         }
 
         public static void EditHero(Hero hero, Action postAction, Action<Hero> editCallback)
