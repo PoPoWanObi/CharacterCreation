@@ -79,7 +79,8 @@ namespace CharacterCreation
             if (!(game.GameType is Campaign) || !DCCSettingsUtil.Instance.DebugMode) return;
 
             // print player age if debug is on
-            var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(hero => hero.IsHumanPlayerCharacter);
+            //var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(hero => hero.IsHumanPlayerCharacter);
+            var player = Hero.MainHero;
             if (player != default)
             {
                 InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(player, player.Age), ColorManager.Red));
