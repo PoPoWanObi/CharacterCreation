@@ -78,10 +78,6 @@ namespace CharacterCreation
 
         bool IgnoreDailyTick { get; set; }
 
-        bool OverrideAge { get; set; }
-
-        bool DisableAutoAging { get; set; }
-
         bool CustomAgeModel { get; set; }
 
         int BecomeInfantAge { get; set; }
@@ -109,12 +105,6 @@ namespace CharacterCreation
 
         [XmlElement(DataType = "boolean")]
         public bool IgnoreDailyTick { get; set; } = true;
-
-        [XmlElement(DataType = "boolean")]
-        public bool OverrideAge { get; set; } = false;
-
-        [XmlElement(DataType = "boolean")]
-        public bool DisableAutoAging { get; set; } = false;
 
         [XmlElement(DataType = "boolean")]
         public bool CustomAgeModel { get; set; } = false;
@@ -166,59 +156,51 @@ namespace CharacterCreation
         public override string FolderName => "DetailedCharacterCreation";
 
         [SettingPropertyBool(DebugModeName, HintText = DebugModeHint, Order = 0, RequireRestart = false)]
-        [SettingPropertyGroup(Section0)]
+        [SettingPropertyGroup(Section0, GroupOrder = 0)]
         public bool DebugMode { get; set; } = false;
 
         #region Overrides
         [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 1, RequireRestart = false)]
         [SettingPropertyGroup(Section1)]
         public bool IgnoreDailyTick { get; set; } = true;
-
-        [SettingPropertyBool(OverrideAgeName, HintText = OverrideAgeHint, Order = 2, RequireRestart = false)]
-        [SettingPropertyGroup(Section1)]
-        public bool OverrideAge { get; set; } = false;
-
-        [SettingPropertyBool(DisableAutoAgingName, HintText = DisableAutoAgingHint, Order = 3, RequireRestart = false)]
-        [SettingPropertyGroup(Section1)]
-        public bool DisableAutoAging { get; set; } = false;
         #endregion
 
         #region AgeModel
-        [SettingPropertyBool(CustomAgeModelName, HintText = CustomAgeModelHint, IsToggle = true, Order = 4, RequireRestart = true)]
-        [SettingPropertyGroup(Section2)]
+        [SettingPropertyBool(CustomAgeModelName, HintText = CustomAgeModelHint, IsToggle = true, Order = 2, RequireRestart = true)]
+        [SettingPropertyGroup(Section2, GroupOrder = 1)]
         public bool CustomAgeModel { get; set; } = false;
 
-        [SettingPropertyInteger(BecomeInfantAgeName, 0, 3, HintText = BecomeInfantAgeHint, Order = 5, RequireRestart = false)]
+        [SettingPropertyInteger(BecomeInfantAgeName, 0, 3, HintText = BecomeInfantAgeHint, Order = 3, RequireRestart = false)]
         [SettingPropertyGroup(Section2)]
         public int BecomeInfantAge { get; set; } = 3;
 
-        [SettingPropertyInteger(BecomeChildAgeName, 1, 6, HintText = BecomeChildAgeHint, Order = 6, RequireRestart = false)]
+        [SettingPropertyInteger(BecomeChildAgeName, 1, 6, HintText = BecomeChildAgeHint, Order = 4, RequireRestart = false)]
         [SettingPropertyGroup(Section2)]
         public int BecomeChildAge { get; set; } = 6;
 
-        [SettingPropertyInteger(BecomeTeenagerAgeName, 2, 14, HintText = BecomeTeenagerAgeHint, Order = 7, RequireRestart = false)]
+        [SettingPropertyInteger(BecomeTeenagerAgeName, 2, 14, HintText = BecomeTeenagerAgeHint, Order = 5, RequireRestart = false)]
         [SettingPropertyGroup(Section2)]
         public int BecomeTeenagerAge { get; set; } = 14;
 
-        [SettingPropertyInteger(BecomeAdultAgeName, 3, 18, HintText = BecomeAdultAgeHint, Order = 8, RequireRestart = false)]
+        [SettingPropertyInteger(BecomeAdultAgeName, 3, 18, HintText = BecomeAdultAgeHint, Order = 6, RequireRestart = false)]
         [SettingPropertyGroup(Section2)]
         public int BecomeAdultAge { get; set; } = 18;
 
-        [SettingPropertyInteger(BecomeOldAgeName, 30, 60, HintText = BecomeOldAgeHint, Order = 9, RequireRestart = false)]
+        [SettingPropertyInteger(BecomeOldAgeName, 30, 60, HintText = BecomeOldAgeHint, Order = 7, RequireRestart = false)]
         [SettingPropertyGroup(Section2)]
         public int BecomeOldAge { get; set; } = 47;
 
-        [SettingPropertyInteger(MaxAgeName, 60, 128, HintText = MaxAgeHint, Order = 10, RequireRestart = false)]
+        [SettingPropertyInteger(MaxAgeName, 60, 128, HintText = MaxAgeHint, Order = 8, RequireRestart = false)]
         [SettingPropertyGroup(Section2)]
         public int MaxAge { get; set; } = 128;
         #endregion
 
         #region Compatibility
-        [SettingPropertyBool(EnableCompatibilityName, HintText = EnableCompatibilityHint, IsToggle = true, Order = 0, RequireRestart = true)]
-        [SettingPropertyGroup(Section3)]
+        [SettingPropertyBool(EnableCompatibilityName, HintText = EnableCompatibilityHint, IsToggle = true, Order = 9, RequireRestart = true)]
+        [SettingPropertyGroup(Section3, GroupOrder = 2)]
         public bool EnableCompatibility { get; set; } = true;
 
-        [SettingPropertyBool(EnableCharacterReloadCompatibilityName, HintText = EnableCharacterReloadCompatibilityHint, Order = 1, RequireRestart = true)]
+        [SettingPropertyBool(EnableCharacterReloadCompatibilityName, HintText = EnableCharacterReloadCompatibilityHint, Order = 10, RequireRestart = true)]
         [SettingPropertyGroup(Section3)]
         public bool EnableCharacterReloadCompatibility { get; set; } = true;
         #endregion

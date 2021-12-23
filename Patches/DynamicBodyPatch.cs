@@ -9,7 +9,7 @@ namespace CharacterCreation.Patches
     {
         public static bool Prefix()
         {
-            if (DCCSettingsUtil.Instance.IgnoreDailyTick)
+            if (DCCPerSaveSettings.SaveInstance != default && DCCPerSaveSettings.SaveInstance.IgnoreDailyTick || DCCSettingsUtil.Instance.IgnoreDailyTick)
                 return false;
 
             // there is probably a better way to patch this and still be able to enable/disable this patch at will. At least it still works.
