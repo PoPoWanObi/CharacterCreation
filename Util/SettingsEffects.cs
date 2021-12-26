@@ -30,7 +30,7 @@ namespace CharacterCreation.Util
 
         private SettingsEffects()
         {
-            CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_SetAutoAging", SetAutoAging);
+            //CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_SetAutoAging", SetAutoAging);
             CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_UpdateAllHeroes", UpdateAllHeroes);
         }
 
@@ -40,26 +40,25 @@ namespace CharacterCreation.Util
         public void SetAutoAging(Game game = default, bool tempIgnoreSettings = false)
         {
             // this is after code refactoring
-            if (DCCPerSaveSettings.SaveInstance == default || tempIgnoreSettings) return;
+            if (/*DCCPerSaveSettings.SaveInstance == default || */tempIgnoreSettings) return;
             if (game == default) game = Game.Current;
+            if (game == default) return;
 
             // pseudocode time
             // if mod setting enables aging (and aging is previously disabled), set everyone's birthday by using default age
             // if mod setting disables aging (and aging is previously enabled), set everyone's birthday by using current age
-            if (DCCPerSaveSettings.SaveInstance.DisableAutoAging != CampaignOptions.IsLifeDeathCycleDisabled)
+            CampaignOptions.IsLifeDeathCycleDisabled = !CampaignOptions.IsLifeDeathCycleDisabled;
+            var heroList = Hero.AllAliveHeroes;
+            foreach (var hero in heroList)
             {
-                var heroList = Hero.AllAliveHeroes;
-                foreach (var hero in heroList)
-                {
-                    var age = hero.Age;
-                    CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
-                }
-                CampaignOptions.IsLifeDeathCycleDisabled = DCCPerSaveSettings.SaveInstance.DisableAutoAging;
-
-                if (DCCSettingsUtil.Instance.DebugMode)
-                    InformationManager.DisplayMessage(
-                        new InformationMessage($"IsLifeDeathCycleDisabled now set to {CampaignOptions.IsLifeDeathCycleDisabled}"));
+                var age = hero.Age;
+                CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
             }
+            CampaignOptions.IsLifeDeathCycleDisabled = !CampaignOptions.IsLifeDeathCycleDisabled;
+
+            if (DCCSettingsUtil.Instance.DebugMode)
+                InformationManager.DisplayMessage(
+                    new InformationMessage($"IsLifeDeathCycleDisabled now set to {CampaignOptions.IsLifeDeathCycleDisabled}"));
         }
 
         public void UpdateAllHeroes() => UpdateAllHeroes(default);

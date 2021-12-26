@@ -1,4 +1,5 @@
-﻿using MCM.Abstractions.Attributes;
+﻿using CharacterCreation.Util;
+using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Settings.Base.PerSave;
 using System;
@@ -51,6 +52,14 @@ namespace CharacterCreation
         public bool OverrideAge { get; set; } = false;
 
         [SettingPropertyBool(DisableAutoAgingName, HintText = DisableAutoAgingHint, Order = 3, RequireRestart = false)]
-        public bool DisableAutoAging { get; set; } = CampaignOptions.IsLifeDeathCycleDisabled;
+        public bool DisableAutoAging
+        {
+            get => CampaignOptions.IsLifeDeathCycleDisabled;
+            set
+            {
+                CampaignOptions.IsLifeDeathCycleDisabled = value;
+                SettingsEffects.Instance?.SetAutoAging();
+            }
+        }
     }
 }
