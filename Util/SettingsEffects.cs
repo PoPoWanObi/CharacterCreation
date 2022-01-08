@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace CharacterCreation.Util
