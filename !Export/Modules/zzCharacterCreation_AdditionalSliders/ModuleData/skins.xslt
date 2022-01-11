@@ -6,7 +6,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="man"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="man"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -147,7 +147,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="woman"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="woman"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -288,7 +288,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_male"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_2_male"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -429,7 +429,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_female"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_2_female"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -570,7 +570,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_male"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_1_male"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -711,7 +711,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_female"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_1_female"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -852,7 +852,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_male"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_3_male"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -993,7 +993,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_female"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_3_female"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -1134,7 +1134,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_male"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="toddler_male"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
@@ -1275,7 +1275,7 @@
         </deform_key>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_female"]/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="toddler_female"]/deform_keys/deform_key[@id="eyebump"]'>
         <xsl:copy-of select="." />
         <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
             <bone_scales>
