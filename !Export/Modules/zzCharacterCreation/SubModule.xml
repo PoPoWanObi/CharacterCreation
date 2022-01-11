@@ -1,41 +1,41 @@
 ﻿<Module>
-  <Name value="Detailed Character Creation" />
-  <Id value="zzCharacterCreation" />
-  <Version value="v1.4.0.9" />
-  <SingleplayerModule value="true" />
-  <MultiplayerModule value="false" />
-  <DependedModules>
-    <DependedModule Id="Native"/>
-    <DependedModule Id="SandBoxCore"/>
-    <DependedModule Id="Sandbox"/>
-    <DependedModule Id="CustomBattle"/>
-    <DependedModule Id="StoryMode"/>
-  </DependedModules>
-  <SubModules>
-    <SubModule>
-      <Name value="CharacterCreation" />
-      <DLLName value="CharacterCreation.dll" />
-      <SubModuleClassType value="CharacterCreation.SubModule" />
-      <Tags>
-        <Tag key="DedicatedServerType" value="none" />
-        <Tag key="IsNoRenderModeElement" value="false" />
-      </Tags>
-    </SubModule>
-  </SubModules>
-  <Xmls>
-    <XmlNode>
-      <XmlName id="strings" path="strings" />
-      <IncludedGameTypes>
-        <GameType value = "Campaign" />
-        <GameType value = "CampaignStoryMode" />
-      </IncludedGameTypes>
-    </XmlNode>
-    <XmlNode>
-    <XmlName id="soln_skins" path="skins" />
-    <IncludedGameTypes>
-      <GameType value = "Campaign" />
-      <GameType value = "CampaignStoryMode" />
-    </IncludedGameTypes>
-    </XmlNode>
-  </Xmls>
+    <Name value="Detailed Character Creation" />
+    <Id value="zzCharacterCreation" />
+    <Version value="v1.4.0.10" />
+    <SingleplayerModule value="true" />
+    <MultiplayerModule value="false" />
+    <DependedModules>
+        <DependedModule Id="Native" />
+        <DependedModule Id="SandBoxCore" />
+        <DependedModule Id="Sandbox" />
+        <DependedModule Id="CustomBattle" />
+        <DependedModule Id="StoryMode" />
+    </DependedModules>
+    <SubModules>
+        <SubModule>
+            <Name value="CharacterCreation" />
+            <DLLName value="CharacterCreation.dll" />
+            <SubModuleClassType value="CharacterCreation.SubModule" />
+            <Tags>
+                <Tag key="DedicatedServerType" value="none" />
+                <Tag key="IsNoRenderModeElement" value="false" />
+            </Tags>
+        </SubModule>
+    </SubModules>
+    <Xmls>
+        <XmlNode>
+            <XmlName id="strings" path="strings" />
+            <IncludedGameTypes>
+                <GameType value="Campaign" />
+                <GameType value="CampaignStoryMode" />
+            </IncludedGameTypes>
+        </XmlNode>
+        <XmlNode>
+            <XmlName id="soln_skins" path="skins" />
+            <IncludedGameTypes>
+                <GameType value="Campaign" />
+                <GameType value="CampaignStoryMode" />
+            </IncludedGameTypes>
+        </XmlNode>
+    </Xmls>
 </Module>

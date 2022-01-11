@@ -1,0 +1,24 @@
+<Module>
+    <Name value="Detailed Character Creation - Additional Sliders" />
+    <Id value="zzCharacterCreation_AdditionalSliders" />
+    <Version value="v1.4.0.10" />
+    <SingleplayerModule value="true" />
+    <MultiplayerModule value="false" />
+    <DependedModules>
+        <DependedModule Id="Native" />
+        <DependedModule Id="SandBoxCore" />
+        <DependedModule Id="Sandbox" />
+        <DependedModule Id="CustomBattle" />
+        <DependedModule Id="StoryMode" />
+        <DependedModule Id="zzCharacterCreation" />
+    </DependedModules>
+    <Xmls>
+        <XmlNode>
+            <XmlName id="soln_skins" path="skins" />
+            <IncludedGameTypes>
+                <GameType value="Campaign" />
+                <GameType value="CampaignStoryMode" />
+            </IncludedGameTypes>
+        </XmlNode>
+    </Xmls>
+</Module>

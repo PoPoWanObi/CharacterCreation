@@ -1,11 +1,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output omit-xml-declaration="yes"/>
+    <xsl:output omit-xml-declaration="yes" />
     <xsl:template match="@*|node()">
         <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/>
+            <xsl:apply-templates select="@*|node()" />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="woman"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
@@ -13,7 +13,7 @@
             <face_texture name="head_female_f" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_2_male"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
@@ -22,29 +22,29 @@
             <voice_type name="male_08" />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_2_male"]/hair_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
             <hair_mesh name="hair_male_h_d" cover_type1="hair_male_h_d_a" cover_type2="hair_male_h_d_b" cover_type4="hair_male_h_d">
                 <style_tags>
-                   <style_tag name="Afro Hair 5" />
+                    <style_tag name="Afro Hair 5" />
                 </style_tags>
             </hair_mesh>
             <hair_mesh name="hair_male_h_e" cover_type1="hair_male_h_e_a" cover_type4="hair_male_h_e">
                 <style_tags>
-                   <style_tag name="Viking Hair" />
+                    <style_tag name="Viking Hair" />
                 </style_tags>
             </hair_mesh>
             <hair_mesh name="hair_male_h_f" cover_type4="hair_male_h_f">
                 <style_tags>
-                   <style_tag name="Monk Hair" />
+                    <style_tag name="Monk Hair" />
                 </style_tags>
             </hair_mesh>
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_2_male"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="85">
@@ -85,24 +85,24 @@
             <tattoo_material name="scar_male_r" tags="scar" />
         </tattoo_materials>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_2_female"]/hair_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
             <hair_mesh name="female_hair_z_h" cover_type1="female_hair_z_h_a" cover_type4="female_hair_z_h">
-               <style_tags>
-                  <style_tag name="High Ponytail" />
-               </style_tags>
+                <style_tags>
+                    <style_tag name="High Ponytail" />
+                </style_tags>
             </hair_mesh>
             <hair_mesh name="female_hair_z_i" cover_type1="female_hair_z_i_a" cover_type4="female_hair_z_i">
-               <style_tags>
-                  <style_tag name="High Ponytail" />
-               </style_tags>
+                <style_tags>
+                    <style_tag name="High Ponytail" />
+                </style_tags>
             </hair_mesh>
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_2_female"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="85">
@@ -146,7 +146,7 @@
             <tattoo_material name="scar_male_n" tags="scar" />
         </tattoo_materials>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_2_female"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
@@ -154,7 +154,7 @@
             <face_texture name="head_female_f" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_2_female"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
@@ -162,7 +162,7 @@
             <voice_type name="female_05" />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_1_male"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
@@ -175,7 +175,7 @@
             <voice_type name="male_08" />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_1_male"]/hair_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
@@ -197,7 +197,7 @@
             </hair_mesh>
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_1_male"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="100">
@@ -238,7 +238,7 @@
             <tattoo_material name="scar_male_r" tags="scar" />
         </tattoo_materials>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_1_male"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
@@ -246,7 +246,7 @@
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture8,face_texture9,face_texture10" />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match='skin[@name="kid_1_female"]/hair_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />

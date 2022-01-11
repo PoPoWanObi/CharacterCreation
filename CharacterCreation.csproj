@@ -89,7 +89,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd &quot;$(ProjectDir)!Export\Modules\&quot;&#xD;&#xA;xcopy &quot;zzCharacterCreation&quot; &quot;$(GameFolder)\Modules\zzCharacterCreation\&quot; /s /y" />
+    <Exec Command="cd &quot;$(ProjectDir)!Export\Modules\&quot;&#xD;&#xA;xcopy &quot;zzCharacterCreation&quot; &quot;$(GameFolder)\Modules\zzCharacterCreation\&quot; /s /y&#xD;&#xA;cd &quot;$(ProjectDir)!Export\Addons&quot;&#xD;&#xA;xcopy */* &quot;$(GameFolder)\Modules\zzCharacterCreation\&quot; /s /y" />
   </Target>
 
 </Project>
