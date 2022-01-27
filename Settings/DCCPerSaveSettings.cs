@@ -57,8 +57,11 @@ namespace CharacterCreation
             get => CampaignOptions.IsLifeDeathCycleDisabled;
             set
             {
-                CampaignOptions.IsLifeDeathCycleDisabled = value;
-                SettingsEffects.Instance?.SetAutoAging();
+                if (CampaignOptions.IsLifeDeathCycleDisabled != value)
+                {
+                    CampaignOptions.IsLifeDeathCycleDisabled = value;
+                    SettingsEffects.Instance?.SetAutoAging();
+                }
             }
         }
     }

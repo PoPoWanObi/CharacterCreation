@@ -112,6 +112,6 @@
     <string id="CharacterCreation_WarningAck" text="Acknowledged"/>
     <string id="CharacterCreation_WarningText" text="Disable Life and Death Cycle is currently set to {LDC}, but Disable Auto Aging is set to {DAA}. Are you sure you want to change the campaign settings? If selecting 'no', changes to the life and death cycle will not take effect until you load or start a campaign."/>
     <string id="CharacterCreation_WarningOverrideText" text="Override Age is currently set to {OA}. Are you sure you want your hero to be unaffected by aging? Your choice here will affect your current game, until you load or start a campaign."/>
-    <string id="CharacterCreation_WarningConflictText" text="Override Age is currently set to {OA}, but either Disable Life and Death Cycle {LDC} or Disable Auto Aging {DAA} is turned on. This settings will not be applied."/>
+    <string id="CharacterCreation_WarningConflictText" text="Override Age is currently set to {OA}, but Disable Life and Death Cycle {LDC} is turned on. This settings will not be applied."/>
   </strings>
 </base>

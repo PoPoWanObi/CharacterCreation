@@ -19,7 +19,7 @@ namespace CharacterCreation.Util
             WarningTitle = new TextObject("{=CharacterCreation_WarningTitle}WARNING"),
             WarningAck = new TextObject("{=CharacterCreation_WarningAck}Acknowledged");
 
-        private const string WarningConflictText = "{=CharacterCreation_WarningConflictText}Override Age is currently set to {OA}, but either Disable Life and Death Cycle {LDC} or Disable Auto Aging {DAA} is turned on. This settings will not be applied.";
+        private const string WarningConflictText = "{=CharacterCreation_WarningConflictText}Override Age is currently set to {OA}, but Disable Life and Death Cycle {LDC} is turned on. This settings will not be applied.";
 
         public static SettingsEffects Instance { get; private set; }
 
@@ -72,13 +72,12 @@ namespace CharacterCreation.Util
 
             if (DCCPerSaveSettings.SaveInstance.OverrideAge)
             {
-                if (DCCPerSaveSettings.SaveInstance.DisableAutoAging || CampaignOptions.IsLifeDeathCycleDisabled)
+                if (CampaignOptions.IsLifeDeathCycleDisabled)
                 {
                     var text = new TextObject(WarningConflictText, new Dictionary<string, object>()
                     {
                         ["OA"] = DCCPerSaveSettings.SaveInstance.OverrideAge.ToString(),
-                        ["LDC"] = CampaignOptions.IsLifeDeathCycleDisabled.ToString(),
-                        ["DAA"] = DCCPerSaveSettings.SaveInstance.DisableAutoAging.ToString()
+                        ["LDC"] = CampaignOptions.IsLifeDeathCycleDisabled.ToString()
                     });
                     InformationManager.ShowInquiry(new InquiryData(WarningTitle.ToString(), text.ToString(), true, false, WarningAck.ToString(), null,
                         InformationManager.HideInquiry, InformationManager.HideInquiry), true);
