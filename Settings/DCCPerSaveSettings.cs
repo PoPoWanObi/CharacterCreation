@@ -52,17 +52,6 @@ namespace CharacterCreation
         public bool OverrideAge { get; set; } = false;
 
         [SettingPropertyBool(DisableAutoAgingName, HintText = DisableAutoAgingHint, Order = 3, RequireRestart = false)]
-        public bool DisableAutoAging
-        {
-            get => CampaignOptions.IsLifeDeathCycleDisabled;
-            set
-            {
-                if (CampaignOptions.IsLifeDeathCycleDisabled != value)
-                {
-                    CampaignOptions.IsLifeDeathCycleDisabled = value;
-                    SettingsEffects.Instance?.SetAutoAging();
-                }
-            }
-        }
+        public bool DisableAutoAging { get; set; } = false;
     }
 }

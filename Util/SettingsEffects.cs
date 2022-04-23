@@ -23,6 +23,8 @@ namespace CharacterCreation.Util
 
         public static SettingsEffects Instance { get; private set; }
 
+        private bool isAgingDisabled;
+
         internal static SettingsEffects Initialize(bool reinitialize = false)
         {
             if (Instance == default || reinitialize) Instance = new SettingsEffects();
@@ -31,7 +33,8 @@ namespace CharacterCreation.Util
 
         private SettingsEffects()
         {
-            //CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_SetAutoAging", SetAutoAging);
+            isAgingDisabled = DCCPerSaveSettings.SaveInstance?.DisableAutoAging ?? false;
+            CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_SetAutoAging", SetAutoAging);
             CampaignEvents.HourlyTickEvent?.AddNonSerializedListener("DCC_UpdateAllHeroes", UpdateAllHeroes);
         }
 
@@ -41,25 +44,27 @@ namespace CharacterCreation.Util
         public void SetAutoAging(Game game = default, bool tempIgnoreSettings = false)
         {
             // this is after code refactoring
-            if (/*DCCPerSaveSettings.SaveInstance == default || */tempIgnoreSettings) return;
+            if (DCCPerSaveSettings.SaveInstance == default || tempIgnoreSettings) return;
             if (game == default) game = Game.Current;
             if (game == default) return;
 
-            // pseudocode time
-            // if mod setting enables aging (and aging is previously disabled), set everyone's birthday by using default age
-            // if mod setting disables aging (and aging is previously enabled), set everyone's birthday by using current age
-            CampaignOptions.IsLifeDeathCycleDisabled = !CampaignOptions.IsLifeDeathCycleDisabled;
-            var heroList = Hero.AllAliveHeroes;
-            foreach (var hero in heroList)
+            if (DCCPerSaveSettings.SaveInstance.DisableAutoAging)
             {
-                var age = hero.Age;
-                CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
+                if (isAgingDisabled) CampaignOptions.IsLifeDeathCycleDisabled = true;
+                else isAgingDisabled = true;
+                var heroList = Hero.AllAliveHeroes;
+                foreach (var hero in heroList)
+                {
+                    var age = hero.Age;
+                    CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
+                }
+                CampaignOptions.IsLifeDeathCycleDisabled = false;
             }
-            CampaignOptions.IsLifeDeathCycleDisabled = !CampaignOptions.IsLifeDeathCycleDisabled;
+            else if (isAgingDisabled) isAgingDisabled = false;
 
             if (DCCSettingsUtil.Instance.DebugMode)
                 InformationManager.DisplayMessage(
-                    new InformationMessage($"IsLifeDeathCycleDisabled now set to {CampaignOptions.IsLifeDeathCycleDisabled}"));
+                    new InformationMessage($"DisableAutoAging is {DCCPerSaveSettings.SaveInstance.DisableAutoAging}"));
         }
 
         public void UpdateAllHeroes() => UpdateAllHeroes(default);
@@ -77,7 +82,7 @@ namespace CharacterCreation.Util
                     var text = new TextObject(WarningConflictText, new Dictionary<string, object>()
                     {
                         ["OA"] = DCCPerSaveSettings.SaveInstance.OverrideAge.ToString(),
-                        ["LDC"] = CampaignOptions.IsLifeDeathCycleDisabled.ToString()
+                        ["LDC"] = DCCPerSaveSettings.SaveInstance.DisableAutoAging.ToString()
                     });
                     InformationManager.ShowInquiry(new InquiryData(WarningTitle.ToString(), text.ToString(), true, false, WarningAck.ToString(), null,
                         InformationManager.HideInquiry, InformationManager.HideInquiry), true);
@@ -94,6 +99,10 @@ namespace CharacterCreation.Util
                     }
                 }
             }
+
+            if (DCCSettingsUtil.Instance.DebugMode)
+                InformationManager.DisplayMessage(
+                    new InformationMessage($"OverrideAge is {DCCPerSaveSettings.SaveInstance.OverrideAge}"));
         }
     }
 }
