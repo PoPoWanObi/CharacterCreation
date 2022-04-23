@@ -4,7 +4,6 @@ using HarmonyLib;
 using System;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Library;
 using TaleWorlds.ModuleManager;
 

@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.Library;
 
 namespace CharacterCreation.Patches
