@@ -8,6 +8,7 @@ using TaleWorlds.Engine.Screens;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.GauntletUI;
+using TaleWorlds.ScreenSystem;
 
 namespace CharacterCreation.Models
 {
