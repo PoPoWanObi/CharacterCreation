@@ -150,7 +150,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="woman"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="woman"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -294,7 +294,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_male"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_2_male"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -438,7 +438,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_female"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_2_female"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -582,7 +582,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_male"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_1_male"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -726,7 +726,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_female"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_1_female"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -870,7 +870,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_male"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_3_male"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -1014,7 +1014,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_female"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="kid_3_female"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -1158,7 +1158,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_male"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="toddler_male"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -1302,7 +1302,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_female"]/deform_keys/deform_key[@id="eyebump"]'>
+    <xsl:template match='skin[@name="toddler_female"]/deform_keys'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
