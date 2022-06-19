@@ -11,6 +11,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
 
 namespace CharacterCreation.Models
@@ -34,6 +35,8 @@ namespace CharacterCreation.Models
 
         public void OnEncyclopediaPageChanged(EncyclopediaPageChangedEvent e)
         {
+            if (Mission.Current != null) return; // do not allow edit if in mission as it could screw things up
+
             EncyclopediaData.EncyclopediaPages newPage = e.NewPage;
             if ((int)newPage != 12)
             {
