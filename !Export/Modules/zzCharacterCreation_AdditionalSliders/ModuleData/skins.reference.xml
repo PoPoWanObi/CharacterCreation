@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<base xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="skin">
-   <skins>
-      <skin id="skin_default_id" gender="0" name="man" mesh_maturity_type="adult" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="1.07" skeleton="human_skeleton" body_meta_mesh="body_male_a" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_male_a" hands_mesh="hands_male_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male" underwear_top_mesh="">
+<skins>
+   <race id="human">
+      <skin gender="0" name="man" mesh_maturity_type="adult" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="1.07" skeleton="human_skeleton" body_meta_mesh="body_male_a" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_male_a" hands_mesh="hands_male_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.6" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
@@ -928,7 +928,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="1" name="woman" mesh_maturity_type="adult" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="1.06" skeleton="human_skeleton" body_meta_mesh="body_female_a" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female" underwear_top_mesh="underwear_female_top">
+      <skin gender="1" name="woman" mesh_maturity_type="adult" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="1.06" skeleton="human_skeleton" body_meta_mesh="body_female_a" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female" underwear_top_mesh="underwear_female_top">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.3" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-1.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
@@ -1649,7 +1649,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="0" name="kid_2_male" morph_key="0" mesh_maturity_type="teenager" uses_stitching="true" body_mesh_suffix="" min_scale="0.94" skeleton="human_skeleton" body_meta_mesh="body_male_a_teen" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
+      <skin gender="0" name="kid_2_male" morph_key="0" mesh_maturity_type="teenager" uses_stitching="true" body_mesh_suffix="" min_scale="0.94" skeleton="human_skeleton" body_meta_mesh="body_male_a_teen" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
@@ -2424,7 +2424,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="1" name="kid_2_female" mesh_maturity_type="teenager" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.93" skeleton="human_skeleton" body_meta_mesh="body_female_a" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female" underwear_top_mesh="underwear_female_top">
+      <skin gender="1" name="kid_2_female" mesh_maturity_type="teenager" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.93" skeleton="human_skeleton" body_meta_mesh="body_female_a" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female" underwear_top_mesh="underwear_female_top">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.3" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-1.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
@@ -3146,7 +3146,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="0" name="kid_1_male" mesh_maturity_type="tween" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.78" skeleton="human_skeleton" body_meta_mesh="body_male_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
+      <skin gender="0" name="kid_1_male" mesh_maturity_type="tween" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.78" skeleton="human_skeleton" body_meta_mesh="body_male_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.10, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.3" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
@@ -3880,7 +3880,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="1" name="kid_1_female" mesh_maturity_type="tween" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.78" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female_teen" underwear_top_mesh="">
+      <skin gender="1" name="kid_1_female" mesh_maturity_type="tween" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.78" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female_teen" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.2" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.8" key_max="0.1" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
@@ -4607,7 +4607,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="0" name="kid_3_male" mesh_maturity_type="child" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.64" skeleton="human_skeleton" body_meta_mesh="body_male_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
+      <skin gender="0" name="kid_3_male" mesh_maturity_type="child" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.64" skeleton="human_skeleton" body_meta_mesh="body_male_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.3" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
@@ -5314,7 +5314,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="1" name="kid_3_female" mesh_maturity_type="child" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.64" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female_teen" underwear_top_mesh="">
+      <skin gender="1" name="kid_3_female" mesh_maturity_type="child" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.64" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female_teen" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.1" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.8" key_max="0.1" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
@@ -6034,7 +6034,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="0" name="toddler_male" mesh_maturity_type="toddler" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.52" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid3" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_kid3" hands_mesh="hands_female_kid3" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_baby" underwear_top_mesh="">
+      <skin gender="0" name="toddler_male" mesh_maturity_type="toddler" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="0.52" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid3" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_kid3" hands_mesh="hands_female_kid3" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_baby" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
@@ -6681,7 +6681,7 @@
             </constraint>
          </constraints>
       </skin>
-      <skin id="skin_default_id" gender="1" name="toddler_female" mesh_maturity_type="toddler" morph_key="1" uses_stitching="true" body_mesh_suffix="" min_scale="0.52" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid4" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_kid3" hands_mesh="hands_female_kid3" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_baby" underwear_top_mesh="">
+      <skin gender="1" name="toddler_female" mesh_maturity_type="toddler" morph_key="1" uses_stitching="true" body_mesh_suffix="" min_scale="0.52" skeleton="human_skeleton" body_meta_mesh="body_female_a_kid4" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_kid3" hands_mesh="hands_female_kid3" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_baby" underwear_top_mesh="">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="0.0" key_max="0.8" name="Face Width" group_id="1" helmet_scaling_factor_min="0.02, 0.0, 0.0" helmet_scaling_factor_max="0.08, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="face_depth" key_time_point="2" key_min="-0.5" key_max="0.1" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.15, 0.0" helmet_scaling_factor_max="0.0, 0.195, 0.0" />
@@ -7338,5 +7338,5 @@
             </constraint>
          </constraints>
       </skin>
-   </skins>
-</base>
+   </race>
+</skins>
