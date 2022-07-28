@@ -3,6 +3,7 @@ using CharacterCreation.Patches;
 using CharacterCreation.Util;
 using HarmonyLib;
 using SandBox.GauntletUI;
+using SandBox.GauntletUI.Encyclopedia;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -107,8 +108,8 @@ namespace CharacterCreation
                 return;
             CampaignGameStarter gameStarter = (CampaignGameStarter)gameStarterObject;
 
-            // add strings
-            gameStarter.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "zzCharacterCreation", "ModuleData", "strings.xml"));
+            // add strings - TaleWorlds added a friendlier way so commenting it out
+            //gameStarter.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "zzCharacterCreation", "ModuleData", "strings.xml"));
 
             // add game models
             gameStarter.AddModel(heroModel = new HeroBuilderModel());

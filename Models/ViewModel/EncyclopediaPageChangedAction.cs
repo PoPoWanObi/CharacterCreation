@@ -1,12 +1,14 @@
 ﻿#nullable enable
 using HarmonyLib;
 using SandBox.GauntletUI;
+using SandBox.GauntletUI.Encyclopedia;
 using SandBox.View.Map;
 using System;
 using System.Reflection;
 using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI.Data;
@@ -54,13 +56,13 @@ namespace CharacterCreation.Models
                 }
                 return;
             }
-            GauntletEncyclopediaScreenManager? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletEncyclopediaScreenManager;
+            GauntletMapEncyclopediaView? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletMapEncyclopediaView;
             if (gauntletEncyclopediaScreenManager == null)
             {
                 return;
             }
 
-            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
             selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 

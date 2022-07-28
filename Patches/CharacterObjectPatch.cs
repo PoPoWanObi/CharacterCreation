@@ -3,6 +3,7 @@ using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
 using System.Reflection;
+using TaleWorlds.Library;
 
 namespace CharacterCreation.Patches
 {
@@ -11,7 +12,7 @@ namespace CharacterCreation.Patches
     {
         private static readonly TextObject HeroUpdatedMsg = new TextObject("{=CharacterCreation_HeroUpdatedMsg}Hero updated: ");
 
-        private static void Postfix(CharacterObject __instance, BodyProperties properties, bool isFemale)
+        private static void Postfix(CharacterObject __instance, BodyProperties properties, int race, bool isFemale)
         {
             if (__instance.IsHero)
             {
@@ -20,7 +21,9 @@ namespace CharacterCreation.Patches
                 __instance.HeroObject.ModifyPlayersFamilyAppearance(properties.StaticProperties);
                 __instance.HeroObject.Weight = properties.Weight;
                 __instance.HeroObject.Build = properties.Build;
+                __instance.Race = race;
                 __instance.HeroObject.UpdatePlayerGender(isFemale);
+                CampaignEventDispatcher.Instance.OnPlayerBodyPropertiesChanged();
             }
 
             if (__instance.IsHero && __instance.HeroObject.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)

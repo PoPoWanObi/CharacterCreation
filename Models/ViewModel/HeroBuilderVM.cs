@@ -6,6 +6,8 @@ using SandBox.GauntletUI;
 using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using HarmonyLib;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
+using SandBox.GauntletUI.Encyclopedia;
 
 namespace CharacterCreation.Models
 {
@@ -109,10 +111,10 @@ namespace CharacterCreation.Models
 
         public void RefreshPage()
         {
-            if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager))
+            if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletMapEncyclopediaView gauntletEncyclopediaScreenManager))
                 return;
 
-            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
             selectedHeroPage = encyclopediaPageVM as EncyclopediaHeroPageVM;
@@ -122,10 +124,10 @@ namespace CharacterCreation.Models
 
         public void ClosePage()
         {
-            if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletEncyclopediaScreenManager gauntletEncyclopediaScreenManager))
+            if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletMapEncyclopediaView gauntletEncyclopediaScreenManager))
                 return;
 
-            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
             this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);

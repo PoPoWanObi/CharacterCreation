@@ -1,7 +1,7 @@
 <Module>
     <Name value="Detailed Character Creation - Additional Sliders" />
     <Id value="zzCharacterCreation_AdditionalSliders" />
-    <Version value="v1.4.3.25" />
+    <Version value="v1.4.4.100" />
     <SingleplayerModule value="true" />
     <MultiplayerModule value="false" />
     <DependedModules>
@@ -14,7 +14,7 @@
     </DependedModules>
     <Xmls>
         <XmlNode>
-            <XmlName id="soln_skins" path="skins" />
+            <XmlName id="GameText" path="strings" />
             <IncludedGameTypes>
                 <GameType value="Campaign" />
                 <GameType value="CampaignStoryMode" />

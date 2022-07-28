@@ -10,6 +10,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.View;
+using TaleWorlds.MountAndBlade.View.Tableaus;
 
 namespace CharacterCreation.Patches
 {

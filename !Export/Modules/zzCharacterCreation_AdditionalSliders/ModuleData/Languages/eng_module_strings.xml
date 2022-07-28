@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="English"/>
+  </tags>
+  <strings>
+    <!-- body slider string entries -->
+    <string id="CharacterCreation_TorsoBelly" text="Belly Girth"/>
+    <string id="CharacterCreation_TorsoHips" text="Hip Size"/>
+    <string id="CharacterCreation_TorsoButt" text="Butt Size"/>
+    <string id="CharacterCreation_Thigh" text="Thigh Size"/>
+    <string id="CharacterCreation_Calf" text="Calf Size"/>
+    <string id="CharacterCreation_Foot" text="Foot Size"/>
+    <string id="CharacterCreation_TorsoX" text="Torso Width"/>
+    <string id="CharacterCreation_TorsoY" text="Torso Depth"/>
+    <string id="CharacterCreation_TorsoZ" text="Torso Height"/>
+    <string id="CharacterCreation_ThoraxX" text="Chest Width"/>
+    <string id="CharacterCreation_ThoraxY" text="Chest Depth"/>
+    <string id="CharacterCreation_ThoraxZ" text="Chest Height"/>
+    <string id="CharacterCreation_Neck" text="Neck Size"/>
+    <string id="CharacterCreation_HeadDepth" text="Head Depth"/>
+    <string id="CharacterCreation_HeadWidth" text="Head Width"/>
+    <string id="CharacterCreation_HeadHeight" text="Head Height"/>
+    <string id="CharacterCreation_Shoulders" text="Shoulder Size"/>
+    <string id="CharacterCreation_UpperarmSize" text="Bicep Size"/>
+    <string id="CharacterCreation_ForearmSize" text="Forearm Size"/>
+    <string id="CharacterCreation_HandSize" text="Hand Size"/>
+    <string id="CharacterCreation_weight" text="Muscle Tone"/>
+    <string id="CharacterCreation_build" text="Ignore this"/>
+    <string id="CharacterCreation_Weight2" text="Body Weight"/>
+    <string id="CharacterCreation_Build2" text="Body Muscle"/>
+  </strings>
+</base>

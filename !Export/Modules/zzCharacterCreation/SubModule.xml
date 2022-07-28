@@ -1,7 +1,7 @@
 ﻿<Module>
     <Name value="Detailed Character Creation" />
     <Id value="zzCharacterCreation" />
-    <Version value="v1.4.3.25" />
+    <Version value="v1.4.4.100" />
     <SingleplayerModule value="true" />
     <MultiplayerModule value="false" />
     <DependedModules>
@@ -22,20 +22,5 @@
             </Tags>
         </SubModule>
     </SubModules>
-    <Xmls>
-        <XmlNode>
-            <XmlName id="strings" path="strings" />
-            <IncludedGameTypes>
-                <GameType value="Campaign" />
-                <GameType value="CampaignStoryMode" />
-            </IncludedGameTypes>
-        </XmlNode>
-        <XmlNode>
-            <XmlName id="soln_skins" path="skins" />
-            <IncludedGameTypes>
-                <GameType value="Campaign" />
-                <GameType value="CampaignStoryMode" />
-            </IncludedGameTypes>
-        </XmlNode>
-    </Xmls>
+    <Xmls/>
 </Module>

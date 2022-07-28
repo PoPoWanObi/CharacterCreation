@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using TaleWorlds.MountAndBlade.ViewModelCollection;
+using TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator;
 
 namespace CharacterCreation.Patches
 {

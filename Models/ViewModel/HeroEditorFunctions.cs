@@ -8,6 +8,7 @@ using TaleWorlds.Engine.Screens;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.GauntletUI;
+using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.ScreenSystem;
 
 namespace CharacterCreation.Models
@@ -48,7 +49,7 @@ namespace CharacterCreation.Models
 
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
-            ScreenManager.PushScreen(new MBFaceGeneratorGauntletScreen(hero.CharacterObject, false, null));
+            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false, null));
 
             editCallback?.Invoke(hero);
         }
