@@ -39,7 +39,7 @@ namespace CharacterCreation.Models
         {
             if (Mission.Current != null) return; // do not allow edit if in mission as it could screw things up
 
-            EncyclopediaData.EncyclopediaPages newPage = e.NewPage;
+            EncyclopediaPages newPage = e.NewPage;
             if ((int)newPage != 12)
             {
                 selectedHeroPage = null;
