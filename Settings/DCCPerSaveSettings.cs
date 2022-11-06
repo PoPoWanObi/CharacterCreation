@@ -1,7 +1,7 @@
 ﻿using CharacterCreation.Util;
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
-using MCM.Abstractions.Settings.Base.PerSave;
+using MCM.Abstractions.Base.PerSave;
 using System;
 using System.Collections.Generic;
 using System.Linq;

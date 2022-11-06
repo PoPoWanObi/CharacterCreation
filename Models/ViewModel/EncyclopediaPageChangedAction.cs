@@ -1,15 +1,12 @@
 ﻿#nullable enable
 using HarmonyLib;
-using SandBox.GauntletUI;
 using SandBox.GauntletUI.Encyclopedia;
 using SandBox.View.Map;
 using System;
-using System.Reflection;
 using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
-using TaleWorlds.Core;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
@@ -39,7 +36,7 @@ namespace CharacterCreation.Models
         {
             if (Mission.Current != null) return; // do not allow edit if in mission as it could screw things up
 
-            EncyclopediaData.EncyclopediaPages newPage = e.NewPage;
+            EncyclopediaPages newPage = e.NewPage;
             if ((int)newPage != 12)
             {
                 selectedHeroPage = null;

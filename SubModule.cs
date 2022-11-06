@@ -1,15 +1,11 @@
 ﻿using CharacterCreation.Models;
-using CharacterCreation.Patches;
 using CharacterCreation.Util;
 using HarmonyLib;
-using SandBox.GauntletUI;
-using SandBox.GauntletUI.Encyclopedia;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;

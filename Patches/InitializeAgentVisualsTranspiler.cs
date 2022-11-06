@@ -54,7 +54,7 @@ namespace CharacterCreation.Patches
             {
                 for (; i >= 0; i--)
                 {
-                    if (code[i].opcode == OpCodes.Ldloc_S && code[i].operand is LocalBuilder lb && lb.LocalIndex == 5)
+                    if (code[i].opcode == OpCodes.Ldloc_S && code[i].operand is LocalBuilder lb && lb.LocalIndex == 4)
                     {
                         // replace current instruction
                         code[i] = new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_isFemale"));
