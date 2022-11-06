@@ -3,21 +3,21 @@
    <race id="human">
       <skin gender="0" name="man" mesh_maturity_type="adult" morph_key="0" uses_stitching="true" body_mesh_suffix="" min_scale="1.07" skeleton="human_skeleton" body_meta_mesh="body_male_a" body_meta_mesh_shoulders="body_male_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_male_a" hands_mesh="hands_male_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.6" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.6" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.015, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, -0.05, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" deforms_hair="1.0" />
             <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.002" helmet_scaling_factor_max="0.0, 0.0, 0.004" deforms_hair="1.0" />
             <deform_key id="face_ratio" key_time_point="3" key_min="0.5" key_max="1.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
-            <deform_key id="cheeks" key_time_point="4" key_min="-0.75" key_max="0.35" name="Face Weight" group_id="1" deforms_hair="1.0" />
+            <deform_key id="cheeks" key_time_point="4" key_min="-0.75" key_max="0.35" name="Face Weight" group_id="1" helmet_scaling_factor_min="-0.02, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-1.2" key_max="0.5" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
-            <deform_key id="cheekbone_width" key_time_point="6" key_min="-2.05" key_max="0.85" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="cheekbone_width" key_time_point="6" key_min="-2.05" key_max="0.85" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.8" key_max="0.5" name="Cheekbone Depth" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="0.8" key_max="-0.8" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-1.5" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-1.5" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.025, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.8" key_max="0.1" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-0.8" key_max="0.7" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="0.8" name="Ear Size" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_asymmetry" key_time_point="47" key_min="-0.8" key_max="0.8" name="Face Asymmetry" group_id="1" deforms_hair="1.0" />
-            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.45" key_max="-0.45" name="Eyebrow Depth" group_id="2" deforms_hair="1.0" />
+            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.45" key_max="-0.45" name="Eyebrow Depth" group_id="2" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" deforms_hair="1.0" />
             <deform_key id="brow_outer_height" key_time_point="24" key_min="-0.75" key_max="0.9" name="Brow Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_middle_height" key_time_point="25" key_min="-0.0" key_max="0.9" name="Brow Middle Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_inner_height" key_time_point="26" key_min="-0.25" key_max="0.5" name="Brow Inner Height" group_id="2" deforms_hair="1.0" />
@@ -31,11 +31,11 @@
             <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="1.4" key_max="-0.25" name="Eye Inner Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-0.9" key_max="1.1" name="Eye To Eye Distance" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.9" key_max="0.9" name="Eye Asymmetry" group_id="2" deforms_hair="1.0" />
-            <deform_key id="nose_angle" key_time_point="9" key_min="1.2" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_angle" key_time_point="9" key_min="1.2" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
             <deform_key id="nose_length" key_time_point="27" key_min="-1.3" key_max="0.0" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-0.45" key_max="0.2" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.4" key_max="1" name="Nose Tip Height" group_id="3" />
-            <deform_key id="nose_size" key_time_point="30" key_min="-1.85" key_max="0.75" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_size" key_time_point="30" key_min="-1.85" key_max="0.75" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
             <deform_key id="nose_width" key_time_point="31" key_min="-0.75" key_max="1.2" name="Nose Width" group_id="3" />
             <deform_key id="nostril_height" key_time_point="32" key_min="-1.7" key_max="0" name="Nostril Height" group_id="3" />
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.2" key_max="0.8" name="Nostril Size" group_id="3" />
@@ -46,20 +46,20 @@
             <deform_key id="mouth_width" key_time_point="35" key_min="-0.35" key_max="0.15" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.9" key_max="0.2" name="Mouth Position" group_id="4" />
             <deform_key id="lips_frown" key_time_point="41" key_min="-0.8" key_max="0.3" name="Frown/Smile" group_id="4" />
-            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.25" key_max="0.9" name="Lip Thickness" group_id="4" />
-            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.5" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.25" key_max="0.9" name="Lip Thickness" group_id="4" helmet_scaling_factor_min="0.0, -0.015, 0.0" helmet_scaling_factor_max="0.0, 0.015, 0.0" />
+            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.5" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.035, 0.0" auto_activate_when_mouth_is_hidden="true" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="0.0" key_max="-1.2" name="Bottom Lip Shape" group_id="4" />
             <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.5" key_max="0.4" name="Top Mouth Size" group_id="4" />
             <deform_key id="lip_shape_concave_convex" key_time_point="55" key_min="1.2" key_max="-1" name="Lips concave/convex" group_id="4" />
-            <deform_key id="jaw_line" key_time_point="11" key_min="-2.75" key_max="-0.0" name="Jaw Line" group_id="4" deforms_hair="1.0" helmet_scaling_factor_min="-0.005, 0.0, 0.0000" helmet_scaling_factor_max="0.025, -0.00, -0.0000" />
+            <deform_key id="jaw_line" key_time_point="11" key_min="-2.75" key_max="-0.0" name="Jaw Line" group_id="4" deforms_hair="1.0" helmet_scaling_factor_min="-0.000, 0.0, 0.0000" helmet_scaling_factor_max="0.02, -0.00, -0.0000" />
             <deform_key id="neck_slope" key_time_point="50" key_min="-0.5" key_max="0.8" name="Jaw Shape" deforms_hair="1.0" group_id="4" />
-            <deform_key id="jaw_height" key_time_point="49" key_min="0.6" key_max="-1" name="Jaw Height" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0005" helmet_scaling_factor_max="-0.00, -0.00, -0.0005" />
-            <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0000" helmet_scaling_factor_max="-0.00, 0.05, -0.0000" />
+            <deform_key id="jaw_height" key_time_point="49" key_min="0.6" key_max="-1" name="Jaw Height" group_id="4" />
+            <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.015, 0.0000" helmet_scaling_factor_max="-0.00, 0.045, -0.0000" auto_activate_when_mouth_is_hidden="true" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.75" key_max="1" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.000" helmet_scaling_factor_max="-0.00, -0.00, -0.001" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.005" helmet_scaling_factor_max="-0.05, -0.05, -0.003" deforms_hair="1.0" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.000" helmet_scaling_factor_max="-0.00, -0.00, -0.0025" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.005" helmet_scaling_factor_max="-0.05, -0.05, -0.00" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
-            <deform_key id="old_face" key_time_point="57" key_min="-0.25" key_max="1.5" name="Old face" group_id="-1" />
+            <deform_key id="old_face" key_time_point="57" key_min="-0.25" key_max="1.5" name="Old face" helmet_scaling_factor_min="0.0, 0.0, 0.000" helmet_scaling_factor_max="0.05, 0.025, -0.00" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="-0.05" key_max="-0.25" name="kid face" group_id="-1" deforms_hair="1.0" />
             <deform_key id="eyebump" key_time_point="59" key_min="1" key_max="1" name="eyebump" group_id="-1" deforms_hair="1.0" />
             <deform_key id="TorsoBelly" key_time_point="2048" name="Belly Size" group_id="0">
@@ -931,24 +931,24 @@
       <skin gender="1" name="woman" mesh_maturity_type="adult" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="1.06" skeleton="human_skeleton" body_meta_mesh="body_female_a" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female" underwear_top_mesh="underwear_female_top">
          <deform_keys>
             <deform_key id="face_width" key_time_point="1" key_min="-0.3" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="face_depth" key_time_point="2" key_min="-1.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
+            <deform_key id="face_depth" key_time_point="2" key_min="-1.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, -0.05, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="center_height" key_time_point="10" key_min="-0.0" key_max="0.6" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="1.0" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.0" key_max="0.55" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="cheeks" key_time_point="4" key_min="0.0" key_max="1" name="Face Weight" group_id="1" deforms_hair="1.0" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="-0.0" key_max="0.55" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.002" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="cheeks" key_time_point="4" key_min="0.0" key_max="1" name="Face Weight" group_id="1" helmet_scaling_factor_min="-0.02, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.1" key_max="1.7" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
-            <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.025, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.0" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="0.4" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="-0.35" key_max="0.85" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.05, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.025, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.75" key_max="0.55" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-1.5" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="1" name="Ear Size" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_asymmetry" key_time_point="47" key_min="-1" key_max="1" name="Face Asymmetry" group_id="1" deforms_hair="1.0" />
-            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.5" key_max="-0.5" name="Eyebrow Depth" group_id="2" deforms_hair="1.0" />
+            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.5" key_max="-0.5" name="Eyebrow Depth" group_id="2" deforms_hair="1.0" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="brow_outer_height" key_time_point="24" key_min="-0.5" key_max="0.75" name="Brow Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_middle_height" key_time_point="25" key_min="-1.0" key_max="0.75" name="Brow Middle Height" group_id="2" deforms_hair="0.1" />
             <deform_key id="brow_inner_height" key_time_point="26" key_min="0.5" key_max="-0.9" name="Brow Inner Height" group_id="2" deforms_hair="0.1" />
-            <deform_key id="eye_position" key_time_point="23" key_min="0.0" key_max="-0.6" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0010" helmet_scaling_factor_max="0.0, 0.0, -0.0020" deforms_hair="1.0" />
+            <deform_key id="eye_position" key_time_point="23" key_min="0.0" key_max="-0.6" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0010" helmet_scaling_factor_max="0.0, 0.0, -0.0010" deforms_hair="1.0" />
             <deform_key id="eye_size" key_time_point="17" key_min="0.0" key_max="2.0" name="Eye Size" group_id="2" />
             <deform_key id="monolid_eyes" key_time_point="19" key_min="-0.5" key_max="1" name="Monolid Eyes" group_id="2" />
             <deform_key id="eyelid_height" key_time_point="18" key_min="1" key_max="-0.5" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
@@ -958,11 +958,11 @@
             <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="1" key_max="-1" name="Eye Inner Height" group_id="2" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-1.25" key_max="3.25" name="Eye To Eye Distance" group_id="2" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.8" key_max="0.8" name="Eye Asymmetry" group_id="2" deforms_hair="1.0" />
-            <deform_key id="nose_angle" key_time_point="9" key_min="0.35" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_angle" key_time_point="9" key_min="0.35" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
             <deform_key id="nose_length" key_time_point="27" key_min="-1.25" key_max="0.65" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-1.0" key_max="0.7" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.75" key_max="1.5" name="Nose Tip Height" group_id="3" />
-            <deform_key id="nose_size" key_time_point="30" key_min="-2.2" key_max="1" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_size" key_time_point="30" key_min="-2.2" key_max="1" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
             <deform_key id="nose_width" key_time_point="31" key_min="0.1" key_max="0.7" name="Nose Width" group_id="3" />
             <deform_key id="nostril_height" key_time_point="32" key_min="-0.2" key_max="0.4" name="Nostril Height" group_id="3" />
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.1" key_max="0.6" name="Nostril Size" group_id="3" />
@@ -974,17 +974,17 @@
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.1" key_max="0.7" name="Mouth Position" group_id="4" />
             <deform_key id="lips_frown" key_time_point="41" key_min="-0.2" key_max="1.2" name="Frown/Smile" group_id="4" />
             <deform_key id="lip_thickness" key_time_point="42" key_min="0.1" key_max="1.25" name="Lip Thickness" group_id="4" />
-            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.3" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.3" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.045, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="-0.7" key_max="1" name="Bottom Lip Shape" group_id="4" />
             <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.4" key_max="0.2" name="Top Mouth Size" group_id="4" />
             <deform_key id="mouth" key_time_point="55" key_min="0.4" key_max="-0.7" name="Lips concave/convex" group_id="4" />
-            <deform_key id="jaw_line" key_time_point="11" key_min="-0.55" key_max="0.45" name="Jaw Line" group_id="4" helmet_scaling_factor_min="-0.005, 0.0, 0.0" helmet_scaling_factor_max="0.1, 0.0, 0.0" />
+            <deform_key id="jaw_line" key_time_point="11" key_min="-0.55" key_max="0.45" name="Jaw Line" group_id="4" helmet_scaling_factor_min="-0.005, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" />
             <deform_key id="neck_slope" key_time_point="50" key_min="-0.8" key_max="0.2" name="Jaw Shape" group_id="4" />
             <deform_key id="jaw_height" key_time_point="49" key_min="1.05" key_max="-0.15" name="Jaw Height" group_id="4" />
-            <deform_key id="chin_forward" key_time_point="38" key_min="-1.2" key_max="0.2" name="Chin Forward" group_id="4" />
-            <deform_key id="chin_shape" key_time_point="39" key_min="-1.0" key_max="1.2" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.1, -0.001" deforms_hair="1.0" />
+            <deform_key id="chin_forward" key_time_point="38" key_min="-1.2" key_max="0.2" name="Chin Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.015, 0.0000" helmet_scaling_factor_max="-0.00, 0.045, -0.0000" />
+            <deform_key id="chin_shape" key_time_point="39" key_min="-1.0" key_max="1.2" name="Chin Shape" group_id="4" helmet_scaling_factor_min="0.0, -0.015, 0.0000" helmet_scaling_factor_max="-0.00, 0.045, -0.0000" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="-0.00, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, -0.005" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.005" helmet_scaling_factor_max="-0.05, -0.05, -0.00" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="-0.25" key_max="1.25" name="Old face" group_id="-1" deforms_hair="1.0" />
             <deform_key id="kid_face" key_time_point="58" key_min="0.0" key_max="-0.15" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -1651,39 +1651,39 @@
       </skin>
       <skin gender="0" name="kid_2_male" morph_key="0" mesh_maturity_type="teenager" uses_stitching="true" body_mesh_suffix="" min_scale="0.94" skeleton="human_skeleton" body_meta_mesh="body_male_a_teen" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_male_a" underwear_bottom_mesh="underwear_male_teen" underwear_top_mesh="">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.4" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" deforms_hair="1.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="1.0" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="0.5" key_max="1.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0020" helmet_scaling_factor_max="0.0, 0.0, 0.0010" deforms_hair="1.2" />
-            <deform_key id="cheeks" key_time_point="4" key_min="-0.35" key_max="0.3" name="Face Weight" group_id="1" deforms_hair="1.0" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.6" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.015, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_depth" key_time_point="2" key_min="-0.35" key_max="0.4" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, -0.05, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" deforms_hair="1.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.3" key_max="0.3" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.002" helmet_scaling_factor_max="0.0, 0.0, 0.004" deforms_hair="1.0" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="0.5" key_max="1.1" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
+            <deform_key id="cheeks" key_time_point="4" key_min="-0.75" key_max="0.35" name="Face Weight" group_id="1" deforms_hair="1.0" />
             <deform_key id="cheekbone_height" key_time_point="5" key_min="-1.2" key_max="0.5" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
-            <deform_key id="cheekbone_width" key_time_point="6" key_min="-2.75" key_max="0.85" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.04, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="cheekbone_width" key_time_point="6" key_min="-2.05" key_max="0.85" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.8" key_max="0.5" name="Cheekbone Depth" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_sharpness" key_time_point="12" key_min="0.8" key_max="-0.8" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-1" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.03, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-1.5" key_max="1.5" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.025, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.8" key_max="0.1" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="ear_shape" key_time_point="52" key_min="-0.6" key_max="0.9" name="Ear Shape" group_id="1" deforms_hair="1.0" />
+            <deform_key id="ear_shape" key_time_point="52" key_min="-0.8" key_max="0.7" name="Ear Shape" group_id="1" deforms_hair="1.0" />
             <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="0.8" name="Ear Size" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_asymmetry" key_time_point="47" key_min="-0.8" key_max="0.8" name="Face Asymmetry" group_id="1" deforms_hair="1.0" />
-            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.45" key_max="-0.45" name="Eyebrow Depth" group_id="2" deforms_hair="1.0" />
+            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.45" key_max="-0.45" name="Eyebrow Depth" group_id="2" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" deforms_hair="1.0" />
             <deform_key id="brow_outer_height" key_time_point="24" key_min="-0.75" key_max="0.9" name="Brow Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_middle_height" key_time_point="25" key_min="-0.0" key_max="0.9" name="Brow Middle Height" group_id="2" deforms_hair="1.0" />
-            <deform_key id="brow_inner_height" key_time_point="26" key_min="-0.0" key_max="0.5" name="Brow Inner Height" group_id="2" deforms_hair="1.0" />
-            <deform_key id="eye_position" key_time_point="23" key_min="0.7" key_max="-0.2" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0035" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="eye_size" key_time_point="17" key_min="0.0" key_max="1.0" name="Eye Size" group_id="2" deforms_hair="1.0" />
+            <deform_key id="brow_inner_height" key_time_point="26" key_min="-0.25" key_max="0.5" name="Brow Inner Height" group_id="2" deforms_hair="1.0" />
+            <deform_key id="eye_position" key_time_point="23" key_min="0.9" key_max="-0.0" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.005" helmet_scaling_factor_max="0.0, 0.0, 0.000" deforms_hair="1.0" />
+            <deform_key id="eye_size" key_time_point="17" key_min="-1.0" key_max="1.0" name="Eye Size" group_id="2" deforms_hair="1.0" />
             <deform_key id="monolid_eyes" key_time_point="19" key_min="-0.5" key_max="0.9" name="Monolid Eyes" group_id="2" deforms_hair="1.0" />
-            <deform_key id="eyelid_height" key_time_point="18" key_min="-0.75" key_max="1.0" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
+            <deform_key id="eyelid_height" key_time_point="18" key_min="-0.75" key_max="0.95" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_depth" key_time_point="14" key_min="1.1" key_max="-0.2" name="Eye Depth" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_shape" key_time_point="15" key_min="-0.5" key_max="0.5" name="Eye Shape" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_outer_corner_height" key_time_point="20" key_min="-0.8" key_max="0.5" name="Eye Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="1.4" key_max="-0.25" name="Eye Inner Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-0.9" key_max="1.1" name="Eye To Eye Distance" group_id="2" deforms_hair="1.0" />
             <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.9" key_max="0.9" name="Eye Asymmetry" group_id="2" deforms_hair="1.0" />
-            <deform_key id="nose_angle" key_time_point="9" key_min="0.2" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
-            <deform_key id="nose_length" key_time_point="27" key_min="-1.2" key_max="0.0" name="Nose Length" group_id="3" />
+            <deform_key id="nose_angle" key_time_point="9" key_min="1.2" key_max="-0.8" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
+            <deform_key id="nose_length" key_time_point="27" key_min="-1.3" key_max="0.0" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-0.45" key_max="0.2" name="Nose Bridge" group_id="3" />
-            <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.4" key_max="0.8" name="Nose Tip Height" group_id="3" />
-            <deform_key id="nose_size" key_time_point="30" key_min="-1.85" key_max="0.65" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.4" key_max="1" name="Nose Tip Height" group_id="3" />
+            <deform_key id="nose_size" key_time_point="30" key_min="-1.85" key_max="0.75" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
             <deform_key id="nose_width" key_time_point="31" key_min="-0.75" key_max="1.2" name="Nose Width" group_id="3" />
             <deform_key id="nostril_height" key_time_point="32" key_min="-1.7" key_max="0" name="Nostril Height" group_id="3" />
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.2" key_max="0.8" name="Nostril Size" group_id="3" />
@@ -1694,18 +1694,18 @@
             <deform_key id="mouth_width" key_time_point="35" key_min="-0.35" key_max="0.15" name="Mouth Width" group_id="4" />
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.9" key_max="0.2" name="Mouth Position" group_id="4" />
             <deform_key id="lips_frown" key_time_point="41" key_min="-0.8" key_max="0.3" name="Frown/Smile" group_id="4" />
-            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.25" key_max="0.9" name="Lip Thickness" group_id="4" />
-            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.5" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="lip_thickness" key_time_point="42" key_min="-0.25" key_max="0.9" name="Lip Thickness" group_id="4" helmet_scaling_factor_min="0.0, -0.015, 0.0" helmet_scaling_factor_max="0.0, 0.015, 0.0" />
+            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.5" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.035, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="0.0" key_max="-1.2" name="Bottom Lip Shape" group_id="4" />
             <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.5" key_max="0.4" name="Top Mouth Size" group_id="4" />
             <deform_key id="lip_shape_concave_convex" key_time_point="55" key_min="1.2" key_max="-1" name="Lips concave/convex" group_id="4" />
-            <deform_key id="jaw_line" key_time_point="11" key_min="-2.75" key_max="-0.0" name="Jaw Line" group_id="4" deforms_hair="1.0" />
-            <deform_key id="neck_slope" key_time_point="50" key_min="-0.5" key_max="0.8" name="Jaw Shape" group_id="4" />
+            <deform_key id="jaw_line" key_time_point="11" key_min="-2.75" key_max="-0.0" name="Jaw Line" group_id="4" deforms_hair="1.0" helmet_scaling_factor_min="-0.000, 0.0, 0.0000" helmet_scaling_factor_max="0.02, -0.00, -0.0000" />
+            <deform_key id="neck_slope" key_time_point="50" key_min="-0.5" key_max="0.8" name="Jaw Shape" deforms_hair="1.0" group_id="4" />
             <deform_key id="jaw_height" key_time_point="49" key_min="0.6" key_max="-1" name="Jaw Height" group_id="4" />
-            <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.1" name="Chin Forward" group_id="4" />
+            <deform_key id="chin_forward" key_time_point="38" key_min="-0.5" key_max="0.2" name="Chin Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.015, 0.0000" helmet_scaling_factor_max="-0.00, 0.045, -0.0000" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-0.75" key_max="1" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.5" key_max="-0.5" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.003" helmet_scaling_factor_max="-0.10, -0.1, -0.009" deforms_hair="1.0" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-1.7" key_max="-0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.000" helmet_scaling_factor_max="-0.00, -0.00, -0.0025" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.005" helmet_scaling_factor_max="-0.05, -0.05, -0.00" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0.0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="0.6" key_max="0.1" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -2426,25 +2426,25 @@
       </skin>
       <skin gender="1" name="kid_2_female" mesh_maturity_type="teenager" morph_key="1" uses_stitching="true" body_mesh_suffix="_fem" min_scale="0.93" skeleton="human_skeleton" body_meta_mesh="body_female_a" body_meta_mesh_shoulders="body_female_a_sh" body_meta_mesh_upperbody="box_a" legs_mesh="feet_female_a" hands_mesh="hands_female_a" face_meta_mesh="head_female_a" underwear_bottom_mesh="underwear_female" underwear_top_mesh="underwear_female_top">
          <deform_keys>
-            <deform_key id="face_width" key_time_point="1" key_min="-0.3" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.0, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
-            <deform_key id="face_depth" key_time_point="2" key_min="-1.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.075, 0.0" />
-            <deform_key id="center_height" key_time_point="10" key_min="-0.0" key_max="0.6" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="0.3" />
-            <deform_key id="face_ratio" key_time_point="3" key_min="-0.0" key_max="0.55" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.0030" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.2" />
-            <deform_key id="cheeks" key_time_point="4" key_min="0.0" key_max="0.9" name="Face Weight" group_id="1" deforms_hair="0.8" />
-            <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.1" key_max="1.7" name="Cheekbone Height" group_id="1" deforms_hair="0.1" />
-            <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.05, 0.0, 0.0" deforms_hair="0.8" />
+            <deform_key id="face_width" key_time_point="1" key_min="-0.3" key_max="0.9" name="Face Width" group_id="1" helmet_scaling_factor_min="-0.1, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_depth" key_time_point="2" key_min="-1.1" key_max="0.3" name="Face Depth" group_id="1" helmet_scaling_factor_min="0.0, -0.05, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="center_height" key_time_point="10" key_min="-0.0" key_max="0.6" name="Center Height" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, 0.0025" deforms_hair="1.0" />
+            <deform_key id="face_ratio" key_time_point="3" key_min="-0.0" key_max="0.55" name="Face Ratio" group_id="1" helmet_scaling_factor_min="0.0, 0.0, -0.002" helmet_scaling_factor_max="0.0, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="cheeks" key_time_point="4" key_min="0.0" key_max="1" name="Face Weight" group_id="1" deforms_hair="1.0" />
+            <deform_key id="cheekbone_height" key_time_point="5" key_min="-0.1" key_max="1.7" name="Cheekbone Height" group_id="1" deforms_hair="1.0" />
+            <deform_key id="cheekbone_width" key_time_point="6" key_min="-0.1" key_max="0.6" name="Cheekbone Width" group_id="1" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.025, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="cheekbone_depth" key_time_point="7" key_min="-1.0" key_max="0.4" name="Cheekbone Depth" group_id="1" deforms_hair="0.4" />
-            <deform_key id="face_sharpness" key_time_point="12" key_min="-0.35" key_max="0.85" name="Face Sharpness" group_id="1" deforms_hair="0.6" />
-            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.00, 0.0, 0.0" helmet_scaling_factor_max="0.03, 0.0, 0.0" deforms_hair="1.0" />
+            <deform_key id="face_sharpness" key_time_point="12" key_min="-0.35" key_max="0.85" name="Face Sharpness" group_id="1" deforms_hair="1.0" />
+            <deform_key id="temple_width" key_time_point="13" key_min="-2.75" key_max="1" name="Temple width" group_id="1" helmet_scaling_factor_min="-0.025, 0.0, 0.0" helmet_scaling_factor_max="0.01, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="eye_socket_size" key_time_point="53" key_min="-0.75" key_max="0.55" name="Eye Socket Size" group_id="1" helmet_scaling_factor_min="-0.01, 0.0, 0.0" helmet_scaling_factor_max="0.02, 0.0, 0.0" deforms_hair="1.0" />
             <deform_key id="ear_shape" key_time_point="52" key_min="-1.5" key_max="1" name="Ear Shape" group_id="1" deforms_hair="1.0" />
-            <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="1" name="Ear Size" group_id="1" />
+            <deform_key id="ear_size" key_time_point="56" key_min="-1" key_max="1" name="Ear Size" group_id="1" deforms_hair="1.0" />
             <deform_key id="face_asymmetry" key_time_point="47" key_min="-1" key_max="1" name="Face Asymmetry" group_id="1" deforms_hair="1.0" />
-            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.5" key_max="-0.5" name="Eyebrow Depth" group_id="2" eforms_hair="1.0" />
+            <deform_key id="eyebrow_depth" key_time_point="22" key_min="0.5" key_max="-0.5" name="Eyebrow Depth" group_id="2" deforms_hair="1.0" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
             <deform_key id="brow_outer_height" key_time_point="24" key_min="-0.5" key_max="0.75" name="Brow Outer Height" group_id="2" deforms_hair="1.0" />
             <deform_key id="brow_middle_height" key_time_point="25" key_min="-1.0" key_max="0.75" name="Brow Middle Height" group_id="2" deforms_hair="0.1" />
             <deform_key id="brow_inner_height" key_time_point="26" key_min="0.5" key_max="-0.9" name="Brow Inner Height" group_id="2" deforms_hair="0.1" />
-            <deform_key id="eye_position" key_time_point="23" key_min="0.0" key_max="-0.6" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0010" helmet_scaling_factor_max="0.0, 0.0, -0.0020" deforms_hair="1.0" />
+            <deform_key id="eye_position" key_time_point="23" key_min="0.0" key_max="-0.6" name="Eye Position" group_id="2" helmet_scaling_factor_min="0.0, 0.0, 0.0010" helmet_scaling_factor_max="0.0, 0.0, -0.0010" deforms_hair="1.0" />
             <deform_key id="eye_size" key_time_point="17" key_min="0.0" key_max="2.0" name="Eye Size" group_id="2" />
             <deform_key id="monolid_eyes" key_time_point="19" key_min="-0.5" key_max="1" name="Monolid Eyes" group_id="2" />
             <deform_key id="eyelid_height" key_time_point="18" key_min="1" key_max="-0.5" name="Eyelid Height" group_id="2" deforms_hair="1.0" />
@@ -2453,12 +2453,12 @@
             <deform_key id="eye_outer_corner_height" key_time_point="20" key_min="-0.9" key_max="0.9" name="Eye Outer Height" group_id="2" />
             <deform_key id="eye_inner_corner_height" key_time_point="21" key_min="1" key_max="-1" name="Eye Inner Height" group_id="2" />
             <deform_key id="eye_to_eye_distance" key_time_point="16" key_min="-1.25" key_max="3.25" name="Eye To Eye Distance" group_id="2" />
-            <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.8" key_max="0.8" name="Eye Asymmetry" group_id="2" />
-            <deform_key id="nose_angle" key_time_point="9" key_min="0.35" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="eye_asymetry" key_time_point="48" key_min="-0.8" key_max="0.8" name="Eye Asymmetry" group_id="2" deforms_hair="1.0" />
+            <deform_key id="nose_angle" key_time_point="9" key_min="0.35" key_max="-0.2" name="Nose Angle" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
             <deform_key id="nose_length" key_time_point="27" key_min="-1.25" key_max="0.65" name="Nose Length" group_id="3" />
             <deform_key id="nose_bridge" key_time_point="28" key_min="-1.0" key_max="0.7" name="Nose Bridge" group_id="3" />
             <deform_key id="nose_tip_height" key_time_point="29" key_min="-0.75" key_max="1.5" name="Nose Tip Height" group_id="3" />
-            <deform_key id="nose_size" key_time_point="30" key_min="-2.2" key_max="1" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="nose_size" key_time_point="30" key_min="-2.2" key_max="1" name="Nose Size" group_id="3" helmet_scaling_factor_min="0.0, -0.005, 0.0" helmet_scaling_factor_max="0.0, 0.005, 0.0" />
             <deform_key id="nose_width" key_time_point="31" key_min="0.1" key_max="0.7" name="Nose Width" group_id="3" />
             <deform_key id="nostril_height" key_time_point="32" key_min="-0.2" key_max="0.4" name="Nostril Height" group_id="3" />
             <deform_key id="nostril_scale" key_time_point="34" key_min="-0.1" key_max="0.6" name="Nostril Size" group_id="3" />
@@ -2470,17 +2470,17 @@
             <deform_key id="mouth_position" key_time_point="36" key_min="-0.1" key_max="0.7" name="Mouth Position" group_id="4" />
             <deform_key id="lips_frown" key_time_point="41" key_min="-0.2" key_max="1.2" name="Frown/Smile" group_id="4" />
             <deform_key id="lip_thickness" key_time_point="42" key_min="0.1" key_max="1.25" name="Lip Thickness" group_id="4" />
-            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.3" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.025, 0.0" />
+            <deform_key id="lips_forward" key_time_point="43" key_min="-0.4" key_max="0.3" name="Mouth Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.025, 0.0" helmet_scaling_factor_max="0.0, 0.035, 0.0" />
             <deform_key id="lip_shape_bottom" key_time_point="44" key_min="-0.7" key_max="1" name="Bottom Lip Shape" group_id="4" />
             <deform_key id="lip_shape_top" key_time_point="8" key_min="-0.4" key_max="0.2" name="Top Mouth Size" group_id="4" />
             <deform_key id="mouth" key_time_point="55" key_min="0.4" key_max="-0.7" name="Lips concave/convex" group_id="4" />
-            <deform_key id="jaw_line" key_time_point="11" key_min="-0.55" key_max="0.45" name="Jaw Line" group_id="4" />
+            <deform_key id="jaw_line" key_time_point="11" key_min="-0.55" key_max="0.45" name="Jaw Line" group_id="4" helmet_scaling_factor_min="-0.005, 0.0, 0.0" helmet_scaling_factor_max="0.1, 0.0, 0.0" />
             <deform_key id="neck_slope" key_time_point="50" key_min="-0.8" key_max="0.2" name="Jaw Shape" group_id="4" />
             <deform_key id="jaw_height" key_time_point="49" key_min="1.05" key_max="-0.15" name="Jaw Height" group_id="4" />
-            <deform_key id="chin_forward" key_time_point="38" key_min="-1.2" key_max="0.2" name="Chin Forward" group_id="4" />
+            <deform_key id="chin_forward" key_time_point="38" key_min="-1.2" key_max="0.2" name="Chin Forward" group_id="4" helmet_scaling_factor_min="0.0, -0.015, 0.0000" helmet_scaling_factor_max="-0.00, 0.045, -0.0000" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-1.0" key_max="1.2" name="Chin Shape" group_id="4" />
-            <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="0.1" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.5" key_max="-0.5" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.12, -0.1, -0.012" deforms_hair="1.0" />
+            <deform_key id="chin_length" key_time_point="40" key_min="-1.0" key_max="0.1" name="Chin Length" group_id="4" helmet_scaling_factor_min="-0.00, 0.0, 0.0" helmet_scaling_factor_max="0.0, 0.0, -0.005" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.3" key_max="-0.3" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.00" helmet_scaling_factor_max="-0.05, -0.05, -0.0005" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0.0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="0.6" key_max="0.1" name="kid face" group_id="-1" deforms_hair="1.0" />
@@ -3936,7 +3936,7 @@
             <deform_key id="chin_forward" key_time_point="38" key_min="-1.1" key_max="0.3" name="Chin Forward" group_id="4" />
             <deform_key id="chin_shape" key_time_point="39" key_min="-1.0" key_max="0.9" name="Chin Shape" group_id="4" />
             <deform_key id="chin_length" key_time_point="40" key_min="-0.9" key_max="0.2" name="Chin Length" group_id="4" />
-            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.09, -0.1, -0.013" deforms_hair="1.0" />
+            <deform_key id="head_scaling" key_time_point="46" key_min="0.4" key_max="-0.6" name="Head Scaling" group_id="-1" helmet_scaling_factor_min="0.1, 0.1, 0.004" helmet_scaling_factor_max="-0.05, -0.05, -0.01" deforms_hair="1.0" />
             <deform_key id="hide_ears" key_time_point="51" key_min="0" key_max="1.5" name="Hide Ears" group_id="-1" deforms_hair="1.0" auto_activate_when_ears_are_hidden="true" />
             <deform_key id="old_face" key_time_point="57" key_min="0" key_max="0" name="Old face" group_id="-1" />
             <deform_key id="kid_face" key_time_point="58" key_min="1" key_max="0.8" name="kid face" group_id="-1" deforms_hair="1.0" />
