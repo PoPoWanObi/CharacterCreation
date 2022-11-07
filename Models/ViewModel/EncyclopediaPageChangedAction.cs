@@ -61,7 +61,7 @@ namespace CharacterCreation.Models
 
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
-            selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
+            selectedHeroPage = encyclopediaPageVM as EncyclopediaHeroPageVM;
 
             if (selectedHeroPage == null)
             {
@@ -72,7 +72,7 @@ namespace CharacterCreation.Models
             {
                 return;
             }
-            gauntletLayer ??= new GauntletLayer(211);
+            gauntletLayer ??= new GauntletLayer(311);
 
             try
             {
