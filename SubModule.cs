@@ -44,13 +44,6 @@ namespace CharacterCreation
                 // apply compatibility patches
                 CompatibilityPatch.CreateCompatibilityPatches(harmony);
 
-                // properly patch CharacterObject - why is this needed again?
-                //var dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "OnDailyTick");
-                //if (dailyTickMethod == default) dailyTickMethod = AccessTools.Method(typeof(DynamicBodyCampaignBehavior), "DailyTick");
-                //if (dailyTickMethod != default) harmony.Patch(dailyTickMethod,
-                //    prefix: new HarmonyMethod(AccessTools.Method(typeof(DynamicBodyPatch), nameof(DynamicBodyPatch.Prefix))));
-                //Debug.Print("[CharacterCreation] DynamicBodyCampaignBehavior.(On)DailyTick patched");
-
                 TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
             }
             catch (Exception ex)
@@ -74,8 +67,6 @@ namespace CharacterCreation
         {
             if (!(game.GameType is Campaign) || !DCCSettingsUtil.Instance.DebugMode) return;
 
-            // print player age if debug is on
-            //var player = game.ObjectManager.GetObjectTypeList<Hero>().FirstOrDefault(hero => hero.IsHumanPlayerCharacter);
             var player = Hero.MainHero;
             if (player != default)
             {
@@ -92,8 +83,6 @@ namespace CharacterCreation
             // make sure to call this and other daily tick events on... well, daily tick
             if (game.GameType is Campaign)
                 SettingsEffects.Initialize(true);
-            // check game options and handle appropriately
-            //SettingsEffects.Instance.SetAutoAging(game, true);
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
@@ -104,20 +93,14 @@ namespace CharacterCreation
                 return;
             CampaignGameStarter gameStarter = (CampaignGameStarter)gameStarterObject;
 
-            // add strings - TaleWorlds added a friendlier way so commenting it out
-            //gameStarter.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "zzCharacterCreation", "ModuleData", "strings.xml"));
-
             // add game models
-            gameStarter.AddModel(heroModel = new HeroBuilderModel());
             if (DCCSettingsUtil.Instance.CustomAgeModel)
-                gameStarter.AddModel(new Models.AgeModel());
+                gameStarter.AddModel(new DCCAgeModel());
 
             // add event handlers
             game.AddGameHandler<AgingGameHandler>();
-            game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(new EncyclopediaPageChangedAction(heroModel).OnEncyclopediaPageChanged);
+            game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(new EncyclopediaPageChangedAction().OnEncyclopediaPageChanged);
         }
-
-        private HeroBuilderModel heroModel;
 
         private bool _isLoaded;
 

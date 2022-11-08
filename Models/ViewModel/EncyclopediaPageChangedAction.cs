@@ -19,18 +19,12 @@ namespace CharacterCreation.Models
     {
         private HeroBuilderVM? viewModel;
         private EncyclopediaHeroPageVM? selectedHeroPage;
-        private HeroBuilderModel? heroModel;
         private Hero? selectedHero;
         private ScreenBase? gauntletLayerTopScreen;
         private GauntletLayer? gauntletLayer;
         private IGauntletMovie? gauntletMovie;
 
         //public static Type HeroBuilderVMType { get; internal set; } = typeof(HeroBuilderVM);
-
-        public EncyclopediaPageChangedAction(HeroBuilderModel model)
-        {
-            heroModel = model;
-        }
 
         public void OnEncyclopediaPageChanged(EncyclopediaPageChangedEvent e)
         {

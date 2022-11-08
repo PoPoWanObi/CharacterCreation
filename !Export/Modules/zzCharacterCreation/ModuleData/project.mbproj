@@ -4,4 +4,5 @@
     <XMLDirectory>..\WOTS\Modules\zzCharacterCreation\</XMLDirectory>
     <ModuleAssemblyDirectory>..\WOTS\bin\</ModuleAssemblyDirectory>
     <file id="soln_skins" name="ModuleData/skins.xml" type="skin" />
+    <file id="soln_voice_definitions" name="ModuleData/voice_definitions.xml" type="voice_definitions" />
 </base>

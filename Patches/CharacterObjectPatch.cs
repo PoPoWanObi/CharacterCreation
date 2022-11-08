@@ -14,6 +14,7 @@ namespace CharacterCreation.Patches
 
         private static void Postfix(CharacterObject __instance, BodyProperties properties, int race, bool isFemale)
         {
+            if (!DCCSettingsUtil.Instance.FixCharEditEffectOnNPC) return;
             if (__instance.IsHero)
             {
                 //PropertyInfo staticBodyPropertyInfoOnHero = AccessTools.Property(typeof(Hero), "StaticBodyProperties");

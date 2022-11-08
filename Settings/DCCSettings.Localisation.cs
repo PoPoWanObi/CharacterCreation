@@ -18,7 +18,15 @@ namespace CharacterCreation
             Section1 = "{=CharacterCreation_Section1}Section 1: Overrides",
             IgnoreDailyTickName = "{=CharacterCreation_IgnoreDailyTickName}Suppress Daily Tick",
             IgnoreDailyTickHint = "{=CharacterCreation_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Does NOT require restart.",
-            
+            PatchAgeNotUpdatingOnCharEditName = "{=CharacterCreation_PatchAgeNotUpdatingOnCharEditName}Patch Age Not Updating On Character Edit",
+            PatchAgeNotUpdatingOnCharEditHint = "{=CharacterCreation_PatchAgeNotUpdatingOnCharEditHint}Enable age to be updated upon character edit. Does NOT require restart.",
+            FixCharEditEffectOnNPCName = "{=CharacterCreation_FixCharEditEffectOnNPCName}Fix Character Edit Effect on NPCs",
+            FixCharEditEffectOnNPCHint = "{=CharacterCreation_FixCharEditEffectOnNPCHint}Enable edits to NPC heroes to take affect. Does NOT require restart.",
+            AddFaceGenValuesName = "{=CharacterCreation_AddFaceGenValuesName}Add FaceGen Values",
+            AddFaceGenValuesHint = "{=CharacterCreation_AddFaceGenValuesHint}Add values to sliders in FaceGen so you can kind-of fine tune it. Does NOT require restart.",
+            PatchSavePreviewGenderBugName = "{=CharacterCreation_PatchSavePreviewGenderBugName}Fix Incorrect Save Preview",
+            PatchSavePreviewGenderBugHint = "{=CharacterCreation_PatchSavePreviewGenderBugHint}Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. Disable if another mod also does this.",
+
             Section2 = "{=CharacterCreation_Section2}Section 2: Age Model",
             CustomAgeModelName = "{=CharacterCreation_CustomAgeModelName}Custom Age Model",
             CustomAgeModelHint = "{=CharacterCreation_CustomAgeModelHint}Enable this to use a custom age model. Disable if another mod uses a custom age model. REQUIRES restart.",

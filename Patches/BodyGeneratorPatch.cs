@@ -14,7 +14,7 @@ namespace CharacterCreation.Patches
     {
         static void Postfix(BodyGenerator __instance)
         {
-            if (__instance.Character is CharacterObject characterObject)
+            if (DCCSettingsUtil.Instance.PatchAgeNotUpdatingOnCharEdit && __instance.Character is CharacterObject characterObject)
             {
                 float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
                 CharacterBodyManager.ResetBirthDayForAge(characterObject, bodyAge);

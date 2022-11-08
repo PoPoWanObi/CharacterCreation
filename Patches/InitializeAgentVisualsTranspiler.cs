@@ -26,6 +26,7 @@ namespace CharacterCreation.Patches
 
         public static bool Prepare(MethodBase original)
         {
+            if (!DCCSettingsUtil.Instance.PatchSavePreviewGenderBug) return false;
             if (original == null) return true;
             var info = Harmony.GetPatchInfo(original);
             if (info == default || info.Transpilers.Select(x => x.owner).Intersect(incompatibleInstances).IsEmpty())

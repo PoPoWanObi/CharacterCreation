@@ -2,7 +2,7 @@
 
 namespace CharacterCreation.Models
 {
-    public class AgeModel : DefaultAgeModel
+    public class DCCAgeModel : DefaultAgeModel
     {
         public override int BecomeInfantAge => DCCSettingsUtil.Instance.BecomeInfantAge;
 

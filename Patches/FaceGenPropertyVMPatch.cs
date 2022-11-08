@@ -11,6 +11,7 @@ namespace CharacterCreation.Patches
         [HarmonyPostfix]
         public static void RefreshValuesPostfix(FaceGenPropertyVM __instance)
         {
+            if (!DCCSettingsUtil.Instance.AddFaceGenValues) return;
             __instance.Name = $"{__instance.Name}\n{__instance.Value}";
         }
 
@@ -18,6 +19,7 @@ namespace CharacterCreation.Patches
         [HarmonyPostfix]
         public static void SetValuePostfix(FaceGenPropertyVM __instance)
         {
+            if (!DCCSettingsUtil.Instance.AddFaceGenValues) return;
             __instance.RefreshValues();
         }
     }
