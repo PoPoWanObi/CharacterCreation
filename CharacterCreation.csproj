@@ -12,6 +12,8 @@
     <AssemblyName>CharacterCreation</AssemblyName>
     <Platforms>AnyCPU;x64</Platforms>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -35,14 +37,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutputPath>!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
