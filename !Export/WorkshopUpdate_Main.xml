@@ -6,7 +6,7 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="TBD" />
+		<ChangeNotes Value="Delayed patching until just before menu loads so that patch settings are properly applied.\nFixed a vanilla issue with textures on children. (This should have been fixed by TaleWorlds on their end.)" />
 		<!-- Insert patch notes -->
 		<Tags> 
 			<!-- You can use the following tags: -->
