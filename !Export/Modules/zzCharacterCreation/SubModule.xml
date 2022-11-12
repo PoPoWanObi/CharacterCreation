@@ -1,7 +1,7 @@
 ﻿<Module>
     <Name value="Detailed Character Creation" />
     <Id value="zzCharacterCreation" />
-    <Version value="v1.4.7.145" />
+    <Version value="v1.4.7.148" />
     <SingleplayerModule value="true" />
     <MultiplayerModule value="false" />
     <DependedModules>

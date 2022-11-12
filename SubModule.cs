@@ -32,9 +32,12 @@ namespace CharacterCreation
             return new TextObject(ExpectedActualAgeMessage, attributes).ToString();
         }
 
-        // Main
-        protected override void OnSubModuleLoad()
+        //Registers before the first module appears (main menu)
+        protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
+            base.OnBeforeInitialModuleScreenSetAsRoot();
+            if (_isLoaded) return;
+
             base.OnSubModuleLoad();
             try
             {
@@ -50,13 +53,6 @@ namespace CharacterCreation
             {
                 MessageBox.Show($"{ErrorLoadingDccMessage}\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
-        }
-
-        //Registers before the first module appears (main menu)
-        protected override void OnBeforeInitialModuleScreenSetAsRoot()
-        {
-            base.OnBeforeInitialModuleScreenSetAsRoot();
-            if (_isLoaded) return;
 
             InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));
             _isLoaded = true;
