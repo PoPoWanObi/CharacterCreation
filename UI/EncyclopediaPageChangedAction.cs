@@ -1,4 +1,6 @@
 ﻿#nullable enable
+using CharacterCreation;
+using CharacterCreation.Models;
 using HarmonyLib;
 using SandBox.GauntletUI.Encyclopedia;
 using SandBox.View.Map;
@@ -13,7 +15,7 @@ using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
 
-namespace CharacterCreation.Models
+namespace CharacterCreation.UI
 {
     public class EncyclopediaPageChangedAction
     {
@@ -101,7 +103,7 @@ namespace CharacterCreation.Models
                 gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
 
                 // Refresh
-                selectedHeroPage.Refresh();
+                //selectedHeroPage.Refresh();
             }
             catch (Exception ex)
             {

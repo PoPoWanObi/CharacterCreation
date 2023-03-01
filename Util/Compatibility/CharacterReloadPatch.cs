@@ -1,5 +1,4 @@
-﻿using CharacterCreation.Models;
-using CharacterCreation.Patches;
+﻿using CharacterCreation.Patches;
 using HarmonyLib;
 using System;
 using System.Reflection;

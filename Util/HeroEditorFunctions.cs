@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using CharacterCreation.Models;
+using HarmonyLib;
 using Helpers;
 using System;
 using TaleWorlds.CampaignSystem;
@@ -8,10 +9,11 @@ using TaleWorlds.Engine.Screens;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.GauntletUI;
+using TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator;
 using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.ScreenSystem;
 
-namespace CharacterCreation.Models
+namespace CharacterCreation.Util
 {
     public static class HeroEditorFunctions
     {
@@ -49,7 +51,7 @@ namespace CharacterCreation.Models
 
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
-            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false, null));
+            ScreenManager.PushScreen(new GauntletBodyGeneratorScreen(hero.CharacterObject, false, null));
 
             editCallback?.Invoke(hero);
         }
