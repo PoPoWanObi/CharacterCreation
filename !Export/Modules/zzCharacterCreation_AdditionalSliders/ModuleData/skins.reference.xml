@@ -915,7 +915,7 @@
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
             <mouth_texture name="mouth_mat_f" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
             <mouth_texture name="mouth_mat_kid_a" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture1,mouth_texture2" />
-            <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
+            <mouth_texture name="mouth_mat_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
          </mouth_textures>
          <constraints>
             <constraint proportional_negative_and_positive="1.0">
@@ -1627,6 +1627,7 @@
             <mouth_texture name="mouth_mat_d" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture3,mouth_texture4" />
             <mouth_texture name="mouth_mat_c" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture5,mouth_texture6" />
             <mouth_texture name="mouth_mat_kid_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
+            <mouth_texture name="mouth_mat_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture7,mouth_texture8" />
             <!--
 	  <mouth_texture name="mouth_mat_b" lod_material="mouth_mat" color="0xFFFFFFFF" tags="mouth_texture13,mouth_texture14">
 	  </mouth_texture>-->
