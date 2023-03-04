@@ -55,5 +55,11 @@ namespace CharacterCreation.Util
 
             editCallback?.Invoke(hero);
         }
+
+        public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge, bool randomize = false)
+        {
+            if (!characterObject.IsHero) return;
+            characterObject.HeroObject.SetBirthDay(randomize ? HeroHelper.GetRandomBirthDayForAge(targetAge) : CampaignTime.YearsFromNow(-targetAge));
+        }
     }
 }

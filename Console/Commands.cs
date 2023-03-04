@@ -1,5 +1,4 @@
-﻿using CharacterCreation.Manager;
-using Helpers;
+﻿using CharacterCreation.Util;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
@@ -38,7 +37,7 @@ namespace CharacterCreation
             {
                 return EnterAgeMsg.ToString();
             }
-            CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, num, true);
+            HeroEditorFunctions.ResetBirthDayForAge(hero.CharacterObject, num, true);
             return SuccessMsg.ToString();
         }
 
@@ -54,7 +53,7 @@ namespace CharacterCreation
             {
                 return EnterAgeMsg.ToString();
             }
-            CharacterBodyManager.ResetBirthDayForAge(Hero.MainHero.CharacterObject, num, true);
+            HeroEditorFunctions.ResetBirthDayForAge(Hero.MainHero.CharacterObject, num, true);
             return SuccessMsg.ToString();
         }
 

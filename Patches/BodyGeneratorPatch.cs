@@ -1,10 +1,7 @@
-﻿using CharacterCreation.Manager;
+﻿using CharacterCreation.Util;
 using HarmonyLib;
-using System;
-using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
-using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 
 namespace CharacterCreation.Patches
@@ -17,7 +14,7 @@ namespace CharacterCreation.Patches
             if (DCCSettingsUtil.Instance.PatchAgeNotUpdatingOnCharEdit && __instance.Character is CharacterObject characterObject)
             {
                 float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
-                CharacterBodyManager.ResetBirthDayForAge(characterObject, bodyAge);
+                HeroEditorFunctions.ResetBirthDayForAge(characterObject, bodyAge);
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
             }

@@ -1,6 +1,6 @@
 ﻿using TaleWorlds.Library;
 
-namespace CharacterCreation
+namespace CharacterCreation.Util
 {
     public class ColorManager
     {

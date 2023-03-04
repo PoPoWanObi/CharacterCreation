@@ -1,10 +1,4 @@
-﻿using CharacterCreation.Manager;
-using Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -56,7 +50,7 @@ namespace CharacterCreation.Util
                 foreach (var hero in heroList)
                 {
                     var age = hero.Age;
-                    CharacterBodyManager.ResetBirthDayForAge(hero.CharacterObject, age);
+                    HeroEditorFunctions.ResetBirthDayForAge(hero.CharacterObject, age);
                 }
                 CampaignOptions.IsLifeDeathCycleDisabled = false;
             }
@@ -94,7 +88,7 @@ namespace CharacterCreation.Util
                     {
                         CampaignOptions.IsLifeDeathCycleDisabled = true; // disable life cycle to get default age
                         var age = player.Age;
-                        CharacterBodyManager.ResetBirthDayForAge(player.CharacterObject, age);
+                        HeroEditorFunctions.ResetBirthDayForAge(player.CharacterObject, age);
                         CampaignOptions.IsLifeDeathCycleDisabled = false; // reenable to get 'true' age
                     }
                 }

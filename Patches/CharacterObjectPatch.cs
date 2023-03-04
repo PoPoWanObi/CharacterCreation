@@ -4,6 +4,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
 using System.Reflection;
 using TaleWorlds.Library;
+using CharacterCreation.Util;
 
 namespace CharacterCreation.Patches
 {
