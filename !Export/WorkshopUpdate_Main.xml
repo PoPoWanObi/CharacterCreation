@@ -6,7 +6,9 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Updated for v1.1.0\nFixed refresh possibly breaking information display on encyclopedia pages after adding buttons." />
+		<ChangeNotes Value="Updated for v1.1.0
+		Fixed refresh possibly breaking information display on encyclopedia pages after adding buttons.
+		Refactored code." />
 		<!-- Insert patch notes -->
 		<Tags> 
 			<!-- You can use the following tags: -->
