@@ -19,9 +19,9 @@ namespace CharacterCreation.UI
 {
     public class EncyclopediaPageChangedAction
     {
-        private HeroBuilderVM? viewModel;
-        private EncyclopediaHeroPageVM? selectedHeroPage;
-        private Hero? selectedHero;
+        private UnitBuilderVM? viewModel;
+        private EncyclopediaPageVM? selectedUnitPage;
+        private CharacterObject? selectedUnit;
         private ScreenBase? gauntletLayerTopScreen;
         private GauntletLayer? gauntletLayer;
         private IGauntletMovie? gauntletMovie;
@@ -33,10 +33,11 @@ namespace CharacterCreation.UI
             if (Mission.Current != null) return; // do not allow edit if in mission as it could screw things up
 
             EncyclopediaPages newPage = e.NewPage;
-            if ((int)newPage != 12)
+            if (newPage != EncyclopediaPages.Hero && newPage != EncyclopediaPages.Unit)
             {
-                selectedHeroPage = null;
-                selectedHero = null;
+                viewModel = null;
+                selectedUnitPage = null;
+                selectedUnit = null;
                 if (gauntletLayerTopScreen != null && gauntletLayer != null)
                 {
                     gauntletLayerTopScreen.RemoveLayer(gauntletLayer);
@@ -49,6 +50,7 @@ namespace CharacterCreation.UI
                 }
                 return;
             }
+
             GauntletMapEncyclopediaView? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletMapEncyclopediaView;
             if (gauntletEncyclopediaScreenManager == null)
             {
@@ -57,17 +59,14 @@ namespace CharacterCreation.UI
 
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
-            selectedHeroPage = encyclopediaPageVM as EncyclopediaHeroPageVM;
 
-            if (selectedHeroPage == null)
-            {
-                return;
-            }
-            selectedHero = selectedHeroPage.Obj as Hero;
-            if (selectedHero == null)
-            {
-                return;
-            }
+            if (encyclopediaPageVM is EncyclopediaUnitPageVM unitPage)
+                selectedUnit = unitPage.Obj as CharacterObject;
+            else if (encyclopediaPageVM is EncyclopediaHeroPageVM heroPage && heroPage.Obj is Hero hero)
+                selectedUnit = hero.CharacterObject;
+            else return;
+            selectedUnitPage = encyclopediaPageVM;
+
             gauntletLayer ??= new GauntletLayer(311);
 
             try
@@ -79,15 +78,16 @@ namespace CharacterCreation.UI
                 //ConstructorInfo constructor = HeroBuilderVMType.GetConstructor(new[] { typeof(Action<Hero>) });
                 //viewModel = constructor?.Invoke(new[] {(Action<Hero>) Callback}) as ViewModel;
                 //if (viewModel == default) return;
-                if (viewModel == null)
-                {
-                    viewModel = new HeroBuilderVM(hero => InformationManager.DisplayMessage(new InformationMessage(SubModule.EditAppearanceForHeroMessage.ToString() + hero)));
-                }
+                //if (viewModel == null)
+                //{
+                //    viewModel = new HeroBuilderVM();
+                //}
+                viewModel = new UnitBuilderVM(selectedUnit, selectedUnitPage);
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] viewModel is of type {viewModel.GetType().FullName}");
 
                 //AccessTools.Method(HeroBuilderVMType, "SetHero").Invoke(viewModel, new[] { selectedHero });
-                viewModel.SetHero(selectedHero);
+                //viewModel.SetHero(selectedHero);
 
                 //// BEGIN compatibility code block
                 //if (viewModel.GetType() == typeof(HeroBuilderVM))

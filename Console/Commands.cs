@@ -37,7 +37,7 @@ namespace CharacterCreation
             {
                 return EnterAgeMsg.ToString();
             }
-            HeroEditorFunctions.ResetBirthDayForAge(hero.CharacterObject, num, true);
+            UnitEditorFunctions.ResetBirthDayForAge(hero.CharacterObject, num, true);
             return SuccessMsg.ToString();
         }
 
@@ -53,7 +53,7 @@ namespace CharacterCreation
             {
                 return EnterAgeMsg.ToString();
             }
-            HeroEditorFunctions.ResetBirthDayForAge(Hero.MainHero.CharacterObject, num, true);
+            UnitEditorFunctions.ResetBirthDayForAge(Hero.MainHero.CharacterObject, num, true);
             return SuccessMsg.ToString();
         }
 

@@ -12,22 +12,12 @@ using CharacterCreation.Util;
 
 namespace CharacterCreation.Models
 {
-    public partial class HeroBuilderVM : ViewModel
+    public partial class UnitBuilderVM : ViewModel
     {
-
-        public void SetHero(Hero hero)
+        public UnitBuilderVM(CharacterObject unit, EncyclopediaPageVM page)
         {
-            selectedHero = hero;
-        }
-
-        public HeroBuilderVM()
-        {
-
-        }
-
-        public HeroBuilderVM(Action<Hero> editCallback)
-        {
-            this.editCallback = editCallback;
+            selectedUnit = unit;
+            selectedUnitPage = page;
         }
 
         //public HeroBuilderVM(HeroBuilderModel heroModel, Action<Hero> editCallback)
@@ -43,7 +33,7 @@ namespace CharacterCreation.Models
 
         public void ExecuteEdit()
         {
-            HeroEditorFunctions.EditHero(selectedHero, ClosePage, nameCallback);
+            UnitEditorFunctions.EditUnit(selectedUnit, RefreshPage);
 
             //if (selectedHero == null)
             //    return;
@@ -58,7 +48,7 @@ namespace CharacterCreation.Models
 
         public void ExecuteName()
         {
-            HeroEditorFunctions.RenameHero(selectedHero, ClosePage, nameCallback);
+            UnitEditorFunctions.RenameUnit(selectedUnit, ClosePage);
 
             //if (selectedHero == null)
             //    return;
@@ -117,25 +107,13 @@ namespace CharacterCreation.Models
 
             EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
-
-            selectedHeroPage = encyclopediaPageVM as EncyclopediaHeroPageVM;
-
-            selectedHeroPage?.Refresh();
+            encyclopediaPageVM?.Refresh();
         }
 
         public void ClosePage()
         {
             if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletMapEncyclopediaView gauntletEncyclopediaScreenManager))
                 return;
-
-            EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
-            EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
-
-            this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
-
-            if (this.selectedHeroPage == null)
-                return;
-
             gauntletEncyclopediaScreenManager.CloseEncyclopedia();
         }
 
@@ -149,14 +127,10 @@ namespace CharacterCreation.Models
         //    //ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         //    ScreenManager.PushScreen(new MBFaceGeneratorGauntletScreen(hero.CharacterObject, false, null));
         //}
-        
+
         //Game.Current.PlayerTroop -- ingore me
         //private HeroBuilderModel? heroModel;
-        private Hero? selectedHero;
-        private EncyclopediaHeroPageVM? selectedHeroPage;
-
-        public Action<Hero>? editCallback;
-
-        public Action<Hero>? nameCallback;
+        private CharacterObject selectedUnit;
+        private EncyclopediaPageVM selectedUnitPage;
     }
 }

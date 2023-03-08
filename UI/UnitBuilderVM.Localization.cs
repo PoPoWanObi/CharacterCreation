@@ -2,7 +2,7 @@
 
 namespace CharacterCreation.Models
 {
-    public partial class HeroBuilderVM
+    public partial class UnitBuilderVM
     {
         internal static readonly TextObject
             ChangingNameForText = new TextObject("{=CharacterCreation_ChangingNameForText}Changing name for: "),
