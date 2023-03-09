@@ -5,6 +5,7 @@ using TaleWorlds.Localization;
 using System.Reflection;
 using TaleWorlds.Library;
 using CharacterCreation.Util;
+using System;
 
 namespace CharacterCreation.Patches
 {
@@ -12,6 +13,8 @@ namespace CharacterCreation.Patches
     static class CharacterObjectPatch
     {
         private static readonly TextObject HeroUpdatedMsg = new TextObject("{=CharacterCreation_HeroUpdatedMsg}Hero updated: ");
+
+        private static readonly MethodInfo BaseMethod = AccessTools.Method(typeof(BasicCharacterObject), nameof(BasicCharacterObject.UpdatePlayerCharacterBodyProperties));
 
         private static void Postfix(CharacterObject __instance, BodyProperties properties, int race, bool isFemale)
         {
@@ -26,6 +29,11 @@ namespace CharacterCreation.Patches
                 __instance.Race = race;
                 __instance.HeroObject.UpdatePlayerGender(isFemale);
                 CampaignEventDispatcher.Instance.OnPlayerBodyPropertiesChanged();
+            }
+            else
+            {
+                var func = AccessTools.MethodDelegate<Action<BodyProperties, int, bool>>(BaseMethod, __instance, false);
+                func(properties, race, isFemale);
             }
 
             if (__instance.IsHero && __instance.HeroObject.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)
