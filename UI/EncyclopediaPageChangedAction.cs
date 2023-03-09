@@ -61,9 +61,10 @@ namespace CharacterCreation.UI
             EncyclopediaData? encyclopediaData = GauntletMapEncyclopediaViewData.GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = EncyclopediaDataDatasource.GetValue(encyclopediaData) as EncyclopediaPageVM;
 
-            if (encyclopediaPageVM is EncyclopediaUnitPageVM unitPage)
-                selectedUnit = unitPage.Obj as CharacterObject;
-            else if (encyclopediaPageVM is EncyclopediaHeroPageVM heroPage && heroPage.Obj is Hero hero)
+            //if (encyclopediaPageVM is EncyclopediaUnitPageVM unitPage)
+            //    selectedUnit = unitPage.Obj as CharacterObject;
+            //else
+            if (encyclopediaPageVM is EncyclopediaHeroPageVM heroPage && heroPage.Obj is Hero hero)
                 selectedUnit = hero.CharacterObject;
             else return;
             selectedUnitPage = encyclopediaPageVM;
