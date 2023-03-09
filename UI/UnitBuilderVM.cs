@@ -20,9 +20,9 @@ namespace CharacterCreation.Models
             selectedUnitPage = page;
         }
 
-        public void ExecuteEdit() => UnitEditorFunctions.EditUnit(selectedUnit, RefreshPage);
+        public void ExecuteEdit() => UnitEditorFunctions.EditUnit(selectedUnit, ClosePage);
 
-        public void ExecuteName() => UnitEditorFunctions.RenameUnit(selectedUnit, ClosePage);
+        public void ExecuteName() => UnitEditorFunctions.RenameUnit(selectedUnit, RefreshPage);
 
         public void RefreshPage()
         {
