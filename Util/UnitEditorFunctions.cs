@@ -1,4 +1,5 @@
 ﻿using CharacterCreation.Models;
+using CharacterCreation.Patches;
 using HarmonyLib;
 using Helpers;
 using System;
@@ -21,13 +22,18 @@ namespace CharacterCreation.Util
         private static readonly MethodInfo BasicCharacterObjectSetNameMethod
             = AccessTools.Method(typeof(BasicCharacterObject), "SetName");
 
+        private static readonly TextObject
+            NativeYes = new TextObject("{=aeouhelq}Yes"),
+            NativeNo = new TextObject("{=8OkPHu4f}No"),
+            NativeCancel = new TextObject("{=3CpNUnVl}Cancel");
+
         public static void RenameUnit(CharacterObject unit, Action postAction)
         {
             if (DCCSettingsUtil.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.ChangingNameForText.ToString() + unit.Name));
 
             InformationManager.ShowTextInquiry(new TextInquiryData(UnitBuilderVM.CharacterRenamerText.ToString(), UnitBuilderVM.EnterNewNameText.ToString(),
-                true, true, UnitBuilderVM.RenameText.ToString(), UnitBuilderVM.CancelText.ToString(), x => RenameUnit(x, unit, postAction),
+                true, true, UnitBuilderVM.RenameText.ToString(), NativeCancel.ToString(), x => RenameUnit(x, unit, postAction),
                 InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName), true);
         }
 
@@ -48,6 +54,38 @@ namespace CharacterCreation.Util
         }
 
         public static void EditUnit(CharacterObject unit, Action postAction)
+        {
+            if (unit.IsHero) EditUnitCallback(unit, postAction);
+            else
+            {
+                InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.EditBodyText.ToString(), UnitBuilderVM.EditMinBodyText.ToString(), true, true,
+                    NativeYes.ToString(), NativeNo.ToString(), () => EditUnitMinCallback(unit, postAction, true), () => EditUnitMinCallback(unit, postAction)), true);
+            }
+        }
+
+        private static void EditUnitMinCallback(CharacterObject unit, Action postAction, bool editMin = false)
+        {
+            if (editMin)
+            {
+                CharacterObjectPatch.ModLevel = CharacterObjectPatch.BodyPropertyModification.Minimum;
+                CharacterObjectPatch.BaseProperties = unit.GetBodyPropertiesMax();
+                EditUnitCallback(unit, postAction);
+            }
+            else
+            {
+                InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.EditBodyText.ToString(), UnitBuilderVM.EditMaxBodyText.ToString(), true, true,
+                    NativeYes.ToString(), NativeNo.ToString(), () => EditUnitMaxCallback(unit, postAction), InformationManager.HideInquiry), true);
+            }
+        }
+
+        private static void EditUnitMaxCallback(CharacterObject unit, Action postAction)
+        {
+            CharacterObjectPatch.ModLevel = CharacterObjectPatch.BodyPropertyModification.Maximum;
+            CharacterObjectPatch.BaseProperties = unit.GetBodyPropertiesMin();
+            EditUnitCallback(unit, postAction);
+        }
+
+        private static void EditUnitCallback(CharacterObject unit, Action postAction)
         {
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;

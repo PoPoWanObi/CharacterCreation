@@ -52,7 +52,7 @@
     <string id="CharacterCreation_ErrorLoadingDccMessage" text="Error initializing Detailed Character Creation:"/>
     <string id="CharacterCreation_ExpectedActualAgeMessage" text="[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}"/>
 
-    <!-- HeroBuilderVM entries -->
+    <!-- UnitBuilderVM entries -->
     <string id="CharacterCreation_ChangingNameForText" text="Changing name for: "/>
     <string id="CharacterCreation_InvalidCharacterText" text="Character is not valid."/>
     <string id="CharacterCreation_InvalidNameText" text="Name is not valid."/>
@@ -61,6 +61,9 @@
     <string id="CharacterCreation_RenameText" text="Rename"/>
     <string id="CharacterCreation_CancelText" text="Cancel"/>
     <string id="CharacterCreation_CannotRenamePlayerText" text="Cannot rename player hero until further notice."/>
+    <string id="CharacterCreation_EditBodyText" text="Edit Body"/>
+    <string id="CharacterCreation_EditMinBodyText" text="Edit minimum body properties?\nIf not, you will be asked about maximum body properties."/>
+    <string id="CharacterCreation_EditMaxBodyText" text="Edit maximum body properties?"/>
 
     <!-- CharacterObjectPatch entry -->
     <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>
@@ -92,8 +95,6 @@
     <string id="CharacterCreation_DebugSetAppearanceMsg" text="[Debug] Set appearance for: "/>
     <string id="CharacterCreation_DebugResultMsg" text="[Debug] Result: "/>
     <string id="CharacterCreation_WarningTitle" text="WARNING"/>
-    <string id="CharacterCreation_WarningYes" text="Yes"/>
-    <string id="CharacterCreation_WarningNo" text="No"/>
     <string id="CharacterCreation_WarningAck" text="Acknowledged"/>
     <string id="CharacterCreation_WarningText" text="Disable Life and Death Cycle is currently set to {LDC}, but Disable Auto Aging is set to {DAA}. Are you sure you want to change the campaign settings? If selecting 'no', changes to the life and death cycle will not take effect until you load or start a campaign."/>
     <string id="CharacterCreation_WarningOverrideText" text="Override Age is currently set to {OA}. Are you sure you want your hero to be unaffected by aging? Your choice here will affect your current game, until you load or start a campaign."/>
