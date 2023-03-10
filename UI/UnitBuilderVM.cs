@@ -10,7 +10,7 @@ using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 using SandBox.GauntletUI.Encyclopedia;
 using CharacterCreation.Util;
 
-namespace CharacterCreation.Models
+namespace CharacterCreation.UI
 {
     public partial class UnitBuilderVM : ViewModel
     {

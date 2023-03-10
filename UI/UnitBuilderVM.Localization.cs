@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TaleWorlds.Localization;
 
-namespace CharacterCreation.Models
+namespace CharacterCreation.UI
 {
     public partial class UnitBuilderVM
     {

@@ -1,4 +1,4 @@
-﻿using CharacterCreation.Models;
+﻿using CharacterCreation.UI;
 using CharacterCreation.Patches;
 using HarmonyLib;
 using Helpers;
@@ -54,38 +54,6 @@ namespace CharacterCreation.Util
         }
 
         public static void EditUnit(CharacterObject unit, Action postAction)
-        {
-            if (unit.IsHero) EditUnitCallback(unit, postAction);
-            else
-            {
-                InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.EditBodyText.ToString(), UnitBuilderVM.EditMinBodyText.ToString(), true, true,
-                    NativeYes.ToString(), NativeNo.ToString(), () => EditUnitMinCallback(unit, postAction, true), () => EditUnitMinCallback(unit, postAction)), true);
-            }
-        }
-
-        private static void EditUnitMinCallback(CharacterObject unit, Action postAction, bool editMin = false)
-        {
-            if (editMin)
-            {
-                CharacterObjectPatch.ModLevel = CharacterObjectPatch.BodyPropertyModification.Minimum;
-                CharacterObjectPatch.BaseProperties = unit.GetBodyPropertiesMax();
-                EditUnitCallback(unit, postAction);
-            }
-            else
-            {
-                InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.EditBodyText.ToString(), UnitBuilderVM.EditMaxBodyText.ToString(), true, true,
-                    NativeYes.ToString(), NativeNo.ToString(), () => EditUnitMaxCallback(unit, postAction), InformationManager.HideInquiry), true);
-            }
-        }
-
-        private static void EditUnitMaxCallback(CharacterObject unit, Action postAction)
-        {
-            CharacterObjectPatch.ModLevel = CharacterObjectPatch.BodyPropertyModification.Maximum;
-            CharacterObjectPatch.BaseProperties = unit.GetBodyPropertiesMin();
-            EditUnitCallback(unit, postAction);
-        }
-
-        private static void EditUnitCallback(CharacterObject unit, Action postAction)
         {
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;

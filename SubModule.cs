@@ -11,6 +11,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
+using CharacterCreation.CampaignSystem;
 
 namespace CharacterCreation
 {
@@ -86,9 +87,11 @@ namespace CharacterCreation
         {
             base.OnGameStart(game, gameStarterObject);
 
-            if (!(game.GameType is Campaign) || !(gameStarterObject is CampaignGameStarter))
+            if (!(game.GameType is Campaign) || !(gameStarterObject is CampaignGameStarter gameStarter))
                 return;
-            CampaignGameStarter gameStarter = (CampaignGameStarter)gameStarterObject;
+
+            // add behaviors
+            gameStarter.AddBehavior(new CharacterCreationCampaignBehavior());
 
             // add game models
             if (DCCSettingsUtil.Instance.CustomAgeModel)
