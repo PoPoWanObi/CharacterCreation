@@ -35,7 +35,12 @@ namespace CharacterCreation.CampaignSystem
             Parallel.ForEach(bodyPropertiesOverride, kv =>
             {
                 var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitID);
-                charObj?.BodyPropertyRange.Init(kv.Value.BodyProperties, kv.Value.BodyProperties);
+                if (charObj != default)
+                {
+                    charObj.BodyPropertyRange.Init(kv.Value.BodyProperties, kv.Value.BodyProperties);
+                    charObj.Race = kv.Value.Race;
+                    charObj.IsFemale = kv.Value.IsFemale;
+                }
             });
         }
 
@@ -44,9 +49,9 @@ namespace CharacterCreation.CampaignSystem
             dataStore.SyncData("dcc_properties", ref bodyPropertiesOverride);
         }
 
-        public void SetBodyPropertiesOverride(CharacterObject unit, BodyProperties bodyProperties)
+        public void SetBodyPropertiesOverride(CharacterObject unit, BodyProperties bodyProperties, int race, bool isFemale)
         {
-            bodyPropertiesOverride[unit.StringId] = new UnitBodyPropertiesOverride(unit.StringId, bodyProperties);
+            bodyPropertiesOverride[unit.StringId] = new UnitBodyPropertiesOverride(unit.StringId, bodyProperties, race, isFemale);
         }
     }
 }

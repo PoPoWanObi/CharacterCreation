@@ -17,13 +17,6 @@ namespace CharacterCreation.CampaignSystem
             AddClassDefinition(typeof(UnitBodyPropertiesOverride), 1);
         }
 
-        protected override void DefineStructTypes()
-        {
-            AddStructDefinition(typeof(StaticBodyProperties), 2);
-            AddStructDefinition(typeof(DynamicBodyProperties), 3);
-            AddStructDefinition(typeof(BodyProperties), 4);
-        }
-
         protected override void DefineContainerDefinitions()
         {
             ConstructContainerDefinition(typeof(Dictionary<string, UnitBodyPropertiesOverride>));
