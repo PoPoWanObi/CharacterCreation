@@ -1,8 +1,9 @@
-﻿using TaleWorlds.Localization;
+﻿using System.Collections.Generic;
+using TaleWorlds.Localization;
 
-namespace CharacterCreation.Models
+namespace CharacterCreation.UI
 {
-    public partial class HeroBuilderVM
+    public partial class UnitBuilderVM
     {
         internal static readonly TextObject
             ChangingNameForText = new TextObject("{=CharacterCreation_ChangingNameForText}Changing name for: "),
@@ -11,7 +12,9 @@ namespace CharacterCreation.Models
             CharacterRenamerText = new TextObject("{=CharacterCreation_CharacterRenamerText}Character Renamer"),
             EnterNewNameText = new TextObject("{=CharacterCreation_EnterNewNameText}Enter a new name"),
             RenameText = new TextObject("{=CharacterCreation_RenameText}Rename"),
-            CancelText = new TextObject("{=CharacterCreation_CancelText}Cancel"),
-            CannotRenamePlayerText = new TextObject("{=CharacterCreation_CannotRenamePlayerText}Cannot rename player hero until further notice.");
+            CannotRenamePlayerText = new TextObject("{=CharacterCreation_CannotRenamePlayerText}Cannot rename player hero until further notice."),
+            EditBodyText = new TextObject("{=CharacterCreation_EditBodyText}Edit Body"),
+            EditMinBodyText = new TextObject("{=CharacterCreation_EditMinBodyText}Edit minimum body properties?\nIf not, you will be asked about maximum body properties."),
+            EditMaxBodyText = new TextObject("{=CharacterCreation_EditMaxBodyText}Edit maximum body properties?");
     }
 }

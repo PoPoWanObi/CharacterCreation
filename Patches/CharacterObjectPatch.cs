@@ -5,6 +5,8 @@ using TaleWorlds.Localization;
 using System.Reflection;
 using TaleWorlds.Library;
 using CharacterCreation.Util;
+using System;
+using CharacterCreation.CampaignSystem;
 
 namespace CharacterCreation.Patches
 {
@@ -26,6 +28,13 @@ namespace CharacterCreation.Patches
                 __instance.Race = race;
                 __instance.HeroObject.UpdatePlayerGender(isFemale);
                 CampaignEventDispatcher.Instance.OnPlayerBodyPropertiesChanged();
+            }
+            else
+            {
+                CharacterCreationCampaignBehavior.Instance?.SetBodyPropertiesOverride(__instance, properties, race, isFemale);
+                __instance.BodyPropertyRange.Init(properties, properties);
+                __instance.Race = race;
+                __instance.IsFemale = isFemale;
             }
 
             if (__instance.IsHero && __instance.HeroObject.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)

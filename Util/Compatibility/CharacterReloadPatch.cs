@@ -130,7 +130,7 @@ namespace CharacterCreation.Util
                 Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             MethodInfo ClosePageInfo = AccessTools.Method(__instance.GetType(), "ClosePage");
-            HeroEditorFunctions.EditHero(___selectedHero, AccessTools.MethodDelegate<Action>(ClosePageInfo, __instance), ___editCallback);
+            UnitEditorFunctions.EditUnit(___selectedHero.CharacterObject, AccessTools.MethodDelegate<Action>(ClosePageInfo, __instance));
             return false;
         }
 
@@ -140,7 +140,7 @@ namespace CharacterCreation.Util
                 Debug.Print($"[CharacterCreation] Call intercepted and redirected.\n{new System.Diagnostics.StackTrace().GetFrame(1)}");
 
             MethodInfo ClosePageInfo = AccessTools.Method(__instance.GetType(), "ClosePage");
-            HeroEditorFunctions.RenameHero(___selectedHero, AccessTools.MethodDelegate<Action>(ClosePageInfo, __instance), ___nameCallback);
+            UnitEditorFunctions.RenameUnit(___selectedHero.CharacterObject, AccessTools.MethodDelegate<Action>(ClosePageInfo, __instance));
             return false;
         }
     }

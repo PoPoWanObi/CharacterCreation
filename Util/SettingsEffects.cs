@@ -50,7 +50,7 @@ namespace CharacterCreation.Util
                 foreach (var hero in heroList)
                 {
                     var age = hero.Age;
-                    HeroEditorFunctions.ResetBirthDayForAge(hero.CharacterObject, age);
+                    UnitEditorFunctions.ResetBirthDayForAge(hero.CharacterObject, age);
                 }
                 CampaignOptions.IsLifeDeathCycleDisabled = false;
             }
@@ -88,7 +88,7 @@ namespace CharacterCreation.Util
                     {
                         CampaignOptions.IsLifeDeathCycleDisabled = true; // disable life cycle to get default age
                         var age = player.Age;
-                        HeroEditorFunctions.ResetBirthDayForAge(player.CharacterObject, age);
+                        UnitEditorFunctions.ResetBirthDayForAge(player.CharacterObject, age);
                         CampaignOptions.IsLifeDeathCycleDisabled = false; // reenable to get 'true' age
                     }
                 }

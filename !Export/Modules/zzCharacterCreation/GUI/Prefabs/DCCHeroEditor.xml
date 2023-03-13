@@ -8,7 +8,7 @@
       <Children>
         <ListPanel DoNotAcceptEvents="true" WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="75" HorizontalAlignment="Center" VerticalAlignment="Top" MarginTop="120" MarginBottom="10">
           <Children>
-			<TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" VerticalAlignment="Center" Brush="Popup.Button.Text" Text="DCC Options: " />
+            <TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" VerticalAlignment="Center" Brush="Popup.Button.Text" Text="DCC Options: " />
             <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteEdit" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="true">
               <Children>
                 <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="Edit Appearance" />

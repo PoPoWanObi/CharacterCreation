@@ -14,7 +14,7 @@ namespace CharacterCreation.Patches
             if (DCCSettingsUtil.Instance.PatchAgeNotUpdatingOnCharEdit && __instance.Character is CharacterObject characterObject)
             {
                 float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
-                HeroEditorFunctions.ResetBirthDayForAge(characterObject, bodyAge);
+                UnitEditorFunctions.ResetBirthDayForAge(characterObject, bodyAge);
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
             }
