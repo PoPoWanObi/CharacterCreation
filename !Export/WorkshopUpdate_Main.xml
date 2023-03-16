@@ -6,9 +6,8 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Updated for v1.1.0
-		Fixed refresh possibly breaking information display on encyclopedia pages after adding buttons.
-		Refactored code." />
+		<ChangeNotes Value="Added troop naming and editing. Overrides will be saved to save file and loaded on save load.
+Note: Save file should still be able to load without needing this mod, mod data just won't be loaded without DCC." />
 		<!-- Insert patch notes -->
 		<Tags> 
 			<!-- You can use the following tags: -->
