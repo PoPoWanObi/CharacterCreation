@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using CharacterCreation;
 using CharacterCreation.Models;
+using CharacterCreation.Util;
 using HarmonyLib;
 using SandBox.GauntletUI.Encyclopedia;
 using SandBox.View.Map;
@@ -20,9 +21,6 @@ namespace CharacterCreation.UI
 {
     public class EncyclopediaPageChangedAction
     {
-        private static readonly FieldInfo GauntletMapEncyclopediaViewData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData");
-        private static readonly FieldInfo EncyclopediaDataDatasource = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource");
-
         private UnitBuilderVM? viewModel;
         private EncyclopediaPageVM? selectedUnitPage;
         private CharacterObject? selectedUnit;
@@ -58,8 +56,8 @@ namespace CharacterCreation.UI
             GauntletMapEncyclopediaView? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletMapEncyclopediaView;
             if (gauntletEncyclopediaScreenManager == null) return;
 
-            EncyclopediaData? encyclopediaData = GauntletMapEncyclopediaViewData.GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
-            EncyclopediaPageVM? encyclopediaPageVM = EncyclopediaDataDatasource.GetValue(encyclopediaData) as EncyclopediaPageVM;
+            EncyclopediaData? encyclopediaData = QuickReflectionAccess.GauntletMapEncyclopediaViewData.GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            EncyclopediaPageVM? encyclopediaPageVM = QuickReflectionAccess.EncyclopediaDataDatasource.GetValue(encyclopediaData) as EncyclopediaPageVM;
 
             if (encyclopediaPageVM is EncyclopediaUnitPageVM unitPage)
                 selectedUnit = unitPage.Obj as CharacterObject;

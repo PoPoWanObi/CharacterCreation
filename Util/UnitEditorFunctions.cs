@@ -14,14 +14,12 @@ using TaleWorlds.MountAndBlade.GauntletUI;
 using TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator;
 using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.ScreenSystem;
+using CharacterCreation.CampaignSystem;
 
 namespace CharacterCreation.Util
 {
     public static class UnitEditorFunctions
     {
-        private static readonly MethodInfo BasicCharacterObjectSetNameMethod
-            = AccessTools.Method(typeof(BasicCharacterObject), "SetName");
-
         private static readonly TextObject
             NativeYes = new TextObject("{=aeouhelq}Yes"),
             NativeNo = new TextObject("{=8OkPHu4f}No"),
@@ -44,8 +42,8 @@ namespace CharacterCreation.Util
                 if (selectedUnit.IsHero) selectedUnit.HeroObject.SetName(new TextObject(unitName), new TextObject(unitName));
                 else
                 {
-                    var func = AccessTools.MethodDelegate<Action<TextObject>>(BasicCharacterObjectSetNameMethod, selectedUnit);
-                    func(new TextObject(unitName));
+                    selectedUnit.UpdateName(new TextObject(unitName));
+                    CharacterCreationCampaignBehavior.Instance?.SetUnitNameOverride(selectedUnit, unitName);
                 }
             }
             else InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.InvalidNameText.ToString(), ColorManager.Red));

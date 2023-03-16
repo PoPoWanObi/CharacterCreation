@@ -14,7 +14,7 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Version>1.5.0.25</Version>
+    <Version>1.5.0.48</Version>
     <Copyright>Copyright © PoPoWanObi 2020</Copyright>
     <Authors>PoPoWanObi</Authors>
     <NeutralLanguage>en</NeutralLanguage>
@@ -92,7 +92,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.MCM" Version="5.0.4" />
+    <PackageReference Include="Bannerlord.MCM" Version="5.5.5" />
     <PackageReference Include="Lib.Harmony" Version="2.2.2" />
   </ItemGroup>
 

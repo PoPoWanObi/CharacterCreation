@@ -20,6 +20,7 @@ namespace CharacterCreation.CampaignSystem
         protected override void DefineContainerDefinitions()
         {
             ConstructContainerDefinition(typeof(Dictionary<string, UnitBodyPropertiesOverride>));
+            ConstructContainerDefinition(typeof(Dictionary<string, TroopNameOverride>));
         }
     }
 }

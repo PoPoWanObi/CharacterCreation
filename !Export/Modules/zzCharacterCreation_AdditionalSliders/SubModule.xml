@@ -10,7 +10,7 @@
         <DependedModule Id="Sandbox" />
         <DependedModule Id="CustomBattle" />
         <DependedModule Id="StoryMode" />
-        <DependedModule Id="zzCharacterCreation" />
+        <!--<DependedModule Id="zzCharacterCreation" />-->
     </DependedModules>
     <Xmls>
         <XmlNode>
