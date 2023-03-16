@@ -15,6 +15,7 @@ namespace CharacterCreation.CampaignSystem
         protected override void DefineClassTypes()
         {
             AddClassDefinition(typeof(UnitBodyPropertiesOverride), 1);
+            AddClassDefinition(typeof(TroopNameOverride), 2);
         }
 
         protected override void DefineContainerDefinitions()
