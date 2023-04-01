@@ -14,7 +14,7 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Version>1.5.0.48</Version>
+    <Version>1.5.0.50</Version>
     <Copyright>Copyright © PoPoWanObi 2020</Copyright>
     <Authors>PoPoWanObi</Authors>
     <NeutralLanguage>en</NeutralLanguage>
@@ -97,7 +97,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd &quot;$(ProjectDir)!Export\Modules\&quot;&#xD;&#xA;xcopy * &quot;$(GameFolder)\Modules\&quot; /s /y" />
+    <Exec Command="cd &quot;$(ProjectDir)!Export\Modules\zzCharacterCreation\bin&quot;&#xD;&#xA;xcopy &quot;Win64_Shipping_Client\&quot; &quot;Gaming.Desktop.x64_Shipping_Client\&quot; /s /y&#xD;&#xA;cd &quot;$(ProjectDir)!Export\Modules\&quot;&#xD;&#xA;xcopy * &quot;$(GameFolder)\Modules\&quot; /s /y" />
   </Target>
 
 </Project>
