@@ -8,7 +8,11 @@
 		<!-- A direct path of your module -->	
 		<ChangeNotes Value="Version 1.5.0.50
 [list]
-[*]Added troop naming and editing. Overrides will be saved to save file and loaded on save load.
+[*]Enabled unit editing and renaming.
+[*]Editing and naming data are saved to save files and are loaded on save load to ensure the changes take effect.
+[*]Save files are still loadable without DCC.
+[*]Removed dependency on main mod from Additional Sliders.
+[*]Added compilation toward Xbox/Microsoft Store version of Bannerlord.
 [/list]
 Note: Save file should still be able to load without needing this mod, mod data just won't be loaded without DCC." />
 		<!-- Insert patch notes -->
