@@ -4,7 +4,8 @@ using CharacterCreation.UI;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using Bannerlord.BUTR.Shared.Helpers;
+using BUTR.MessageBoxPInvoke.Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
@@ -53,7 +54,7 @@ namespace CharacterCreation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ErrorLoadingDccMessage}\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                MessageBoxDialog.Show($"{ErrorLoadingDccMessage}\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
 
             InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));

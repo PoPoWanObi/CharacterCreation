@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platform>x64</Platform>
     <LangVersion>8.0</LangVersion>
     <Nullable>warnings</Nullable>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <!-- Define your GameFolder here to simplify loading plugins and output dirs -->
     <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
+    <GameVersion>v1.1.2</GameVersion>
     <!--<GameFolder>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>-->
     <AssemblyName>CharacterCreation</AssemblyName>
-    <Platforms>AnyCPU;x64</Platforms>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
@@ -18,41 +19,11 @@
     <Copyright>Copyright © PoPoWanObi 2020</Copyright>
     <Authors>PoPoWanObi</Authors>
     <NeutralLanguage>en</NeutralLanguage>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PlatformTarget>x64</PlatformTarget>
-    <DefineConstants>TRACE</DefineConstants>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-    <OutputPath>!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
     <DebugType>embedded</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-    <DefineConstants>TRACE</DefineConstants>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     <OutputPath>!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
-    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <DebugType>embedded</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutputPath>!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>embedded</DebugType>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
+  <ItemGroup Condition="Exists($(GameFolder))">
     <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\System.*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
@@ -82,6 +53,12 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup Condition="!Exists($(GameFolder))">
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Core" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Native" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.SandBox" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.StoryMode" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="!Export\Modules.zip" />
@@ -92,8 +69,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BUTR.MessageBoxPInvoke" Version="1.0.0.1" />
     <PackageReference Include="Bannerlord.MCM" Version="5.5.5" />
-    <PackageReference Include="Lib.Harmony" Version="2.2.2" />
+    <PackageReference Include="Bannerlord.Lib.Harmony" Version="2.2.2" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
