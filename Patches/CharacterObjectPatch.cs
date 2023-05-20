@@ -32,9 +32,6 @@ namespace CharacterCreation.Patches
             else
             {
                 CharacterCreationCampaignBehavior.Instance?.SetBodyPropertiesOverride(__instance, properties, race, isFemale);
-                __instance.BodyPropertyRange.Init(properties, properties);
-                __instance.Race = race;
-                __instance.IsFemale = isFemale;
             }
 
             if (__instance.IsHero && __instance.HeroObject.IsHumanPlayerCharacter && DCCSettingsUtil.Instance.DebugMode)

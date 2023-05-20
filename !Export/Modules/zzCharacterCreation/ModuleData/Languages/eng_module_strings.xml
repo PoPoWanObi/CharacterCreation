@@ -53,17 +53,21 @@
     <string id="CharacterCreation_ExpectedActualAgeMessage" text="[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}"/>
 
     <!-- UnitBuilderVM entries -->
+    <string id="CharacterCreation_DCCOptionsText" text="DCC Options: "/>
+    <string id="CharacterCreation_EditAppearanceText" text="Edit Appearance"/>
+    <string id="CharacterCreation_ChangeNameText" text="Change Name"/>
+    <string id="CharacterCreation_UndoAppearanceText" text="Undo Appearance"/>
+    <string id="CharacterCreation_UndoRenameText" text="Undo Rename"/>
+    
     <string id="CharacterCreation_ChangingNameForText" text="Changing name for: "/>
-    <string id="CharacterCreation_InvalidCharacterText" text="Character is not valid."/>
     <string id="CharacterCreation_InvalidNameText" text="Name is not valid."/>
     <string id="CharacterCreation_CharacterRenamerText" text="Character Renamer"/>
     <string id="CharacterCreation_EnterNewNameText" text="Enter a new name"/>
     <string id="CharacterCreation_RenameText" text="Rename"/>
-    <string id="CharacterCreation_CancelText" text="Cancel"/>
-    <string id="CharacterCreation_CannotRenamePlayerText" text="Cannot rename player hero until further notice."/>
-    <string id="CharacterCreation_EditBodyText" text="Edit Body"/>
-    <string id="CharacterCreation_EditMinBodyText" text="Edit minimum body properties?\nIf not, you will be asked about maximum body properties."/>
-    <string id="CharacterCreation_EditMaxBodyText" text="Edit maximum body properties?"/>
+    <string id="CharacterCreation_CharacterUnrenamerText" text="Undo Troop Rename"/>
+    <string id="CharacterCreation_UnrenameWarningText" text="Do you want to undo the renaming of this troop unit? This will revert their name to what they were at game load."/>
+    <string id="CharacterCreation_CharacterUneditText" text="Undo Troop Edit"/>
+    <string id="CharacterCreation_UneditWarningText" text="Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."/>
 
     <!-- CharacterObjectPatch entry -->
     <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>

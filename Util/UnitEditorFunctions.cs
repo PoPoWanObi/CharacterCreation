@@ -41,14 +41,23 @@ namespace CharacterCreation.Util
             {
                 if (selectedUnit.IsHero) selectedUnit.HeroObject.SetName(new TextObject(unitName), new TextObject(unitName));
                 else
-                {
-                    selectedUnit.UpdateName(new TextObject(unitName));
                     CharacterCreationCampaignBehavior.Instance?.SetUnitNameOverride(selectedUnit, unitName);
-                }
             }
             else InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.InvalidNameText.ToString(), ColorManager.Red));
 
             action();
+        }
+
+        public static void UndoRename(CharacterObject selectedUnit, Action postAction)
+        {
+            if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
+
+            InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.CharacterUnrenamerText.ToString(), UnitBuilderVM.UnrenameWarningText.ToString(),
+                true, true, NativeYes.ToString(), NativeNo.ToString(), () =>
+                {
+                    CharacterCreationCampaignBehavior.Instance?.UndoUnitNameOverride(selectedUnit);
+                    postAction();
+                }, InformationManager.HideInquiry));
         }
 
         public static void EditUnit(CharacterObject unit, Action postAction)
@@ -56,6 +65,18 @@ namespace CharacterCreation.Util
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
             ScreenManager.PushScreen(new GauntletBodyGeneratorScreen(unit, false, null));
+        }
+
+        public static void UndoEdit(CharacterObject selectedUnit, Action postAction)
+        {
+            if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
+
+            InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.CharacterUneditText.ToString(), UnitBuilderVM.UneditWarningText.ToString(),
+                true, true, NativeYes.ToString(), NativeNo.ToString(), () =>
+                {
+                    CharacterCreationCampaignBehavior.Instance?.UndoBodyPropertiesOverride(selectedUnit);
+                    postAction();
+                }, InformationManager.HideInquiry));
         }
 
         public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge, bool randomize = false)

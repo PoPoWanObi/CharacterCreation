@@ -9,6 +9,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 using SandBox.GauntletUI.Encyclopedia;
 using CharacterCreation.Util;
+using CharacterCreation.CampaignSystem;
 
 namespace CharacterCreation.UI
 {
@@ -20,9 +21,48 @@ namespace CharacterCreation.UI
             selectedUnitPage = page;
         }
 
+        [DataSourceProperty]
+        public string DCCOptionsString => DCCOptionsText.ToString();
+
+        [DataSourceProperty]
+        public string EditAppearanceString => EditAppearanceText.ToString();
+
+        [DataSourceProperty]
+        public string ChangeNameString => ChangeNameText.ToString();
+
+        [DataSourceProperty]
+        public string UndoAppearanceString => UndoAppearanceText.ToString();
+
+        [DataSourceProperty]
+        public string UndoRenameString => UndoRenameText.ToString();
+
+        [DataSourceProperty]
+        public bool EnableRevertAppearance
+        {
+            get
+            {
+                return !selectedUnit.IsHero && CharacterCreationCampaignBehavior.Instance != default
+                    && CharacterCreationCampaignBehavior.Instance.HasBodyPropertiesOverride(selectedUnit);
+            }
+        }
+
+        [DataSourceProperty]
+        public bool EnableRevertName
+        {
+            get
+            {
+                return !selectedUnit.IsHero && CharacterCreationCampaignBehavior.Instance != default
+                    && CharacterCreationCampaignBehavior.Instance.HasUnitNameOverride(selectedUnit);
+            }
+        }
+
         public void ExecuteEdit() => UnitEditorFunctions.EditUnit(selectedUnit, ClosePage);
 
-        public void ExecuteName() => UnitEditorFunctions.RenameUnit(selectedUnit, RefreshPage);
+        public void ExecuteName() => UnitEditorFunctions.RenameUnit(selectedUnit, ClosePage);
+
+        public void UndoEdit() => UnitEditorFunctions.UndoEdit(selectedUnit, ClosePage);
+
+        public void UndoRename() => UnitEditorFunctions.UndoRename(selectedUnit, ClosePage);
 
         public void RefreshPage()
         {

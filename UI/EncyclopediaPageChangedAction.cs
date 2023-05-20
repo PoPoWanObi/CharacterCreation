@@ -78,7 +78,8 @@ namespace CharacterCreation.UI
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] viewModel is of type {viewModel.GetType().FullName}");
 
-                gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
+                if (selectedUnit.IsHero) gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
+                else gauntletMovie = gauntletLayer.LoadMovie("DCCTroopEditor", viewModel);
 
                 gauntletLayerTopScreen = ScreenManager.TopScreen;
                 gauntletLayerTopScreen.AddLayer(gauntletLayer);
