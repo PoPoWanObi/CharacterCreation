@@ -7,7 +7,8 @@ using SandBox.GauntletUI.Encyclopedia;
 using SandBox.View.Map;
 using System;
 using System.Reflection;
-using System.Windows.Forms;
+using Bannerlord.BUTR.Shared.Helpers;
+using BUTR.MessageBoxPInvoke.Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
@@ -87,7 +88,7 @@ namespace CharacterCreation.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                MessageBoxDialog.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
         }
     }
