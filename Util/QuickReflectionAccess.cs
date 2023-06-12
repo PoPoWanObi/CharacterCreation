@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.Core;
@@ -22,5 +23,13 @@ namespace CharacterCreation.Util
             var func = AccessTools.MethodDelegate<Action<TextObject>>(BasicCharacterObjectSetNameMethod, charObj);
             func(name);
         }
+    }
+
+    public static class PatchUtility
+    {
+        internal static bool Matches(this CodeInstruction instruction, OpCode opcode) => instruction.opcode == opcode;
+
+        internal static bool Matches<T>(this CodeInstruction instruction, OpCode opcode, T operand)
+            => instruction.Matches(opcode) && instruction.operand is T t && t.Equals(operand);
     }
 }

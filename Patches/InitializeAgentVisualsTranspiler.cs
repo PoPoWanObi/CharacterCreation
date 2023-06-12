@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using CharacterCreation.Util;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,56 +20,34 @@ namespace CharacterCreation.Patches
     [HarmonyPatch(typeof(BasicCharacterTableau), "RefreshCharacterTableau")]
     static class InitializeAgentVisualsTranspiler
     {
-        private static readonly List<string> incompatibleInstances = new List<string>
-        {
-            "d225.fixedbanditspawning"
-        };
-
-        public static bool Prepare(MethodBase original)
-        {
-            if (!DCCSettingsUtil.Instance.PatchSavePreviewGenderBug) return false;
-            if (original == null) return true;
-            var info = Harmony.GetPatchInfo(original);
-            if (info == default || info.Transpilers.Select(x => x.owner).Intersect(incompatibleInstances).IsEmpty())
-            {
-                Debug.Print("[CharacterCreation] Preparing to patch incorrect save preview stuff");
-                return true;
-            }
-            Debug.Print("[CharacterCreation] Patch to fix misgendered character rendering already exists, skipping");
-            return false;
-        }
+        //public static bool Prepare(MethodBase original)
+        //{
+        //    if (!DCCSettingsUtil.Instance.PatchSavePreviewGenderBug) return false;
+        //    if (original == null) return true;
+        //    var info = Harmony.GetPatchInfo(original);
+        //    if (info == default || info.Transpilers.Count == 0)
+        //    {
+        //        Debug.Print("[CharacterCreation] Preparing to patch incorrect save preview stuff");
+        //        return true;
+        //    }
+        //    Debug.Print("[CharacterCreation] Patch to fix misgendered character rendering already exists, skipping");
+        //    return false;
+        //}
 
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            Debug.Print("[CharacterCreation] Attempting to fix save preview misgendering");
-            var code = instructions.ToList();
-
-            // locate call to MBAgentVisuals function and work backwards
-            int i;
-            for (i = 0; i < code.Count; i++)
+            var list = instructions.ToList();
+            for (int i = 0; i < list.Count; i++)
             {
-                if (code[i].opcode == OpCodes.Call && code[i].operand is MethodInfo method
-                    && method == AccessTools.Method(typeof(MBAgentVisuals), nameof(MBAgentVisuals.FillEntityWithBodyMeshesWithoutAgentVisuals)))
-                    break;
-            }
-
-            if (i < code.Count)
-            {
-                for (; i >= 0; i--)
+                yield return list[i];
+                if (list[i].Matches(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_faceDirtAmount"))
+                    && list[i + 1].Matches(OpCodes.Ldloc_S) && list[i + 1].operand is LocalBuilder lb && lb.LocalIndex == 4)
                 {
-                    if (code[i].opcode == OpCodes.Ldloc_S && code[i].operand is LocalBuilder lb && lb.LocalIndex == 4)
-                    {
-                        // replace current instruction
-                        code[i] = new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_isFemale"));
-                        // insert ahead this
-                        code.Insert(i, new CodeInstruction(OpCodes.Ldarg_0)); // instance methods use ldarg_0 as this
-                        Debug.Print("[CharacterCreation] Save preview misgendering fixed");
-                        break;
-                    }
+                    list.RemoveAt(i + 1);
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_isFemale"));
                 }
             }
-
-            return code.AsEnumerable();
         }
     }
 }
