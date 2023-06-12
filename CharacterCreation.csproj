@@ -21,6 +21,23 @@
     <NeutralLanguage>en</NeutralLanguage>
     <DebugType>embedded</DebugType>
     <OutputPath>!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebugType>portable</DebugType>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists($(GameFolder))">
@@ -70,8 +87,7 @@
 
   <ItemGroup>
     <PackageReference Include="BUTR.MessageBoxPInvoke" Version="1.0.0.1" />
-    <PackageReference Include="Bannerlord.MCM" Version="5.5.5" />
-    <PackageReference Include="Bannerlord.Lib.Harmony" Version="2.2.2" />
+    <PackageReference Include="Bannerlord.MCM" Version="5.7.1" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
