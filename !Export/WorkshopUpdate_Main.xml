@@ -6,10 +6,10 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Version 1.5.1.78:
+		<ChangeNotes Value="Version 1.5.3.112:
 [list]
-[*]Updated to Bannerlord v1.1.4.
-[*]Added undo rename and edit functions to troop editing.
+[*]Recompiled for Bannerlord v1.1.5.
+[*]Refactored transpiler for BasicCharacterTableau.RefreshCharacterTableau().
 [/list]" />
 		<!-- Insert patch notes -->
 		<Tags> 
