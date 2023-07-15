@@ -24,12 +24,4 @@ namespace CharacterCreation.Util
             func(name);
         }
     }
-
-    public static class PatchUtility
-    {
-        internal static bool Matches(this CodeInstruction instruction, OpCode opcode) => instruction.opcode == opcode;
-
-        internal static bool Matches<T>(this CodeInstruction instruction, OpCode opcode, T operand)
-            => instruction.Matches(opcode) && instruction.operand is T t && t.Equals(operand);
-    }
 }

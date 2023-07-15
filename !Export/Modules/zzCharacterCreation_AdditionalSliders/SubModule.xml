@@ -1,7 +1,7 @@
 <Module>
     <Name value="Detailed Character Creation - Additional Sliders" />
     <Id value="zzCharacterCreation_AdditionalSliders" />
-    <Version value="v1.4.4.101" />
+    <Version value="v1.5.3.112" />
     <SingleplayerModule value="true" />
     <MultiplayerModule value="false" />
     <DependedModules>

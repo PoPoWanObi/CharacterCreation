@@ -40,8 +40,8 @@ namespace CharacterCreation.Patches
             for (int i = 0; i < list.Count; i++)
             {
                 yield return list[i];
-                if (list[i].Matches(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_faceDirtAmount"))
-                    && list[i + 1].Matches(OpCodes.Ldloc_S) && list[i + 1].operand is LocalBuilder lb && lb.LocalIndex == 4)
+                if (list[i].Is(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_faceDirtAmount"))
+                    && list[i + 1].opcode == OpCodes.Ldloc_S && list[i + 1].operand is LocalBuilder lb && lb.LocalIndex == 4)
                 {
                     list.RemoveAt(i + 1);
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
