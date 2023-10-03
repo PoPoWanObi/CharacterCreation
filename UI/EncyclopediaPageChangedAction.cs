@@ -47,9 +47,10 @@ namespace CharacterCreation.UI
                     if (gauntletMovie != null)
                     {
                         gauntletLayer.ReleaseMovie(gauntletMovie);
+                        gauntletMovie = null;
                     }
                     gauntletLayerTopScreen = null;
-                    gauntletMovie = null;
+                    gauntletLayer = null;
                 }
                 return;
             }
@@ -62,8 +63,7 @@ namespace CharacterCreation.UI
 
             if (encyclopediaPageVM is EncyclopediaUnitPageVM unitPage)
                 selectedUnit = unitPage.Obj as CharacterObject;
-            else
-            if (encyclopediaPageVM is EncyclopediaHeroPageVM heroPage && heroPage.Obj is Hero hero)
+            else if (encyclopediaPageVM is EncyclopediaHeroPageVM heroPage && heroPage.Obj is Hero hero)
                 selectedUnit = hero.CharacterObject;
             else return;
             selectedUnitPage = encyclopediaPageVM;
@@ -81,6 +81,8 @@ namespace CharacterCreation.UI
 
                 if (selectedUnit.IsHero) gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
                 else gauntletMovie = gauntletLayer.LoadMovie("DCCTroopEditor", viewModel);
+                if (DCCSettingsUtil.Instance.DebugMode)
+                    Debug.Print($"[CharacterCreation] Movie loaded: {gauntletMovie.MovieName}");
 
                 gauntletLayerTopScreen = ScreenManager.TopScreen;
                 gauntletLayerTopScreen.AddLayer(gauntletLayer);
@@ -88,7 +90,8 @@ namespace CharacterCreation.UI
             }
             catch (Exception ex)
             {
-                MessageBoxDialog.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                MessageBoxDialog.Show($"Error :\n{ex}");
+                Debug.Print($"[CharacterCreation]{ex}");
             }
         }
     }

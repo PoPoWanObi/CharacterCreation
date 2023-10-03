@@ -19,6 +19,7 @@ namespace CharacterCreation.UI
         {
             selectedUnit = unit;
             selectedUnitPage = page;
+            if (DCCSettingsUtil.Instance.DebugMode) Debug.Print($"[CharacterCreation] {selectedUnit.Name} loaded to unit builder");
         }
 
         [DataSourceProperty]
