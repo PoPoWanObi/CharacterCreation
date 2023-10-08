@@ -21,7 +21,8 @@
 			<!-- Compatible Version: e1.9.0, v1.0.0,... The currently available versions can be found at the Steam Workshop "Browse by Tag" section -->
 			<Tag Value="Utility" />
 			<Tag Value="Singleplayer" />
-			<Tag Value="v1.1.4" />
+			<Tag Value="v1.1.6" />
+			<Tag Value="v1.2.0" />
 		</Tags>
 	</UpdateItem>
 </Tasks>
