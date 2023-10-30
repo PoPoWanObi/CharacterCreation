@@ -15,7 +15,7 @@ namespace CharacterCreation.Util
 
         private const string WarningConflictText = "{=CharacterCreation_WarningConflictText}Override Age is currently set to {OA}, but Disable Life and Death Cycle {LDC} is turned on. This settings will not be applied.";
 
-        public static SettingsEffects Instance { get; private set; }
+        public static SettingsEffects? Instance { get; private set; }
 
         private bool isAgingDisabled;
 
@@ -35,7 +35,7 @@ namespace CharacterCreation.Util
         public void SetAutoAging() => SetAutoAging(default); // this is necessary because no arguments literally means no arguments
 
         // sets the auto-aging depending on game settings
-        public void SetAutoAging(Game game = default, bool tempIgnoreSettings = false)
+        public void SetAutoAging(Game? game = default, bool tempIgnoreSettings = false)
         {
             // this is after code refactoring
             if (DCCPerSaveSettings.SaveInstance == default || tempIgnoreSettings) return;
@@ -64,7 +64,7 @@ namespace CharacterCreation.Util
         public void UpdateAllHeroes() => UpdateAllHeroes(default);
 
         // Updates all heroes (as if they all need updating anyway)
-        public void UpdateAllHeroes(Game game = default, bool tempIgnoreSettings = false)
+        public void UpdateAllHeroes(Game? game = default, bool tempIgnoreSettings = false)
         {
             if (DCCPerSaveSettings.SaveInstance == default || tempIgnoreSettings) return;
             if (game == default) game = Game.Current;

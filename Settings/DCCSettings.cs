@@ -13,7 +13,7 @@ namespace CharacterCreation
 {
     static class DCCSettingsUtil
     {
-        private static IDCCSettings instance;
+        private static IDCCSettings? instance;
 
         public static int ExceptionCount { get; internal set; }
 
@@ -238,7 +238,7 @@ namespace CharacterCreation
 
         [SettingPropertyBool(EnableCharacterReloadCompatibilityName, HintText = EnableCharacterReloadCompatibilityHint, Order = 0, RequireRestart = true)]
         [SettingPropertyGroup(Section3)]
-        public bool EnableCharacterReloadCompatibility { get; set; } = false;
+        public bool EnableCharacterReloadCompatibility { get; set; } = true;
         #endregion
     }
 }

@@ -4,18 +4,15 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platform>x64</Platform>
     <LangVersion>8.0</LangVersion>
-    <Nullable>warnings</Nullable>
+    <Nullable>enable</Nullable>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <!-- Define your GameFolder here to simplify loading plugins and output dirs -->
     <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
-    <GameVersion>v1.1.2</GameVersion>
-    <!--<GameFolder>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>-->
     <AssemblyName>CharacterCreation</AssemblyName>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Version>1.5.4.120</Version>
+    <Version>1.5.5.151</Version>
     <Copyright>Copyright © PoPoWanObi 2023</Copyright>
     <Authors>PoPoWanObi</Authors>
     <NeutralLanguage>en</NeutralLanguage>
@@ -40,43 +37,6 @@
     <DebugType>portable</DebugType>
   </PropertyGroup>
 
-  <ItemGroup Condition="Exists($(GameFolder))">
-    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\System.*.dll">
-      <HintPath>%(Identity)</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.*.dll" Exclude="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Native.dll">
-      <HintPath>%(Identity)</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\Steamworks.*.dll">
-      <HintPath>%(Identity)</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="$(GameFolder)\Modules\Native\bin\Win64_Shipping_Client\*.dll">
-      <HintPath>%(Identity)</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="$(GameFolder)\Modules\SandBox\bin\Win64_Shipping_Client\*.dll">
-      <HintPath>%(Identity)</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="$(GameFolder)\Modules\SandBoxCore\bin\Win64_Shipping_Client\*.dll">
-      <HintPath>%(Identity)</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="$(GameFolder)\Modules\StoryMode\bin\Win64_Shipping_Client\*.dll">
-      <HintPath>%(Identity)</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup Condition="!Exists($(GameFolder))">
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.Core" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.Native" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.SandBox" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.StoryMode" Version="$(GameVersion).*" PrivateAssets="all" IncludeAssets="compile" GeneratePathProperty="true" />
-  </ItemGroup>
-
   <ItemGroup>
     <None Remove="!Export\Modules.zip" />
   </ItemGroup>
@@ -86,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.1.6.26219" />
     <PackageReference Include="BUTR.MessageBoxPInvoke" Version="1.0.0.1" />
     <PackageReference Include="Bannerlord.MCM" Version="5.7.1" />
   </ItemGroup>

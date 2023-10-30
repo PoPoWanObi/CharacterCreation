@@ -25,7 +25,7 @@ namespace CharacterCreation.Util
             NativeNo = new TextObject("{=8OkPHu4f}No"),
             NativeCancel = new TextObject("{=3CpNUnVl}Cancel");
 
-        public static void RenameUnit(CharacterObject unit, Action postAction)
+        public static void RenameUnit(CharacterObject unit, Action? postAction = default)
         {
             if (DCCSettingsUtil.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.ChangingNameForText.ToString() + unit.Name));
@@ -35,7 +35,7 @@ namespace CharacterCreation.Util
                 InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName), true);
         }
 
-        private static void RenameUnit(string unitName, CharacterObject selectedUnit, Action action)
+        private static void RenameUnit(string unitName, CharacterObject selectedUnit, Action? action = default)
         {
             if (!string.IsNullOrEmpty(unitName))
             {
@@ -45,10 +45,10 @@ namespace CharacterCreation.Util
             }
             else InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.InvalidNameText.ToString(), ColorManager.Red));
 
-            action();
+            action?.Invoke();
         }
 
-        public static void UndoRename(CharacterObject selectedUnit, Action postAction)
+        public static void UndoRename(CharacterObject selectedUnit, Action? postAction = default)
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
@@ -56,18 +56,18 @@ namespace CharacterCreation.Util
                 true, true, NativeYes.ToString(), NativeNo.ToString(), () =>
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoUnitNameOverride(selectedUnit);
-                    postAction();
+                    postAction?.Invoke();
                 }, InformationManager.HideInquiry));
         }
 
-        public static void EditUnit(CharacterObject unit, Action postAction)
+        public static void EditUnit(CharacterObject unit, Action? postAction = default)
         {
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
             ScreenManager.PushScreen(new GauntletBodyGeneratorScreen(unit, false, null));
         }
 
-        public static void UndoEdit(CharacterObject selectedUnit, Action postAction)
+        public static void UndoEdit(CharacterObject selectedUnit, Action? postAction = default)
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
@@ -75,7 +75,7 @@ namespace CharacterCreation.Util
                 true, true, NativeYes.ToString(), NativeNo.ToString(), () =>
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoBodyPropertiesOverride(selectedUnit);
-                    postAction();
+                    postAction?.Invoke();
                 }, InformationManager.HideInquiry));
         }
 

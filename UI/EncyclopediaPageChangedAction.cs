@@ -35,28 +35,27 @@ namespace CharacterCreation.UI
         {
             if (Mission.Current != null) return; // do not allow edit if in mission as it could screw things up
 
-            EncyclopediaPages newPage = e.NewPage;
-            if (newPage != EncyclopediaPages.Hero && newPage != EncyclopediaPages.Unit)
+            // release the movie and layer every time something changes
+            selectedUnit = default;
+            selectedUnitPage = default;
+            viewModel = default;
+            if (gauntletLayerTopScreen != default)
             {
-                viewModel = null;
-                selectedUnitPage = null;
-                selectedUnit = null;
-                if (gauntletLayerTopScreen != null && gauntletLayer != null)
+                if (gauntletLayer != default)
                 {
-                    gauntletLayerTopScreen.RemoveLayer(gauntletLayer);
-                    if (gauntletMovie != null)
+                    if (gauntletMovie != default)
                     {
                         gauntletLayer.ReleaseMovie(gauntletMovie);
-                        gauntletMovie = null;
+                        gauntletMovie = default;
                     }
-                    gauntletLayerTopScreen = null;
-                    gauntletLayer = null;
+                    gauntletLayerTopScreen.RemoveLayer(gauntletLayer);
+                    gauntletLayer = default;
                 }
-                return;
+                gauntletLayerTopScreen = default;
             }
 
-            GauntletMapEncyclopediaView? gauntletEncyclopediaScreenManager = MapScreen.Instance.EncyclopediaScreenManager as GauntletMapEncyclopediaView;
-            if (gauntletEncyclopediaScreenManager == null) return;
+            if (e.NewPage != EncyclopediaPages.Hero && e.NewPage != EncyclopediaPages.Unit) return;
+            if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletMapEncyclopediaView gauntletEncyclopediaScreenManager)) return;
 
             EncyclopediaData? encyclopediaData = QuickReflectionAccess.GauntletMapEncyclopediaViewData.GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
             EncyclopediaPageVM? encyclopediaPageVM = QuickReflectionAccess.EncyclopediaDataDatasource.GetValue(encyclopediaData) as EncyclopediaPageVM;
@@ -68,29 +67,27 @@ namespace CharacterCreation.UI
             else return;
             selectedUnitPage = encyclopediaPageVM;
 
-            gauntletLayer ??= new GauntletLayer(311);
-
             try
             {
-                if (gauntletMovie != null)
-                    gauntletLayer.ReleaseMovie(gauntletMovie);
-
                 viewModel = new UnitBuilderVM(selectedUnit, selectedUnitPage);
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] viewModel is of type {viewModel.GetType().FullName}");
 
+                gauntletLayer = new GauntletLayer(311);
                 if (selectedUnit.IsHero) gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
                 else gauntletMovie = gauntletLayer.LoadMovie("DCCTroopEditor", viewModel);
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] Movie loaded: {gauntletMovie.MovieName}");
 
                 gauntletLayerTopScreen = ScreenManager.TopScreen;
+                if (DCCSettingsUtil.Instance.DebugMode)
+                    Debug.Print($"top layer: {gauntletLayerTopScreen.GetType().Name}");
                 gauntletLayerTopScreen.AddLayer(gauntletLayer);
                 gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
             }
             catch (Exception ex)
             {
-                MessageBoxDialog.Show($"Error :\n{ex}");
+                InformationManager.DisplayMessage(new InformationMessage($"Error :\n{ex}"));
                 Debug.Print($"[CharacterCreation]{ex}");
             }
         }

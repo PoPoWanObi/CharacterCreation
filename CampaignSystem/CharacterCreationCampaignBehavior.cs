@@ -14,7 +14,7 @@ namespace CharacterCreation.CampaignSystem
 {
     internal class CharacterCreationCampaignBehavior : CampaignBehaviorBase
     {
-        public static CharacterCreationCampaignBehavior Instance { get; private set; }
+        public static CharacterCreationCampaignBehavior? Instance { get; private set; }
 
         private Dictionary<string, UnitBodyPropertiesOverride> bodyPropertiesOverride;
         private Dictionary<string, TroopNameOverride> troopNameOverride;

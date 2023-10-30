@@ -14,7 +14,7 @@ namespace CharacterCreation
 {
     class DCCPerSaveSettings : AttributePerSaveSettings<DCCPerSaveSettings>
     {
-        public static DCCPerSaveSettings SaveInstance
+        public static DCCPerSaveSettings? SaveInstance
         {
             get
             {

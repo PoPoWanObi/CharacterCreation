@@ -12,7 +12,7 @@ namespace CharacterCreation.Patches
         public static void RefreshValuesPostfix(FaceGenPropertyVM __instance)
         {
             if (!DCCSettingsUtil.Instance.AddFaceGenValues) return;
-            __instance.Name = $"{__instance.Name}\n{__instance.Value}";
+            __instance.Name = $"{__instance.Name} ({__instance.Value:F2})";
         }
 
         [HarmonyPatch(nameof(FaceGenPropertyVM.Value), MethodType.Setter)]

@@ -57,13 +57,13 @@ namespace CharacterCreation.UI
             }
         }
 
-        public void ExecuteEdit() => UnitEditorFunctions.EditUnit(selectedUnit, ClosePage);
+        public void ExecuteEdit() => UnitEditorFunctions.EditUnit(selectedUnit);
 
-        public void ExecuteName() => UnitEditorFunctions.RenameUnit(selectedUnit, ClosePage);
+        public void ExecuteName() => UnitEditorFunctions.RenameUnit(selectedUnit);
 
-        public void UndoEdit() => UnitEditorFunctions.UndoEdit(selectedUnit, ClosePage);
+        public void UndoEdit() => UnitEditorFunctions.UndoEdit(selectedUnit);
 
-        public void UndoRename() => UnitEditorFunctions.UndoRename(selectedUnit, ClosePage);
+        public void UndoRename() => UnitEditorFunctions.UndoRename(selectedUnit);
 
         public void RefreshPage()
         {
