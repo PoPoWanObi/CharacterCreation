@@ -46,9 +46,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.1.6.26219" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.2.7.31207" />
     <PackageReference Include="BUTR.MessageBoxPInvoke" Version="1.0.0.1" />
-    <PackageReference Include="Bannerlord.MCM" Version="5.7.1" />
+    <PackageReference Include="Bannerlord.MCM" Version="5.9.1" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

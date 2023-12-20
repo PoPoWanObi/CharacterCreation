@@ -1,7 +1,7 @@
 ﻿<Module>
     <Name value="Detailed Character Creation" />
     <Id value="zzCharacterCreation" />
-    <Version value="v1.5.5.151" />
+    <Version value="v1.5.5.152" />
     <SingleplayerModule value="true" />
     <MultiplayerModule value="false" />
     <DependedModules>
@@ -10,6 +10,7 @@
         <DependedModule Id="Sandbox" />
         <DependedModule Id="CustomBattle" />
         <DependedModule Id="StoryMode" />
+        <DependedModule Id="Bannerlord.MBOptionScreen" />
     </DependedModules>
     <SubModules>
         <SubModule>

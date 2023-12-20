@@ -6,10 +6,9 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Version 1.5.5.151:
+		<ChangeNotes Value="Version 1.5.5.152:
 [list]
-[*]Fixed a layer reuse causing a crash on Bannerlord v1.2.x beta under certain circumstances.
-[*]Finally updated the compatibility patch with Character Reload.
+[*]Recompiled for v1.2.7, also added MCM as requirement.
 [/list]" />
 		<!-- Insert patch notes -->
 		<Tags> 
