@@ -6,12 +6,7 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Version 1.5.4.120:
-[list]
-[*]Recompiled for Bannerlord v1.1.6 (fix was targeted toward v1.2.0 beta but is backwards compatible).
-[*]Fixed the UI possibly not working due to reuse of a UI layer. (This does not appear to cause a problem in v1.1.6, only in v1.2.0.)
-[*]Refactored transpiler for BasicCharacterTableau.RefreshCharacterTableau().
-[/list]" />
+		<ChangeNotes Value="Bumped compatible version." />
 		<!-- Insert patch notes -->
 		<Tags> 
 			<!-- You can use the following tags: -->
@@ -23,6 +18,7 @@
 			<Tag Value="Singleplayer" />
 			<Tag Value="v1.1.6" />
 			<Tag Value="v1.2.0" />
+			<Tag Value="v1.2.7" />
 		</Tags>
 	</UpdateItem>
 </Tasks>
