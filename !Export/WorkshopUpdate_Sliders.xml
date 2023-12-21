@@ -4,9 +4,10 @@
 		<!-- Can be found in the URL of your workshop item -->
 	</GetItem>
 	<UpdateItem>
-		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
+		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation_AdditionalSliders"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Bumped compatible version." />
+		<ChangeNotes Value="Bumped compatible version.
+Accidentally uploaded the main mod. Sorry." />
 		<!-- Insert patch notes -->
 		<Tags> 
 			<!-- You can use the following tags: -->
