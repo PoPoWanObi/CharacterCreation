@@ -2,12 +2,12 @@
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace CharacterCreation.CampaignSystem
@@ -39,30 +39,46 @@ namespace CharacterCreation.CampaignSystem
 
         public override void RegisterEvents()
         {
-            CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, OnGameStart);
+            CampaignEvents.OnAfterSessionLaunchedEvent.AddNonSerializedListener(this, OnGameStart);
         }
 
         private void OnGameStart(CampaignGameStarter gameStarter)
         {
             Parallel.ForEach(bodyPropertiesOverride, kv =>
             {
-                var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitID);
-                if (charObj != default)
+                try
                 {
-                    troopBaseVersion[charObj.StringId] = 
-                        new UnitBodyPropertiesOverride(charObj.StringId, charObj.GetBodyProperties(charObj.Equipment), charObj.Race, charObj.IsFemale);
-                    charObj.BodyPropertyRange.Init(kv.Value.BodyProperties, kv.Value.BodyProperties);
-                    charObj.Race = kv.Value.Race;
-                    charObj.IsFemale = kv.Value.IsFemale;
+                    var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitID);
+                    if (charObj != default)
+                    {
+                        troopBaseVersion[charObj.StringId ?? kv.Value.UnitID] =
+                            new UnitBodyPropertiesOverride(charObj.StringId, charObj.GetBodyProperties(charObj.Equipment), charObj.Race, charObj.IsFemale);
+                        charObj.BodyPropertyRange.Init(kv.Value.BodyProperties, kv.Value.BodyProperties);
+                        charObj.Race = kv.Value.Race;
+                        charObj.IsFemale = kv.Value.IsFemale;
+                    }
+                }
+                catch (Exception e)
+                {
+                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e.ToString(), new Color(1f, 0f, 0f)));
+                    Debug.Print("[CharacterCreation] " + e.ToString());
                 }
             });
             Parallel.ForEach(troopNameOverride, kv =>
             {
-                var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitId);
-                if (charObj != default)
+                try
                 {
-                    troopBaseName[charObj.StringId] = charObj.Name;
-                    charObj.UpdateName(new TextObject(kv.Value.UnitName));
+                    var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitId);
+                    if (charObj != default)
+                    {
+                        troopBaseName[charObj.StringId ?? kv.Value.UnitId] = charObj.Name;
+                        charObj.UpdateName(new TextObject(kv.Value.UnitName));
+                    }
+                }
+                catch (Exception e)
+                {
+                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e.ToString(), new Color(1f, 0f, 0f)));
+                    Debug.Print("[CharacterCreation] " + e.ToString());
                 }
             });
         }
