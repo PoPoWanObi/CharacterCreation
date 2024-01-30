@@ -6,9 +6,10 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Version 1.5.5.152:
+		<ChangeNotes Value="Version 1.5.6.155:
 [list]
-[*]Recompiled for v1.2.7, also added MCM as requirement.
+[*]Added handling for troop data restore, in case something unexpected happens during troop edit restore.
+[*]Also moved troop edit restore to happen on after session launched.
 [/list]" />
 		<!-- Insert patch notes -->
 		<Tags> 
