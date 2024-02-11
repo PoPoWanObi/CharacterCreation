@@ -6,7 +6,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="man"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="man"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.95" key_max="1.05" />
@@ -147,7 +147,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="woman"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="woman"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.9" key_max="1.2" />
@@ -288,7 +288,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_male"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_2_male"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />
@@ -429,7 +429,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_female"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_2_female"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />
@@ -570,7 +570,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_male"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_male"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />
@@ -711,7 +711,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_female"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_female"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />
@@ -852,7 +852,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_male"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_male"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />
@@ -993,7 +993,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_female"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_female"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />
@@ -1134,7 +1134,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_male"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_male"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />
@@ -1275,7 +1275,7 @@
         <xsl:copy-of select="." />
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_female"]/deform_keys/deform_key[@id="weight"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_female"]/deform_keys/deform_key[@id="weight"]'>
         <deform_key id="TorsoBelly" key_time_point="64" name="Belly Size" group_id="0">
             <bone_scales>
                 <bone_scale bone_type="biped_spine_1" axis="x" key_min="0.8" key_max="1.2" />

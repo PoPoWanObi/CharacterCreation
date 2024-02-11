@@ -6,7 +6,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="woman"]/face_textures'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="woman"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -14,7 +14,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_male"]/voice_types'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_2_male"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -23,7 +23,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_male"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_2_male"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="85">
             <tattoo_material name="tattoo_male_a_mat" tags="capon">
@@ -64,7 +64,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_female"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_2_female"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="85">
             <tattoo_material name="tattoo_female_a_mat" tags="tattoo1">
@@ -108,7 +108,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_female"]/face_textures'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_2_female"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -116,7 +116,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_2_female"]/voice_types'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_2_female"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -124,7 +124,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_male"]/voice_types'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_male"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <voice_type name="male_02" />
@@ -137,7 +137,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_male"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_male"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="100">
             <tattoo_material name="tattoo_male_a_mat" tags="capon">
@@ -178,7 +178,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_male"]/face_textures'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_male"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -186,7 +186,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_female"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_female"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="100">
             <tattoo_material name="tattoo_female_a_mat" tags="tattoo1">
@@ -230,7 +230,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_female"]/face_textures'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_female"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -238,7 +238,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_1_female"]/voice_types'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_1_female"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <voice_type name="female_01" />
@@ -249,7 +249,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_male"]/voice_types'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_male"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <voice_type name="male_02" />
@@ -262,7 +262,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_male"]/eyebrow_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_male"]/eyebrow_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -278,7 +278,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_male"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_male"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="100">
             <tattoo_material name="tattoo_male_a_mat" tags="capon">
@@ -319,7 +319,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_female"]/eyebrow_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_female"]/eyebrow_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <eyebrow_mesh name="female_eyebrow_2" />
@@ -330,7 +330,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_female"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_female"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="100">
             <tattoo_material name="tattoo_female_a_mat" tags="tattoo1">
@@ -374,7 +374,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_female"]/face_textures'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_female"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <face_texture name="head_female_a" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
@@ -385,7 +385,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="kid_3_female"]/voice_types'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="kid_3_female"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <voice_type name="female_01" />
@@ -396,7 +396,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_male"]/eyebrow_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_male"]/eyebrow_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -412,7 +412,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_male"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_male"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="100">
             <tattoo_material name="tattoo_male_a_mat" tags="capon">
@@ -453,7 +453,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_male"]/face_textures'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_male"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <face_texture name="head_male_e" lod_material="head_male_a.lod" color="0xFFFFFFFF" tags="face_texture1,face_texture2" />
@@ -463,7 +463,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_male"]/voice_types/voice_type[@name="female_01"]'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_male"]/voice_types/voice_type[@name="female_01"]'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />
@@ -476,7 +476,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_female"]/eyebrow_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_female"]/eyebrow_meshes'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <eyebrow_mesh name="female_eyebrow_2" />
@@ -487,7 +487,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_female"]/beard_meshes'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_female"]/beard_meshes'>
         <xsl:copy-of select="." />
         <tattoo_materials group_id="8" zero_probability="100">
             <tattoo_material name="tattoo_female_a_mat" tags="tattoo1">
@@ -531,7 +531,7 @@
         </tattoo_materials>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_female"]/face_textures'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_female"]/face_textures'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <face_texture name="head_female_a" lod_material="head_female_a.lod" color="0xFFCAD3E0" tags="face_texture2" />
@@ -542,7 +542,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match='skin[@name="toddler_female"]/voice_types'>
+    <xsl:template match='skins/race[@id="human"]/skin[@name="toddler_female"]/voice_types'>
         <xsl:copy>
             <xsl:copy-of select="@*" />
             <xsl:copy-of select="*" />

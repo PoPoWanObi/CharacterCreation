@@ -6,8 +6,10 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation_AdditionalSliders"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Bumped compatible version.
-Accidentally uploaded the main mod. Sorry." />
+		<ChangeNotes Value="Version 1.5.7.171:
+		[list]
+		[*]Updated skin transform code to target race 'human' only.
+		[/list]" />
 		<!-- Insert patch notes -->
 		<Tags> 
 			<!-- You can use the following tags: -->
@@ -20,6 +22,8 @@ Accidentally uploaded the main mod. Sorry." />
 			<Tag Value="v1.1.6" />
 			<Tag Value="v1.2.0" />
 			<Tag Value="v1.2.7" />
+			<Tag Value="v1.2.8" />
+			<Tag Value="v1.2.9" />
 		</Tags>
 	</UpdateItem>
 </Tasks>
