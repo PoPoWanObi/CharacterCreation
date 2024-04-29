@@ -23,7 +23,15 @@ namespace CharacterCreation.UI
         }
 
         [DataSourceProperty]
-        public string DCCOptionsString => DCCOptionsText.ToString();
+        public string DCCOptionsString
+        { get
+            {
+                if (DCCSettingsUtil.Instance.ShowOptionsLabel)
+                    return DCCOptionsText.ToString();
+                else
+                    return "";
+            } 
+        }
 
         [DataSourceProperty]
         public string EditAppearanceString => EditAppearanceText.ToString();

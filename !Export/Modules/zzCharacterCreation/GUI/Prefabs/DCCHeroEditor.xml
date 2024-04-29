@@ -6,7 +6,7 @@
   <Window>
     <Widget HeightSizePolicy ="StretchToParent" DoNotAcceptEvents="true" PositionYOffset="50" WidthSizePolicy="StretchToParent" Brush="Encyclopedia.Page.SoundBrush">
       <Children>
-        <ListPanel DoNotAcceptEvents="true" WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="75" HorizontalAlignment="Center" VerticalAlignment="Top" MarginTop="120" MarginBottom="10">
+        <ListPanel DoNotAcceptEvents="true" WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="75" HorizontalAlignment="Right" VerticalAlignment="Top" MarginTop="160" MarginBottom="10" MarginRight="400">
           <Children>
             <TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" VerticalAlignment="Center" Brush="Popup.Button.Text" Text="@DCCOptionsString" />
             <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteEdit" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="true">

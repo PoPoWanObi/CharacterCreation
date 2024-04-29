@@ -76,6 +76,8 @@ namespace CharacterCreation
     {
         bool DebugMode { get; set; }
 
+        bool ShowOptionsLabel { get; set; }
+
         bool IgnoreDailyTick { get; set; }
 
         bool PatchAgeNotUpdatingOnCharEdit { get; set; }
@@ -110,6 +112,9 @@ namespace CharacterCreation
     {
         [XmlElement(DataType = "boolean")]
         public bool DebugMode { get; set; } = false;
+
+        [XmlElement(DataType = "boolean")]
+        public bool ShowOptionsLabel { get; set; } = true;
 
         [XmlElement(DataType = "boolean")]
         public bool IgnoreDailyTick { get; set; } = true;
@@ -178,6 +183,10 @@ namespace CharacterCreation
         [SettingPropertyBool(DebugModeName, HintText = DebugModeHint, Order = 0, RequireRestart = false)]
         [SettingPropertyGroup(Section0, GroupOrder = 0)]
         public bool DebugMode { get; set; } = false;
+
+        [SettingPropertyBool(OptionsLabelName, HintText = OptionsLabelHint, Order = 0, RequireRestart = false)]
+        [SettingPropertyGroup(Section0, GroupOrder = 0)]
+        public bool ShowOptionsLabel { get; set; } = true;
 
         #region Overrides
         [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 0, RequireRestart = false)]
