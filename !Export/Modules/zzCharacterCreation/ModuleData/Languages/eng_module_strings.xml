@@ -11,7 +11,7 @@
     <string id="CharacterCreation_DebugModeName" text="Enable debug output"/>
     <string id="CharacterCreation_DebugModeHint" text="Enable DCC's debug output. Does NOT require restart."/>
 
-    <string id="CharacterCreation_OptionsLabelName" text="Enable debug output"/>
+    <string id="CharacterCreation_OptionsLabelName" text="Enable options label"/>
     <string id="CharacterCreation_OptionsLabelHint" text="Show DCC Options string in Encyclopedia."/>
 
     <string id="CharacterCreation_Section1" text="Section 1: Overrides"/>
