@@ -63,5 +63,11 @@ namespace CharacterCreation
             DCCSettingsUtil.ExceptionCount = 0;
             return SuccessMsg.ToString();
         }
+
+        [CommandLineFunctionality.CommandLineArgumentFunction("aspect", "dcc")]
+        public static string Aspect(List<string> strings)
+        {
+            return TaleWorlds.Engine.Screen.AspectRatio.ToString();
+        }
     }
 }
