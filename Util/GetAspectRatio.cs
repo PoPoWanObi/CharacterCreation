@@ -24,8 +24,6 @@ namespace CharacterCreation.Util
             {(1.66f, 1.9f), (0, 155, 0, 370)},  // Approximately 16:9
             {(1.91f, 2.5f), (0, 0, 0, 0)},      // Approximately 2.35:1 {Unorthodox aspect range}
             {(2.51f, 2.6f), (0, 0, 0, 0)},      // Approximately 21:9 // Don't have a 21:9 setup for testing
-
-            //{(1.59f, 1.61f), (0, 210, 0, 360)},  // Approximately 8:5
         };
 
         public static int GetMarginForAspectRatio(int type)
