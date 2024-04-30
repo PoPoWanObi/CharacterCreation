@@ -23,13 +23,22 @@ namespace CharacterCreation.UI
         }
 
         [DataSourceProperty]
-        public string DCCOptionsString => DCCOptionsText.ToString();
+        public string DCCOptionsString => DCCSettingsUtil.Instance.ShowOptionsLabel ? DCCOptionsText.ToString() : "";
 
         [DataSourceProperty]
         public string EditAppearanceString => EditAppearanceText.ToString();
 
         [DataSourceProperty]
         public string ChangeNameString => ChangeNameText.ToString();
+
+        [DataSourceProperty]
+        public int AspectMarginTop => AspectRatioUtil.GetMarginForAspectRatio((int)AspectRatioUtil.MarginType.Top);
+
+        [DataSourceProperty]
+        public int AspectMarginBottom => AspectRatioUtil.GetMarginForAspectRatio((int)AspectRatioUtil.MarginType.Bottom);
+
+        [DataSourceProperty]
+        public int AspectMarginRight => AspectRatioUtil.GetMarginForAspectRatio((int)AspectRatioUtil.MarginType.Right);
 
         [DataSourceProperty]
         public string UndoAppearanceString => UndoAppearanceText.ToString();
@@ -82,6 +91,7 @@ namespace CharacterCreation.UI
                 gauntletEncyclopediaScreenManager.CloseEncyclopedia();
         }
 
+        private float aspectRatio = AspectRatioUtil.GetAspectRatio();
         private CharacterObject selectedUnit;
         private EncyclopediaPageVM selectedUnitPage;
     }

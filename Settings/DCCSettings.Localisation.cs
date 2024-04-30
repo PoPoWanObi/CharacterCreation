@@ -14,7 +14,9 @@ namespace CharacterCreation
             Section0 = "{=CharacterCreation_Section0}Section 0: Debug Mode",
             DebugModeName = "{=CharacterCreation_DebugModeName}Enable debug output",
             DebugModeHint = "{=CharacterCreation_DebugModeHint}Enable DCC's debug output. Does NOT require restart.",
-            
+            OptionsLabelName = "{=CharacterCreation_OptionsLabelName}Enable options label",
+            OptionsLabelHint = "{=CharacterCreation_OptionsLabelHint}Show DCC Options string in Encyclopedia.",
+
             Section1 = "{=CharacterCreation_Section1}Section 1: Overrides",
             IgnoreDailyTickName = "{=CharacterCreation_IgnoreDailyTickName}Suppress Daily Tick",
             IgnoreDailyTickHint = "{=CharacterCreation_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Does NOT require restart.",

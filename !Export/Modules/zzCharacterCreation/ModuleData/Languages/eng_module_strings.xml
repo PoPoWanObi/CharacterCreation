@@ -6,11 +6,14 @@
   <strings>
     <!-- Settings entries -->
     <string id="CharacterCreation_ModNameText" text="Detailed Character Creation"/>
-    
+
     <string id="CharacterCreation_Section0" text="Section 0: Debug Mode"/>
     <string id="CharacterCreation_DebugModeName" text="Enable debug output"/>
     <string id="CharacterCreation_DebugModeHint" text="Enable DCC's debug output. Does NOT require restart."/>
-    
+
+    <string id="CharacterCreation_OptionsLabelName" text="Enable options label"/>
+    <string id="CharacterCreation_OptionsLabelHint" text="Show DCC Options string in Encyclopedia."/>
+
     <string id="CharacterCreation_Section1" text="Section 1: Overrides"/>
     <!-- Global AND Per-Save -->
     <string id="CharacterCreation_IgnoreDailyTickName" text="Suppress Daily Tick"/>
@@ -45,7 +48,7 @@
     <string id="CharacterCreation_BecomeOldAgeHint" text="Set the default old stage age. Does NOT require restart."/>
     <string id="CharacterCreation_MaxAgeName" text="Max Age Stage"/>
     <string id="CharacterCreation_MaxAgeHint" text="Set the default max age. Does NOT require restart."/>
-    
+
     <!-- SubModule entries -->
     <string id="CharacterCreation_LoadedModMessage" text="Loaded Detailed Character Creation."/>
     <string id="CharacterCreation_EditAppearanceForHeroMessage" text="Entering edit appearance for: "/>
@@ -58,7 +61,7 @@
     <string id="CharacterCreation_ChangeNameText" text="Change Name"/>
     <string id="CharacterCreation_UndoAppearanceText" text="Undo Appearance"/>
     <string id="CharacterCreation_UndoRenameText" text="Undo Rename"/>
-    
+
     <string id="CharacterCreation_ChangingNameForText" text="Changing name for: "/>
     <string id="CharacterCreation_InvalidNameText" text="Name is not valid."/>
     <string id="CharacterCreation_CharacterRenamerText" text="Character Renamer"/>
@@ -71,10 +74,10 @@
 
     <!-- CharacterObjectPatch entry -->
     <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>
-    
+
     <!-- BodyGeneratorPatch entry -->
     <string id="CharacterCreation_ErrorText" text="Error:"/>
-    
+
     <!-- Commands entries -->
     <string id="CharacterCreation_DccDisabledMsg" text="Detailed Character Creation disabled."/>
     <string id="CharacterCreation_DccEnabledMsg" text="You have enabled Detailed Character Creation. Press V to access."/>
@@ -91,10 +94,10 @@
     <string id="CharacterCreation_EnableCompatibilityHint" text="Enable compatibility patches to resolve mod conflicts. ALL options REQUIRES restart."/>
     <string id="CharacterCreation_EnableCharacterReloadCompatibilityName" text="Enable Character Reload Compatibility"/>
     <string id="CharacterCreation_EnableCharacterReloadCompatibilityHint" text="Enable compatibility patch to resolve mod conflicts with Character Reload."/>
-    
+
     <!-- ModuleProcessSkinxXmlPatch entry -->
     <string id="CharacterCreation_ProcessSkinsXmlDebug" text="[CharacterCreation] Patching Skins XML to reverse file loading order"/>
-    
+
     <!-- handling mismatched settings -->
     <string id="CharacterCreation_DebugSetAppearanceMsg" text="[Debug] Set appearance for: "/>
     <string id="CharacterCreation_DebugResultMsg" text="[Debug] Result: "/>
