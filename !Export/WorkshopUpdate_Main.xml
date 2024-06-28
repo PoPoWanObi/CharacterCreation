@@ -6,11 +6,9 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Version 1.5.7.178:
+		<ChangeNotes Value="Version 1.5.8.189:
 [list]
-[*]Updated skin transform code to target race 'human' only.
-[*]Added option to show/hide DCC button indicators (toggleable, default is show)
-[*]Adjusted DCC positions according to aspect ratio (at least crudely).
+[*]Refined DCC buttons positioning according to aspect ratio.
 [/list]" />
 		<!-- Insert patch notes -->
 		<Tags> 

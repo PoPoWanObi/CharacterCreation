@@ -12,7 +12,7 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Version>1.5.6.155</Version>
+    <Version>1.5.8.189</Version>
     <Copyright>Copyright © PoPoWanObi 2023</Copyright>
     <Authors>PoPoWanObi</Authors>
     <NeutralLanguage>en</NeutralLanguage>
@@ -46,9 +46,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.2.7.31207" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.2.10.42197" />
     <PackageReference Include="BUTR.MessageBoxPInvoke" Version="1.0.0.1" />
-    <PackageReference Include="Bannerlord.MCM" Version="5.9.1" />
+    <PackageReference Include="Bannerlord.MCM" Version="5.10.1" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
