@@ -3,6 +3,7 @@ using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
@@ -14,6 +15,23 @@ namespace CharacterCreation.CampaignSystem
 {
     internal class CharacterCreationCampaignBehavior : CampaignBehaviorBase
     {
+        private static readonly Action<BasicCharacterObject, MBBodyProperty> SetCharacterBodyPropertyRange;
+
+        static CharacterCreationCampaignBehavior()
+        {
+            var param1 = Expression.Parameter(typeof(BasicCharacterObject));
+            var param2 = Expression.Parameter(typeof(MBBodyProperty));
+            SetCharacterBodyPropertyRange = Expression.Lambda<Action<BasicCharacterObject, MBBodyProperty>>(
+                Expression.Call(
+                    param1,
+                    typeof(BasicCharacterObject).GetProperty(nameof(BasicCharacterObject.BodyPropertyRange)).GetSetMethod(),
+                    param2
+                ),
+                param1,
+                param2
+            ).Compile();
+        }
+
         public static CharacterCreationCampaignBehavior? Instance { get; private set; }
 
         private Dictionary<string, UnitBodyPropertiesOverride> bodyPropertiesOverride;
