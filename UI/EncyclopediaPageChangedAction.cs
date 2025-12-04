@@ -24,12 +24,11 @@ namespace CharacterCreation.UI
     {
         private const string GauntletMovieId = "DCCUnitEditor";
         
-        private UnitBuilderVM? viewModel;
-        private EncyclopediaPageVM? selectedUnitPage;
-        private CharacterObject? selectedUnit;
-        private ScreenBase? gauntletLayerTopScreen;
-        private GauntletLayer? gauntletLayer;
-        private GauntletMovieIdentifier? gauntletMovie;
+        private UnitBuilderVM? _viewModel;
+        private EncyclopediaPageVM? _selectedUnitPage;
+        private CharacterObject? _selectedUnit;
+        private ScreenBase? _gauntletLayerTopScreen;
+        private GauntletLayer? _gauntletLayer;
 
         //public static Type HeroBuilderVMType { get; internal set; } = typeof(HeroBuilderVM);
 
@@ -38,54 +37,55 @@ namespace CharacterCreation.UI
             if (Mission.Current != null) return; // do not allow edit if in mission as it could screw things up
 
             // release the movie and layer every time something changes
-            selectedUnit = default;
-            selectedUnitPage = default;
-            viewModel = default;
-            if (gauntletLayerTopScreen != default)
+            _selectedUnit = null;
+            _selectedUnitPage = null;
+            _viewModel = null;
+            if (_gauntletLayerTopScreen != null)
             {
-                if (gauntletLayer != default)
+                if (_gauntletLayer != null)
                 {
-                    if (gauntletMovie != default)
-                    {
-                        gauntletLayer.ReleaseMovie(gauntletMovie);
-                        gauntletMovie = default;
-                    }
-                    gauntletLayerTopScreen.RemoveLayer(gauntletLayer);
-                    gauntletLayer = default;
+                    _gauntletLayerTopScreen.RemoveLayer(_gauntletLayer);
+                    _gauntletLayer = null;
                 }
-                gauntletLayerTopScreen = default;
+                _gauntletLayerTopScreen = null;
             }
 
             if (e.NewPage != EncyclopediaPages.Hero && e.NewPage != EncyclopediaPages.Unit) return;
             if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletMapEncyclopediaView gauntletEncyclopediaScreenManager)) return;
 
-            EncyclopediaData? encyclopediaData = QuickReflectionAccess.GauntletMapEncyclopediaViewData.GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
-            EncyclopediaPageVM? encyclopediaPageVM = QuickReflectionAccess.EncyclopediaDataDatasource.GetValue(encyclopediaData) as EncyclopediaPageVM;
+            var encyclopediaData = QuickReflectionAccess.GauntletMapEncyclopediaViewData.GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            var encyclopediaPageVm = QuickReflectionAccess.EncyclopediaDataDatasource.GetValue(encyclopediaData) as EncyclopediaPageVM;
 
-            if (encyclopediaPageVM is EncyclopediaUnitPageVM unitPage)
-                selectedUnit = unitPage.Obj as CharacterObject;
-            else if (encyclopediaPageVM is EncyclopediaHeroPageVM heroPage && heroPage.Obj is Hero hero)
-                selectedUnit = hero.CharacterObject;
-            else return;
-            selectedUnitPage = encyclopediaPageVM;
+            switch (encyclopediaPageVm)
+            {
+                case EncyclopediaUnitPageVM unitPage:
+                    _selectedUnit = unitPage.Obj as CharacterObject;
+                    break;
+                case EncyclopediaHeroPageVM { Obj: Hero hero }:
+                    _selectedUnit = hero.CharacterObject;
+                    break;
+                default:
+                    return;
+            }
+            _selectedUnitPage = encyclopediaPageVm;
 
             try
             {
-                viewModel = new UnitBuilderVM(selectedUnit, selectedUnitPage);
+                _viewModel = new UnitBuilderVM(_selectedUnit, _selectedUnitPage);
                 if (DCCSettingsUtil.Instance.DebugMode)
-                    Debug.Print($"[CharacterCreation] viewModel is of type {viewModel.GetType().FullName}");
+                    Debug.Print($"[CharacterCreation] viewModel is of type {_viewModel.GetType().FullName}");
 
-                gauntletLayer = new GauntletLayer(GauntletMovieId, 311);
-                if (selectedUnit.IsHero) gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
-                else gauntletMovie = gauntletLayer.LoadMovie("DCCTroopEditor", viewModel);
+                _gauntletLayer = new GauntletLayer(GauntletMovieId, 311);
+                _gauntletLayer.InputRestrictions.SetInputRestrictions(mask: InputUsageMask.MouseButtons);
+                var gauntletMovie = _gauntletLayer.LoadMovie(_selectedUnit.IsHero ? "DCCHeroEditor" : "DCCTroopEditor", _viewModel);
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] Movie loaded: {gauntletMovie.MovieName}");
 
-                gauntletLayerTopScreen = ScreenManager.TopScreen;
+                _gauntletLayerTopScreen = ScreenManager.TopScreen;
                 if (DCCSettingsUtil.Instance.DebugMode)
-                    Debug.Print($"top layer: {gauntletLayerTopScreen.GetType().Name}");
-                gauntletLayerTopScreen.AddLayer(gauntletLayer);
-                gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
+                    Debug.Print($"top layer: {_gauntletLayerTopScreen.GetType().Name}");
+                _gauntletLayerTopScreen.AddLayer(_gauntletLayer);
+                _gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
             }
             catch (Exception ex)
             {

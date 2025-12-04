@@ -15,6 +15,7 @@ using TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator;
 using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.ScreenSystem;
 using CharacterCreation.CampaignSystem;
+using TaleWorlds.CampaignSystem.GameState;
 
 namespace CharacterCreation.Util
 {
@@ -64,7 +65,7 @@ namespace CharacterCreation.Util
         {
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
-            ScreenManager.PushScreen(new GauntletBodyGeneratorScreen(unit, false, null));
+            GameStateManager.Current.PushState(Game.Current.GameStateManager.CreateState<BarberState>(unit, CharacterHelper.GetFaceGeneratorFilter()));
         }
 
         public static void UndoEdit(CharacterObject selectedUnit, Action? postAction = default)
