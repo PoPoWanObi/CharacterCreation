@@ -36,18 +36,31 @@ namespace CharacterCreation.Patches
 
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var list = instructions.ToList();
-            for (int i = 0; i < list.Count; i++)
-            {
-                yield return list[i];
-                if (list[i].Is(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_faceDirtAmount"))
-                    && list[i + 1].opcode == OpCodes.Ldloc_S && list[i + 1].operand is LocalBuilder lb && lb.LocalIndex == 4)
-                {
-                    list.RemoveAt(i + 1);
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_isFemale"));
-                }
-            }
+            // prepare local variable
+            // the one to target is flag1 (which is set by an obtuse age check)
+            var codeMatcher = new CodeMatcher(instructions);
+            codeMatcher.MatchStartForward(
+                    CodeMatch.LoadsField(AccessTools.Field(typeof(BasicCharacterTableau), "_faceDirtAmount")),
+                    CodeMatch.LoadsLocal()
+                ).ThrowIfInvalid("Could not find the flag1 load after BasicCharacterTableau._faceDirtAmount")
+                .Advance().RemoveInstruction().InsertAndAdvance(
+                    CodeInstruction.LoadArgument(0), 
+                    CodeInstruction.LoadField(typeof(BasicCharacterTableau), "_isFemale")
+                );
+            return codeMatcher.InstructionEnumeration();
+
+            // var list = instructions.ToList();
+            // for (int i = 0; i < list.Count; i++)
+            // {
+            //     yield return list[i];
+            //     if (list[i].Is(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_faceDirtAmount"))
+            //         && list[i + 1].opcode == OpCodes.Ldloc_S && list[i + 1].operand is LocalBuilder { LocalIndex: 4 })
+            //     {
+            //         list.RemoveAt(i + 1);
+            //         yield return new CodeInstruction(OpCodes.Ldarg_0);
+            //         yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(BasicCharacterTableau), "_isFemale"));
+            //     }
+            // }
         }
     }
 }

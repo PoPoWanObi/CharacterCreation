@@ -22,12 +22,14 @@ namespace CharacterCreation.UI
 {
     public class EncyclopediaPageChangedAction
     {
+        private const string GauntletMovieId = "DCCUnitEditor";
+        
         private UnitBuilderVM? viewModel;
         private EncyclopediaPageVM? selectedUnitPage;
         private CharacterObject? selectedUnit;
         private ScreenBase? gauntletLayerTopScreen;
         private GauntletLayer? gauntletLayer;
-        private IGauntletMovie? gauntletMovie;
+        private GauntletMovieIdentifier? gauntletMovie;
 
         //public static Type HeroBuilderVMType { get; internal set; } = typeof(HeroBuilderVM);
 
@@ -73,7 +75,7 @@ namespace CharacterCreation.UI
                 if (DCCSettingsUtil.Instance.DebugMode)
                     Debug.Print($"[CharacterCreation] viewModel is of type {viewModel.GetType().FullName}");
 
-                gauntletLayer = new GauntletLayer(311);
+                gauntletLayer = new GauntletLayer(GauntletMovieId, 311);
                 if (selectedUnit.IsHero) gauntletMovie = gauntletLayer.LoadMovie("DCCHeroEditor", viewModel);
                 else gauntletMovie = gauntletLayer.LoadMovie("DCCTroopEditor", viewModel);
                 if (DCCSettingsUtil.Instance.DebugMode)

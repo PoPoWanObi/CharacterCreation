@@ -24,7 +24,7 @@ namespace CharacterCreation.CampaignSystem
             SetCharacterBodyPropertyRange = Expression.Lambda<Action<BasicCharacterObject, MBBodyProperty>>(
                 Expression.Call(
                     param1,
-                    typeof(BasicCharacterObject).GetProperty(nameof(BasicCharacterObject.BodyPropertyRange)).GetSetMethod(),
+                    AccessTools.PropertySetter(typeof(BasicCharacterObject), nameof(BasicCharacterObject.BodyPropertyRange)),
                     param2
                 ),
                 param1,

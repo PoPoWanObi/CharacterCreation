@@ -22,11 +22,11 @@ namespace CharacterCreation.Patches
             {
                 //PropertyInfo staticBodyPropertyInfoOnHero = AccessTools.Property(typeof(Hero), "StaticBodyProperties");
                 //staticBodyPropertyInfoOnHero.SetValue(__instance.HeroObject, properties.StaticProperties);
-                __instance.HeroObject.ModifyPlayersFamilyAppearance(properties.StaticProperties);
+                __instance.HeroObject.StaticBodyProperties = properties.StaticProperties;
                 __instance.HeroObject.Weight = properties.Weight;
                 __instance.HeroObject.Build = properties.Build;
                 __instance.Race = race;
-                __instance.HeroObject.UpdatePlayerGender(isFemale);
+                __instance.HeroObject.IsFemale = isFemale;
                 CampaignEventDispatcher.Instance.OnPlayerBodyPropertiesChanged();
             }
             else

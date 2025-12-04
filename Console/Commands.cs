@@ -28,7 +28,8 @@ namespace CharacterCreation
             {
                 return $"{FormatMsgHeader} \"dcc.age_hero [{HeroNameText}] [{AgeText}]\".";
             }
-            Hero hero = CampaignCheats.GetHero(strings[0].Replace('_', ' '));
+
+            var hero = Hero.FindFirst(x => x.GetName().ToString() == strings[0].Replace('_', ' '));
             if (hero == null)
             {
                 return HeroNotFoundMsg.ToString();
