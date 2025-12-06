@@ -73,24 +73,38 @@ namespace CharacterCreation.UI
             {
                 _viewModel = new UnitBuilderVM(_selectedUnit, _selectedUnitPage);
                 if (DCCSettingsUtil.Instance.DebugMode)
-                    Debug.Print($"[CharacterCreation] viewModel is of type {_viewModel.GetType().FullName}");
+                {
+                    var msg = $"[CharacterCreation] viewModel is of type {_viewModel.GetType().FullName}";
+                    Debug.Print(msg);
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
+                }
 
                 _gauntletLayer = new GauntletLayer(GauntletMovieId, 311);
                 _gauntletLayer.InputRestrictions.SetInputRestrictions(mask: InputUsageMask.MouseButtons);
                 var gauntletMovie = _gauntletLayer.LoadMovie(_selectedUnit.IsHero ? "DCCHeroEditor" : "DCCTroopEditor", _viewModel);
                 if (DCCSettingsUtil.Instance.DebugMode)
-                    Debug.Print($"[CharacterCreation] Movie loaded: {gauntletMovie.MovieName}");
+                {
+                    var msg = $"[CharacterCreation] Movie loaded: {gauntletMovie.MovieName}";
+                    Debug.Print(msg);
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Green));
+                }
 
                 _gauntletLayerTopScreen = ScreenManager.TopScreen;
                 if (DCCSettingsUtil.Instance.DebugMode)
-                    Debug.Print($"top layer: {_gauntletLayerTopScreen.GetType().Name}");
+                {
+                    var msg = $"top layer: {_gauntletLayerTopScreen.GetType().Name}";
+                    Debug.Print(msg);
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
+                }
+
                 _gauntletLayerTopScreen.AddLayer(_gauntletLayer);
                 _gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.MouseButtons);
             }
             catch (Exception ex)
             {
-                InformationManager.DisplayMessage(new InformationMessage($"Error :\n{ex}"));
-                Debug.Print($"[CharacterCreation]{ex}");
+                var msg = $"[CharacterCreation]{ex}";
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                Debug.Print(msg);
             }
         }
     }

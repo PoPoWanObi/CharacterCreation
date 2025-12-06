@@ -1,6 +1,9 @@
-﻿using CharacterCreation.Util;
+﻿using System.Collections.Generic;
+using System.Reflection.Emit;
+using CharacterCreation.Util;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
@@ -16,7 +19,12 @@ namespace CharacterCreation.Patches
                 float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
                 UnitEditorFunctions.ResetBirthDayForAge(characterObject, bodyAge);
                 if (DCCSettingsUtil.Instance.DebugMode)
-                    Debug.Print($"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}");
+                {
+                    var msg =
+                        $"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}";
+                    Debug.Print(msg);
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                }
             }
         }
     }

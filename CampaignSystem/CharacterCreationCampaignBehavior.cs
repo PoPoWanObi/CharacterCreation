@@ -63,10 +63,17 @@ namespace CharacterCreation.CampaignSystem
         private static void ApplyBodyPropertyOverride(CharacterObject character, in UnitBodyPropertiesOverride property)
         {
             var bodyProperty = MBBodyProperty.CreateFrom(character.BodyPropertyRange);
-            bodyProperty.Init(property.BodyProperties, property.BodyProperties);
             SetCharacterBodyPropertyRange(character, bodyProperty);
+            bodyProperty.Init(property.BodyProperties, property.BodyProperties);
             character.Race = property.Race;
             character.IsFemale = property.IsFemale;
+            if (DCCSettingsUtil.Instance.DebugMode)
+            {
+                var msg =
+                    $"[CharacterCreation] {character.Name} body properties overridden: {character.GetBodyProperties(character.Equipment).ToString()}, min {character.GetBodyPropertiesMin().ToString()}, max {character.GetBodyPropertiesMax().ToString()}";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
+            }
         }
 
         private void OnGameStart(CampaignGameStarter gameStarter)
@@ -85,8 +92,9 @@ namespace CharacterCreation.CampaignSystem
                 }
                 catch (Exception e)
                 {
-                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e, new Color(1f, 0f, 0f)));
-                    Debug.Print("[CharacterCreation] " + e);
+                    var msg = "[CharacterCreation] " + e;
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                    Debug.Print(msg);
                 }
             });
             Parallel.ForEach(_troopNameOverride, kv =>
@@ -102,8 +110,9 @@ namespace CharacterCreation.CampaignSystem
                 }
                 catch (Exception e)
                 {
-                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e, new Color(1f, 0f, 0f)));
-                    Debug.Print("[CharacterCreation] " + e);
+                    var msg = "[CharacterCreation] " + e;
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                    Debug.Print(msg);
                 }
             });
         }
@@ -141,7 +150,9 @@ namespace CharacterCreation.CampaignSystem
             }
             else
             {
-                Debug.Print($"[CharacterCreation] Unit {unit.Name} is not previously overridden.");
+                var msg = $"[CharacterCreation] Unit {unit.Name} is not previously overridden.";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
                 return false;
             }
         }
@@ -169,7 +180,9 @@ namespace CharacterCreation.CampaignSystem
             }
             else
             {
-                Debug.Print($"[CharacterCreation] Unit {unit.Name} is not previously renamed.");
+                var msg = $"[CharacterCreation] Unit {unit.Name} is not previously renamed.";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
                 return false;
             }
         }

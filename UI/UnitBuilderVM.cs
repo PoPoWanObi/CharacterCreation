@@ -19,7 +19,12 @@ namespace CharacterCreation.UI
         {
             selectedUnit = unit;
             selectedUnitPage = page;
-            if (DCCSettingsUtil.Instance.DebugMode) Debug.Print($"[CharacterCreation] {selectedUnit.Name} loaded to unit builder");
+            if (DCCSettingsUtil.Instance.DebugMode)
+            {
+                var msg = $"[CharacterCreation] {selectedUnit.Name} loaded to unit builder";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Green));
+            }
         }
 
         [DataSourceProperty]
