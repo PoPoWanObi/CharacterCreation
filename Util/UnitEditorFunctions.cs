@@ -1,20 +1,13 @@
 ﻿using CharacterCreation.UI;
-using CharacterCreation.Patches;
-using HarmonyLib;
 using Helpers;
 using System;
-using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
-using TaleWorlds.Engine.Screens;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
-using TaleWorlds.MountAndBlade.GauntletUI;
-using TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator;
-using TaleWorlds.MountAndBlade.View;
-using TaleWorlds.ScreenSystem;
 using CharacterCreation.CampaignSystem;
+using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.GameState;
 
 namespace CharacterCreation.Util
@@ -26,7 +19,7 @@ namespace CharacterCreation.Util
             NativeNo = new TextObject("{=8OkPHu4f}No"),
             NativeCancel = new TextObject("{=3CpNUnVl}Cancel");
 
-        public static void RenameUnit(CharacterObject unit, Action? postAction = default)
+        public static void RenameUnit(CharacterObject unit, Action? postAction = null)
         {
             if (DCCSettingsUtil.Instance.DebugMode)
                 InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.ChangingNameForText.ToString() + unit.Name));
@@ -36,20 +29,29 @@ namespace CharacterCreation.Util
                 InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName), true);
         }
 
-        private static void RenameUnit(string unitName, CharacterObject selectedUnit, Action? action = default)
+        private static void RefreshEncyclopediaPage()
+        {
+            var encyclopediaManager = MapScreen.Instance?.EncyclopediaScreenManager;
+            if (encyclopediaManager is null) return;
+            encyclopediaManager.CloseEncyclopedia();
+            MapScreen.Instance?.OpenEncyclopedia();
+        }
+
+        private static void RenameUnit(string unitName, CharacterObject selectedUnit, Action? action = null)
         {
             if (!string.IsNullOrEmpty(unitName))
             {
                 if (selectedUnit.IsHero) selectedUnit.HeroObject.SetName(new TextObject(unitName), new TextObject(unitName));
                 else
                     CharacterCreationCampaignBehavior.Instance?.SetUnitNameOverride(selectedUnit, unitName);
+                RefreshEncyclopediaPage();
             }
             else InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.InvalidNameText.ToString(), ColorManager.Red));
 
             action?.Invoke();
         }
 
-        public static void UndoRename(CharacterObject selectedUnit, Action? postAction = default)
+        public static void UndoRename(CharacterObject selectedUnit, Action? postAction = null)
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
@@ -58,17 +60,18 @@ namespace CharacterCreation.Util
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoUnitNameOverride(selectedUnit);
                     postAction?.Invoke();
-                }, InformationManager.HideInquiry));
+                    RefreshEncyclopediaPage();
+                }, InformationManager.HideInquiry), true);
         }
 
-        public static void EditUnit(CharacterObject unit, Action? postAction = default)
+        public static void EditUnit(CharacterObject unit, Action? postAction = null)
         {
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
             GameStateManager.Current.PushState(Game.Current.GameStateManager.CreateState<BarberState>(unit, CharacterHelper.GetFaceGeneratorFilter()));
         }
 
-        public static void UndoEdit(CharacterObject selectedUnit, Action? postAction = default)
+        public static void UndoEdit(CharacterObject selectedUnit, Action? postAction = null)
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
@@ -77,7 +80,8 @@ namespace CharacterCreation.Util
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoBodyPropertiesOverride(selectedUnit);
                     postAction?.Invoke();
-                }, InformationManager.HideInquiry));
+                    RefreshEncyclopediaPage();
+                }, InformationManager.HideInquiry), true);
         }
 
         public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge, bool randomize = false)

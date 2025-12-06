@@ -9,20 +9,16 @@ namespace CharacterCreation.CampaignSystem
 {
     internal class TroopNameOverride
     {
-        [SaveableField(0)]
-        private string _unitId;
+        [SaveableProperty(0)]
+        public string UnitId { get; private set; }
 
-        [SaveableField(1)]
-        private string _unitName;
-
-        public string UnitId => _unitId;
-
-        public string UnitName => _unitName;
+        [SaveableProperty(1)]
+        public string UnitName { get; private set; }
 
         public TroopNameOverride(string unitId, string unitName)
         {
-            _unitId = unitId;
-            _unitName = unitName;
+            UnitId = unitId;
+            UnitName = unitName;
         }
     }
 }

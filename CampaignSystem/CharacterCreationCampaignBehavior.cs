@@ -34,19 +34,19 @@ namespace CharacterCreation.CampaignSystem
 
         public static CharacterCreationCampaignBehavior? Instance { get; private set; }
 
-        private Dictionary<string, UnitBodyPropertiesOverride> bodyPropertiesOverride;
-        private Dictionary<string, TroopNameOverride> troopNameOverride;
+        private Dictionary<string, UnitBodyPropertiesOverride> _bodyPropertiesOverride;
+        private Dictionary<string, TroopNameOverride> _troopNameOverride;
 
         // for internal backup only
-        private Dictionary<string, UnitBodyPropertiesOverride> troopBaseVersion;
-        private Dictionary<string, TextObject> troopBaseName;
+        private readonly Dictionary<string, UnitBodyPropertiesBase> _troopBaseVersion;
+        private readonly Dictionary<string, TextObject> _troopBaseName;
 
         public CharacterCreationCampaignBehavior()
         {
-            bodyPropertiesOverride = new Dictionary<string, UnitBodyPropertiesOverride>();
-            troopNameOverride = new Dictionary<string, TroopNameOverride>();
-            troopBaseVersion = new Dictionary<string, UnitBodyPropertiesOverride>();
-            troopBaseName = new Dictionary<string, TextObject>();
+            _bodyPropertiesOverride = new Dictionary<string, UnitBodyPropertiesOverride>();
+            _troopNameOverride = new Dictionary<string, TroopNameOverride>();
+            _troopBaseVersion = new Dictionary<string, UnitBodyPropertiesBase>();
+            _troopBaseName = new Dictionary<string, TextObject>();
             Instance = this;
         }
 
@@ -60,51 +60,58 @@ namespace CharacterCreation.CampaignSystem
             CampaignEvents.OnAfterSessionLaunchedEvent.AddNonSerializedListener(this, OnGameStart);
         }
 
+        private static void ApplyBodyPropertyOverride(CharacterObject character, in UnitBodyPropertiesOverride property)
+        {
+            var bodyProperty = MBBodyProperty.CreateFrom(character.BodyPropertyRange);
+            bodyProperty.Init(property.BodyProperties, property.BodyProperties);
+            SetCharacterBodyPropertyRange(character, bodyProperty);
+            character.Race = property.Race;
+            character.IsFemale = property.IsFemale;
+        }
+
         private void OnGameStart(CampaignGameStarter gameStarter)
         {
-            Parallel.ForEach(bodyPropertiesOverride, kv =>
-            {
-                try
-                {
-                    var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitID);
-                    if (charObj != default)
-                    {
-                        troopBaseVersion[charObj.StringId ?? kv.Value.UnitID] =
-                            new UnitBodyPropertiesOverride(charObj.StringId, charObj.GetBodyProperties(charObj.Equipment), charObj.Race, charObj.IsFemale);
-                        charObj.BodyPropertyRange.Init(kv.Value.BodyProperties, kv.Value.BodyProperties);
-                        charObj.Race = kv.Value.Race;
-                        charObj.IsFemale = kv.Value.IsFemale;
-                    }
-                }
-                catch (Exception e)
-                {
-                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e.ToString(), new Color(1f, 0f, 0f)));
-                    Debug.Print("[CharacterCreation] " + e.ToString());
-                }
-            });
-            Parallel.ForEach(troopNameOverride, kv =>
+            Parallel.ForEach(_bodyPropertiesOverride, kv =>
             {
                 try
                 {
                     var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitId);
-                    if (charObj != default)
+                    if (charObj != null)
                     {
-                        troopBaseName[charObj.StringId ?? kv.Value.UnitId] = charObj.Name;
+                        _troopBaseVersion[charObj.StringId ?? kv.Value.UnitId] =
+                            new UnitBodyPropertiesBase(charObj.StringId, charObj.BodyPropertyRange, charObj.Race, charObj.IsFemale);
+                        ApplyBodyPropertyOverride(charObj, kv.Value);
+                    }
+                }
+                catch (Exception e)
+                {
+                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e, new Color(1f, 0f, 0f)));
+                    Debug.Print("[CharacterCreation] " + e);
+                }
+            });
+            Parallel.ForEach(_troopNameOverride, kv =>
+            {
+                try
+                {
+                    var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitId);
+                    if (charObj != null)
+                    {
+                        _troopBaseName[charObj.StringId ?? kv.Value.UnitId] = charObj.Name;
                         charObj.UpdateName(new TextObject(kv.Value.UnitName));
                     }
                 }
                 catch (Exception e)
                 {
-                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e.ToString(), new Color(1f, 0f, 0f)));
-                    Debug.Print("[CharacterCreation] " + e.ToString());
+                    InformationManager.DisplayMessage(new InformationMessage("[CharacterCreation] " + e, new Color(1f, 0f, 0f)));
+                    Debug.Print("[CharacterCreation] " + e);
                 }
             });
         }
 
         public override void SyncData(IDataStore dataStore)
         {
-            dataStore.SyncData("dcc_properties", ref bodyPropertiesOverride);
-            dataStore.SyncData("dcc_troopnames", ref troopNameOverride);
+            dataStore.SyncData("dcc_properties", ref _bodyPropertiesOverride);
+            dataStore.SyncData("dcc_troopnames", ref _troopNameOverride);
         }
 
         public void SetBodyPropertiesOverride(CharacterObject unit, BodyProperties bodyProperties, int race, bool isFemale)
@@ -112,26 +119,24 @@ namespace CharacterCreation.CampaignSystem
             if (unit.IsHero) return;
 
             // save base version and override
-            if (!troopBaseVersion.ContainsKey(unit.StringId))
-                troopBaseVersion[unit.StringId] =
-                    new UnitBodyPropertiesOverride(unit.StringId, unit.GetBodyProperties(unit.Equipment), unit.Race, unit.IsFemale);
-            bodyPropertiesOverride[unit.StringId] = new UnitBodyPropertiesOverride(unit.StringId, bodyProperties, race, isFemale);
-            // apply override
-            unit.BodyPropertyRange.Init(bodyProperties, bodyProperties);
-            unit.Race = race;
-            unit.IsFemale = isFemale;
+            if (!_troopBaseVersion.ContainsKey(unit.StringId))
+                _troopBaseVersion[unit.StringId] =
+                    new UnitBodyPropertiesBase(unit.StringId, unit.BodyPropertyRange, unit.Race, unit.IsFemale);
+            var propertiesOverride = new UnitBodyPropertiesOverride(unit.StringId, bodyProperties, race, isFemale);
+            _bodyPropertiesOverride[unit.StringId] = propertiesOverride;
+            ApplyBodyPropertyOverride(unit, propertiesOverride);
         }
 
-        public bool HasBodyPropertiesOverride(CharacterObject unit) => bodyPropertiesOverride.ContainsKey(unit.StringId);
+        public bool HasBodyPropertiesOverride(CharacterObject unit) => _bodyPropertiesOverride.ContainsKey(unit.StringId);
 
         public bool UndoBodyPropertiesOverride(CharacterObject unit)
         {
-            if (!unit.IsHero && troopBaseVersion.TryGetValue(unit.StringId, out var @override))
+            if (!unit.IsHero && _troopBaseVersion.TryGetValue(unit.StringId, out var original))
             {
-                unit.BodyPropertyRange.Init(@override.BodyProperties, @override.BodyProperties);
-                unit.Race = @override.Race;
-                unit.IsFemale = @override.IsFemale;
-                bodyPropertiesOverride.Remove(unit.StringId);
+                SetCharacterBodyPropertyRange(unit, original.BodyPropertyRange);
+                unit.Race = original.Race;
+                unit.IsFemale = original.IsFemale;
+                _bodyPropertiesOverride.Remove(unit.StringId);
                 return true;
             }
             else
@@ -145,21 +150,21 @@ namespace CharacterCreation.CampaignSystem
         {
             if (unit.IsHero) return;
 
-            if (!troopBaseName.ContainsKey(unit.StringId))
-                troopBaseName[unit.StringId] = unit.Name;
-            troopNameOverride[unit.StringId] = new TroopNameOverride(unit.StringId, name);
+            if (!_troopBaseName.ContainsKey(unit.StringId))
+                _troopBaseName[unit.StringId] = unit.Name;
+            _troopNameOverride[unit.StringId] = new TroopNameOverride(unit.StringId, name);
 
             unit.UpdateName(new TextObject(name));
         }
 
-        public bool HasUnitNameOverride(CharacterObject unit) => troopNameOverride.ContainsKey(unit.StringId);
+        public bool HasUnitNameOverride(CharacterObject unit) => _troopNameOverride.ContainsKey(unit.StringId);
 
         public bool UndoUnitNameOverride(CharacterObject unit)
         {
-            if (!unit.IsHero && troopBaseName.TryGetValue(unit.StringId, out var @override))
+            if (!unit.IsHero && _troopBaseName.TryGetValue(unit.StringId, out var original))
             {
-                unit.UpdateName(@override);
-                troopNameOverride.Remove(unit.StringId);
+                unit.UpdateName(original);
+                _troopNameOverride.Remove(unit.StringId);
                 return true;
             }
             else

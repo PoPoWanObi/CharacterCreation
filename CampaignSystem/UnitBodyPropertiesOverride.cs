@@ -10,74 +10,75 @@ namespace CharacterCreation.CampaignSystem
 {
     internal class UnitBodyPropertiesOverride
     {
-        [SaveableField(0)]
-        private string _unitId;
+        [SaveableProperty(0)]
+        public string UnitId { get; private set; }
+        
+        [SaveableProperty(1)]
+        public float Age { get; private set; }
+        
+        [SaveableProperty(2)]
+        public float Weight { get; private set; }
+        
+        [SaveableProperty(3)]
+        public float Build { get; private set; }
+        
+        [SaveableProperty(4)]
+        public ulong KeyPart1 { get; private set; }
+        
+        [SaveableProperty(5)]
+        public ulong KeyPart2 { get; private set; }
+        
+        [SaveableProperty(6)]
+        public ulong KeyPart3 { get; private set; }
+        
+        [SaveableProperty(7)]
+        public ulong KeyPart4 { get; private set; }
+        
+        [SaveableProperty(8)]
+        public ulong KeyPart5 { get; private set; }
+        
+        [SaveableProperty(9)]
+        public ulong KeyPart6 { get; private set; }
+        
+        [SaveableProperty(10)]
+        public ulong KeyPart7 { get; private set; }
+        
+        [SaveableProperty(11)]
+        public ulong KeyPart8 { get; private set; }
 
-        [SaveableField(1)]
-        private float _age;
+        [SaveableProperty(12)]
+        public int Race { get; private set; }
 
-        [SaveableField(2)]
-        private float _weight;
+        [SaveableProperty(13)]
+        public bool IsFemale { get; private set; }
 
-        [SaveableField(3)]
-        private float _build;
-
-        [SaveableField(4)]
-        private ulong _keyPart1;
-
-        [SaveableField(5)]
-        private ulong _keyPart2;
-
-        [SaveableField(6)]
-        private ulong _keyPart3;
-
-        [SaveableField(7)]
-        private ulong _keyPart4;
-
-        [SaveableField(8)]
-        private ulong _keyPart5;
-
-        [SaveableField(9)]
-        private ulong _keyPart6;
-
-        [SaveableField(10)]
-        private ulong _keyPart7;
-
-        [SaveableField(11)]
-        private ulong _keyPart8;
-
-        [SaveableField(12)]
-        private int _race;
-
-        [SaveableField(13)] 
-        private bool _isFemale;
-
-        public string UnitID => _unitId;
-
-        public BodyProperties BodyProperties => new BodyProperties(
-                new DynamicBodyProperties(_age, _weight, _build),
-                new StaticBodyProperties(_keyPart1, _keyPart2, _keyPart3, _keyPart4, _keyPart5, _keyPart6, _keyPart7, _keyPart8));
-
-        public int Race => _race;
-
-        public bool IsFemale => _isFemale;
-
-        public UnitBodyPropertiesOverride(string unitID, BodyProperties bodyProperties, int race, bool isFemale)
+        public BodyProperties BodyProperties
         {
-            _unitId = unitID;
-            _age = bodyProperties.Age;
-            _weight = bodyProperties.Weight;
-            _build = bodyProperties.Build; ;
-            _keyPart1 = bodyProperties.KeyPart1;
-            _keyPart2 = bodyProperties.KeyPart2;
-            _keyPart3 = bodyProperties.KeyPart3;
-            _keyPart4 = bodyProperties.KeyPart4;
-            _keyPart5 = bodyProperties.KeyPart5;
-            _keyPart6 = bodyProperties.KeyPart6;
-            _keyPart7 = bodyProperties.KeyPart7;
-            _keyPart8 = bodyProperties.KeyPart8;
-            _race = race;
-            _isFemale = isFemale;
+            get => new BodyProperties(new DynamicBodyProperties(Age, Weight, Build),
+                new StaticBodyProperties(KeyPart1, KeyPart2, KeyPart3, KeyPart4, KeyPart5, KeyPart6, KeyPart7,
+                    KeyPart8));
+            private set
+            {
+                Age = value.Age;
+                Weight = value.Weight;
+                Build = value.Build;
+                KeyPart1 = value.StaticProperties.KeyPart1;
+                KeyPart2 = value.StaticProperties.KeyPart2;
+                KeyPart3 = value.StaticProperties.KeyPart3;
+                KeyPart4 = value.StaticProperties.KeyPart4;
+                KeyPart5 = value.StaticProperties.KeyPart5;
+                KeyPart6 = value.StaticProperties.KeyPart6;
+                KeyPart7 = value.StaticProperties.KeyPart7;
+                KeyPart8 = value.StaticProperties.KeyPart8;
+            }
+        }
+
+        public UnitBodyPropertiesOverride(string unitId, BodyProperties bodyProperties, int race, bool isFemale)
+        {
+            UnitId = unitId;
+            BodyProperties = bodyProperties;
+            Race = race;
+            IsFemale = isFemale;
         }
     }
 }
