@@ -1,114 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
-  <tags>
-    <tag language="English"/>
-  </tags>
-  <strings>
-    <!-- Settings entries -->
-    <string id="CharacterCreation_ModNameText" text="Detailed Character Creation"/>
+    <tags>
+        <tag language="English"/>
+    </tags>
+    <strings>
+        <!-- Settings entries -->
+        <string id="CharacterCreation_ModNameText" text="Detailed Character Creation"/>
 
-    <string id="CharacterCreation_Section0" text="Section 0: Debug Mode"/>
-    <string id="CharacterCreation_DebugModeName" text="Enable debug output"/>
-    <string id="CharacterCreation_DebugModeHint" text="Enable DCC's debug output. Does NOT require restart."/>
+        <string id="CharacterCreation_Section0" text="Section 0: Debug Mode"/>
+        <string id="CharacterCreation_DebugModeName" text="Enable debug output"/>
+        <string id="CharacterCreation_DebugModeHint" text="Enable DCC's debug output. Does NOT require restart."/>
 
-    <string id="CharacterCreation_OptionsLabelName" text="Enable options label"/>
-    <string id="CharacterCreation_OptionsLabelHint" text="Show DCC Options string in Encyclopedia."/>
+        <string id="CharacterCreation_OptionsLabelName" text="Enable options label"/>
+        <string id="CharacterCreation_OptionsLabelHint" text="Show DCC Options string in Encyclopedia."/>
 
-    <string id="CharacterCreation_Section1" text="Section 1: Overrides"/>
-    <!-- Global AND Per-Save -->
-    <string id="CharacterCreation_IgnoreDailyTickName" text="Suppress Daily Tick"/>
-    <string id="CharacterCreation_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. Does NOT require restart."/>
-    <!-- Global only -->
-    <string id="CharacterCreation_PatchAgeNotUpdatingOnCharEditName" text="Patch Age Not Updating On Character Edit"/>
-    <string id="CharacterCreation_PatchAgeNotUpdatingOnCharEditHint" text="Enable age to be updated upon character edit. Does NOT require restart."/>
-    <string id="CharacterCreation_FixCharEditEffectOnNPCName" text="Fix Character Edit Effect on NPCs"/>
-    <string id="CharacterCreation_FixCharEditEffectOnNPCHint" text="Enable edits to NPC heroes to take affect. Does NOT require restart."/>
-    <string id="CharacterCreation_AddFaceGenValuesName" text="Add FaceGen Values"/>
-    <string id="CharacterCreation_AddFaceGenValuesHint" text="Add values to sliders in FaceGen so you can kind-of fine tune it. Does NOT require restart."/>
-    <string id="CharacterCreation_PatchSavePreviewGenderBugName" text="Fix Incorrect Save Preview"/>
-    <string id="CharacterCreation_PatchSavePreviewGenderBugHint" text="Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. Disable if another mod also does this."/>
-    <!-- Per-Save only -->
-    <string id="CharacterCreation_OverrideAgeName" text="Override Age"/>
-    <string id="CharacterCreation_OverrideAgeHint" text="When enabled, this will prevent the game from aging the player hero. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'."/>
-    <string id="CharacterCreation_DisableAutoAgingName" text="Disable Auto Aging"/>
-    <string id="CharacterCreation_DisableAutoAgingHint" text="Enable this to prevent the game from changing the age physical appearance. Does NOT require restart and takes effect upon save load or hour tick."/>
+        <string id="CharacterCreation_Section1" text="Section 1: Overrides"/>
+        <!-- Global AND Per-Save -->
+        <string id="CharacterCreation_IgnoreDailyTickName" text="Suppress Daily Tick"/>
+        <string id="CharacterCreation_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. Does NOT require restart."/>
+        <!-- Global only -->
+        <string id="CharacterCreation_PatchAgeNotUpdatingOnCharEditName" text="Patch Age Not Updating On Character Edit"/>
+        <string id="CharacterCreation_PatchAgeNotUpdatingOnCharEditHint" text="Enable age to be updated upon character edit. Does NOT require restart."/>
+        <string id="CharacterCreation_FixCharEditEffectOnNPCName" text="Fix Character Edit Effect on NPCs"/>
+        <string id="CharacterCreation_FixCharEditEffectOnNPCHint" text="Enable edits to NPC heroes to take affect. Does NOT require restart."/>
+        <string id="CharacterCreation_AddFaceGenValuesName" text="Add FaceGen Values"/>
+        <string id="CharacterCreation_AddFaceGenValuesHint" text="Add values to sliders in FaceGen so you can kind-of fine tune it. Does NOT require restart."/>
+        <string id="CharacterCreation_PatchSavePreviewGenderBugName" text="Fix Incorrect Save Preview"/>
+        <string id="CharacterCreation_PatchSavePreviewGenderBugHint" text="Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. Disable if another mod also does this."/>
+        <!-- Per-Save only -->
+        <string id="CharacterCreation_OverrideAgeName" text="Override Age"/>
+        <string id="CharacterCreation_OverrideAgeHint" text="When enabled, this will prevent the game from aging the player hero. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'."/>
+        <string id="CharacterCreation_DisableAutoAgingName" text="Disable Auto Aging"/>
+        <string id="CharacterCreation_DisableAutoAgingHint" text="Enable this to prevent the game from changing the age physical appearance. Does NOT require restart and takes effect upon save load or hour tick."/>
 
-    <string id="CharacterCreation_Section2" text="Section 2: Age Model"/>
-    <string id="CharacterCreation_CustomAgeModelName" text="Custom Age Model"/>
-    <string id="CharacterCreation_CustomAgeModelHint" text="Enable this to use a custom age model. Disable if another mod uses a custom age model. REQUIRES restart."/>
-    <string id="CharacterCreation_BecomeInfantAgeName" text="Infant Age Stage"/>
-    <string id="CharacterCreation_BecomeInfantAgeHint" text="Set the default infant stage age. Does NOT require restart."/>
-    <string id="CharacterCreation_BecomeChildAgeName" text="Child Age Stage"/>
-    <string id="CharacterCreation_BecomeChildAgeHint" text="Set the default child stage age. Does NOT require restart."/>
-    <string id="CharacterCreation_BecomeTeenagerAgeName" text="Teenager Age Stage"/>
-    <string id="CharacterCreation_BecomeTeenagerAgeHint" text="Set the default teenager stage age. Does NOT require restart."/>
-    <string id="CharacterCreation_BecomeAdultAgeName" text="Adult Age Stage"/>
-    <string id="CharacterCreation_BecomeAdultAgeHint" text="Set the default adult stage age. Does NOT require restart."/>
-    <string id="CharacterCreation_BecomeOldAgeName" text="Old Age Stage"/>
-    <string id="CharacterCreation_BecomeOldAgeHint" text="Set the default old stage age. Does NOT require restart."/>
-    <string id="CharacterCreation_MaxAgeName" text="Max Age Stage"/>
-    <string id="CharacterCreation_MaxAgeHint" text="Set the default max age. Does NOT require restart."/>
+        <string id="CharacterCreation_Section2" text="Section 2: Age Model"/>
+        <string id="CharacterCreation_CustomAgeModelName" text="Custom Age Model"/>
+        <string id="CharacterCreation_CustomAgeModelHint" text="Enable this to use a custom age model. Disable if another mod uses a custom age model. REQUIRES restart."/>
+        <string id="CharacterCreation_BecomeInfantAgeName" text="Infant Age Stage"/>
+        <string id="CharacterCreation_BecomeInfantAgeHint" text="Set the default infant stage age. Does NOT require restart."/>
+        <string id="CharacterCreation_BecomeChildAgeName" text="Child Age Stage"/>
+        <string id="CharacterCreation_BecomeChildAgeHint" text="Set the default child stage age. Does NOT require restart."/>
+        <string id="CharacterCreation_BecomeTeenagerAgeName" text="Teenager Age Stage"/>
+        <string id="CharacterCreation_BecomeTeenagerAgeHint" text="Set the default teenager stage age. Does NOT require restart."/>
+        <string id="CharacterCreation_BecomeAdultAgeName" text="Adult Age Stage"/>
+        <string id="CharacterCreation_BecomeAdultAgeHint" text="Set the default adult stage age. Does NOT require restart."/>
+        <string id="CharacterCreation_BecomeOldAgeName" text="Old Age Stage"/>
+        <string id="CharacterCreation_BecomeOldAgeHint" text="Set the default old stage age. Does NOT require restart."/>
+        <string id="CharacterCreation_MaxAgeName" text="Max Age Stage"/>
+        <string id="CharacterCreation_MaxAgeHint" text="Set the default max age. Does NOT require restart."/>
 
-    <!-- SubModule entries -->
-    <string id="CharacterCreation_LoadedModMessage" text="Loaded Detailed Character Creation."/>
-    <string id="CharacterCreation_EditAppearanceForHeroMessage" text="Entering edit appearance for: "/>
-    <string id="CharacterCreation_ErrorLoadingDccMessage" text="Error initializing Detailed Character Creation:"/>
-    <string id="CharacterCreation_ExpectedActualAgeMessage" text="[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}"/>
+        <!-- SubModule entries -->
+        <string id="CharacterCreation_LoadedModMessage" text="Loaded Detailed Character Creation."/>
+        <string id="CharacterCreation_EditAppearanceForHeroMessage" text="Entering edit appearance for: "/>
+        <string id="CharacterCreation_ErrorLoadingDccMessage" text="Error initializing Detailed Character Creation:"/>
+        <string id="CharacterCreation_ExpectedActualAgeMessage" text="[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}"/>
 
-    <!-- UnitBuilderVM entries -->
-    <string id="CharacterCreation_DCCOptionsText" text="DCC Options: "/>
-    <string id="CharacterCreation_EditAppearanceText" text="Edit Appearance"/>
-    <string id="CharacterCreation_ChangeNameText" text="Change Name"/>
-    <string id="CharacterCreation_UndoAppearanceText" text="Undo Appearance"/>
-    <string id="CharacterCreation_UndoRenameText" text="Undo Rename"/>
+        <!-- UnitBuilderVM entries -->
+        <string id="CharacterCreation_DCCOptionsText" text="DCC Options: "/>
+        <string id="CharacterCreation_EditAppearanceText" text="Edit Appearance"/>
+        <string id="CharacterCreation_ChangeNameText" text="Change Name"/>
+        <string id="CharacterCreation_UndoAppearanceText" text="Undo Appearance"/>
+        <string id="CharacterCreation_UndoRenameText" text="Undo Rename"/>
 
-    <string id="CharacterCreation_ChangingNameForText" text="Changing name for: "/>
-    <string id="CharacterCreation_InvalidNameText" text="Name is not valid."/>
-    <string id="CharacterCreation_CharacterRenamerText" text="Character Renamer"/>
-    <string id="CharacterCreation_EnterNewNameText" text="Enter a new name"/>
-    <string id="CharacterCreation_RenameText" text="Rename"/>
-    <string id="CharacterCreation_CharacterUnrenamerText" text="Undo Troop Rename"/>
-    <string id="CharacterCreation_UnrenameWarningText" text="Do you want to undo the renaming of this troop unit? This will revert their name to what they were at game load."/>
-    <string id="CharacterCreation_CharacterUneditText" text="Undo Troop Edit"/>
-    <string id="CharacterCreation_UneditWarningText" text="Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."/>
-    <string id="CharacterCreation_TroopEditTitle" text="A Note"/>
-    <string id="CharacterCreation_TroopEditText" text="You can edit the 'minimum' or 'maximum' body properties of a troop. The troop as shown will have the average of both properties. Which properties do you want to edit? (You can also cancel.)"/>
-      <string id="CharacterCreation_MinPropertiesButton" text="Min"/>
-      <string id="CharacterCreation_MaxPropertiesButton" text="Max"/>
+        <string id="CharacterCreation_ChangingNameForText" text="Changing name for: "/>
+        <string id="CharacterCreation_InvalidNameText" text="Name is not valid."/>
+        <string id="CharacterCreation_CharacterRenamerText" text="Character Renamer"/>
+        <string id="CharacterCreation_EnterNewNameText" text="Enter a new name"/>
+        <string id="CharacterCreation_RenameText" text="Rename"/>
+        <string id="CharacterCreation_CharacterUnrenamerText" text="Undo Troop Rename"/>
+        <string id="CharacterCreation_UnrenameWarningText" text="Do you want to undo the renaming of this troop unit? This will revert their name to what they were at game load."/>
+        <string id="CharacterCreation_CharacterUneditText" text="Undo Troop Edit"/>
+        <string id="CharacterCreation_UneditWarningText" text="Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."/>
+        <string id="CharacterCreation_TroopEditTitle" text="A Note"/>
+        <string id="CharacterCreation_TroopEditText" text="You can edit the 'minimum' or 'maximum' body properties of a troop. The troop as shown will have the average of both properties. Which properties do you want to edit? (You can also cancel.)"/>
+        <string id="CharacterCreation_MinPropertiesButton" text="Min"/>
+        <string id="CharacterCreation_MaxPropertiesButton" text="Max"/>
 
-    <!-- CharacterObjectPatch entry -->
-    <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>
+        <!-- CharacterObjectPatch entry -->
+        <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>
 
-    <!-- BodyGeneratorPatch entry -->
-    <string id="CharacterCreation_ErrorText" text="Error:"/>
+        <!-- BodyGeneratorPatch entry -->
+        <string id="CharacterCreation_ErrorText" text="Error:"/>
 
-    <!-- Commands entries -->
-    <string id="CharacterCreation_DccDisabledMsg" text="Detailed Character Creation disabled."/>
-    <string id="CharacterCreation_DccEnabledMsg" text="You have enabled Detailed Character Creation. Press V to access."/>
-    <string id="CharacterCreation_FormatMsgHeader" text="Format: "/>
-    <string id="CharacterCreation_HeroNameText" text="HeroName"/>
-    <string id="CharacterCreation_AgeText" text="Age"/>
-    <string id="CharacterCreation_HeroNotFoundMsg" text="Hero is not found"/>
-    <string id="CharacterCreation_EnterAgeMsg" text="Please enter an age."/>
-    <string id="CharacterCreation_SuccessMsg" text="Success"/>
+        <!-- Commands entries -->
+        <string id="CharacterCreation_DccDisabledMsg" text="Detailed Character Creation disabled."/>
+        <string id="CharacterCreation_DccEnabledMsg" text="You have enabled Detailed Character Creation. Press V to access."/>
+        <string id="CharacterCreation_FormatMsgHeader" text="Format: "/>
+        <string id="CharacterCreation_HeroNameText" text="HeroName"/>
+        <string id="CharacterCreation_AgeText" text="Age"/>
+        <string id="CharacterCreation_HeroNotFoundMsg" text="Hero is not found"/>
+        <string id="CharacterCreation_EnterAgeMsg" text="Please enter an age."/>
+        <string id="CharacterCreation_SuccessMsg" text="Success"/>
 
-    <!-- Compatibility entries -->
-    <string id="CharacterCreation_Section3" text="Section 3: Compatibility"/>
-    <string id="CharacterCreation_EnableCompatibilityName" text="Enable Compatibility"/>
-    <string id="CharacterCreation_EnableCompatibilityHint" text="Enable compatibility patches to resolve mod conflicts. ALL options REQUIRES restart."/>
-    <string id="CharacterCreation_EnableCharacterReloadCompatibilityName" text="Enable Character Reload Compatibility"/>
-    <string id="CharacterCreation_EnableCharacterReloadCompatibilityHint" text="Enable compatibility patch to resolve mod conflicts with Character Reload."/>
+        <!-- Compatibility entries -->
+        <string id="CharacterCreation_Section3" text="Section 3: Compatibility"/>
+        <string id="CharacterCreation_EnableCompatibilityName" text="Enable Compatibility"/>
+        <string id="CharacterCreation_EnableCompatibilityHint" text="Enable compatibility patches to resolve mod conflicts. ALL options REQUIRES restart."/>
+        <string id="CharacterCreation_EnableCharacterReloadCompatibilityName" text="Enable Character Reload Compatibility"/>
+        <string id="CharacterCreation_EnableCharacterReloadCompatibilityHint" text="Enable compatibility patch to resolve mod conflicts with Character Reload."/>
 
-    <!-- ModuleProcessSkinxXmlPatch entry -->
-    <string id="CharacterCreation_ProcessSkinsXmlDebug" text="[CharacterCreation] Patching Skins XML to reverse file loading order"/>
+        <!-- ModuleProcessSkinxXmlPatch entry -->
+        <string id="CharacterCreation_ProcessSkinsXmlDebug" text="[CharacterCreation] Patching Skins XML to reverse file loading order"/>
 
-    <!-- handling mismatched settings -->
-    <string id="CharacterCreation_DebugSetAppearanceMsg" text="[Debug] Set appearance for: "/>
-    <string id="CharacterCreation_DebugResultMsg" text="[Debug] Result: "/>
-    <string id="CharacterCreation_WarningTitle" text="WARNING"/>
-    <string id="CharacterCreation_WarningAck" text="Acknowledged"/>
-    <string id="CharacterCreation_WarningText" text="Disable Life and Death Cycle is currently set to {LDC}, but Disable Auto Aging is set to {DAA}. Are you sure you want to change the campaign settings? If selecting 'no', changes to the life and death cycle will not take effect until you load or start a campaign."/>
-    <string id="CharacterCreation_WarningOverrideText" text="Override Age is currently set to {OA}. Are you sure you want your hero to be unaffected by aging? Your choice here will affect your current game, until you load or start a campaign."/>
-    <string id="CharacterCreation_WarningConflictText" text="Override Age is currently set to {OA}, but Disable Life and Death Cycle {LDC} is turned on. This settings will not be applied."/>
-  </strings>
+        <!-- handling mismatched settings -->
+        <string id="CharacterCreation_DebugSetAppearanceMsg" text="[Debug] Set appearance for: "/>
+        <string id="CharacterCreation_DebugResultMsg" text="[Debug] Result: "/>
+        <string id="CharacterCreation_WarningTitle" text="WARNING"/>
+        <string id="CharacterCreation_WarningAck" text="Acknowledged"/>
+        <string id="CharacterCreation_WarningText" text="Disable Life and Death Cycle is currently set to {LDC}, but Disable Auto Aging is set to {DAA}. Are you sure you want to change the campaign settings? If selecting 'no', changes to the life and death cycle will not take effect until you load or start a campaign."/>
+        <string id="CharacterCreation_WarningOverrideText" text="Override Age is currently set to {OA}. Are you sure you want your hero to be unaffected by aging? Your choice here will affect your current game, until you load or start a campaign."/>
+        <string id="CharacterCreation_WarningConflictText" text="Override Age is currently set to {OA}, but Disable Life and Death Cycle {LDC} is turned on. This settings will not be applied."/>
+    </strings>
 </base>
