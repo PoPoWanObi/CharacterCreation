@@ -7,6 +7,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using CharacterCreation.CampaignSystem;
+using CharacterCreation.CampaignSystem.GameState;
 using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.GameState;
 
@@ -68,7 +69,7 @@ namespace CharacterCreation.Util
         {
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
-            GameStateManager.Current.PushState(Game.Current.GameStateManager.CreateState<BarberState>(unit, CharacterHelper.GetFaceGeneratorFilter()));
+            GameStateManager.Current.PushState(Game.Current.GameStateManager.CreateState<CharacterEditorState>(unit));
         }
 
         public static void UndoEdit(CharacterObject selectedUnit, Action? postAction = null)

@@ -6,7 +6,7 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Version 1.6.0.144:
+		<ChangeNotes Value="Version 1.6.0.160:
         [list]
         [*]Updated for Bannerlord v1.3.9
         [*]Skin files updated to match changes in v1.3.x
