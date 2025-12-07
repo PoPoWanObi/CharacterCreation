@@ -40,6 +40,8 @@ namespace CharacterCreation.CampaignSystem
         // for internal backup only
         private readonly Dictionary<string, UnitBodyPropertiesBase> _troopBaseVersion;
         private readonly Dictionary<string, TextObject> _troopBaseName;
+        
+        internal bool UseMaxBodyProperties { get; set; }
 
         public CharacterCreationCampaignBehavior()
         {
@@ -47,6 +49,7 @@ namespace CharacterCreation.CampaignSystem
             _troopNameOverride = new Dictionary<string, TroopNameOverride>();
             _troopBaseVersion = new Dictionary<string, UnitBodyPropertiesBase>();
             _troopBaseName = new Dictionary<string, TextObject>();
+            UseMaxBodyProperties = false;
             Instance = this;
         }
 

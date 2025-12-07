@@ -71,6 +71,8 @@
     <string id="CharacterCreation_UnrenameWarningText" text="Do you want to undo the renaming of this troop unit? This will revert their name to what they were at game load."/>
     <string id="CharacterCreation_CharacterUneditText" text="Undo Troop Edit"/>
     <string id="CharacterCreation_UneditWarningText" text="Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."/>
+    <string id="CharacterCreation_TroopEditTitle" text="A Note"/>
+    <string id="CharacterCreation_TroopEditText" text="For troop editing, DCC will open the editor twice. The first time is for editing the minimum properties. The second time is for editing maximum properties. You can cancel editing to avoid editing one or the other, or both."/>
 
     <!-- CharacterObjectPatch entry -->
     <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>

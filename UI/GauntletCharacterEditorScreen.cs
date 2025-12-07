@@ -32,7 +32,10 @@ namespace CharacterCreation.UI
             _facegenLayer.OnTick(dt);
         }
 
-        public void OnExit() => Game.Current.GameStateManager.PopState();
+        public void OnExit()
+        {
+            Game.Current.GameStateManager.PopState();
+        }
 
         protected override void OnInitialize()
         {

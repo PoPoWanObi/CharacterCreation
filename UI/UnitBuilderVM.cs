@@ -11,6 +11,8 @@ using SandBox.GauntletUI.Encyclopedia;
 using CharacterCreation.Util;
 using CharacterCreation.CampaignSystem;
 
+using static CharacterCreation.DccLocalization;
+
 namespace CharacterCreation.UI
 {
     public partial class UnitBuilderVM : ViewModel
@@ -28,7 +30,7 @@ namespace CharacterCreation.UI
         }
 
         [DataSourceProperty]
-        public string DCCOptionsString => DCCSettingsUtil.Instance.ShowOptionsLabel ? DCCOptionsText.ToString() : "";
+        public string DCCOptionsString => DCCSettingsUtil.Instance.ShowOptionsLabel ? DccOptionsText.ToString() : "";
 
         [DataSourceProperty]
         public string EditAppearanceString => EditAppearanceText.ToString();

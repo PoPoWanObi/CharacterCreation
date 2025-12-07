@@ -11,6 +11,8 @@ using CharacterCreation.CampaignSystem.GameState;
 using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.GameState;
 
+using static CharacterCreation.DccLocalization;
+
 namespace CharacterCreation.Util
 {
     public static class UnitEditorFunctions
@@ -23,10 +25,10 @@ namespace CharacterCreation.Util
         public static void RenameUnit(CharacterObject unit, Action? postAction = null)
         {
             if (DCCSettingsUtil.Instance.DebugMode)
-                InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.ChangingNameForText.ToString() + unit.Name));
+                InformationManager.DisplayMessage(new InformationMessage(ChangingNameForText.ToString() + unit.Name));
 
-            InformationManager.ShowTextInquiry(new TextInquiryData(UnitBuilderVM.CharacterRenamerText.ToString(), UnitBuilderVM.EnterNewNameText.ToString(),
-                true, true, UnitBuilderVM.RenameText.ToString(), NativeCancel.ToString(), x => RenameUnit(x, unit, postAction),
+            InformationManager.ShowTextInquiry(new TextInquiryData(CharacterRenamerText.ToString(), EnterNewNameText.ToString(),
+                true, true, RenameText.ToString(), NativeCancel.ToString(), x => RenameUnit(x, unit, postAction),
                 InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName), true);
         }
 
@@ -47,7 +49,7 @@ namespace CharacterCreation.Util
                     CharacterCreationCampaignBehavior.Instance?.SetUnitNameOverride(selectedUnit, unitName);
                 RefreshEncyclopediaPage();
             }
-            else InformationManager.DisplayMessage(new InformationMessage(UnitBuilderVM.InvalidNameText.ToString(), ColorManager.Red));
+            else InformationManager.DisplayMessage(new InformationMessage(InvalidNameText.ToString(), ColorManager.Red));
 
             action?.Invoke();
         }
@@ -56,7 +58,7 @@ namespace CharacterCreation.Util
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
-            InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.CharacterUnrenamerText.ToString(), UnitBuilderVM.UnrenameWarningText.ToString(),
+            InformationManager.ShowInquiry(new InquiryData(CharacterUnrenamerText.ToString(), UnrenameWarningText.ToString(),
                 true, true, NativeYes.ToString(), NativeNo.ToString(), () =>
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoUnitNameOverride(selectedUnit);
@@ -69,6 +71,12 @@ namespace CharacterCreation.Util
         {
             postAction?.Invoke();
             FaceGen.ShowDebugValues = true;
+
+            if (!unit.IsHero)
+            {
+                InformationManager.DisplayMessage(new InformationMessage());
+            }
+            
             GameStateManager.Current.PushState(Game.Current.GameStateManager.CreateState<CharacterEditorState>(unit));
         }
 
@@ -76,7 +84,7 @@ namespace CharacterCreation.Util
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
-            InformationManager.ShowInquiry(new InquiryData(UnitBuilderVM.CharacterUneditText.ToString(), UnitBuilderVM.UneditWarningText.ToString(),
+            InformationManager.ShowInquiry(new InquiryData(CharacterUneditText.ToString(), UneditWarningText.ToString(),
                 true, true, NativeYes.ToString(), NativeNo.ToString(), () =>
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoBodyPropertiesOverride(selectedUnit);

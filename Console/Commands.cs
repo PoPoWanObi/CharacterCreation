@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 
+using static CharacterCreation.DccLocalization;
+
 namespace CharacterCreation
 {
     public static partial class Commands
