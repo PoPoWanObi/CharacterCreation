@@ -9,6 +9,7 @@ namespace CharacterCreation.CampaignSystem.GameState
     public class CharacterEditorState : TaleWorlds.Core.GameState
     {
         public BasicCharacterObject Character;
+        public bool EditMaxProperties;
 
         public override bool IsMenuState => true;
         
@@ -20,11 +21,18 @@ namespace CharacterCreation.CampaignSystem.GameState
             CharacterHelper.GetFaceGeneratorFilter())
         {
         }
+        
+        public CharacterEditorState(BasicCharacterObject character, IFaceGeneratorCustomFilter filter) : this(character,
+            filter, false)
+        {
+        }
 
-        public CharacterEditorState(BasicCharacterObject character, IFaceGeneratorCustomFilter filter)
+        public CharacterEditorState(BasicCharacterObject character, IFaceGeneratorCustomFilter filter,
+            bool editMaxProperties)
         {
             Character = character;
             Filter = filter;
+            EditMaxProperties = editMaxProperties;
         }
     }
 }

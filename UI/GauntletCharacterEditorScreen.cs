@@ -1,4 +1,6 @@
 ﻿using CharacterCreation.CampaignSystem.GameState;
+using CharacterCreation.Util;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameState;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
@@ -16,13 +18,15 @@ namespace CharacterCreation.UI
     public class GauntletCharacterEditorScreen : ScreenBase, IGameStateListener, IFaceGeneratorScreen
     {
         private readonly BodyGeneratorView _facegenLayer;
+        private bool _useMaxProperties;
 
         public IFaceGeneratorHandler Handler => _facegenLayer;
 
         public GauntletCharacterEditorScreen(CharacterEditorState state)
         {
             LoadingWindow.EnableGlobalLoadingWindow();
-            _facegenLayer = new BodyGeneratorView(OnExit, GameTexts.FindText("str_done"), OnExit,
+            _useMaxProperties = state.EditMaxProperties;
+            _facegenLayer = new BodyGeneratorView(OnDone, GameTexts.FindText("str_done"), OnExit,
                 GameTexts.FindText("str_cancel"), state.Character, false, state.Filter);
         }
 
@@ -30,6 +34,25 @@ namespace CharacterCreation.UI
         {
             base.OnFrameTick(dt);
             _facegenLayer.OnTick(dt);
+        }
+
+        public void OnDone()
+        {
+            var bodyGenerator = _facegenLayer.BodyGen;
+            if (DCCSettingsUtil.Instance.PatchAgeNotUpdatingOnCharEdit && bodyGenerator.Character is CharacterObject characterObject)
+            {
+                var bodyAge = bodyGenerator.CurrentBodyProperties.DynamicProperties.Age;
+                UnitEditorFunctions.ResetBirthDayForAge(characterObject, bodyAge);
+                if (DCCSettingsUtil.Instance.DebugMode)
+                {
+                    var msg =
+                        $"[CharacterCreation] Character {characterObject.Name} expected age: {bodyAge}, actual: {characterObject.Age}";
+                    Debug.Print(msg);
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                }
+            }
+            
+            Game.Current.GameStateManager.PopState();
         }
 
         public void OnExit()
