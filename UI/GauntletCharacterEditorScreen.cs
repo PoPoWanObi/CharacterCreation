@@ -3,7 +3,6 @@ using CharacterCreation.CampaignSystem.GameState;
 using CharacterCreation.Util;
 using Helpers;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.GameState;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.Library;
@@ -22,19 +21,19 @@ namespace CharacterCreation.UI
     public class GauntletCharacterEditorScreen : ScreenBase, IGameStateListener, IFaceGeneratorScreen
     {
         private readonly BodyGeneratorView _facegenLayer;
-        private bool _useMaxProperties;
+        private readonly CharacterEditorStatePropertyType _editedPropertyType;
 
         public IFaceGeneratorHandler Handler => _facegenLayer;
 
         public GauntletCharacterEditorScreen(CharacterEditorState state)
         {
             LoadingWindow.EnableGlobalLoadingWindow();
-            _useMaxProperties = state.EditMaxProperties;
+            _editedPropertyType = state.EditedPropertyType;
             _facegenLayer = new BodyGeneratorView(OnDone, GameTexts.FindText("str_done"), OnExit,
                 GameTexts.FindText("str_cancel"), state.Character, false, CharacterHelper.GetFaceGeneratorFilter());
             if (DCCSettingsUtil.Instance.DebugMode)
             {
-                var msg = $"[CharacterCreation] Initializing character editor screen, character: {state.Character}, max properties? {_useMaxProperties}";
+                var msg = $"[CharacterCreation] Initializing character editor screen, character: {state.Character}, which to edit: {_editedPropertyType}";
                 Debug.Print(msg);
                 InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
             }
@@ -107,7 +106,8 @@ namespace CharacterCreation.UI
             }
             else
             {
-                CharacterCreationCampaignBehavior.Instance?.SetBodyPropertiesOverride(character, properties, race, isFemale);
+                CharacterCreationCampaignBehavior.Instance?.SetBodyPropertiesOverride(character, properties, race,
+                    isFemale, _editedPropertyType);
             }
             
             if (DCCSettingsUtil.Instance.DebugMode)

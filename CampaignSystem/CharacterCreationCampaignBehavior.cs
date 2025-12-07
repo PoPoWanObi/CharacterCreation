@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using CharacterCreation.CampaignSystem.GameState;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -150,7 +151,7 @@ namespace CharacterCreation.CampaignSystem
             dataStore.SyncData("dcc_troopnames", ref _troopNameOverride);
         }
 
-        public void SetBodyPropertiesOverride(CharacterObject unit, BodyProperties bodyProperties, int race, bool isFemale, bool isMax = false)
+        public void SetBodyPropertiesOverride(CharacterObject unit, BodyProperties bodyProperties, int race, bool isFemale, CharacterEditorStatePropertyType editPropertyType)
         {
             if (unit.IsHero) return;
 
@@ -158,12 +159,12 @@ namespace CharacterCreation.CampaignSystem
             StoreBaseVersionOnly(unit);
             var propertiesOverride = new UnitBodyPropertiesOverride(unit.StringId, bodyProperties, race, isFemale);
 
-            if (isMax)
+            if ((editPropertyType & CharacterEditorStatePropertyType.MinProperties) == CharacterEditorStatePropertyType.MinProperties)
             {
                 _bodyPropertiesOverrideMax[unit.StringId] = propertiesOverride;
                 ApplyBodyPropertyOverride(unit, propertiesOverride, true);
             }
-            else
+            if ((editPropertyType & CharacterEditorStatePropertyType.MaxProperties) == CharacterEditorStatePropertyType.MaxProperties)
             {
                 _bodyPropertiesOverrideMin[unit.StringId] = propertiesOverride;
                 ApplyBodyPropertyOverride(unit, propertiesOverride);

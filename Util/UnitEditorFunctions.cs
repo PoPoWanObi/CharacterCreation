@@ -77,9 +77,19 @@ namespace CharacterCreation.Util
                             new EmptyImageIdentifier()),
                         new InquiryElement("MaxBodyProperties", MaxPropertiesButton.ToString(),
                             new EmptyImageIdentifier())
-                    }, true, 1, 1, NativeContinue.ToString(), NativeCancel.ToString(),
-                    list => GameStateManager.Current.PushState(
-                        Game.Current.GameStateManager.CreateState<CharacterEditorState>(unit, list[0].Identifier.Equals("MaxBodyProperties"))),
+                    }, true, 1, 2, NativeContinue.ToString(), NativeCancel.ToString(),
+                    list =>
+                    {
+                        CharacterEditorStatePropertyType flag = default;
+                        foreach (var e in list)
+                        {
+                            if (e.Identifier.Equals("MinBodyProperties")) flag |= CharacterEditorStatePropertyType.MinProperties;
+                            else if (e.Identifier.Equals("MaxBodyProperties")) flag |= CharacterEditorStatePropertyType.MaxProperties;
+                        }
+
+                        GameStateManager.Current.PushState(
+                            Game.Current.GameStateManager.CreateState<CharacterEditorState>(unit, flag));
+                    },
                     _ => InformationManager.HideInquiry()));
             }
             else

@@ -1,4 +1,5 @@
-﻿using Helpers;
+﻿using System;
+using Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
@@ -9,18 +10,25 @@ namespace CharacterCreation.CampaignSystem.GameState
     public class CharacterEditorState : TaleWorlds.Core.GameState
     {
         public BasicCharacterObject Character;
-        public bool EditMaxProperties;
+        public CharacterEditorStatePropertyType EditedPropertyType;
 
         public override bool IsMenuState => true;
 
         public CharacterEditorState() : this(Hero.MainHero.CharacterObject) {}
 
-        public CharacterEditorState(BasicCharacterObject character) : this(character, false) {}
+        public CharacterEditorState(BasicCharacterObject character) : this(character, CharacterEditorStatePropertyType.MinProperties) {}
 
-        public CharacterEditorState(BasicCharacterObject character, bool editMaxProperties)
+        public CharacterEditorState(BasicCharacterObject character, CharacterEditorStatePropertyType editedPropertyType)
         {
             Character = character;
-            EditMaxProperties = editMaxProperties;
+            EditedPropertyType = editedPropertyType;
         }
+    }
+
+    [Flags]
+    public enum CharacterEditorStatePropertyType
+    {
+        MinProperties = 0b01,
+        MaxProperties = 0b10
     }
 }

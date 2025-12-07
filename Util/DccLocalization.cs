@@ -45,6 +45,6 @@ namespace CharacterCreation
             CharacterUneditText = new TextObject("{=CharacterCreation_CharacterUneditText}Undo Troop Edit"),
             UneditWarningText = new TextObject("{=CharacterCreation_UneditWarningText}Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."),
             TroopEditTitle = new TextObject("{=CharacterCreation_TroopEditTitle}A Note"),
-            TroopEditText = new TextObject("{=CharacterCreation_TroopEditText}You can edit either the 'minimum' or 'maximum' body properties of a troop. The troop as shown will have the average of both properties. Which properties do you want to edit? (You can also cancel.)");
+            TroopEditText = new TextObject("{=CharacterCreation_TroopEditText}You can edit the 'minimum' or 'maximum' body properties of a troop. The troop as shown will have the average of both properties. Which properties do you want to edit? (You can also cancel.)");
     }
 }
