@@ -16,12 +16,14 @@ namespace CharacterCreation.CampaignSystem
         {
             AddClassDefinition(typeof(UnitBodyPropertiesOverride), 1);
             AddClassDefinition(typeof(TroopNameOverride), 2);
+            AddClassDefinition(typeof(UnitTagOverride), 3);
         }
 
         protected override void DefineContainerDefinitions()
         {
             ConstructContainerDefinition(typeof(Dictionary<string, UnitBodyPropertiesOverride>));
             ConstructContainerDefinition(typeof(Dictionary<string, TroopNameOverride>));
+            ConstructContainerDefinition(typeof(Dictionary<string, UnitTagOverride>));
         }
     }
 }

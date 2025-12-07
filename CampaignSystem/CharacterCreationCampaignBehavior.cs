@@ -37,6 +37,7 @@ namespace CharacterCreation.CampaignSystem
 
         private Dictionary<string, UnitBodyPropertiesOverride> _bodyPropertiesOverrideMin;
         private Dictionary<string, UnitBodyPropertiesOverride> _bodyPropertiesOverrideMax;
+        private Dictionary<string, UnitTagOverride> _tagOverrides;
         private Dictionary<string, TroopNameOverride> _troopNameOverride;
 
         // for internal backup only
@@ -47,6 +48,7 @@ namespace CharacterCreation.CampaignSystem
         {
             _bodyPropertiesOverrideMin = new Dictionary<string, UnitBodyPropertiesOverride>();
             _bodyPropertiesOverrideMax = new Dictionary<string, UnitBodyPropertiesOverride>();
+            _tagOverrides = new Dictionary<string, UnitTagOverride>();
             _troopNameOverride = new Dictionary<string, TroopNameOverride>();
             _troopBaseVersion = new Dictionary<string, UnitBodyPropertiesBase>();
             _troopBaseName = new Dictionary<string, TextObject>();
@@ -80,6 +82,23 @@ namespace CharacterCreation.CampaignSystem
             }
         }
 
+        private static void ApplyTagOverride(CharacterObject character, in UnitTagOverride tagOverride)
+        {
+            var bodyProperty = MBBodyProperty.CreateFrom(character.BodyPropertyRange);
+            SetCharacterBodyPropertyRange(character, bodyProperty);
+            if (tagOverride.HairTags != null) bodyProperty.HairTags = tagOverride.HairTags;
+            if (tagOverride.BeardTags != null) bodyProperty.BeardTags = tagOverride.BeardTags;
+            if (tagOverride.TattooTags != null) bodyProperty.TattooTags = tagOverride.TattooTags;
+            
+            if (DCCSettingsUtil.Instance.DebugMode)
+            {
+                var msg =
+                    $"[CharacterCreation] {character.Name} tags overridden: hair {bodyProperty.HairTags}, beard {bodyProperty.BeardTags}, tattoo {bodyProperty.TattooTags}";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
+            }
+        }
+
         private void StoreBaseVersionOnly(CharacterObject unit)
         {
             if (_troopBaseVersion.ContainsKey(unit.StringId)) return;
@@ -88,6 +107,7 @@ namespace CharacterCreation.CampaignSystem
 
         private void OnGameStart(CampaignGameStarter gameStarter)
         {
+            // apply any min overrides
             Parallel.ForEach(_bodyPropertiesOverrideMin, kv =>
             {
                 try
@@ -106,6 +126,7 @@ namespace CharacterCreation.CampaignSystem
                     Debug.Print(msg);
                 }
             });
+            // apply any max overrides
             Parallel.ForEach(_bodyPropertiesOverrideMax, kv =>
             {
                 try
@@ -124,6 +145,26 @@ namespace CharacterCreation.CampaignSystem
                     Debug.Print(msg);
                 }
             });
+            // apply any tag overrides
+            Parallel.ForEach(_tagOverrides, kv =>
+            {
+                try
+                {
+                    var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitId);
+                    if (charObj != null)
+                    {
+                        StoreBaseVersionOnly(charObj);
+                        ApplyTagOverride(charObj, kv.Value);
+                    }
+                }
+                catch (Exception e)
+                {
+                    var msg = "[CharacterCreation] " + e;
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                    Debug.Print(msg);
+                }
+            });
+            // apply any name overrides
             Parallel.ForEach(_troopNameOverride, kv =>
             {
                 try
@@ -148,6 +189,7 @@ namespace CharacterCreation.CampaignSystem
         {
             dataStore.SyncData("dcc_propertiesMin", ref _bodyPropertiesOverrideMin);
             dataStore.SyncData("dcc_propertiesMax", ref _bodyPropertiesOverrideMax);
+            dataStore.SyncData("dcc_tags", ref _tagOverrides);
             dataStore.SyncData("dcc_troopnames", ref _troopNameOverride);
         }
 
@@ -169,6 +211,24 @@ namespace CharacterCreation.CampaignSystem
                 _bodyPropertiesOverrideMin[unit.StringId] = propertiesOverride;
                 ApplyBodyPropertyOverride(unit, propertiesOverride);
             }
+        }
+
+        public void SetTagOverride(CharacterObject unit, string? hairTags, string? beardTags, string? tattooTags)
+        {
+            if (unit.IsHero) return;
+            
+            // save the base version and override
+            StoreBaseVersionOnly(unit);
+            if (!_tagOverrides.TryGetValue(unit.StringId, out var tagOverride))
+            {
+                tagOverride = new UnitTagOverride(unit.StringId);
+                _tagOverrides[unit.StringId] = tagOverride;
+            }
+            
+            if (hairTags != null) tagOverride.HairTags = hairTags;
+            if (beardTags != null) tagOverride.BeardTags = beardTags;
+            if (tattooTags != null) tagOverride.TattooTags = tattooTags;
+            ApplyTagOverride(unit, tagOverride);
         }
 
         public bool HasBodyPropertiesOverride(CharacterObject unit) => _troopBaseVersion.ContainsKey(unit.StringId);
