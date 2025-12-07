@@ -17,6 +17,7 @@ namespace CharacterCreation
             HeroNotFoundMsg = new TextObject("{=CharacterCreation_HeroNotFoundMsg}Hero is not found"),
             EnterAgeMsg = new TextObject("{=CharacterCreation_EnterAgeMsg}Please enter an age."),
             SuccessMsg = new TextObject("{=CharacterCreation_SuccessMsg}Success"),
+            HeroUpdatedMsg = new TextObject("{=CharacterCreation_HeroUpdatedMsg}Hero updated: "),
             
             // VM and UI
             DccOptionsText = new TextObject("{=CharacterCreation_DCCOptionsText}DCC Options: "),

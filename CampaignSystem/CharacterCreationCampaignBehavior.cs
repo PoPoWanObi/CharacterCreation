@@ -34,7 +34,8 @@ namespace CharacterCreation.CampaignSystem
 
         public static CharacterCreationCampaignBehavior? Instance { get; private set; }
 
-        private Dictionary<string, UnitBodyPropertiesOverride> _bodyPropertiesOverride;
+        private Dictionary<string, UnitBodyPropertiesOverride> _bodyPropertiesOverrideMin;
+        private Dictionary<string, UnitBodyPropertiesOverride> _bodyPropertiesOverrideMax;
         private Dictionary<string, TroopNameOverride> _troopNameOverride;
 
         // for internal backup only
@@ -43,7 +44,8 @@ namespace CharacterCreation.CampaignSystem
 
         public CharacterCreationCampaignBehavior()
         {
-            _bodyPropertiesOverride = new Dictionary<string, UnitBodyPropertiesOverride>();
+            _bodyPropertiesOverrideMin = new Dictionary<string, UnitBodyPropertiesOverride>();
+            _bodyPropertiesOverrideMax = new Dictionary<string, UnitBodyPropertiesOverride>();
             _troopNameOverride = new Dictionary<string, TroopNameOverride>();
             _troopBaseVersion = new Dictionary<string, UnitBodyPropertiesBase>();
             _troopBaseName = new Dictionary<string, TextObject>();
@@ -60,11 +62,12 @@ namespace CharacterCreation.CampaignSystem
             CampaignEvents.OnAfterSessionLaunchedEvent.AddNonSerializedListener(this, OnGameStart);
         }
 
-        private static void ApplyBodyPropertyOverride(CharacterObject character, in UnitBodyPropertiesOverride property)
+        private static void ApplyBodyPropertyOverride(CharacterObject character, in UnitBodyPropertiesOverride property, bool isMax = false)
         {
             var bodyProperty = MBBodyProperty.CreateFrom(character.BodyPropertyRange);
             SetCharacterBodyPropertyRange(character, bodyProperty);
-            bodyProperty.Init(property.BodyProperties, property.BodyProperties);
+            if (isMax) bodyProperty.Init(bodyProperty.BodyPropertyMin, property.BodyProperties);
+            else bodyProperty.Init(property.BodyProperties, bodyProperty.BodyPropertyMax);
             character.Race = property.Race;
             character.IsFemale = property.IsFemale;
             if (DCCSettingsUtil.Instance.DebugMode)
@@ -76,18 +79,41 @@ namespace CharacterCreation.CampaignSystem
             }
         }
 
+        private void StoreBaseVersionOnly(CharacterObject unit)
+        {
+            if (_troopBaseVersion.ContainsKey(unit.StringId)) return;
+            _troopBaseVersion[unit.StringId] = new UnitBodyPropertiesBase(unit.StringId, unit.BodyPropertyRange, unit.Race, unit.IsFemale);
+        }
+
         private void OnGameStart(CampaignGameStarter gameStarter)
         {
-            Parallel.ForEach(_bodyPropertiesOverride, kv =>
+            Parallel.ForEach(_bodyPropertiesOverrideMin, kv =>
             {
                 try
                 {
                     var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitId);
                     if (charObj != null)
                     {
-                        _troopBaseVersion[charObj.StringId ?? kv.Value.UnitId] =
-                            new UnitBodyPropertiesBase(charObj.StringId, charObj.BodyPropertyRange, charObj.Race, charObj.IsFemale);
+                        StoreBaseVersionOnly(charObj);
                         ApplyBodyPropertyOverride(charObj, kv.Value);
+                    }
+                }
+                catch (Exception e)
+                {
+                    var msg = "[CharacterCreation] " + e;
+                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                    Debug.Print(msg);
+                }
+            });
+            Parallel.ForEach(_bodyPropertiesOverrideMax, kv =>
+            {
+                try
+                {
+                    var charObj = Game.Current.ObjectManager.GetObject<CharacterObject>(kv.Value.UnitId);
+                    if (charObj != null)
+                    {
+                        StoreBaseVersionOnly(charObj);
+                        ApplyBodyPropertyOverride(charObj, kv.Value, true);
                     }
                 }
                 catch (Exception e)
@@ -119,24 +145,32 @@ namespace CharacterCreation.CampaignSystem
 
         public override void SyncData(IDataStore dataStore)
         {
-            dataStore.SyncData("dcc_properties", ref _bodyPropertiesOverride);
+            dataStore.SyncData("dcc_propertiesMin", ref _bodyPropertiesOverrideMin);
+            dataStore.SyncData("dcc_propertiesMax", ref _bodyPropertiesOverrideMax);
             dataStore.SyncData("dcc_troopnames", ref _troopNameOverride);
         }
 
-        public void SetBodyPropertiesOverride(CharacterObject unit, BodyProperties bodyProperties, int race, bool isFemale)
+        public void SetBodyPropertiesOverride(CharacterObject unit, BodyProperties bodyProperties, int race, bool isFemale, bool isMax = false)
         {
             if (unit.IsHero) return;
 
-            // save base version and override
-            if (!_troopBaseVersion.ContainsKey(unit.StringId))
-                _troopBaseVersion[unit.StringId] =
-                    new UnitBodyPropertiesBase(unit.StringId, unit.BodyPropertyRange, unit.Race, unit.IsFemale);
+            // save the base version and override
+            StoreBaseVersionOnly(unit);
             var propertiesOverride = new UnitBodyPropertiesOverride(unit.StringId, bodyProperties, race, isFemale);
-            _bodyPropertiesOverride[unit.StringId] = propertiesOverride;
-            ApplyBodyPropertyOverride(unit, propertiesOverride);
+
+            if (isMax)
+            {
+                _bodyPropertiesOverrideMax[unit.StringId] = propertiesOverride;
+                ApplyBodyPropertyOverride(unit, propertiesOverride, true);
+            }
+            else
+            {
+                _bodyPropertiesOverrideMin[unit.StringId] = propertiesOverride;
+                ApplyBodyPropertyOverride(unit, propertiesOverride);
+            }
         }
 
-        public bool HasBodyPropertiesOverride(CharacterObject unit) => _bodyPropertiesOverride.ContainsKey(unit.StringId);
+        public bool HasBodyPropertiesOverride(CharacterObject unit) => _troopBaseVersion.ContainsKey(unit.StringId);
 
         public bool UndoBodyPropertiesOverride(CharacterObject unit)
         {
@@ -145,7 +179,9 @@ namespace CharacterCreation.CampaignSystem
                 SetCharacterBodyPropertyRange(unit, original.BodyPropertyRange);
                 unit.Race = original.Race;
                 unit.IsFemale = original.IsFemale;
-                _bodyPropertiesOverride.Remove(unit.StringId);
+                _bodyPropertiesOverrideMin.Remove(unit.StringId);
+                _bodyPropertiesOverrideMax.Remove(unit.StringId);
+                _troopBaseVersion.Remove(unit.StringId);
                 return true;
             }
             else

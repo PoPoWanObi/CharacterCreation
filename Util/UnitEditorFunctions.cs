@@ -95,8 +95,20 @@ namespace CharacterCreation.Util
 
         public static void ResetBirthDayForAge(CharacterObject characterObject, float targetAge, bool randomize = false)
         {
-            if (!characterObject.IsHero) return;
-            characterObject.HeroObject.SetBirthDay(randomize ? HeroHelper.GetRandomBirthDayForAge(targetAge) : CampaignTime.YearsFromNow(-targetAge));
+            var randomizedBirthday = randomize
+                ? HeroHelper.GetRandomBirthDayForAge(targetAge)
+                : CampaignTime.YearsFromNow(-targetAge);
+            var actualAge = randomizedBirthday.ElapsedYearsUntilNow;
+
+            characterObject.Age = actualAge;
+            if (characterObject.IsHero)
+            {
+                var hero = characterObject.HeroObject;
+                if (hero.IsAlive)
+                    hero.SetBirthDay(randomizedBirthday);
+                else
+                    hero.SetDeathDay(hero.BirthDay + CampaignTime.Years(actualAge));
+            }
         }
     }
 }
