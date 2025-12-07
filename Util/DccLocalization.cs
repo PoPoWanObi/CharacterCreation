@@ -12,9 +12,6 @@ namespace CharacterCreation
             NativeCancel = new TextObject("{=3CpNUnVl}Cancel"),
             NativeContinue = new TextObject("{=DM6luo3c}Continue"),
             
-            MinPropertiesButton = new TextObject("{=CharacterCreation_MinPropertiesButton}Min"),
-            MaxPropertiesButton = new TextObject("{=CharacterCreation_MaxPropertiesButton}Max"),
-            
             // Commands
             DccDisabledMsg = new TextObject("{=CharacterCreation_DccDisabledMsg}Detailed Character Creation disabled."),
             DccEnabledMsg = new TextObject("{=CharacterCreation_DccEnabledMsg}You have enabled Detailed Character Creation. Press V to access."),
@@ -44,7 +41,18 @@ namespace CharacterCreation
             UnrenameWarningText = new TextObject("{=CharacterCreation_UnrenameWarningText}Do you want to undo the renaming of this troop unit? This will revert their name to what they were at game load."),
             CharacterUneditText = new TextObject("{=CharacterCreation_CharacterUneditText}Undo Troop Edit"),
             UneditWarningText = new TextObject("{=CharacterCreation_UneditWarningText}Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."),
-            TroopEditTitle = new TextObject("{=CharacterCreation_TroopEditTitle}A Note"),
-            TroopEditText = new TextObject("{=CharacterCreation_TroopEditText}You can edit the 'minimum' or 'maximum' body properties of a troop. The troop as shown will have the average of both properties. Which properties do you want to edit? (You can also cancel.)");
+            
+            TroopEditTitle = new TextObject("{=CharacterCreation_TroopEditTitle}Edit Troop"),
+            TroopEditText = new TextObject("{=CharacterCreation_TroopEditText}Bannerlord randomly generates a troop's body properties based on the range of body properties and the tags the troop are allowed to have. You can change either body properties or tags, but only one at a time. Avoid editing tags if you don't know what you are doing."),
+            BodyPropertiesButton = new TextObject("{=CharacterCreation_BodyPropertiesButton}Body Properties"),
+            TagsButton = new TextObject("{=CharacterCreation_TagsButton}Tags (Advanced)"),
+            TroopEditPropertiesText = new TextObject("{=CharacterCreation_TroopEditPropertiesText}You can edit the 'minimum' or 'maximum' body properties of a troop. The troop as shown in the editor will have the average of both properties. NOTE: Beard, hair, and tattoo changes are ignored, but hair color changes are still respected."),
+            MinPropertiesButton = new TextObject("{=CharacterCreation_MinPropertiesButton}Minimum"),
+            MaxPropertiesButton = new TextObject("{=CharacterCreation_MaxPropertiesButton}Maximum"),
+            TroopEditTagsText = new TextObject("{=CharacterCreation_TroopEditTagsText}THIS IS AN ADVANCED FEATURE! You can edit one of hair, beard, or tattoo tags. Ensure that the tags exist and are separated by a comma (,). (Space is fine if it's part of a tag.)"),
+            HairTagsButton = new TextObject("{=CharacterCreation_HairTagsButton}Hair"),
+            BeardTagsButton = new TextObject("{=CharacterCreation_BeardTagsButton}Beard"),
+            TattooTagsButton = new TextObject("{=CharacterCreation_TattooTagsButton}Tattoo"),
+            TagEditText = new TextObject("{=CharacterCreation_TagEditText}Ensure that the tags exist and are separated by a comma (,). (Space is fine if it's part of a tag.) Currently editing: {TAG_TYPE}");
     }
 }

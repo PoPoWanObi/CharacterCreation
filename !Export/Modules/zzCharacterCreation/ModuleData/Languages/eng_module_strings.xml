@@ -71,10 +71,19 @@
         <string id="CharacterCreation_UnrenameWarningText" text="Do you want to undo the renaming of this troop unit? This will revert their name to what they were at game load."/>
         <string id="CharacterCreation_CharacterUneditText" text="Undo Troop Edit"/>
         <string id="CharacterCreation_UneditWarningText" text="Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."/>
-        <string id="CharacterCreation_TroopEditTitle" text="A Note"/>
-        <string id="CharacterCreation_TroopEditText" text="You can edit the 'minimum' or 'maximum' body properties of a troop. The troop as shown will have the average of both properties. Which properties do you want to edit? (You can also cancel.)"/>
-        <string id="CharacterCreation_MinPropertiesButton" text="Min"/>
-        <string id="CharacterCreation_MaxPropertiesButton" text="Max"/>
+        
+        <string id="CharacterCreation_TroopEditTitle" text="Edit Troop"/>
+        <string id="CharacterCreation_TroopEditText" text="Bannerlord randomly generates a troop's body properties based on the range of body properties and the tags the troop are allowed to have. You can change either body properties or tags, but only one at a time. Avoid editing tags if you don't know what you are doing."/>
+        <string id="CharacterCreation_BodyPropertiesButton" text="Body Properties" />
+        <string id="CharacterCreation_TagsButton" text="Tags (Advanced)" />
+        <string id="CharacterCreation_TroopEditPropertiesText" text="You can edit the 'minimum' or 'maximum' body properties of a troop. The troop as shown in the editor will have the average of both properties. NOTE: Beard, hair, and tattoo changes are ignored, but hair color changes are still respected."/>
+        <string id="CharacterCreation_MinPropertiesButton" text="Minimum"/>
+        <string id="CharacterCreation_MaxPropertiesButton" text="Maximum"/>
+        <string id="CharacterCreation_TroopEditTagsText" text="THIS IS AN ADVANCED FEATURE! You can edit one of hair, beard, or tattoo tags. Ensure that the tags exist and are separated by a comma (,). (Space is fine if it's part of a tag.)"/>
+        <string id="CharacterCreation_HairTagsButton" text="Hair"/>
+        <string id="CharacterCreation_BeardTagsButton" text="Beard"/>
+        <string id="CharacterCreation_TattooTagsButton" text="Tattoos"/>
+        <string id="CharacterCreation_TagEditText" text="Ensure that the tags exist and are separated by a comma (,). (Space is fine if it's part of a tag.) Currently editing: {TAG_TYPE}" />
 
         <!-- CharacterObjectPatch entry -->
         <string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>

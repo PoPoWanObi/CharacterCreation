@@ -73,28 +73,116 @@ namespace CharacterCreation.Util
                 MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(TroopEditTitle.ToString(),
                     TroopEditText.ToString(), new List<InquiryElement>
                     {
-                        new InquiryElement("MinBodyProperties", MinPropertiesButton.ToString(),
+                        new InquiryElement("BodyProperties", BodyPropertiesButton.ToString(),
                             new EmptyImageIdentifier()),
-                        new InquiryElement("MaxBodyProperties", MaxPropertiesButton.ToString(),
+                        new InquiryElement("Tags", TagsButton.ToString(),
                             new EmptyImageIdentifier())
-                    }, true, 1, 2, NativeContinue.ToString(), NativeCancel.ToString(),
+                    }, true, 1, 1, NativeContinue.ToString(), NativeCancel.ToString(),
                     list =>
                     {
-                        CharacterEditorStatePropertyType flag = default;
-                        foreach (var e in list)
-                        {
-                            if (e.Identifier.Equals("MinBodyProperties")) flag |= CharacterEditorStatePropertyType.MinProperties;
-                            else if (e.Identifier.Equals("MaxBodyProperties")) flag |= CharacterEditorStatePropertyType.MaxProperties;
-                        }
-
-                        GameStateManager.Current.PushState(
-                            Game.Current.GameStateManager.CreateState<CharacterEditorState>(unit, flag));
+                        if (list[0].Identifier.Equals("BodyProperties"))
+                            EditUnitBodyProperties(unit);
+                        else
+                            EditUnitTags(unit);
                     },
                     _ => InformationManager.HideInquiry()));
             }
             else
                 GameStateManager.Current.PushState(
                     Game.Current.GameStateManager.CreateState<CharacterEditorState>(unit));
+        }
+
+        private static void EditUnitBodyProperties(CharacterObject unit)
+        {
+            MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(TroopEditTitle.ToString(),
+                TroopEditPropertiesText.ToString(), new List<InquiryElement>
+                {
+                    new InquiryElement("MinBodyProperties", MinPropertiesButton.ToString(),
+                        new EmptyImageIdentifier()),
+                    new InquiryElement("MaxBodyProperties", MaxPropertiesButton.ToString(),
+                        new EmptyImageIdentifier())
+                }, true, 1, 2, NativeContinue.ToString(), NativeCancel.ToString(),
+                list =>
+                {
+                    CharacterEditorStatePropertyType flag = default;
+                    foreach (var e in list)
+                    {
+                        if (e.Identifier.Equals("MinBodyProperties")) flag |= CharacterEditorStatePropertyType.MinProperties;
+                        else if (e.Identifier.Equals("MaxBodyProperties")) flag |= CharacterEditorStatePropertyType.MaxProperties;
+                    }
+
+                    GameStateManager.Current.PushState(
+                        Game.Current.GameStateManager.CreateState<CharacterEditorState>(unit, flag));
+                },
+                _ => InformationManager.HideInquiry()));
+        }
+
+        private static void EditUnitTags(CharacterObject unit)
+        {
+            MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(TroopEditTitle.ToString(),
+                TroopEditTagsText.ToString(), new List<InquiryElement>
+                {
+                    new InquiryElement("HairTags", HairTagsButton.ToString(), new EmptyImageIdentifier()),
+                    new InquiryElement("BeardTags", BeardTagsButton.ToString(), new EmptyImageIdentifier()),
+                    new InquiryElement("TattooTags", TattooTagsButton.ToString(), new EmptyImageIdentifier())
+                }, true, 1, 1, NativeContinue.ToString(), NativeCancel.ToString(),
+                list =>
+                {
+                    var type = list[0].Identifier switch
+                    {
+                        "HairTags" => TroopTagEditType.Hair,
+                        "BeardTags" => TroopTagEditType.Beard,
+                        "TattooTags" => TroopTagEditType.Tattoo,
+                        _ => default
+                    };
+                    if (type == default)
+                    {
+                        var msg = "[CharacterCreation] Unknown tag edit type: " + list[0].Identifier;
+                        InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                        Debug.Print(msg);
+                        return;
+                    }
+                    
+                    OnEditUnitTags(unit, type);
+                }, _ => InformationManager.HideInquiry()));
+        }
+
+        private static void OnEditUnitTags(CharacterObject unit, TroopTagEditType type)
+        {
+            InformationManager.ShowTextInquiry(new TextInquiryData(TroopEditTitle.ToString(), TagEditText.ToString(),
+                true, true, NativeYes.ToString(), NativeNo.ToString(), x =>
+                {
+                    x ??= string.Empty;
+                    switch (type)
+                    {
+                        case TroopTagEditType.Hair:
+                            CharacterCreationCampaignBehavior.Instance?.SetTagOverride(unit, hairTags: x);
+                            break;
+                        case TroopTagEditType.Beard:
+                            CharacterCreationCampaignBehavior.Instance?.SetTagOverride(unit, beardTags: x);
+                            break;
+                        case TroopTagEditType.Tattoo:
+                            CharacterCreationCampaignBehavior.Instance?.SetTagOverride(unit, tattooTags: x);
+                            break;
+                        default:
+                            var msg = "[CharacterCreation] Unknown tag edit type: " + type;
+                            InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
+                            Debug.Print(msg);
+                            break;
+                    }
+                    RefreshEncyclopediaPage();
+                }, InformationManager.HideInquiry, defaultInputText: GetDefaultInputText(unit, type)), true);
+        }
+
+        private static string GetDefaultInputText(CharacterObject unit, TroopTagEditType type)
+        {
+            return type switch
+            {
+                TroopTagEditType.Hair => unit.BodyPropertyRange.HairTags,
+                TroopTagEditType.Beard => unit.BodyPropertyRange.BeardTags,
+                TroopTagEditType.Tattoo => unit.BodyPropertyRange.TattooTags,
+                _ => string.Empty
+            };
         }
 
         public static void UndoEdit(CharacterObject selectedUnit, Action? postAction = null)
@@ -127,5 +215,12 @@ namespace CharacterCreation.Util
                     hero.SetDeathDay(hero.BirthDay + CampaignTime.Years(actualAge));
             }
         }
+    }
+
+    internal enum TroopTagEditType
+    {
+        Hair = 1,
+        Beard = 2,
+        Tattoo = 3
     }
 }

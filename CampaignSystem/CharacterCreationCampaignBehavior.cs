@@ -85,6 +85,14 @@ namespace CharacterCreation.CampaignSystem
         private static void ApplyTagOverride(CharacterObject character, in UnitTagOverride tagOverride)
         {
             var bodyProperty = MBBodyProperty.CreateFrom(character.BodyPropertyRange);
+            if (DCCSettingsUtil.Instance.DebugMode)
+            {
+                var msg =
+                    $"[CharacterCreation] overriding {character.Name} tags: hair {bodyProperty.HairTags}, beard {bodyProperty.BeardTags}, tattoo {bodyProperty.TattooTags}";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
+            }
+            
             SetCharacterBodyPropertyRange(character, bodyProperty);
             if (tagOverride.HairTags != null) bodyProperty.HairTags = tagOverride.HairTags;
             if (tagOverride.BeardTags != null) bodyProperty.BeardTags = tagOverride.BeardTags;
@@ -213,7 +221,8 @@ namespace CharacterCreation.CampaignSystem
             }
         }
 
-        public void SetTagOverride(CharacterObject unit, string? hairTags, string? beardTags, string? tattooTags)
+        public void SetTagOverride(CharacterObject unit, string? hairTags = null, string? beardTags = null,
+            string? tattooTags = null)
         {
             if (unit.IsHero) return;
             
