@@ -12,26 +12,14 @@ namespace CharacterCreation.CampaignSystem.GameState
         public bool EditMaxProperties;
 
         public override bool IsMenuState => true;
-        
-        public IFaceGeneratorCustomFilter Filter { get; private set; }
 
         public CharacterEditorState() : this(Hero.MainHero.CharacterObject) {}
 
-        public CharacterEditorState(BasicCharacterObject character) : this(character,
-            CharacterHelper.GetFaceGeneratorFilter())
-        {
-        }
-        
-        public CharacterEditorState(BasicCharacterObject character, IFaceGeneratorCustomFilter filter) : this(character,
-            filter, false)
-        {
-        }
+        public CharacterEditorState(BasicCharacterObject character) : this(character, false) {}
 
-        public CharacterEditorState(BasicCharacterObject character, IFaceGeneratorCustomFilter filter,
-            bool editMaxProperties)
+        public CharacterEditorState(BasicCharacterObject character, bool editMaxProperties)
         {
             Character = character;
-            Filter = filter;
             EditMaxProperties = editMaxProperties;
         }
     }

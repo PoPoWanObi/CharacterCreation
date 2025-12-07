@@ -1,6 +1,7 @@
 ﻿using CharacterCreation.CampaignSystem;
 using CharacterCreation.CampaignSystem.GameState;
 using CharacterCreation.Util;
+using Helpers;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameState;
 using TaleWorlds.Core;
@@ -30,7 +31,13 @@ namespace CharacterCreation.UI
             LoadingWindow.EnableGlobalLoadingWindow();
             _useMaxProperties = state.EditMaxProperties;
             _facegenLayer = new BodyGeneratorView(OnDone, GameTexts.FindText("str_done"), OnExit,
-                GameTexts.FindText("str_cancel"), state.Character, false, state.Filter);
+                GameTexts.FindText("str_cancel"), state.Character, false, CharacterHelper.GetFaceGeneratorFilter());
+            if (DCCSettingsUtil.Instance.DebugMode)
+            {
+                var msg = $"[CharacterCreation] Initializing character editor screen, character: {state.Character}, max properties? {_useMaxProperties}";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
+            }
         }
 
         protected override void OnFrameTick(float dt)

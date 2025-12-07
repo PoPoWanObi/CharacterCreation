@@ -6,6 +6,15 @@ namespace CharacterCreation
     internal static class DccLocalization
     {
         internal static readonly TextObject
+            // Buttons
+            NativeYes = new TextObject("{=aeouhelq}Yes"),
+            NativeNo = new TextObject("{=8OkPHu4f}No"),
+            NativeCancel = new TextObject("{=3CpNUnVl}Cancel"),
+            NativeContinue = new TextObject("{=DM6luo3c}Continue"),
+            
+            MinPropertiesButton = new TextObject("{=CharacterCreation_MinPropertiesButton}Min"),
+            MaxPropertiesButton = new TextObject("{=CharacterCreation_MaxPropertiesButton}Max"),
+            
             // Commands
             DccDisabledMsg = new TextObject("{=CharacterCreation_DccDisabledMsg}Detailed Character Creation disabled."),
             DccEnabledMsg = new TextObject("{=CharacterCreation_DccEnabledMsg}You have enabled Detailed Character Creation. Press V to access."),
@@ -36,6 +45,6 @@ namespace CharacterCreation
             CharacterUneditText = new TextObject("{=CharacterCreation_CharacterUneditText}Undo Troop Edit"),
             UneditWarningText = new TextObject("{=CharacterCreation_UneditWarningText}Do you want to undo the body edit of this troop unit? This will revert their appears to what they were at game load."),
             TroopEditTitle = new TextObject("{=CharacterCreation_TroopEditTitle}A Note"),
-            TroopEditText = new TextObject("{=CharacterCreation_TroopEditText}For troop editing, DCC will open the editor twice. The first time is for editing the minimum properties. The second time is for editing maximum properties. You can cancel editing to avoid editing one or the other, or both.");
+            TroopEditText = new TextObject("{=CharacterCreation_TroopEditText}You can edit either the 'minimum' or 'maximum' body properties of a troop. The troop as shown will have the average of both properties. Which properties do you want to edit? (You can also cancel.)");
     }
 }
