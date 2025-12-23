@@ -2,49 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Platform>x64</Platform>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
     <AssemblyName>CharacterCreation</AssemblyName>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Version>1.6.0.180</Version>
+    <Version>1.7.0</Version>
     <Copyright>Copyright © PoPoWanObi 2023</Copyright>
-    <Authors>PoPoWanObi</Authors>
+    <Authors>PoPoWanObi, Designer225</Authors>
     <NeutralLanguage>en</NeutralLanguage>
-    <DebugType>embedded</DebugType>
-    <OutputPath>$(ProjectDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\</OutputPath>
-    <Platforms>AnyCPU;x64</Platforms>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>portable</DebugType>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
+    <PackageProjectUrl>https://github.com/PoPoWanObi/CharacterCreation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PoPoWanObi/CharacterCreation</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="!Export\Modules.zip" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.3.9.103334" />
     <PackageReference Include="BUTR.MessageBoxPInvoke" Version="1.0.0.1" />
     <PackageReference Include="Bannerlord.MCM" Version="5.11.3" />
+    <PackageReference Include="ConditionalAssemblyLoader" Version="0.1.0" />
     <PackageReference Include="Lib.Harmony" Version="2.4.2" />
   </ItemGroup>
 

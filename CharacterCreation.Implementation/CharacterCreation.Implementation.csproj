@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>8</LangVersion>
+        <Nullable>enable</Nullable>
+        <RootNamespace>CharacterCreation</RootNamespace>
+        <Version>1.7.0</Version>
+        <Authors>Designer225</Authors>
+        <Copyright>Copyright © Designer225 2025</Copyright>
+        <PackageProjectUrl>https://github.com/PoPoWanObi/CharacterCreation</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/PoPoWanObi/CharacterCreation</RepositoryUrl>
+        <Company>PoPoWanObi</Company>
+        <NeutralLanguage>en</NeutralLanguage>
+        <AssemblyName>CharacterCreation.$(Version)</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CharacterCreation\CharacterCreation.csproj" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="xcopy $(OutDir)* &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;cd  &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot;&#xA;xcopy * ..\Gaming.Desktop.x64_Shipping_Client\ /s /y" />
+    </Target>
+
+</Project>
