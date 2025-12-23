@@ -1,25 +1,27 @@
-﻿using HarmonyLib;
-using TaleWorlds.MountAndBlade.ViewModelCollection;
+﻿using CharacterCreation.Settings;
+using HarmonyLib;
 using TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator;
 
 namespace CharacterCreation.Patches
 {
     [HarmonyPatch(typeof(FaceGenPropertyVM))]
-    static class FaceGenPropertyVMPatch
+    internal static class FaceGenPropertyVmPatch
     {
         [HarmonyPatch(nameof(FaceGenPropertyVM.RefreshValues))]
         [HarmonyPostfix]
+        // ReSharper disable once InconsistentNaming
         public static void RefreshValuesPostfix(FaceGenPropertyVM __instance)
         {
-            if (!DCCSettingsUtil.Instance.AddFaceGenValues) return;
+            if (!DccSettings.Instance!.AddFaceGenValues) return;
             __instance.Name = $"{__instance.Name} ({__instance.Value:F2})";
         }
 
         [HarmonyPatch(nameof(FaceGenPropertyVM.Value), MethodType.Setter)]
         [HarmonyPostfix]
+        // ReSharper disable once InconsistentNaming
         public static void SetValuePostfix(FaceGenPropertyVM __instance)
         {
-            if (!DCCSettingsUtil.Instance.AddFaceGenValues) return;
+            if (!DccSettings.Instance!.AddFaceGenValues) return;
             __instance.RefreshValues();
         }
     }

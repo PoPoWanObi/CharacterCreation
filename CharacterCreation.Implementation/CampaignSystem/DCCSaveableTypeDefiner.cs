@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.Core;
+﻿using System.Collections.Generic;
 using TaleWorlds.SaveSystem;
 
 namespace CharacterCreation.CampaignSystem
 {
-    public sealed class DCCSaveableTypeDefiner : SaveableTypeDefiner
+    public sealed class DccSaveableTypeDefiner : SaveableTypeDefiner
     {
-        public DCCSaveableTypeDefiner() : base(0x3418FDD0) { }
+        public DccSaveableTypeDefiner() : base(0x3418FDD0) { }
 
         protected override void DefineClassTypes()
         {

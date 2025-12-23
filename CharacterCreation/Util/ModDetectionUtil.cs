@@ -1,36 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.Engine;
-using TaleWorlds.Library;
 using TaleWorlds.ModuleManager;
 
-namespace CharacterCreation
+namespace CharacterCreation.Util
 {
-    class ModDetectionUtil
+    public static class ModDetectionUtil
     {
-        private static readonly List<ModuleInfo> modules = new List<ModuleInfo>();
+        private static readonly List<ModuleInfo> ModuleList = new List<ModuleInfo>();
 
         public static ReadOnlyCollection<ModuleInfo> Modules
         {
             get
             {
-                
-                if (modules.Count == 0) // this should only happen when this property is first called.
+                if (ModuleList.Count == 0) // this should only happen when this property is first called.
                 {
                     string[] moduleNames = Utilities.GetModulesNames();
                     foreach (string moduleName in moduleNames)
                     {
                         ModuleInfo m = new ModuleInfo();
                         m.LoadWithFullPath(ModuleHelper.GetModuleFullPath(moduleName));
-                        modules.Add(m);
+                        ModuleList.Add(m);
                     }
                 }
 
-                return modules.AsReadOnly();
+                return ModuleList.AsReadOnly();
             }
         }
 
@@ -39,7 +34,7 @@ namespace CharacterCreation
             return Modules.Count(x => x.Id == moduleId) > 0;
         }
 
-        public static ModuleInfo GetModule(string moduleId)
+        public static ModuleInfo? GetModule(string moduleId)
         {
             return Modules.FirstOrDefault(x => x.Id == moduleId);
         }

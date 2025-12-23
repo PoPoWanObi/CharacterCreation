@@ -1,17 +1,5 @@
-﻿using CharacterCreation.Util;
-using HarmonyLib;
-using System;
+﻿using HarmonyLib;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.Core;
-using TaleWorlds.Engine;
-using TaleWorlds.Library;
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.MountAndBlade.View.Tableaus;
 
 namespace CharacterCreation.Patches

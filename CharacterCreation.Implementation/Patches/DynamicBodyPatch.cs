@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
+﻿using CharacterCreation.Settings;
+using HarmonyLib;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
-using TaleWorlds.Library;
 
 namespace CharacterCreation.Patches
 {
@@ -9,7 +9,7 @@ namespace CharacterCreation.Patches
     {
         public static bool Prefix()
         {
-            if (DCCPerSaveSettings.SaveInstance != default && DCCPerSaveSettings.SaveInstance.IgnoreDailyTick || DCCSettingsUtil.Instance.IgnoreDailyTick)
+            if (DccPerSaveSettings.SaveInstance != null && DccPerSaveSettings.SaveInstance.IgnoreDailyTick || DccSettings.Instance!.IgnoreDailyTick)
                 return false;
 
             // there is probably a better way to patch this and still be able to enable/disable this patch at will. At least it still works.

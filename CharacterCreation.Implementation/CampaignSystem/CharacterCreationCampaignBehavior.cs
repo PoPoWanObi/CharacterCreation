@@ -2,11 +2,10 @@
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using CharacterCreation.CampaignSystem.GameState;
+using CharacterCreation.Settings;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -14,7 +13,7 @@ using TaleWorlds.Localization;
 
 namespace CharacterCreation.CampaignSystem
 {
-    internal class CharacterCreationCampaignBehavior : CampaignBehaviorBase
+    public class CharacterCreationCampaignBehavior : CampaignBehaviorBase
     {
         private static readonly Action<BasicCharacterObject, MBBodyProperty> SetCharacterBodyPropertyRange;
 
@@ -73,7 +72,7 @@ namespace CharacterCreation.CampaignSystem
             else bodyProperty.Init(property.BodyProperties, bodyProperty.BodyPropertyMax);
             character.Race = property.Race;
             character.IsFemale = property.IsFemale;
-            if (DCCSettingsUtil.Instance.DebugMode)
+            if (DccSettings.Instance!.DebugMode)
             {
                 var msg =
                     $"[CharacterCreation] {character.Name} body properties overridden: {character.GetBodyProperties(character.Equipment).ToString()}, min {character.GetBodyPropertiesMin().ToString()}, max {character.GetBodyPropertiesMax().ToString()}";
@@ -85,7 +84,7 @@ namespace CharacterCreation.CampaignSystem
         private static void ApplyTagOverride(CharacterObject character, in UnitTagOverride tagOverride)
         {
             var bodyProperty = MBBodyProperty.CreateFrom(character.BodyPropertyRange);
-            if (DCCSettingsUtil.Instance.DebugMode)
+            if (DccSettings.Instance!.DebugMode)
             {
                 var msg =
                     $"[CharacterCreation] overriding {character.Name} tags: hair {bodyProperty.HairTags}, beard {bodyProperty.BeardTags}, tattoo {bodyProperty.TattooTags}";
@@ -98,7 +97,7 @@ namespace CharacterCreation.CampaignSystem
             if (tagOverride.BeardTags != null) bodyProperty.BeardTags = tagOverride.BeardTags;
             if (tagOverride.TattooTags != null) bodyProperty.TattooTags = tagOverride.TattooTags;
             
-            if (DCCSettingsUtil.Instance.DebugMode)
+            if (DccSettings.Instance.DebugMode)
             {
                 var msg =
                     $"[CharacterCreation] {character.Name} tags overridden: hair {bodyProperty.HairTags}, beard {bodyProperty.BeardTags}, tattoo {bodyProperty.TattooTags}";

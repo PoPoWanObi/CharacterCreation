@@ -1,19 +1,12 @@
-﻿#nullable enable
-using CharacterCreation;
-using CharacterCreation.Models;
-using CharacterCreation.Util;
-using HarmonyLib;
+﻿using CharacterCreation.Util;
 using SandBox.GauntletUI.Encyclopedia;
 using SandBox.View.Map;
 using System;
-using System.Reflection;
-using Bannerlord.BUTR.Shared.Helpers;
-using BUTR.MessageBoxPInvoke.Helpers;
+using CharacterCreation.Settings;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
 using TaleWorlds.Engine.GauntletUI;
-using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
@@ -24,7 +17,7 @@ namespace CharacterCreation.UI
     {
         private const string GauntletMovieId = "DCCUnitEditor";
         
-        private UnitBuilderVM? _viewModel;
+        private UnitBuilderVm? _viewModel;
         private EncyclopediaPageVM? _selectedUnitPage;
         private CharacterObject? _selectedUnit;
         private ScreenBase? _gauntletLayerTopScreen;
@@ -71,8 +64,8 @@ namespace CharacterCreation.UI
 
             try
             {
-                _viewModel = new UnitBuilderVM(_selectedUnit, _selectedUnitPage);
-                if (DCCSettingsUtil.Instance.DebugMode)
+                _viewModel = new UnitBuilderVm(_selectedUnit, _selectedUnitPage);
+                if (DccSettings.Instance!.DebugMode)
                 {
                     var msg = $"[CharacterCreation] viewModel is of type {_viewModel.GetType().FullName}";
                     Debug.Print(msg);
@@ -82,7 +75,7 @@ namespace CharacterCreation.UI
                 _gauntletLayer = new GauntletLayer(GauntletMovieId, 311);
                 _gauntletLayer.InputRestrictions.SetInputRestrictions(mask: InputUsageMask.MouseButtons);
                 var gauntletMovie = _gauntletLayer.LoadMovie(_selectedUnit.IsHero ? "DCCHeroEditor" : "DCCTroopEditor", _viewModel);
-                if (DCCSettingsUtil.Instance.DebugMode)
+                if (DccSettings.Instance.DebugMode)
                 {
                     var msg = $"[CharacterCreation] Movie loaded: {gauntletMovie.MovieName}";
                     Debug.Print(msg);
@@ -90,7 +83,7 @@ namespace CharacterCreation.UI
                 }
 
                 _gauntletLayerTopScreen = ScreenManager.TopScreen;
-                if (DCCSettingsUtil.Instance.DebugMode)
+                if (DccSettings.Instance.DebugMode)
                 {
                     var msg = $"top layer: {_gauntletLayerTopScreen.GetType().Name}";
                     Debug.Print(msg);

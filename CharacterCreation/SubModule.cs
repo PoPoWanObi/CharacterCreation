@@ -1,29 +1,18 @@
-﻿using CharacterCreation.Models;
-using CharacterCreation.Util;
-using CharacterCreation.UI;
-using HarmonyLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Bannerlord.BUTR.Shared.Helpers;
 using BUTR.MessageBoxPInvoke.Helpers;
+using CharacterCreation.Util;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
-using CharacterCreation.CampaignSystem;
+using static CharacterCreation.Util.DccLocalization;
 
 namespace CharacterCreation
 {
     public class SubModule : MBSubModuleBase
     {
-        internal static readonly TextObject LoadedModMessage = new TextObject("{=CharacterCreation_LoadedModMessage}Loaded Detailed Character Creation."),
-            EditAppearanceForHeroMessage = new TextObject("{=CharacterCreation_EditAppearanceForHeroMessage}Entering edit appearance for: "),
-            ErrorLoadingDccMessage = new TextObject("{=CharacterCreation_ErrorLoadingDccMessage}Error initializing Detailed Character Creation:");
-
-        private const string ExpectedActualAgeMessage = "{=CharacterCreation_ExpectedActualAgeMessage}[Debug] Hero {HERO_NAME} expected age: {AGE1}, actual age: {AGE2}";
-
         public static string GetFormattedAgeDebugMessage(Hero hero, float expectedAge)
         {
             var attributes = new Dictionary<string, object>
@@ -35,6 +24,17 @@ namespace CharacterCreation
             return new TextObject(ExpectedActualAgeMessage, attributes).ToString();
         }
 
+        private readonly CharacterCreationEntryPoint _entryPoint;
+        private bool _isLoaded;
+
+        public SubModule()
+        {
+            if (!new CharacterCreationAssemblyLoader().TryLoad(out var result, out var error))
+                throw error!;
+
+            _entryPoint = result.Instance;
+        }
+
         //Registers before the first module appears (main menu)
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
@@ -44,78 +44,25 @@ namespace CharacterCreation
             base.OnSubModuleLoad();
             try
             {
-                var harmony = new Harmony("mod.bannerlord.popowanobi.dcc");
-                harmony.PatchAll();
-
-                // apply compatibility patches
-                CompatibilityPatch.CreateCompatibilityPatches(harmony);
-
-                TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
+                _entryPoint.OnBeforeInitialModuleScreenSetAsRoot();
             }
             catch (Exception ex)
             {
                 MessageBoxDialog.Show($"{ErrorLoadingDccMessage}\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
 
-            InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage.ToString(), ColorManager.Orange));
+            InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage, ColorManager.Orange));
             _isLoaded = true;
         }
 
         // Called when loading save game
-        public override void OnGameLoaded(Game game, object initializerObject)
-        {
-            if (!(game.GameType is Campaign) || !DCCSettingsUtil.Instance.DebugMode) return;
-
-            var player = Hero.MainHero;
-            if (player != default)
-            {
-                InformationManager.DisplayMessage(new InformationMessage(GetFormattedAgeDebugMessage(player, player.Age), ColorManager.Red));
-                Debug.Print(GetFormattedAgeDebugMessage(player, player.Age));
-            }
-        }
+        public override void OnGameLoaded(Game game, object initializerObject) =>
+            _entryPoint.OnGameLoaded(game, initializerObject);
 
         // called after game is initialized
-        public override void OnGameInitializationFinished(Game game)
-        {
-            // just to make sure facegen is set
-            TaleWorlds.Core.FaceGen.ShowDebugValues = true;
-            // make sure to call this and other daily tick events on... well, daily tick
-            if (game.GameType is Campaign)
-                SettingsEffects.Initialize(true);
-        }
+        public override void OnGameInitializationFinished(Game game) => _entryPoint.OnGameInitializationFinished(game);
 
-        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
-        {
-            base.OnGameStart(game, gameStarterObject);
-
-            if (!(game.GameType is Campaign) || !(gameStarterObject is CampaignGameStarter gameStarter))
-                return;
-
-            // add behaviors
-            gameStarter.AddBehavior(new CharacterCreationCampaignBehavior());
-
-            // add game models
-            if (DCCSettingsUtil.Instance.CustomAgeModel)
-                gameStarter.AddModel(new DCCAgeModel());
-
-            // add event handlers
-            game.AddGameHandler<AgingGameHandler>();
-            game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(new EncyclopediaPageChangedAction().OnEncyclopediaPageChanged);
-        }
-
-        private bool _isLoaded;
-
-        private class AgingGameHandler : GameHandler
-        {
-            public override void OnAfterSave()
-            {
-            }
-
-            public override void OnBeforeSave()
-            {
-                if (Game.Current == null || !(Game.Current.GameType is Campaign)) return;
-                SettingsEffects.Instance?.UpdateAllHeroes(Game.Current, true);
-            }
-        }
+        protected override void OnGameStart(Game game, IGameStarter gameStarterObject) =>
+            _entryPoint.OnGameStart(game, gameStarterObject);
     }
 }

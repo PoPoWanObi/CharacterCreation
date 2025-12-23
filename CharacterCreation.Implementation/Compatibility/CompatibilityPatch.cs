@@ -1,17 +1,17 @@
 ﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using CharacterCreation.Util;
 using TaleWorlds.Library;
 using TaleWorlds.ModuleManager;
 
-namespace CharacterCreation.Util
+namespace CharacterCreation.Compatibility
 {
     public abstract class CompatibilityPatch
     {
-        private static readonly Dictionary<string, CompatibilityPatch> _patches = new Dictionary<string, CompatibilityPatch>();
+        private static readonly Dictionary<string, CompatibilityPatch> PatchList = new Dictionary<string, CompatibilityPatch>();
 
-        public static IReadOnlyDictionary<string, CompatibilityPatch> Patches => _patches;
+        public static IReadOnlyDictionary<string, CompatibilityPatch> Patches => PatchList;
 
         public string ModuleId { get; }
 
@@ -37,17 +37,9 @@ namespace CharacterCreation.Util
 
         protected abstract void OnPatch(ModuleInfo moduleInfo, Harmony harmony);
 
-        public static void CreateCompatibilityPatches(Harmony harmony)
+        public static void PatchAll(Harmony harmony)
         {
-            if (DCCSettingsUtil.Instance.EnableCompatibility)
-            {
-                if (DCCSettingsUtil.Instance.EnableCharacterReloadCompatibility)
-                {
-                    var instance = new CharacterReloadPatch();
-                    _patches.Add(instance.ModuleId, instance);
-                }
-            }
-            foreach (var patch in _patches.Values)
+            foreach (var patch in PatchList.Values)
                 patch.Patch(harmony);
         }
 
@@ -56,7 +48,7 @@ namespace CharacterCreation.Util
 
         public static T AddPatch<T>(T instance) where T : CompatibilityPatch
         {
-            _patches.Add(instance.ModuleId, instance);
+            PatchList.Add(instance.ModuleId, instance);
             return instance;
         }
     }

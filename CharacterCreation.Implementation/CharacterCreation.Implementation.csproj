@@ -13,6 +13,7 @@
         <Company>PoPoWanObi</Company>
         <NeutralLanguage>en</NeutralLanguage>
         <AssemblyName>CharacterCreation.$(Version)</AssemblyName>
+        <RunPostBuildEvent>Always</RunPostBuildEvent>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

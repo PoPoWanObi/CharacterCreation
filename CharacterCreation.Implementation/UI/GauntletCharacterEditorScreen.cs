@@ -1,5 +1,6 @@
 ﻿using CharacterCreation.CampaignSystem;
 using CharacterCreation.CampaignSystem.GameState;
+using CharacterCreation.Settings;
 using CharacterCreation.Util;
 using Helpers;
 using TaleWorlds.CampaignSystem;
@@ -11,7 +12,7 @@ using TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator;
 using TaleWorlds.MountAndBlade.View.Screens;
 using TaleWorlds.ScreenSystem;
 
-using static CharacterCreation.DccLocalization;
+using static CharacterCreation.Util.DccLocalization;
 
 namespace CharacterCreation.UI
 {
@@ -31,7 +32,7 @@ namespace CharacterCreation.UI
             _editedPropertyType = state.EditedPropertyType;
             _facegenLayer = new BodyGeneratorView(OnDone, GameTexts.FindText("str_done"), OnExit,
                 GameTexts.FindText("str_cancel"), state.Character, false, CharacterHelper.GetFaceGeneratorFilter());
-            if (DCCSettingsUtil.Instance.DebugMode)
+            if (DccSettings.Instance!.DebugMode)
             {
                 var msg = $"[CharacterCreation] Initializing character editor screen, character: {state.Character}, which to edit: {_editedPropertyType}";
                 Debug.Print(msg);
@@ -53,18 +54,18 @@ namespace CharacterCreation.UI
 
         private void ApplyChanges()
         {
-            if (!DCCSettingsUtil.Instance.FixCharEditEffectOnNPC) return;
+            if (!DccSettings.Instance!.FixCharEditEffectOnNpc) return;
             if (!(_facegenLayer.BodyGen.Character is CharacterObject character)) return;
             var properties = _facegenLayer.BodyGen.CurrentBodyProperties;
             var race = _facegenLayer.BodyGen.Race;
             var isFemale = _facegenLayer.BodyGen.IsFemale;
 
             // apply age changes
-            if (DCCSettingsUtil.Instance.PatchAgeNotUpdatingOnCharEdit)
+            if (DccSettings.Instance.PatchAgeNotUpdatingOnCharEdit)
             {
                 var bodyAge = properties.DynamicProperties.Age;
                 UnitEditorFunctions.ResetBirthDayForAge(character, bodyAge);
-                if (DCCSettingsUtil.Instance.DebugMode)
+                if (DccSettings.Instance.DebugMode)
                 {
                     var msg =
                         $"[CharacterCreation] Character {character.Name} expected age: {bodyAge}, actual: {character.Age}";
@@ -74,7 +75,7 @@ namespace CharacterCreation.UI
             }
             
             // apply body changes
-            if (DCCSettingsUtil.Instance.DebugMode)
+            if (DccSettings.Instance.DebugMode)
             {
                 var msg =
                     $"[CharacterCreation] Preparing edit to {character.GetName()}. Properties: ({character.GetBodyProperties(character.Equipment).ToString()}), Race: {character.Race.ToString()}, Female: {character.IsFemale.ToString()}";
@@ -97,9 +98,9 @@ namespace CharacterCreation.UI
                 character.HeroObject.IsFemale = isFemale;
                 CampaignEventDispatcher.Instance.OnPlayerBodyPropertiesChanged();
                 
-                if (DCCSettingsUtil.Instance.DebugMode)
+                if (DccSettings.Instance.DebugMode)
                 {
-                    var msg = HeroUpdatedMsg.ToString() + character.HeroObject.Name;
+                    var msg = HeroUpdatedMsg + character.HeroObject.Name;
                     InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Purple));
                     Debug.Print(msg);
                 }
@@ -110,7 +111,7 @@ namespace CharacterCreation.UI
                     isFemale, _editedPropertyType);
             }
             
-            if (DCCSettingsUtil.Instance.DebugMode)
+            if (DccSettings.Instance.DebugMode)
             {
                 var msg =
                     $"[CharacterCreation] Changes applied to {character.GetName()}. Properties: ({character.GetBodyProperties(character.Equipment).ToString()}), Race: {character.Race.ToString()}, Female: {character.IsFemale.ToString()}";
@@ -129,7 +130,7 @@ namespace CharacterCreation.UI
             base.OnInitialize();
             Game.Current.GameStateManager.RegisterActiveStateDisableRequest(this);
             AddLayer(_facegenLayer.GauntletLayer);
-            if (!DCCSettingsUtil.Instance.DebugMode) InformationManager.HideAllMessages();
+            if (!DccSettings.Instance!.DebugMode) InformationManager.HideAllMessages();
         }
 
         protected override void OnFinalize()
@@ -152,7 +153,7 @@ namespace CharacterCreation.UI
             _facegenLayer.SceneLayer.SceneView.SetEnable(false);
             _facegenLayer.OnFinalize();
             LoadingWindow.EnableGlobalLoadingWindow();
-            if (!DCCSettingsUtil.Instance.DebugMode) MBInformationManager.HideInformations();
+            if (!DccSettings.Instance!.DebugMode) MBInformationManager.HideInformations();
         }
         
         void IGameStateListener.OnActivate() {}

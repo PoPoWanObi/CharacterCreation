@@ -1,20 +1,12 @@
-﻿using CharacterCreation.Util;
-using MCM.Abstractions.Attributes;
-using MCM.Abstractions.Attributes.v2;
+﻿using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.PerSave;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
 
-namespace CharacterCreation
+namespace CharacterCreation.Settings
 {
-    class DCCPerSaveSettings : AttributePerSaveSettings<DCCPerSaveSettings>
+    internal class DccPerSaveSettings : AttributePerSaveSettings<DccPerSaveSettings>
     {
-        public static DCCPerSaveSettings? SaveInstance
+        public static DccPerSaveSettings? SaveInstance
         {
             get
             {
@@ -46,7 +38,7 @@ namespace CharacterCreation
         public override string DisplayName => DisplayNameTextObject.ToString();
 
         [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 1, RequireRestart = false)]
-        public bool IgnoreDailyTick { get; set; } = DCCSettingsUtil.Instance?.IgnoreDailyTick ?? false;
+        public bool IgnoreDailyTick { get; set; } = DccSettings.Instance?.IgnoreDailyTick ?? false;
 
         [SettingPropertyBool(OverrideAgeName, HintText = OverrideAgeHint, Order = 2, RequireRestart = false)]
         public bool OverrideAge { get; set; } = false;
