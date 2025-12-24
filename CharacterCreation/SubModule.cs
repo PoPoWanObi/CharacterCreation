@@ -26,6 +26,8 @@ namespace CharacterCreation
         
         public static SubModule? Instance { get; private set; }
 
+        public readonly CommandImplementation CommandImplementation;
+
         private readonly CharacterCreationEntryPoint _entryPoint;
         private bool _isLoaded;
         
@@ -37,6 +39,7 @@ namespace CharacterCreation
                 throw error!;
 
             _entryPoint = result.Instance;
+            CommandImplementation = _entryPoint.GetCommandImplementation();
             Instance = this;
         }
 

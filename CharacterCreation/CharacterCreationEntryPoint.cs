@@ -1,5 +1,6 @@
 ﻿using CharacterCreation.CampaignSystem;
 using CharacterCreation.UI;
+using CharacterCreation.Util;
 using HarmonyLib;
 using TaleWorlds.Core;
 
@@ -20,5 +21,7 @@ namespace CharacterCreation
         public abstract ICharacterEditorImplementation InitializeCharacterEditor(CharacterEditorState state);
         
         public abstract ICampaignBehaviorImplementation InitializeCampaignBehavior();
+        
+        public abstract CommandImplementation GetCommandImplementation();
     }
 }

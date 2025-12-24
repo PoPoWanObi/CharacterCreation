@@ -68,5 +68,7 @@ namespace CharacterCreation
 
         public override ICampaignBehaviorImplementation InitializeCampaignBehavior() =>
             new CurrentCampaignBehaviorImplementation();
+
+        public override CommandImplementation GetCommandImplementation() => Util.Util.GetCommandImplementation();
     }
 }
