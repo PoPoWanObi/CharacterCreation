@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using CharacterCreation.CampaignSystem;
+using CharacterCreation.UI;
+using HarmonyLib;
 using TaleWorlds.Core;
 
 namespace CharacterCreation
@@ -14,5 +16,7 @@ namespace CharacterCreation
         public abstract void OnGameInitializationFinished(Game game);
 
         public abstract void OnGameStart(Game game, IGameStarter gameStarterObject);
+
+        public abstract ICharacterEditorImplementation InitializeCharacterEditor(CharacterEditorState state);
     }
 }

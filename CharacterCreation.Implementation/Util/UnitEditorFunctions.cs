@@ -7,7 +7,6 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using CharacterCreation.CampaignSystem;
-using CharacterCreation.CampaignSystem.GameState;
 using CharacterCreation.Settings;
 using SandBox.View.Map;
 using TaleWorlds.Core.ImageIdentifiers;

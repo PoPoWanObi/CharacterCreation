@@ -23,9 +23,13 @@ namespace CharacterCreation
             };
             return new TextObject(ExpectedActualAgeMessage, attributes).ToString();
         }
+        
+        public static SubModule? Instance { get; private set; }
 
         private readonly CharacterCreationEntryPoint _entryPoint;
         private bool _isLoaded;
+        
+        public CharacterCreationEntryPoint EntryPoint => _entryPoint;
 
         public SubModule()
         {
@@ -33,6 +37,7 @@ namespace CharacterCreation
                 throw error!;
 
             _entryPoint = result.Instance;
+            Instance = this;
         }
 
         //Registers before the first module appears (main menu)

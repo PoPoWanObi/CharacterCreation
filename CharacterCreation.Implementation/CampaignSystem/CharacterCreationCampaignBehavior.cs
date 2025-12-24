@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using CharacterCreation.CampaignSystem.GameState;
 using CharacterCreation.Settings;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;

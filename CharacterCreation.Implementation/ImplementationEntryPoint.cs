@@ -61,5 +61,8 @@ namespace CharacterCreation
             game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(new EncyclopediaPageChangedAction()
                 .OnEncyclopediaPageChanged);
         }
+
+        public override ICharacterEditorImplementation InitializeCharacterEditor(CharacterEditorState state) =>
+            new CurrentCharacterEditorImplementation(state);
     }
 }

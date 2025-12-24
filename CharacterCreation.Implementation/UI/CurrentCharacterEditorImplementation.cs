@@ -1,5 +1,4 @@
 ﻿using CharacterCreation.CampaignSystem;
-using CharacterCreation.CampaignSystem.GameState;
 using CharacterCreation.Settings;
 using CharacterCreation.Util;
 using Helpers;
@@ -9,24 +8,21 @@ using TaleWorlds.Engine;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator;
-using TaleWorlds.MountAndBlade.View.Screens;
 using TaleWorlds.ScreenSystem;
-
 using static CharacterCreation.Util.DccLocalization;
 
 namespace CharacterCreation.UI
 {
     // Adapted from SandBox.GauntletUI.GauntletBarberScreen
     // the original version is for some reason hardcoded to use the player character (probably because the barber state no-arg constructor is malformed)
-    [GameStateScreen(typeof(CharacterEditorState))]
-    public class GauntletCharacterEditorScreen : ScreenBase, IGameStateListener, IFaceGeneratorScreen
+    public sealed class CurrentCharacterEditorImplementation : ICharacterEditorImplementation
     {
         private readonly BodyGeneratorView _facegenLayer;
         private readonly CharacterEditorStatePropertyType _editedPropertyType;
-
+        
         public IFaceGeneratorHandler Handler => _facegenLayer;
-
-        public GauntletCharacterEditorScreen(CharacterEditorState state)
+        
+        public CurrentCharacterEditorImplementation(CharacterEditorState state)
         {
             LoadingWindow.EnableGlobalLoadingWindow();
             _editedPropertyType = state.EditedPropertyType;
@@ -39,10 +35,9 @@ namespace CharacterCreation.UI
                 InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.White));
             }
         }
-
-        protected override void OnFrameTick(float dt)
+        
+        void ICharacterEditorImplementation.OnFrameTick(float dt)
         {
-            base.OnFrameTick(dt);
             _facegenLayer.OnTick(dt);
         }
 
@@ -125,31 +120,24 @@ namespace CharacterCreation.UI
             Game.Current.GameStateManager.PopState();
         }
 
-        protected override void OnInitialize()
+        void ICharacterEditorImplementation.OnInitialize(ScreenBase screen)
         {
-            base.OnInitialize();
             Game.Current.GameStateManager.RegisterActiveStateDisableRequest(this);
-            AddLayer(_facegenLayer.GauntletLayer);
+            screen.AddLayer(_facegenLayer.GauntletLayer);
             if (!DccSettings.Instance!.DebugMode) InformationManager.HideAllMessages();
         }
 
-        protected override void OnFinalize()
+        void ICharacterEditorImplementation.OnFinalize(ScreenBase screen)
         {
-            base.OnFinalize();
             if (LoadingWindow.IsLoadingWindowActive)
                 LoadingWindow.DisableGlobalLoadingWindow();
             Game.Current.GameStateManager.UnregisterActiveStateDisableRequest(this);
         }
 
-        protected override void OnActivate()
-        {
-            base.OnActivate();
-            AddLayer(_facegenLayer.SceneLayer);
-        }
+        void ICharacterEditorImplementation.OnActivate(ScreenBase screen) => screen.AddLayer(_facegenLayer.SceneLayer);
 
-        protected override void OnDeactivate()
+        void ICharacterEditorImplementation.OnDeactivate(ScreenBase screen)
         {
-            base.OnDeactivate();
             _facegenLayer.SceneLayer.SceneView.SetEnable(false);
             _facegenLayer.OnFinalize();
             LoadingWindow.EnableGlobalLoadingWindow();

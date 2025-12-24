@@ -2,11 +2,11 @@
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
-namespace CharacterCreation.CampaignSystem.GameState
+namespace CharacterCreation.CampaignSystem
 {
     // Adapted from TaleWorlds.CampaignSystem.GameState.BarberState
     // each state can only have an associated screen, so this had to be cloned
-    public class CharacterEditorState : TaleWorlds.Core.GameState
+    public class CharacterEditorState : GameState
     {
         public BasicCharacterObject Character;
         public CharacterEditorStatePropertyType EditedPropertyType;
