@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy $(OutDir)* &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;cd  &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot;&#xA;xcopy * ..\Gaming.Desktop.x64_Shipping_Client\ /s /y" />
+    <Exec Command="rmdir &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\&quot; /s /q&#xA;xcopy $(OutDir)* &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;cd  &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot;&#xA;xcopy * ..\Gaming.Desktop.x64_Shipping_Client\ /s /y" />
   </Target>
 
 </Project>

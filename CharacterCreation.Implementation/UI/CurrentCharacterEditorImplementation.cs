@@ -27,7 +27,7 @@ namespace CharacterCreation.UI
             LoadingWindow.EnableGlobalLoadingWindow();
             _editedPropertyType = state.EditedPropertyType;
             _facegenLayer = new BodyGeneratorView(OnDone, GameTexts.FindText("str_done"), OnExit,
-                GameTexts.FindText("str_cancel"), state.Character, false, CharacterHelper.GetFaceGeneratorFilter());
+                GameTexts.FindText("str_cancel"), state.Character, false, new FaceGeneratorFilter(state.Character));
             if (DccSettings.Instance!.DebugMode)
             {
                 var msg = $"[CharacterCreation] Initializing character editor screen, character: {state.Character}, which to edit: {_editedPropertyType}";

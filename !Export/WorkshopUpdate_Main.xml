@@ -6,16 +6,11 @@
 	<UpdateItem>
 		<ModuleFolder Value="C:\Users\desig\Documents\GitHub\CharacterCreation\!Export\Modules\zzCharacterCreation"/>
 		<!-- A direct path of your module -->	
-		<ChangeNotes Value="Version 1.6.0.180:
+		<ChangeNotes Value="Version 1.7.0:
         [list]
-        [*]Updated for Bannerlord v1.3.9
-        [*]Skin files updated to match changes in v1.3.x
-        [*]Updated assets to work with v1.3.x (apparently it would somehow break teen textures if unchanged)
-        [*]Fixed a crash from attempting to enter character creation the 'old' way (now you have to make sure to enter it as a 'state')
-        [*]Improved unit editing mechanism. Now edited units no longer propagate changes to 'base' units.
-        [*]It is now possible to edit both the minimum or maximum properties of troops. You can still edit both by selecting both.
-        [*]It is now possible to edit hair, beard, and tattoo tags to control how the game generates troops. This is an advanced feature.
-        [*]Improved debug logging.
+        [*]Compiled on Bannerlord v1.3.11. May work on earlier versions.
+        [*]Major code refactor, separating code into interface code and implementation code. This should help with maintenance in the future.
+        [*]Fixed some hair and beard not appearing in character editor for some characters.
         [/list]" />
 		<!-- Insert patch notes -->
 		<Tags> 
@@ -26,7 +21,7 @@
 			<!-- Compatible Version: e1.9.0, v1.0.0,... The currently available versions can be found at the Steam Workshop "Browse by Tag" section -->
 			<Tag Value="Utility" />
 			<Tag Value="Singleplayer" />
-			<Tag Value="v1.3.9" />
+			<Tag Value="v1.3.11" />
 		</Tags>
 	</UpdateItem>
 </Tasks>
