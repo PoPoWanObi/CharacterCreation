@@ -74,7 +74,8 @@ namespace CharacterCreation.Util
                         ["OA"] = DccPerSaveSettings.SaveInstance.OverrideAge.ToString(),
                         ["LDC"] = DccPerSaveSettings.SaveInstance.DisableAutoAging.ToString()
                     });
-                    InformationManager.ShowInquiry(new InquiryData(WarningTitle, text.ToString(), true, false, WarningAck, null,
+                    InformationManager.ShowInquiry(new InquiryData(WarningTitleTextObject.ToString(), text.ToString(),
+                        true, false, WarningAck, null,
                         InformationManager.HideInquiry, InformationManager.HideInquiry), true);
                 }
                 else

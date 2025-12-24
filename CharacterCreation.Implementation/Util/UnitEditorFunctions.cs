@@ -20,10 +20,13 @@ namespace CharacterCreation.Util
         public static void RenameUnit(CharacterObject unit, Action? postAction = null)
         {
             if (DccSettings.Instance!.DebugMode)
-                InformationManager.DisplayMessage(new InformationMessage(ChangingNameForText + unit.Name));
+                InformationManager.DisplayMessage(
+                    new InformationMessage(ChangingNameForTextTextObject.ToString() + unit.Name));
 
-            InformationManager.ShowTextInquiry(new TextInquiryData(CharacterRenamerText, EnterNewNameText,
-                true, true, RenameText, NativeCancel, x => RenameUnit(x, unit, postAction),
+            InformationManager.ShowTextInquiry(new TextInquiryData(CharacterRenamerTextTextObject.ToString(),
+                EnterNewNameTextTextObject.ToString(),
+                true, true, RenameTextTextObject.ToString(), NativeCancelTextObject.ToString(),
+                x => RenameUnit(x, unit, postAction),
                 InformationManager.HideInquiry, false, CampaignUIHelper.IsStringApplicableForHeroName), true);
         }
 
@@ -39,12 +42,15 @@ namespace CharacterCreation.Util
         {
             if (!string.IsNullOrEmpty(unitName))
             {
-                if (selectedUnit.IsHero) selectedUnit.HeroObject.SetName(new TextObject(unitName), new TextObject(unitName));
+                if (selectedUnit.IsHero)
+                    selectedUnit.HeroObject.SetName(new TextObject(unitName), new TextObject(unitName));
                 else
                     CharacterCreationCampaignBehavior.Instance?.SetUnitNameOverride(selectedUnit, unitName);
                 RefreshEncyclopediaPage();
             }
-            else InformationManager.DisplayMessage(new InformationMessage(InvalidNameText, ColorManager.Red));
+            else
+                InformationManager.DisplayMessage(new InformationMessage(InvalidNameTextTextObject.ToString(),
+                    ColorManager.Red));
 
             action?.Invoke();
         }
@@ -53,8 +59,9 @@ namespace CharacterCreation.Util
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
-            InformationManager.ShowInquiry(new InquiryData(CharacterUnrenamerText, UnrenameWarningText,
-                true, true, NativeYes, NativeNo, () =>
+            InformationManager.ShowInquiry(new InquiryData(CharacterUnrenamerTextTextObject.ToString(),
+                UnrenameWarningTextTextObject.ToString(),
+                true, true, NativeYesTextObject.ToString(), NativeNoTextObject.ToString(), () =>
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoUnitNameOverride(selectedUnit);
                     postAction?.Invoke();
@@ -69,14 +76,15 @@ namespace CharacterCreation.Util
 
             if (!unit.IsHero)
             {
-                MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(TroopEditTitle,
-                    TroopEditText, new List<InquiryElement>
+                MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(
+                    TroopEditTitleTextObject.ToString(),
+                    TroopEditTextTextObject.ToString(), new List<InquiryElement>
                     {
-                        new InquiryElement("BodyProperties", BodyPropertiesButton,
+                        new InquiryElement("BodyProperties", BodyPropertiesButtonTextObject.ToString(),
                             new EmptyImageIdentifier()),
-                        new InquiryElement("Tags", TagsButton,
+                        new InquiryElement("Tags", TagsButtonTextObject.ToString(),
                             new EmptyImageIdentifier())
-                    }, true, 1, 1, NativeContinue, NativeCancel,
+                    }, true, 1, 1, NativeContinueTextObject.ToString(), NativeCancelTextObject.ToString(),
                     list =>
                     {
                         if (list[0].Identifier.Equals("BodyProperties"))
@@ -93,21 +101,24 @@ namespace CharacterCreation.Util
 
         private static void EditUnitBodyProperties(CharacterObject unit)
         {
-            MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(TroopEditTitle,
-                TroopEditPropertiesText, new List<InquiryElement>
+            MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(
+                TroopEditTitleTextObject.ToString(),
+                TroopEditPropertiesTextTextObject.ToString(), new List<InquiryElement>
                 {
-                    new InquiryElement("MinBodyProperties", MinPropertiesButton,
+                    new InquiryElement("MinBodyProperties", MinPropertiesButtonTextObject.ToString(),
                         new EmptyImageIdentifier()),
-                    new InquiryElement("MaxBodyProperties", MaxPropertiesButton,
+                    new InquiryElement("MaxBodyProperties", MaxPropertiesButtonTextObject.ToString(),
                         new EmptyImageIdentifier())
-                }, true, 1, 2, NativeContinue, NativeCancel,
+                }, true, 1, 2, NativeContinueTextObject.ToString(), NativeCancelTextObject.ToString(),
                 list =>
                 {
                     CharacterEditorStatePropertyType flag = default;
                     foreach (var e in list)
                     {
-                        if (e.Identifier.Equals("MinBodyProperties")) flag |= CharacterEditorStatePropertyType.MinProperties;
-                        else if (e.Identifier.Equals("MaxBodyProperties")) flag |= CharacterEditorStatePropertyType.MaxProperties;
+                        if (e.Identifier.Equals("MinBodyProperties"))
+                            flag |= CharacterEditorStatePropertyType.MinProperties;
+                        else if (e.Identifier.Equals("MaxBodyProperties"))
+                            flag |= CharacterEditorStatePropertyType.MaxProperties;
                     }
 
                     GameStateManager.Current.PushState(
@@ -118,13 +129,14 @@ namespace CharacterCreation.Util
 
         private static void EditUnitTags(CharacterObject unit)
         {
-            MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(TroopEditTitle,
-                TroopEditTagsText, new List<InquiryElement>
+            MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(
+                TroopEditTitleTextObject.ToString(),
+                TroopEditTagsTextTextObject.ToString(), new List<InquiryElement>
                 {
-                    new InquiryElement("HairTags", HairTagsButton, new EmptyImageIdentifier()),
-                    new InquiryElement("BeardTags", BeardTagsButton, new EmptyImageIdentifier()),
-                    new InquiryElement("TattooTags", TattooTagsButton, new EmptyImageIdentifier())
-                }, true, 1, 1, NativeContinue, NativeCancel,
+                    new InquiryElement("HairTags", HairTagsButtonTextObject.ToString(), new EmptyImageIdentifier()),
+                    new InquiryElement("BeardTags", BeardTagsButtonTextObject.ToString(), new EmptyImageIdentifier()),
+                    new InquiryElement("TattooTags", TattooTagsButtonTextObject.ToString(), new EmptyImageIdentifier())
+                }, true, 1, 1, NativeContinueTextObject.ToString(), NativeCancelTextObject.ToString(),
                 list =>
                 {
                     var type = list[0].Identifier switch
@@ -141,15 +153,16 @@ namespace CharacterCreation.Util
                         Debug.Print(msg);
                         return;
                     }
-                    
+
                     OnEditUnitTags(unit, type);
                 }, _ => InformationManager.HideInquiry()));
         }
 
         private static void OnEditUnitTags(CharacterObject unit, TroopTagEditType type)
         {
-            InformationManager.ShowTextInquiry(new TextInquiryData(TroopEditTitle, TagEditText,
-                true, true, NativeYes, NativeNo, x =>
+            InformationManager.ShowTextInquiry(new TextInquiryData(TroopEditTitleTextObject.ToString(),
+                TagEditTextTextObject.ToString(),
+                true, true, NativeYesTextObject.ToString(), NativeNoTextObject.ToString(), x =>
                 {
                     x ??= string.Empty;
                     switch (type)
@@ -169,6 +182,7 @@ namespace CharacterCreation.Util
                             Debug.Print(msg);
                             break;
                     }
+
                     RefreshEncyclopediaPage();
                 }, InformationManager.HideInquiry, defaultInputText: GetDefaultInputText(unit, type)), true);
         }
@@ -188,8 +202,9 @@ namespace CharacterCreation.Util
         {
             if (selectedUnit.IsHero) return; // this should not happen, so here's a sanity check.
 
-            InformationManager.ShowInquiry(new InquiryData(CharacterUneditText, UneditWarningText,
-                true, true, NativeYes, NativeNo, () =>
+            InformationManager.ShowInquiry(new InquiryData(CharacterUneditTextTextObject.ToString(),
+                UneditWarningTextTextObject.ToString(),
+                true, true, NativeYesTextObject.ToString(), NativeNoTextObject.ToString(), () =>
                 {
                     CharacterCreationCampaignBehavior.Instance?.UndoBodyPropertiesOverride(selectedUnit);
                     postAction?.Invoke();

@@ -48,10 +48,12 @@ namespace CharacterCreation
             }
             catch (Exception ex)
             {
-                MessageBoxDialog.Show($"{ErrorLoadingDccMessage}\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                MessageBoxDialog.Show(
+                    $"{ErrorLoadingDccMessageTextObject}\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
 
-            InformationManager.DisplayMessage(new InformationMessage(LoadedModMessage, ColorManager.Orange));
+            InformationManager.DisplayMessage(new InformationMessage(LoadedModMessageTextObject.ToString(),
+                ColorManager.Orange));
             _isLoaded = true;
         }
 

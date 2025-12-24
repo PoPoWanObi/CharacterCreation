@@ -100,7 +100,7 @@ namespace CharacterCreation.UI
                 
                 if (DccSettings.Instance.DebugMode)
                 {
-                    var msg = HeroUpdatedMsg + character.HeroObject.Name;
+                    var msg = HeroUpdatedMsgTextObject.ToString() + character.HeroObject.Name;
                     InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Purple));
                     Debug.Print(msg);
                 }

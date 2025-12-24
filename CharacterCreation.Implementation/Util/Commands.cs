@@ -14,20 +14,20 @@ namespace CharacterCreation.Util
         {
             if (!CampaignCheats.CheckParameters(strings, 2) || CampaignCheats.CheckHelp(strings))
             {
-                return $"{FormatMsgHeader} \"dcc.age_hero [{HeroNameText}] [{AgeText}]\".";
+                return $"{FormatMsgHeaderTextObject} \"dcc.age_hero [{HeroNameTextTextObject}] [{AgeTextTextObject}]\".";
             }
 
             var hero = Hero.FindFirst(x => x.GetName().ToString() == strings[0].Replace('_', ' '));
             if (hero == null)
             {
-                return HeroNotFoundMsg;
+                return HeroNotFoundMsgTextObject.ToString();
             }
             if (!int.TryParse(strings[1], out var num))
             {
-                return EnterAgeMsg;
+                return EnterAgeMsgTextObject.ToString();
             }
             UnitEditorFunctions.ResetBirthDayForAge(hero.CharacterObject, num, true);
-            return SuccessMsg;
+            return SuccessMsgTextObject.ToString();
         }
 
         [CommandLineFunctionality.CommandLineArgumentFunction("age", "dcc")]
@@ -35,15 +35,15 @@ namespace CharacterCreation.Util
         {
             if (CampaignCheats.CheckParameters(strings, 0) || CampaignCheats.CheckHelp(strings))
             {
-                return $"{FormatMsgHeader} \"dcc.age [{AgeText}]\".";
+                return $"{FormatMsgHeaderTextObject} \"dcc.age [{AgeTextTextObject}]\".";
             }
 
-            if (!int.TryParse(strings[0], out int num))
+            if (!int.TryParse(strings[0], out var num))
             {
-                return EnterAgeMsg;
+                return EnterAgeMsgTextObject.ToString();
             }
             UnitEditorFunctions.ResetBirthDayForAge(Hero.MainHero.CharacterObject, num, true);
-            return SuccessMsg;
+            return SuccessMsgTextObject.ToString();
         }
 
         [CommandLineFunctionality.CommandLineArgumentFunction("aspect", "dcc")]

@@ -25,13 +25,14 @@ namespace CharacterCreation.UI
         }
 
         [DataSourceProperty]
-        public string DccOptionsString => DccSettings.Instance!.ShowOptionsLabel ? DccOptionsText : "";
+        public string DccOptionsString =>
+            DccSettings.Instance!.ShowOptionsLabel ? DccOptionsTextTextObject.ToString() : "";
 
         [DataSourceProperty]
-        public string EditAppearanceString => EditAppearanceText;
+        public string EditAppearanceString => EditAppearanceTextTextObject.ToString();
 
         [DataSourceProperty]
-        public string ChangeNameString => ChangeNameText;
+        public string ChangeNameString => ChangeNameTextTextObject.ToString();
 
         [DataSourceProperty]
         public int AspectMarginTop => MarginUtil.GetTopMarginForAspectRatio();
@@ -40,10 +41,10 @@ namespace CharacterCreation.UI
         public int AspectMarginRight => MarginUtil.GetRightMarginForAspectRatio();
 
         [DataSourceProperty]
-        public string UndoAppearanceString => UndoAppearanceText;
+        public string UndoAppearanceString => UndoAppearanceTextTextObject.ToString();
 
         [DataSourceProperty]
-        public string UndoRenameString => UndoRenameText;
+        public string UndoRenameString => UndoRenameTextTextObject.ToString();
 
         [DataSourceProperty]
         public bool EnableRevertAppearance
