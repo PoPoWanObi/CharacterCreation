@@ -14,6 +14,7 @@
         <NeutralLanguage>en</NeutralLanguage>
         <AssemblyName>CharacterCreation.$(Version)</AssemblyName>
         <RunPostBuildEvent>Always</RunPostBuildEvent>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -25,7 +26,7 @@
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="xcopy $(OutDir)* &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;cd  &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot;&#xA;xcopy * ..\Gaming.Desktop.x64_Shipping_Client\ /s /y" />
+      <Exec Command="xcopy $(OutDir)* &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y" />
     </Target>
 
 </Project>
