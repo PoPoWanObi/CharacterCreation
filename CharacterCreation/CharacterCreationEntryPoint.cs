@@ -18,5 +18,7 @@ namespace CharacterCreation
         public abstract void OnGameStart(Game game, IGameStarter gameStarterObject);
 
         public abstract ICharacterEditorImplementation InitializeCharacterEditor(CharacterEditorState state);
+        
+        public abstract ICampaignBehaviorImplementation InitializeCampaignBehavior();
     }
 }

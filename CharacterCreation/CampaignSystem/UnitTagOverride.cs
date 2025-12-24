@@ -2,7 +2,7 @@
 
 namespace CharacterCreation.CampaignSystem
 {
-    internal class UnitTagOverride
+    public class UnitTagOverride
     {
         [SaveableProperty(0)]
         public string UnitId { get; private set; }

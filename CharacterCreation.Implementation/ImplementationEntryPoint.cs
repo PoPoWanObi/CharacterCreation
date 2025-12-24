@@ -18,7 +18,8 @@ namespace CharacterCreation
             HarmonyInstance.PatchAll();
 
             // apply compatibility patches
-            CompatibilityPatch.PatchAll(HarmonyInstance);
+            if (DccSettings.Instance!.EnableCompatibility)
+                CompatibilityPatch.PatchAll(HarmonyInstance);
 
             FaceGen.ShowDebugValues = true; // Developer facegen
         }
@@ -64,5 +65,8 @@ namespace CharacterCreation
 
         public override ICharacterEditorImplementation InitializeCharacterEditor(CharacterEditorState state) =>
             new CurrentCharacterEditorImplementation(state);
+
+        public override ICampaignBehaviorImplementation InitializeCampaignBehavior() =>
+            new CurrentCampaignBehaviorImplementation();
     }
 }

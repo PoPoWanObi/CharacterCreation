@@ -5,7 +5,7 @@ using static CharacterCreation.Util.DccLocalization;
 
 namespace CharacterCreation.Settings
 {
-    internal class DccSettings : AttributeGlobalSettings<DccSettings>
+    public class DccSettings : AttributeGlobalSettings<DccSettings>
     {
         public override string Id => "DccSettings";
 
@@ -80,9 +80,10 @@ namespace CharacterCreation.Settings
         [SettingPropertyGroup(Section3, GroupOrder = 3)]
         public bool EnableCompatibility { get; set; } = true;
 
-        [SettingPropertyBool(EnableCharacterReloadCompatibilityName, HintText = EnableCharacterReloadCompatibilityHint, Order = 0, RequireRestart = true)]
-        [SettingPropertyGroup(Section3)]
-        public bool EnableCharacterReloadCompatibility { get; set; } = true;
+        // Currently unused
+        // [SettingPropertyBool(EnableCharacterReloadCompatibilityName, HintText = EnableCharacterReloadCompatibilityHint, Order = 0, RequireRestart = true)]
+        // [SettingPropertyGroup(Section3)]
+        // public bool EnableCharacterReloadCompatibility { get; set; } = true;
         #endregion
     }
 }

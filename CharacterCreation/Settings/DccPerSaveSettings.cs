@@ -4,7 +4,7 @@ using TaleWorlds.Localization;
 
 namespace CharacterCreation.Settings
 {
-    internal class DccPerSaveSettings : AttributePerSaveSettings<DccPerSaveSettings>
+    public class DccPerSaveSettings : AttributePerSaveSettings<DccPerSaveSettings>
     {
         public static DccPerSaveSettings? SaveInstance
         {

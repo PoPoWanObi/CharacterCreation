@@ -2,7 +2,7 @@
 
 namespace CharacterCreation.CampaignSystem
 {
-    internal class TroopNameOverride
+    public class TroopNameOverride
     {
         [SaveableProperty(0)]
         public string UnitId { get; private set; }

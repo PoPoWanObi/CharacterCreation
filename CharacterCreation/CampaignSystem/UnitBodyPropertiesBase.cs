@@ -2,7 +2,7 @@
 
 namespace CharacterCreation.CampaignSystem
 {
-    internal readonly struct UnitBodyPropertiesBase
+    public readonly struct UnitBodyPropertiesBase
     {
         public string UnitId { get; }
         public MBBodyProperty BodyPropertyRange { get; }

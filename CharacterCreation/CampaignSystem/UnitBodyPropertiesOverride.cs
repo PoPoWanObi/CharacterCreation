@@ -3,7 +3,7 @@ using TaleWorlds.SaveSystem;
 
 namespace CharacterCreation.CampaignSystem
 {
-    internal class UnitBodyPropertiesOverride
+    public class UnitBodyPropertiesOverride
     {
         [SaveableProperty(0)]
         public string UnitId { get; private set; }
