@@ -20,6 +20,8 @@
             <Tag Value="Utility" />
             <Tag Value="Singleplayer" />
             <Tag Value="v1.3.9" />
+            <Tag Value="v1.3.11" />
+            <Tag Value="v1.3.13" />
         </Tags>
     </UpdateItem>
 </Tasks>
