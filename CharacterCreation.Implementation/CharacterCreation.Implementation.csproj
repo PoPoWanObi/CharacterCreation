@@ -5,7 +5,7 @@
         <LangVersion>8</LangVersion>
         <Nullable>enable</Nullable>
         <RootNamespace>CharacterCreation</RootNamespace>
-        <Version>1.7.0</Version>
+        <Version>1.7.1</Version>
         <Authors>Designer225</Authors>
         <Copyright>Copyright © Designer225 2025</Copyright>
         <PackageProjectUrl>https://github.com/PoPoWanObi/CharacterCreation</PackageProjectUrl>
@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="xcopy $(OutDir)* &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y" />
+      <Exec Command="xcopy $(OutDir)*.dll &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;xcopy $(OutDir)*.pdb &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;xcopy $(OutDir)*.dll &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Gaming.Desktop.x64_Shipping_Client\&quot; /s /y&#xA;xcopy $(OutDir)*.pdb &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Gaming.Desktop.x64_Shipping_Client\&quot; /s /y" />
     </Target>
 
 </Project>

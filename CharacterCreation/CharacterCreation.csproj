@@ -5,7 +5,7 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
-    <Version>1.7.0</Version>
+    <Version>1.7.1</Version>
     <Copyright>Copyright © PoPoWanObi 2023</Copyright>
     <Authors>PoPoWanObi, Designer225</Authors>
     <NeutralLanguage>en</NeutralLanguage>
@@ -21,18 +21,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.3.11.105254" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.3.13.105726" />
     <PackageReference Include="BUTR.MessageBoxPInvoke" Version="1.0.0.1" />
     <PackageReference Include="Bannerlord.MCM" Version="5.11.3">
         <Private>false</Private>
         <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ConditionalAssemblyLoader" Version="0.2.0-alpha" />
+    <PackageReference Include="ConditionalAssemblyLoader" Version="0.2.1-alpha" />
     <PackageReference Include="Lib.Harmony" Version="2.4.2" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="rmdir &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\&quot; /s /q&#xA;xcopy $(OutDir)* &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;cd  &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot;&#xA;xcopy * ..\Gaming.Desktop.x64_Shipping_Client\ /s /y" />
+    <Exec Command="xcopy $(OutDir)*.dll &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;xcopy $(OutDir)*.pdb &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Win64_Shipping_Client\&quot; /s /y&#xA;xcopy $(OutDir)*.dll &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Gaming.Desktop.x64_Shipping_Client\&quot; /s /y&#xA;xcopy $(OutDir)*.pdb &quot;$(SolutionDir)!Export\Modules\zzCharacterCreation\bin\Gaming.Desktop.x64_Shipping_Client\&quot; /s /y" />
   </Target>
 
 </Project>
