@@ -1,7 +1,7 @@
 ﻿<Module>
     <Name value="Detailed Character Creation" />
     <Id value="zzCharacterCreation" />
-    <Version value="v1.7.2" />
+    <Version value="v1.7.3" />
     <SingleplayerModule value="true" />
     <MultiplayerModule value="false" />
     <DependedModules>
@@ -13,13 +13,13 @@
         <DependedModule Id="Bannerlord.MBOptionScreen" />
     </DependedModules>
     <SubModules>
+        <!-- Bannerlord Module Loader. Do not change the name! -->
         <SubModule>
-            <Name value="CharacterCreation" />
-            <DLLName value="CharacterCreation.dll" />
-            <SubModuleClassType value="CharacterCreation.SubModule" />
+            <Name value="Bannerlord Module Loader" />
+            <DLLName value="Bannerlord.ModuleLoader.$moduleid$.dll" />
+            <SubModuleClassType value="Bannerlord.ModuleLoader.$moduleid$" />
             <Tags>
-                <Tag key="DedicatedServerType" value="none" />
-                <Tag key="IsNoRenderModeElement" value="false" />
+                <Tag key="LoaderFilter" value ="$moduleid$.*.dll" />
             </Tags>
         </SubModule>
     </SubModules>

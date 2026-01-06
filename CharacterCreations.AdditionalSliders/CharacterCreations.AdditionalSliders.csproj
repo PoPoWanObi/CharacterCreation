@@ -10,7 +10,7 @@
 
     <PropertyGroup Label="Bannerlord-BuildResources">
         <ModuleName>Detailed Character Creation - Additional Sliders</ModuleName>
-        <ModuleId>FixedBanditSpawning</ModuleId>
+        <ModuleId>zzCharacterCreation_AdditionalSliders</ModuleId>
         <GameVersion>1.6.0.87</GameVersion>
     </PropertyGroup>
 
