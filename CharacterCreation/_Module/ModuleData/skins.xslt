@@ -5,6 +5,798 @@
             <xsl:apply-templates select="@*|node()" />
         </xsl:copy>
     </xsl:template>
+	
+	<xsl:template match='skins/race[@id="human"]/skin[@gender="0"]/tattoo_materials'>
+		<tattoo_materials group_id="8" zero_probability="0">
+            <tattoo_material>
+               <style_tags>
+                  <style_tag name="Cleanface" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_a_mat" tags="capon">
+               <style_tags>
+                  <style_tag name="Eastern" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_b_mat" tags="capon">
+               <style_tags>
+                  <style_tag name="Eastern1" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_c_mat" tags="capon">
+               <style_tags>
+                  <style_tag name="Eastern2" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_d_mat" tags="capon">
+               <style_tags>
+                  <style_tag name="Eastern3" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_e_mat" tags="capon">
+               <style_tags>
+                  <style_tag name="Eastern4" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_f_mat" tags="capon">
+               <style_tags>
+                  <style_tag name="Eastern5" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_g_mat" tags="capon">
+               <style_tags>
+                  <style_tag name="Eastern6" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_h_mat" tags="capon,turk">
+               <style_tags>
+                  <style_tag name="Eastern7" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_i_mat" tags="capon,turk">
+               <style_tags>
+                  <style_tag name="Eastern8" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_j_mat" tags="capon,turk">
+               <style_tags>
+                  <style_tag name="Eastern9" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_k_mat" tags="capon,turk">
+               <style_tags>
+                  <style_tag name="Eastern10" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_l_mat" tags="capon,turk">
+               <style_tags>
+                  <style_tag name="Eastern11" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_male_m_mat" tags="capon,turk">
+               <style_tags>
+                  <style_tag name="Eastern12" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_a" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar1" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_b" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar2" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_c" tags="scar,blindrighteye">
+               <style_tags>
+                  <style_tag name="Scar3" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_d" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar4" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_e" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar5" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+               <!-- <tattoo_material name="scar_male_f" tags="scar" /> -->
+            </tattoo_material>
+            <tattoo_material name="scar_male_g" tags="scar,blindrighteye">
+               <style_tags>
+                  <style_tag name="Scar6" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_h" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar7" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_i" tags="scar,blindrighteye">
+               <style_tags>
+                  <style_tag name="Scar8" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_j" tags="scar,blindlefteye">
+               <style_tags>
+                  <style_tag name="Scar9" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_k" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar10" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_l" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar11" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_m" tags="scar,blindlefteye">
+               <style_tags>
+                  <style_tag name="Scar12" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_n" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar13" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_q" tags="capon">
+               <style_tags>
+                  <style_tag name="Scar14" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_o" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar15" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_p" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar16" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_r" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar17" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+        </tattoo_materials>
+	</xsl:template>
+	
+	<xsl:template match='skins/race[@id="human"]/skin[@gender="1"]/tattoo_materials'>
+		<tattoo_materials group_id="8" zero_probability="0">
+            <tattoo_material>
+               <style_tags>
+                  <style_tag name="Cleanface" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_a_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_b_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern1" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_c_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern2" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_d_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern3" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_e_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern4" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_f_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern5" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_g_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern6" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_h_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern7" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_i_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern8" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_j_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern9" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_k_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern10" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_l_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern11" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_m_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern12" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_n_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern13" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_o_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern14" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_p_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern15" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_q_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern16" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_r_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern17" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_s_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern18" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="tattoo_female_t_mat" tags="tattoo1">
+               <style_tags>
+                  <style_tag name="Eastern19" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_a" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar1" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_b" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar2" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_c" tags="scar,blindrighteye">
+               <style_tags>
+                  <style_tag name="Scar3" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_d" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar4" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_e" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar5" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <!-- <tattoo_material name="scar_male_f" tags="scar" /> -->
+            <tattoo_material name="scar_male_g" tags="scar,blindrighteye">
+               <style_tags>
+                  <style_tag name="Scar6" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_h" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar7" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_i" tags="scar,blindrighteye">
+               <style_tags>
+                  <style_tag name="Scar8" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_j" tags="scar,blindlefteye">
+               <style_tags>
+                  <style_tag name="Scar9" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_k" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar10" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_l" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar11" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_m" tags="scar,blindlefteye">
+               <style_tags>
+                  <style_tag name="Scar12" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+            <tattoo_material name="scar_male_n" tags="scar">
+               <style_tags>
+                  <style_tag name="Scar13" />
+                  <style_tag name="empire" />
+                  <style_tag name="battania" />
+                  <style_tag name="aserai" />
+                  <style_tag name="sturgia" />
+                  <style_tag name="vlandia" />
+                  <style_tag name="khuzait" />
+                  <style_tag name="nord" />
+               </style_tags>
+            </tattoo_material>
+        </tattoo_materials>
+	</xsl:template>
 
     <xsl:template match='skins/race[@id="human"]/skin[@name="woman"]/face_textures'>
         <xsl:copy>

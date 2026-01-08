@@ -10,22 +10,24 @@ namespace CharacterCreation.Util
     {
         private static readonly List<ModuleInfo> ModuleList = new List<ModuleInfo>();
 
+        private static readonly ReadOnlyCollection<ModuleInfo> ReadOnlyList = ModuleList.AsReadOnly();
+
         public static ReadOnlyCollection<ModuleInfo> Modules
         {
             get
             {
                 if (ModuleList.Count == 0) // this should only happen when this property is first called.
                 {
-                    string[] moduleNames = Utilities.GetModulesNames();
-                    foreach (string moduleName in moduleNames)
+                    var moduleNames = Utilities.GetModulesNames();
+                    foreach (var moduleName in moduleNames)
                     {
-                        ModuleInfo m = new ModuleInfo();
+                        var m = new ModuleInfo();
                         m.LoadWithFullPath(ModuleHelper.GetModuleFullPath(moduleName));
                         ModuleList.Add(m);
                     }
                 }
 
-                return ModuleList.AsReadOnly();
+                return ReadOnlyList;
             }
         }
 

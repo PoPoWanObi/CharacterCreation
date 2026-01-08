@@ -1,17 +1,19 @@
 ﻿<Project Sdk="Bannerlord.BUTRModule.Sdk/1.1.0.129">
 
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <Configurations>Release;Debug</Configurations>
-        <Platforms>AnyCPU</Platforms>
+        <Version>1.6.0.87</Version>
+        <Authors>Designer225</Authors>
+        <Copyright>Copyright © PoPoWanObi 2023</Copyright>
+        <PackageProjectUrl>https://github.com/PoPoWanObi/CharacterCreation</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/PoPoWanObi/CharacterCreation</RepositoryUrl>
     </PropertyGroup>
 
     <PropertyGroup Label="Bannerlord-BuildResources">
         <ModuleName>Detailed Character Creation - Additional Sliders</ModuleName>
         <ModuleId>zzCharacterCreation_AdditionalSliders</ModuleId>
-        <GameVersion>1.6.0.87</GameVersion>
     </PropertyGroup>
 
     <ItemGroup>

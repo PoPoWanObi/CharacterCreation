@@ -20,16 +20,10 @@ namespace CharacterCreation.CampaignSystem
             {
                 haircutIndices.AddRange(
                     Campaign.Current.Models.BodyPropertiesModel.GetHairIndicesForCulture(character.Race,
-                        0, character.Age, objectType));
+                        character.Race, character.Age, objectType));
                 facialHairIndices.AddRange(
                     Campaign.Current.Models.BodyPropertiesModel.GetBeardIndicesForCulture(character.Race,
-                        0, character.Age, objectType));
-                haircutIndices.AddRange(
-                    Campaign.Current.Models.BodyPropertiesModel.GetHairIndicesForCulture(character.Race,
-                        1, character.Age, objectType));
-                facialHairIndices.AddRange(
-                    Campaign.Current.Models.BodyPropertiesModel.GetBeardIndicesForCulture(character.Race,
-                        1, character.Age, objectType));
+                        character.Race, character.Age, objectType));
             }
             
             _haircutIndices = haircutIndices.Distinct().ToArray();
