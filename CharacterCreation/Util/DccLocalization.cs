@@ -72,13 +72,13 @@ namespace CharacterCreation.Util
 
             Section1 = "{=CharacterCreation_Section1}Section 1: Overrides",
             IgnoreDailyTickName = "{=CharacterCreation_IgnoreDailyTickName}Suppress Daily Tick",
-            IgnoreDailyTickHint = "{=CharacterCreation_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Global settings only apply to new saves (and old saves not already using DCC). Does NOT require restart.",
+            IgnoreDailyTickHint = "{=CharacterCreation_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Global and Per-Save Settings available. Global settings only apply to new saves (and old saves not already using DCC). Does NOT require restart.",
             PatchPlayerComingOfAgeIssuesName = "{=CharacterCreation_PatchPlayerComingOfAgeIssuesName}Fix Issues from Player Coming of Age",
-            PatchPlayerComingOfAgeIssuesHint = "{=CharacterCreation_PatchPlayerComingOfAgeIssuesHint}Corrects issues related to the player coming of age, specifically over equipment and locations. Does NOT require restart.",
+            PatchPlayerComingOfAgeIssuesHint = "{=CharacterCreation_PatchPlayerComingOfAgeIssuesHint}Corrects issues related to the player coming of age, specifically over equipment and locations. Global and Per-Save Settings available. Global settings only apply to new saves (and old saves not already using DCC). Does NOT require restart.",
             AddFaceGenValuesName = "{=CharacterCreation_AddFaceGenValuesName}Add FaceGen Values",
-            AddFaceGenValuesHint = "{=CharacterCreation_AddFaceGenValuesHint}Add values to sliders in FaceGen so you can kind-of fine tune it. Does NOT require restart.",
+            AddFaceGenValuesHint = "{=CharacterCreation_AddFaceGenValuesHint}Add values to sliders in FaceGen so you can kind-of fine tune it. Global setting only. Does NOT require restart.",
             PatchSavePreviewGenderBugName = "{=CharacterCreation_PatchSavePreviewGenderBugName}Fix Incorrect Save Preview",
-            PatchSavePreviewGenderBugHint = "{=CharacterCreation_PatchSavePreviewGenderBugHint}Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. REQUIRES restart.",
+            PatchSavePreviewGenderBugHint = "{=CharacterCreation_PatchSavePreviewGenderBugHint}Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. Global setting only. REQUIRES restart.",
             
             Section2 = "{=CharacterCreation_Section2}Section 2: Age Model",
             CustomAgeModelName = "{=CharacterCreation_CustomAgeModelName}Custom Age Model",
@@ -105,9 +105,9 @@ namespace CharacterCreation.Util
             // Per-Save Settings
             PerSaveDisplayNameText = "{=CharacterCration_ModNameText}Detailed Character Creation (Per-Save)",
             OverrideAgeName = "{=CharacterCreation_OverrideAgeName}Override Age",
-            OverrideAgeHint = "{=CharacterCreation_OverrideAgeHint}When enabled, this will prevent the game from aging the player hero. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'.",
+            OverrideAgeHint = "{=CharacterCreation_OverrideAgeHint}When enabled, this will prevent the game from aging the player hero. Per-Save setting only. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'.",
             DisableAutoAgingName = "{=CharacterCreation_DisableAutoAgingName}Disable Auto Aging",
-            DisableAutoAgingHint = "{=CharacterCreation_DisableAutoAgingHint}Enable this to prevent the game from changing the age physical appearance. Does NOT require restart and takes effect upon save load or hour tick.",
+            DisableAutoAgingHint = "{=CharacterCreation_DisableAutoAgingHint}Enable this to prevent the game from changing the age physical appearance. Per-Save setting only. Does NOT require restart and takes effect upon save load or hour tick.",
             
             // Settings Effect
             WarningTitle = "{=CharacterCreation_WarningTitle}WARNING",
