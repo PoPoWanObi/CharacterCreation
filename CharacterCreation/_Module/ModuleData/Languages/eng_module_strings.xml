@@ -24,7 +24,7 @@
         <string id="CharacterCreation_PatchSavePreviewGenderBugName" text="Fix Incorrect Save Preview"/>
         <string id="CharacterCreation_PatchSavePreviewGenderBugHint" text="Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. Disable if another mod also does this. REQUIRES restart."/>
         <string id="CharacterCreation_PatchPlayerComingOfAgeIssuesName" text="Fix Issues from Player Coming of Age"/>
-        <string id="CharacterCreation_PatchPlayerComingOfAgeIssuesHint" text="Corrects issues related to the player coming of age, specifically over equipment and locations. Disable if another mod also does this. REQUIRES restart."/>
+        <string id="CharacterCreation_PatchPlayerComingOfAgeIssuesHint" text="Corrects issues related to the player coming of age, specifically over equipment and locations. Disable if another mod also does this. Does NOT require restart."/>
         <!-- Per-Save only -->
         <string id="CharacterCreation_OverrideAgeName" text="Override Age"/>
         <string id="CharacterCreation_OverrideAgeHint" text="When enabled, this will prevent the game from aging the player hero. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'."/>

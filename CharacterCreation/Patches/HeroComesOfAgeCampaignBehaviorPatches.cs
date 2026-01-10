@@ -13,17 +13,6 @@ namespace CharacterCreation.Patches
         [HarmonyPatch]
         static class GenericCampaignBehaviorPatch
         {
-            static bool Prepare()
-            {
-                if (DccSettings.Instance!.PatchPlayerComingOfAgeIssues)
-                {
-                    Debug.Print("[CharacterCreation] Will target player coming-of-age events that are like to be problematic.");
-                    return true;
-                }
-
-                return false;
-            }
-            
             static IEnumerable<MethodBase> TargetMethods()
             {
                 // targeted to avoid possible equipment override
@@ -38,7 +27,8 @@ namespace CharacterCreation.Patches
                 // DefaultCutscenesCampaignBehavior not targeted - good place for a parent-child moment I guess?
             }
 
-            static bool Prefix(Hero hero) => !hero.IsHumanPlayerCharacter;
+            static bool Prefix(Hero hero) =>
+                !hero.IsHumanPlayerCharacter || !DccSettings.Instance!.PatchPlayerComingOfAgeIssues;
         }
     }
 }

@@ -78,7 +78,7 @@ namespace CharacterCreation.Util
             PatchSavePreviewGenderBugName = "{=CharacterCreation_PatchSavePreviewGenderBugName}Fix Incorrect Save Preview",
             PatchSavePreviewGenderBugHint = "{=CharacterCreation_PatchSavePreviewGenderBugHint}Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. Disable if another mod also does this. REQUIRES restart.",
             PatchPlayerComingOfAgeIssuesName = "{=CharacterCreation_PatchPlayerComingOfAgeIssuesName}Fix Issues from Player Coming of Age",
-            PatchPlayerComingOfAgeIssuesHint = "{=CharacterCreation_PatchPlayerComingOfAgeIssuesHint}Corrects issues related to the player coming of age, specifically over equipment and locations. Disable if another mod also does this. REQUIRES restart.",
+            PatchPlayerComingOfAgeIssuesHint = "{=CharacterCreation_PatchPlayerComingOfAgeIssuesHint}Corrects issues related to the player coming of age, specifically over equipment and locations. Disable if another mod also does this. Does NOT require restart.",
             
             Section2 = "{=CharacterCreation_Section2}Section 2: Age Model",
             CustomAgeModelName = "{=CharacterCreation_CustomAgeModelName}Custom Age Model",
