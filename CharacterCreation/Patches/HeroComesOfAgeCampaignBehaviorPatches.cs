@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
+using CharacterCreation.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.Library;
 
 namespace CharacterCreation.Patches
 {
@@ -11,6 +13,17 @@ namespace CharacterCreation.Patches
         [HarmonyPatch]
         static class GenericCampaignBehaviorPatch
         {
+            static bool Prepare()
+            {
+                if (DccSettings.Instance!.PatchPlayerComingOfAgeIssues)
+                {
+                    Debug.Print("[CharacterCreation] Will target player coming-of-age events that are like to be problematic.");
+                    return true;
+                }
+
+                return false;
+            }
+            
             static IEnumerable<MethodBase> TargetMethods()
             {
                 // targeted to avoid possible equipment override

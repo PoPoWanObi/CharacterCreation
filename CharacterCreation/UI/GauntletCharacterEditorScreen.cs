@@ -47,24 +47,20 @@ namespace CharacterCreation.UI
 
         private void ApplyChanges()
         {
-            if (!DccSettings.Instance!.FixCharEditEffectOnNpc) return;
             if (!(_facegenLayer.BodyGen.Character is CharacterObject character)) return;
             var properties = _facegenLayer.BodyGen.CurrentBodyProperties;
             var race = _facegenLayer.BodyGen.Race;
             var isFemale = _facegenLayer.BodyGen.IsFemale;
 
             // apply age changes
-            if (DccSettings.Instance.PatchAgeNotUpdatingOnCharEdit)
+            var bodyAge = properties.DynamicProperties.Age;
+            UnitEditorFunctions.ResetBirthDayForAge(character, bodyAge);
+            if (DccSettings.Instance!.DebugMode)
             {
-                var bodyAge = properties.DynamicProperties.Age;
-                UnitEditorFunctions.ResetBirthDayForAge(character, bodyAge);
-                if (DccSettings.Instance.DebugMode)
-                {
-                    var msg =
-                        $"[CharacterCreation] Character {character.Name} expected age: {bodyAge}, actual: {character.Age}";
-                    Debug.Print(msg);
-                    InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
-                }
+                var msg =
+                    $"[CharacterCreation] Character {character.Name} expected age: {bodyAge}, actual: {character.Age}";
+                Debug.Print(msg);
+                InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Red));
             }
             
             // apply body changes

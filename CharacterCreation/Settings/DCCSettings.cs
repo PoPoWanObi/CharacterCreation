@@ -19,8 +19,8 @@ namespace CharacterCreation.Settings
         [SettingPropertyGroup(Section0, GroupOrder = 0)]
         public bool DebugMode { get; set; } = false;
 
-        [SettingPropertyBool(OptionsLabelName, HintText = OptionsLabelHint, Order = 0, RequireRestart = false)]
-        [SettingPropertyGroup(Section0, GroupOrder = 0)]
+        [SettingPropertyBool(OptionsLabelName, HintText = OptionsLabelHint, Order = 1, RequireRestart = false)]
+        [SettingPropertyGroup(Section0)]
         public bool ShowOptionsLabel { get; set; } = true;
 
         #region Overrides
@@ -28,21 +28,17 @@ namespace CharacterCreation.Settings
         [SettingPropertyGroup(Section1, GroupOrder = 1)]
         public bool IgnoreDailyTick { get; set; } = true;
 
-        [SettingPropertyBool(PatchAgeNotUpdatingOnCharEditName, HintText = PatchAgeNotUpdatingOnCharEditHint, Order = 1, RequireRestart = false)]
-        [SettingPropertyGroup(Section1)]
-        public bool PatchAgeNotUpdatingOnCharEdit { get; set; } = true;
-
-        [SettingPropertyBool(FixCharEditEffectOnNpcName, HintText = FixCharEditEffectOnNpcHint, Order = 2, RequireRestart = false)]
-        [SettingPropertyGroup(Section1)]
-        public bool FixCharEditEffectOnNpc { get; set; } = true;
-
-        [SettingPropertyBool(AddFaceGenValuesName, HintText = AddFaceGenValuesHint, Order = 3, RequireRestart = false)]
+        [SettingPropertyBool(AddFaceGenValuesName, HintText = AddFaceGenValuesHint, Order = 1, RequireRestart = false)]
         [SettingPropertyGroup(Section1)]
         public bool AddFaceGenValues { get; set; } = true;
 
-        [SettingPropertyBool(PatchSavePreviewGenderBugName, HintText = PatchSavePreviewGenderBugHint, Order = 4, RequireRestart = false)]
+        [SettingPropertyBool(PatchSavePreviewGenderBugName, HintText = PatchSavePreviewGenderBugHint, Order = 2, RequireRestart = true)]
         [SettingPropertyGroup(Section1)]
         public bool PatchSavePreviewGenderBug { get; set; } = true;
+
+        [SettingPropertyBool(PatchPlayerComingOfAgeIssuesName, HintText = PatchPlayerComingOfAgeIssuesHint, Order = 3, RequireRestart = true)]
+        [SettingPropertyGroup(Section1)]
+        public bool PatchPlayerComingOfAgeIssues { get; set; } = true;
         #endregion
 
         #region AgeModel
