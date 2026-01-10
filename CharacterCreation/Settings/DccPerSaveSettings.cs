@@ -1,6 +1,7 @@
 ﻿using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.PerSave;
 using TaleWorlds.Localization;
+using static CharacterCreation.Util.DccLocalization;
 
 namespace CharacterCreation.Settings
 {
@@ -21,24 +22,16 @@ namespace CharacterCreation.Settings
             }
         }
 
-        private const string
-            DisplayNameText = "{=CharacterCration_ModNameText}Detailed Character Creation (Per-Save)",
-            IgnoreDailyTickName = "{=CharacterCreation_IgnoreDailyTickName}Suppress Daily Tick",
-            IgnoreDailyTickHint = "{=CharacterCreation_IgnoreDailyTickHint}Keep this on to prevent the game from reverting your appearance. Does NOT require restart.",
-            OverrideAgeName = "{=CharacterCreation_OverrideAgeName}Override Age",
-            OverrideAgeHint = "{=CharacterCreation_OverrideAgeHint}When enabled, this will prevent the game from aging the player hero. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'.",
-            DisableAutoAgingName = "{=CharacterCreation_DisableAutoAgingName}Disable Auto Aging",
-            DisableAutoAgingHint = "{=CharacterCreation_DisableAutoAgingHint}Enable this to prevent the game from changing the age physical appearance. Does NOT require restart and takes effect upon save load or hour tick.";
-
-        private static readonly TextObject
-            DisplayNameTextObject = new TextObject(DisplayNameText);
-
         public override string Id => "DCCPerSaveSettings";
 
-        public override string DisplayName => DisplayNameTextObject.ToString();
+        public override string DisplayName => PerSaveDisplayNameTextObject.ToString();
 
-        [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 1, RequireRestart = false)]
+        [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 0, RequireRestart = false)]
         public bool IgnoreDailyTick { get; set; } = DccSettings.Instance?.IgnoreDailyTick ?? false;
+
+        [SettingPropertyBool(PatchPlayerComingOfAgeIssuesName, HintText = PatchPlayerComingOfAgeIssuesHint, Order = 1, RequireRestart = false)]
+        public bool PatchPlayerComingOfAgeIssues { get; set; } =
+            DccSettings.Instance?.PatchPlayerComingOfAgeIssues ?? false;
 
         [SettingPropertyBool(OverrideAgeName, HintText = OverrideAgeHint, Order = 2, RequireRestart = false)]
         public bool OverrideAge { get; set; } = false;

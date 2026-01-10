@@ -17,14 +17,14 @@
         <string id="CharacterCreation_Section1" text="Section 1: Overrides"/>
         <!-- Global AND Per-Save -->
         <string id="CharacterCreation_IgnoreDailyTickName" text="Suppress Daily Tick"/>
-        <string id="CharacterCreation_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. Does NOT require restart."/>
+        <string id="CharacterCreation_IgnoreDailyTickHint" text="Keep this on to prevent the game from reverting your appearance. Global settings only apply to new saves (and old saves not already using DCC). Does NOT require restart."/>
+        <string id="CharacterCreation_PatchPlayerComingOfAgeIssuesName" text="Fix Issues from Player Coming of Age"/>
+        <string id="CharacterCreation_PatchPlayerComingOfAgeIssuesHint" text="Corrects issues related to the player coming of age, specifically over equipment and locations. Global settings only apply to new saves (and old saves not already using DCC). Does NOT require restart."/>
         <!-- Global only -->
         <string id="CharacterCreation_AddFaceGenValuesName" text="Add FaceGen Values"/>
         <string id="CharacterCreation_AddFaceGenValuesHint" text="Add values to sliders in FaceGen so you can kind-of fine tune it. Does NOT require restart."/>
         <string id="CharacterCreation_PatchSavePreviewGenderBugName" text="Fix Incorrect Save Preview"/>
-        <string id="CharacterCreation_PatchSavePreviewGenderBugHint" text="Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. Disable if another mod also does this. REQUIRES restart."/>
-        <string id="CharacterCreation_PatchPlayerComingOfAgeIssuesName" text="Fix Issues from Player Coming of Age"/>
-        <string id="CharacterCreation_PatchPlayerComingOfAgeIssuesHint" text="Corrects issues related to the player coming of age, specifically over equipment and locations. Disable if another mod also does this. Does NOT require restart."/>
+        <string id="CharacterCreation_PatchSavePreviewGenderBugHint" text="Enable this to fix heroes in save preview having incorrect morphs for certain edge cases. REQUIRES restart."/>
         <!-- Per-Save only -->
         <string id="CharacterCreation_OverrideAgeName" text="Override Age"/>
         <string id="CharacterCreation_OverrideAgeHint" text="When enabled, this will prevent the game from aging the player hero. Does NOT require restart and takes effect upon save load or daily. Overridden by 'Disable Auto Aging'."/>

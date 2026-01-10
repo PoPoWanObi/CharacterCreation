@@ -27,18 +27,18 @@ namespace CharacterCreation.Settings
         [SettingPropertyBool(IgnoreDailyTickName, HintText = IgnoreDailyTickHint, Order = 0, RequireRestart = false)]
         [SettingPropertyGroup(Section1, GroupOrder = 1)]
         public bool IgnoreDailyTick { get; set; } = true;
+        
+        [SettingPropertyBool(PatchPlayerComingOfAgeIssuesName, HintText = PatchPlayerComingOfAgeIssuesHint, Order = 1, RequireRestart = false)]
+        [SettingPropertyGroup(Section1)]
+        public bool PatchPlayerComingOfAgeIssues { get; set; } = true;
 
-        [SettingPropertyBool(AddFaceGenValuesName, HintText = AddFaceGenValuesHint, Order = 1, RequireRestart = false)]
+        [SettingPropertyBool(AddFaceGenValuesName, HintText = AddFaceGenValuesHint, Order = 2, RequireRestart = false)]
         [SettingPropertyGroup(Section1)]
         public bool AddFaceGenValues { get; set; } = true;
 
-        [SettingPropertyBool(PatchSavePreviewGenderBugName, HintText = PatchSavePreviewGenderBugHint, Order = 2, RequireRestart = true)]
+        [SettingPropertyBool(PatchSavePreviewGenderBugName, HintText = PatchSavePreviewGenderBugHint, Order = 3, RequireRestart = true)]
         [SettingPropertyGroup(Section1)]
         public bool PatchSavePreviewGenderBug { get; set; } = true;
-
-        [SettingPropertyBool(PatchPlayerComingOfAgeIssuesName, HintText = PatchPlayerComingOfAgeIssuesHint, Order = 3, RequireRestart = true)]
-        [SettingPropertyGroup(Section1)]
-        public bool PatchPlayerComingOfAgeIssues { get; set; } = true;
         #endregion
 
         #region AgeModel

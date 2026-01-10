@@ -28,7 +28,7 @@ namespace CharacterCreation.Patches
             }
 
             static bool Prefix(Hero hero) =>
-                !hero.IsHumanPlayerCharacter || !DccSettings.Instance!.PatchPlayerComingOfAgeIssues;
+                !hero.IsHumanPlayerCharacter || !DccPerSaveSettings.Instance!.PatchPlayerComingOfAgeIssues;
         }
     }
 }
