@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using CharacterCreation.Editor;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using static CharacterCreation.Util.DccLocalization;

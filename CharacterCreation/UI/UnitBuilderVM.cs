@@ -1,4 +1,5 @@
 ﻿using CharacterCreation.CampaignSystem;
+using CharacterCreation.Editor;
 using CharacterCreation.Settings;
 using CharacterCreation.Util;
 using SandBox.GauntletUI.Encyclopedia;

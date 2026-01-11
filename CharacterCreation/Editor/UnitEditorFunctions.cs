@@ -1,18 +1,19 @@
-﻿using Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using CharacterCreation.CampaignSystem;
+using CharacterCreation.Settings;
+using CharacterCreation.Util;
+using Helpers;
+using SandBox.View.Map;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
+using TaleWorlds.Core.ImageIdentifiers;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
-using CharacterCreation.CampaignSystem;
-using CharacterCreation.Settings;
-using SandBox.View.Map;
-using TaleWorlds.Core.ImageIdentifiers;
 using static CharacterCreation.Util.DccLocalization;
 
-namespace CharacterCreation.Util
+namespace CharacterCreation.Editor
 {
     public static class UnitEditorFunctions
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CharacterCreation.Editor;
 using CharacterCreation.Settings;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
