@@ -32,8 +32,8 @@
     <!-- Development Variables -->
     <PropertyGroup>
         <HarmonyVersion>2.4.2</HarmonyVersion>
-        <UIExtenderExVersion>2.13.2</UIExtenderExVersion>
-        <ButterLibVersion>2.10.3</ButterLibVersion>
+<!--        <UIExtenderExVersion>2.13.2</UIExtenderExVersion>-->
+<!--        <ButterLibVersion>2.10.3</ButterLibVersion>-->
         <MCMVersion>5.11.3</MCMVersion>
         <BUTRModuleLoaderVersion>1.0.1.50</BUTRModuleLoaderVersion>
         <HarmonyExtensionsVersion>3.2.0.77</HarmonyExtensionsVersion>
@@ -44,7 +44,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" PrivateAssets="all" IncludeAssets="compile" />
+<!--        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" PrivateAssets="all" IncludeAssets="compile" />-->
         <PackageReference Include="BUTR.Harmony.Analyzer" Version="1.0.1.50" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
     </ItemGroup>
 
