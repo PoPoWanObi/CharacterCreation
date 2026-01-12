@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharacterCreation", "CharacterCreation/CharacterCreation.csproj", "{44597CC1-66B0-43A1-9C09-15721291D80B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A5E76ED-6484-4DA8-A443-B3D943E903DD}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreations.AdditionalSliders", "CharacterCreations.AdditionalSliders\CharacterCreations.AdditionalSliders.csproj", "{E12621B9-3BBB-4A23-A1B7-4021AE116100}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreation.Common", "CharacterCreation.Common\CharacterCreation.Common.csproj", "{5E2F34E0-2DBB-43A7-B794-F09AD09329DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreation.Implementation", "CharacterCreation.Implementation\CharacterCreation.Implementation.csproj", "{3AA36D64-25CA-4947-A72B-F15606CE29FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreation.AdditionalSliders", "CharacterCreation.AdditionalSliders\CharacterCreation.AdditionalSliders.csproj", "{4ADE428C-7F79-44C7-A6E9-E271C1369A09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,14 +20,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{44597CC1-66B0-43A1-9C09-15721291D80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44597CC1-66B0-43A1-9C09-15721291D80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44597CC1-66B0-43A1-9C09-15721291D80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44597CC1-66B0-43A1-9C09-15721291D80B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E12621B9-3BBB-4A23-A1B7-4021AE116100}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E12621B9-3BBB-4A23-A1B7-4021AE116100}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E12621B9-3BBB-4A23-A1B7-4021AE116100}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{E12621B9-3BBB-4A23-A1B7-4021AE116100}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{5E2F34E0-2DBB-43A7-B794-F09AD09329DC}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{5E2F34E0-2DBB-43A7-B794-F09AD09329DC}.Debug|Any CPU.Build.0 = Debug|x64
+		{5E2F34E0-2DBB-43A7-B794-F09AD09329DC}.Release|Any CPU.ActiveCfg = Release|x64
+		{5E2F34E0-2DBB-43A7-B794-F09AD09329DC}.Release|Any CPU.Build.0 = Release|x64
+		{3AA36D64-25CA-4947-A72B-F15606CE29FA}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{3AA36D64-25CA-4947-A72B-F15606CE29FA}.Debug|Any CPU.Build.0 = Debug|x64
+		{3AA36D64-25CA-4947-A72B-F15606CE29FA}.Release|Any CPU.ActiveCfg = Release|x64
+		{3AA36D64-25CA-4947-A72B-F15606CE29FA}.Release|Any CPU.Build.0 = Release|x64
+		{4ADE428C-7F79-44C7-A6E9-E271C1369A09}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{4ADE428C-7F79-44C7-A6E9-E271C1369A09}.Debug|Any CPU.Build.0 = Debug|x64
+		{4ADE428C-7F79-44C7-A6E9-E271C1369A09}.Release|Any CPU.ActiveCfg = Release|x64
+		{4ADE428C-7F79-44C7-A6E9-E271C1369A09}.Release|Any CPU.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

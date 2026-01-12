@@ -1,0 +1,86 @@
+﻿using CharacterCreation.Common.CampaignSystem;
+using CharacterCreation.Common.Editor;
+using CharacterCreation.Common.Settings;
+using CharacterCreation.Common.Util;
+using SandBox.GauntletUI.Encyclopedia;
+using SandBox.View.Map;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages;
+using TaleWorlds.Library;
+using static CharacterCreation.Common.Util.DccLocalization;
+
+namespace CharacterCreation.Common.UI;
+
+public class UnitBuilderVm : ViewModel
+{
+    public UnitBuilderVm(CharacterObject unit, EncyclopediaPageVM page)
+    {
+        _selectedUnit = unit;
+        _selectedUnitPage = page;
+        if (DccSettings.Instance!.DebugMode)
+        {
+            var msg = $"[CharacterCreation] {_selectedUnit.Name} loaded to unit builder";
+            Debug.Print(msg);
+            InformationManager.DisplayMessage(new InformationMessage(msg, ColorManager.Green));
+        }
+    }
+
+    [DataSourceProperty]
+    public string DccOptionsString =>
+        DccSettings.Instance!.ShowOptionsLabel ? DccOptionsTextTextObject.ToString() : "";
+
+    [DataSourceProperty]
+    public string EditAppearanceString => EditAppearanceTextTextObject.ToString();
+
+    [DataSourceProperty]
+    public string ChangeNameString => ChangeNameTextTextObject.ToString();
+
+    [DataSourceProperty]
+    public int AspectMarginTop => MarginUtil.GetTopMarginForAspectRatio();
+
+    [DataSourceProperty]
+    public int AspectMarginRight => MarginUtil.GetRightMarginForAspectRatio();
+
+    [DataSourceProperty]
+    public string UndoAppearanceString => UndoAppearanceTextTextObject.ToString();
+
+    [DataSourceProperty]
+    public string UndoRenameString => UndoRenameTextTextObject.ToString();
+
+    [DataSourceProperty]
+    public bool EnableRevertAppearance => !_selectedUnit.IsHero && CharacterCreationCampaignBehavior.Instance != null &&
+                                          CharacterCreationCampaignBehavior.Instance.HasBodyPropertiesOverride(
+                                              _selectedUnit);
+
+    [DataSourceProperty]
+    public bool EnableRevertName => !_selectedUnit.IsHero && CharacterCreationCampaignBehavior.Instance != null &&
+                                    CharacterCreationCampaignBehavior.Instance.HasUnitNameOverride(_selectedUnit);
+
+    public void ExecuteEdit() => CharacterEditorUtil.EditUnit(_selectedUnit);
+
+    public void ExecuteName() => CharacterEditorUtil.RenameUnit(_selectedUnit);
+
+    public void UndoEdit() => CharacterEditorUtil.UndoEdit(_selectedUnit);
+
+    public void UndoRename() => CharacterEditorUtil.UndoRename(_selectedUnit);
+
+    public void RefreshPage()
+    {
+        //if (!(MapScreen.Instance.EncyclopediaScreenManager is GauntletMapEncyclopediaView gauntletEncyclopediaScreenManager))
+        //    return;
+
+        //EncyclopediaData? encyclopediaData = AccessTools.Field(typeof(GauntletMapEncyclopediaView), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+        //EncyclopediaPageVM? encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
+        //encyclopediaPageVM?.Refresh();
+        _selectedUnitPage.Refresh();
+    }
+
+    public void ClosePage()
+    {
+        if (MapScreen.Instance.EncyclopediaScreenManager is GauntletMapEncyclopediaView gauntletEncyclopediaScreenManager)
+            gauntletEncyclopediaScreenManager.CloseEncyclopedia();
+    }
+
+    private CharacterObject _selectedUnit;
+    private EncyclopediaPageVM _selectedUnitPage;
+}

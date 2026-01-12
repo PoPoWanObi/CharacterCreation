@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Module xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/BUTR/Bannerlord.XmlSchemas/master/SubModule.xsd">
+    <Id value="$moduleid$"/>
+    <Name value="$modulename$"/>
+    <Version value="v$version$"/>
+    <DefaultModule value="false"/>
+    <ModuleCategory value="Singleplayer"/>
+    <ModuleType value="Community"/>
+    <Url value="$moduleurl$"/>
+    <DependedModules>
+        <DependedModule Id="Native"/>
+        <DependedModule Id="SandBoxCore"/>
+        <DependedModule Id="Sandbox"/>
+        <DependedModule Id="StoryMode"/>
+        <DependedModule Id="CustomBattle"/>
+    </DependedModules>
+    <!-- Community Dependency Metadata -->
+    <!-- https://github.com/BUTR/Bannerlord.BLSE#community-dependency-metadata -->
+    <DependedModuleMetadatas>
+        <DependedModuleMetadata id="Native" order="LoadBeforeThis"/>
+        <DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis"/>
+        <DependedModuleMetadata id="Sandbox" order="LoadBeforeThis"/>
+        <DependedModuleMetadata id="StoryMode" order="LoadBeforeThis"/>
+        <DependedModuleMetadata id="CustomBattle" order="LoadBeforeThis"/>
+    </DependedModuleMetadatas>
+    <!-- Community Dependency Metadata -->
+    <SubModules>
+        <SubModule>
+            <Name value="$modulename$"/>
+            <DLLName value="CharacterCreation.AdditionalSliders.dll"/>
+            <SubModuleClassType value="CharacterCreation.AdditionalSliders.SubModule"/>
+            <Tags/>
+        </SubModule>
+    </SubModules>
+    <Xmls>
+        <XmlNode>
+            <XmlName id="GameText" path="strings" />
+            <IncludedGameTypes>
+                <GameType value="Campaign" />
+                <GameType value="CampaignStoryMode" />
+            </IncludedGameTypes>
+        </XmlNode>
+    </Xmls>
+</Module>

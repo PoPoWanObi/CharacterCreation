@@ -1,0 +1,59 @@
+<Project Sdk="Bannerlord.BUTRModule.Sdk/1.1.0.124">
+
+    <PropertyGroup>
+        <Version>1.8.0</Version>
+        <TargetFrameworks>net472;net6</TargetFrameworks>
+        <Platforms>x64</Platforms>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <LangVersion>10.0</LangVersion>
+        <Nullable>enable</Nullable>
+
+        <BuildForWindows>false</BuildForWindows>
+        <BuildForWindowsStore>false</BuildForWindowsStore>
+
+        <ModuleId>zzCharacterCreation</ModuleId>
+        <ModuleName>Detailed Character Creation</ModuleName>
+        <ModuleUrl></ModuleUrl>
+        <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
+        <!-- Module manually override GameVersion -->
+        <!-- <OverrideGameVersion>v1.0.0</OverrideGameVersion> -->
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$(TargetFramework) == 'net472'">
+        <!-- Steam/GOG/Epic versions of the game -->
+        <BuildForWindows>true</BuildForWindows>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(TargetFramework) == 'net6'">
+        <!-- Xbox Game Pass PC version of the game -->
+        <BuildForWindowsStore>true</BuildForWindowsStore>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    </PropertyGroup>
+
+    <!-- Development Variables -->
+    <PropertyGroup>
+        <HarmonyVersion>2.4.2</HarmonyVersion>
+        <UIExtenderExVersion>2.13.2</UIExtenderExVersion>
+        <ButterLibVersion>2.10.3</ButterLibVersion>
+        <MCMVersion>5.11.3</MCMVersion>
+        <BUTRModuleLoaderVersion>1.0.1.50</BUTRModuleLoaderVersion>
+        <HarmonyExtensionsVersion>3.2.0.77</HarmonyExtensionsVersion>
+        <!--
+        <BUTRSharedVersion>3.0.0.135</BUTRSharedVersion>
+        <BUTRModuleManagerVersion>5.0.198</BUTRModuleManagerVersion>
+        -->
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" PrivateAssets="all" IncludeAssets="compile" />
+        <PackageReference Include="BUTR.Harmony.Analyzer" Version="1.0.1.50" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CharacterCreation.Common\CharacterCreation.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="_Module\ModuleData\project.mbproj" />
+    </ItemGroup>
+
+</Project>

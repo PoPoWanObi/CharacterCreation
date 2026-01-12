@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Start Debugging [net472] (Steam/GOG/Epic)",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\CharacterCreation.AdditionalSliders.csproj",
+            "launchConfigurationId": "TargetFramework=net472;Bannerlord"
+        },
+        {
+            "name": "Attach to Bannerlord [net472] (Steam/GOG/Epic)",
+            "type": "clr",
+            "request": "attach",
+            "processName": "Bannerlord.exe",
+        },
+        {
+            "name": "Attach to BLSE Bannerlord [net472] (Steam/GOG/Epic)",
+            "type": "clr",
+            "request": "attach",
+            "processName": "Bannerlord.BLSE.Standalone.exe",
+        },
+
+        {
+            "name": "Start Debugging [net6] (Xbox)",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\CharacterCreation.AdditionalSliders.csproj",
+            "launchConfigurationId": "TargetFramework=net6;Bannerlord"
+        },
+        {
+            "name": "Attach to Bannerlord [net6] (Xbox)",
+            "type": "coreclr",
+            "request": "attach",
+            "processName": "Bannerlord.exe",
+        },
+        {
+            "name": "Attach to BLSE Bannerlord [net6] (Xbox)",
+            "type": "coreclr",
+            "request": "attach",
+            "processName": "Bannerlord.BLSE.Standalone.exe",
+        }
+    ]
+}

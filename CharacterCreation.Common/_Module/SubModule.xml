@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Module xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/BUTR/Bannerlord.XmlSchemas/master/SubModule.xsd">
+    <Id value="$moduleid$"/>
+    <Name value="$modulename$"/>
+    <Version value="v$version$"/>
+    <DefaultModule value="false"/>
+    <ModuleCategory value="Singleplayer"/>
+    <ModuleType value="Community"/>
+    <Url value="$moduleurl$"/>
+    <DependedModules>
+        <DependedModule Id="Bannerlord.Harmony" DependentVersion="v2.2.2"/>
+        <DependedModule Id="Bannerlord.ButterLib" DependentVersion="v2.8.0"/>
+        <DependedModule Id="Bannerlord.UIExtenderEx" DependentVersion="v2.8.0"/>
+        <DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.7.1"/>
+        <DependedModule Id="Native" DependentVersion="$gameversion$"/>
+        <DependedModule Id="SandBoxCore" DependentVersion="$gameversion$"/>
+        <DependedModule Id="Sandbox" DependentVersion="$gameversion$"/>
+        <DependedModule Id="StoryMode" DependentVersion="$gameversion$"/>
+        <DependedModule Id="CustomBattle" DependentVersion="$gameversion$"/>
+    </DependedModules>
+    <!-- Community Dependency Metadata -->
+    <!-- https://github.com/BUTR/Bannerlord.BLSE#community-dependency-metadata -->
+    <DependedModuleMetadatas>
+        <DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis" version="v2.3.3"/>
+        <DependedModuleMetadata id="Bannerlord.ButterLib" order="LoadBeforeThis" version="v2.9.18"/>
+        <DependedModuleMetadata id="Bannerlord.UIExtenderEx" order="LoadBeforeThis" version="v2.12.0"/>
+        <DependedModuleMetadata id="Bannerlord.MBOptionScreen" order="LoadBeforeThis" version="v5.10.2"/>
+        <DependedModuleMetadata id="Native" order="LoadBeforeThis" version="$gameversion$.*"/>
+        <DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis" version="$gameversion$.*"/>
+        <DependedModuleMetadata id="Sandbox" order="LoadBeforeThis" version="$gameversion$.*"/>
+        <DependedModuleMetadata id="StoryMode" order="LoadBeforeThis" version="$gameversion$.*"/>
+        <DependedModuleMetadata id="CustomBattle" order="LoadBeforeThis" version="$gameversion$.*"/>
+    </DependedModuleMetadatas>
+    <!-- Community Dependency Metadata -->
+    <SubModules>
+        <SubModule>
+            <Name value="$modulename$"/>
+            <DLLName value="CharacterCreation.Common.dll"/>
+            <SubModuleClassType value="CharacterCreation.Common.SubModule"/>
+            <Tags/>
+        </SubModule>
+    </SubModules>
+</Module>
