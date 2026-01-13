@@ -4,7 +4,7 @@
         <!-- Can be found in the URL of your workshop item -->
     </GetItem>
     <UpdateItem>
-        <ModuleFolder Value="E:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\zzCharacterCreation_AdditionalSliders"/>
+        <ModuleFolder Value="E:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\zzCharacterCreation_AdditionalSliders"/>
         <!-- A direct path of your module -->	
         <ChangeNotes Value="Version 1.8.0:
 [list]
