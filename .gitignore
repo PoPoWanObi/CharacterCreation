@@ -606,4 +606,4 @@ FodyWeavers.xsd
 *.vsix
 
 #### All other ignores go here
-!Export/Module/
+Export/Modules/
