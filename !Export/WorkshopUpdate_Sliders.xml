@@ -1,0 +1,27 @@
+<Tasks>
+    <GetItem>
+        <ItemId Value="3072569986"/>
+        <!-- Can be found in the URL of your workshop item -->
+    </GetItem>
+    <UpdateItem>
+        <ModuleFolder Value="E:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\zzCharacterCreation_AdditionalSliders"/>
+        <!-- A direct path of your module -->	
+        <ChangeNotes Value="Version 1.8.0:
+[list]
+[*]Reset version value due to changes to the main mod.
+[/list]" />
+        <!-- Insert patch notes -->
+        <Tags> 
+            <!-- You can use the following tags: -->
+            <!-- Type: Graphical Enhancement, Map Pack, Partial Conversion, Sound, Total Conversion, Troops, UI, Utility, Weapons and Armour -->
+            <!-- Setting: Native, Antiquity, Dark Ages, Medieval, Musket Era, Modern, Sci-Fi, Fantasy, Oriental, Apocalypse, Other -->
+            <!-- Game Mode: Singleplayer, Multiplayer -->
+            <!-- Compatible Version: e1.9.0, v1.0.0,... The currently available versions can be found at the Steam Workshop "Browse by Tag" section -->
+            <Tag Value="Utility" />
+            <Tag Value="Singleplayer" />
+            <Tag Value="v1.3.9" />
+            <Tag Value="v1.3.11" />
+            <Tag Value="v1.3.13" />
+        </Tags>
+    </UpdateItem>
+</Tasks>
